@@ -1,0 +1,197 @@
+%!TeX spellcheck = en-US
+
+\documentclass[
+    11pt, % The default document font size, options: 10pt, 11pt, 12pt
+    %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+    english, % ngerman for German
+    singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+    %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+    %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+    %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+    %toctotoc, % Uncomment to add the main table of contents to the table of contents
+    %parskip, % Uncomment to add space between paragraphs
+    %nohyperref, % Uncomment to not load the hyperref package
+    headsepline, % Uncomment to get a line under the header
+    %chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+    %consistentlayout, % Uncomment to change the layout of the declaration, abstract and    acknowledgements pages to match the default layout
+]{DoctoralThesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{mathpazo} % Use the Palatino font by default
+
+% I AM NOT SURE I NEED THIS GEOMENTRY...
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+\usepackage{natbib}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvips,dvipdfm,pdftex]{graphicx}
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{morefloats}
+\usepackage{etex}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage[section]{placeins}
+\usepackage[ruled,linesnumbered,resetcount,algochapter]{algorithm2e}
+
+\newtheorem{definition}{Definition}
+
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\addbibresource{PhD_Thesis.bib} % The filename of the bibliography
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Computational Open-Set Identification of the Web-genres}
+\supervisor{Dr. Efstathios \textsc{Stamatatos}}
+% \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Dimitrios A. \textsc{Pritsos}}
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+\subject{Computer Science} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{http://www.aegean.gr}{University of Aegean}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+% \department{\href{http://department.university.com}{Department or School Name}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+% \group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+% \faculty{\href{http://faculty.university.com}{Faculty Name}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+\href{http://www.aegean.gr}{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+\href{http://www.aegean.gr}{\supname} % Supervisor name - remove the \href bracket to remove the link
+\end{flushright}
+\end{minipage}\\[3cm]
+
+\vfill
+
+\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\textit{in the}\\[0.4cm]
+\groupname\\\deptname\\[2cm] % Research group name and department name
+
+\vfill
+
+{\large \today}\\[4cm] % Date
+%\includegraphics{Logo} % University/department logo - uncomment to place it
+
+\vfill
+\end{center}
+\end{titlepage}
+
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+Web genre detection is a task that can enhance information retrieval systems by providing rich descriptions of documents and enabling more specialized queries. Most of previous studies in this field adopt the closed-set scenario where a given palette comprises all available genre labels. However this is not a realistic setup since web genres are constantly enriched with new labels and existing web genres are evolving in time. Open-set classification, where some pages used in the evaluation phase do not belong to any of the known genres, is a more realistic setup for this task. In this case, all pages not belonging to known genres can be seen as noise. This paper focuses on systematic evaluation of  open-set web genre identification when the noise is either structured or unstructured. Two open-set methods combined with alternative text representation schemes and similarity measures are tested based on two benchmark corpora. Moreover, we adopt the openness test for web genre identification that enables the observation of effectiveness for a varying number of known/unknown labels.
+\end{abstract}
+
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+\tableofcontents % Prints the main table of contents
+% \listoffigures % Prints the list of figures
+% \listoftables % Prints the list of tables
+
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+\pagestyle{thesis} % Return the page headers back to the "thesis" styl
+
+%----------------------------------------------------------------------------------------
+%	THESIS INTRODUCTION
+%----------------------------------------------------------------------------------------
+\chapter*{Introduction}\label{sec:intro}
+
+
+*********************
+This PhD is a text that it has is own genre-type, i.e. the genre of "thesis" or its super genre "academic text". In authors mind this thesis is actually a tutorial for one starting a research on the Computational Web Genre Identification or more generally on Text Genre Identification. In this text one can fined the state-of-the in respect of NLP and IR approached related to the subject and some important references for the linguistics, cognitive, teaching and the study of journalism history where the study of genre taxonomy and its definition seems to be an important subject. A subject where due to the advances of technologies and ML research created a fruitful environment for regenerating the interest of its research. In addition one will find the proper measurement tools for this research field and some analytically study related to their importance, thus, being able avoid misleading research results. Finally, one will find the new avenues one can follow for improving the research on the field and ultimately in the future to understand the mechanics ruling the process of genre taxonomy evolution and its characteristic temporal attribute.  
+
+*********************
+(a.k.a. Automated Genre Identification or AGI)
+
+\addchaptertocentry{Introduction}
+Web Genre Identification (WGI) concerns the association of web pages with labels that correspond to their form, communicative purpose and style rather than their content. The ability to automatically recognize the genre of web documents can enhance modern information retrieval systems by enabling genre-based grouping/filtering of search results or building intuitive hierarchies of web page collections combining topic and genre information \parencite{Braslavski2007,Rosso2008,de2009genre}. For example, a search engine can provide its users with the option to define complex queries (e.g., blogs about machine learning or eshops about sports equipment) as well as the option to navigate through results based on genre labels (e.g. social media pages, web shops, discussion forum, blogs, etc). The recognition of web genre can also enhance the effectiveness of processing the content of web pages in information extraction applications. For example, given that a set of web pages has to be part-of-speech tagged, appropriate models can be applied to each web page according to their genre \parencite{Nooralahzadeh2014}. However, research in WGI is relatively limited due to fundamental difficulties emanating from the genre notion itself.
+
+The most significant difficulties in the WGI domain are: (1) There is not a consensus on the exact definition of genre \parencite{crowston2011problems}; (2) There is not a common genre palette that comprises all available genres and sub-genres \parencite{santini2011cross,mehler2010genres_on_web,mason2009n,sharoff2010web}, moreover, genres are evolving in time since new genres are born or existing genres are modified \parencite{Boese2005}; (3) It is not clear whether a whole web page should belong to a genre or sections of the same web page can belong to different genres \parencite{jebari2015combination,madjarov2015web}; (4) Style of documents is affected by both genre-related choices and author-related choices \parencite{petrenz2011stable,Sharroff2010}. As a result, it is hard to accurately distinguish between personal style characteristics and genre properties when style is quantified.
+
+Most previous studies in WGI consider the case where all web pages should belong to a predefined taxonomy of genres \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2014pure_URL}. However, this naive assumption is not appropriate for most applications related with WGI. Since it is not possible to construct a universal genre palette, there should always exist web pages that would not fall into any of the predefined genre labels. We call such web pages \textit{noise} which also includes web documents where multiple genres (predefined or not) co-exist \parencite{santini2011cross,levering2008using}. The vast majority of previous work in WGI avoid to examine the problems arising from the presence of noise and as a result it is not possible to estimate the effectiveness of most existing WGI approaches in realistic conditions.
+
+To handle noise in WGI there are two options. First, to adopt the closed-set classification setup having one predefined category devoted to noise. Since this category would comprise all web pages not belonging to the known genre labels, it would not be homogeneous. Moreover, this noise class would be much more greater with respect to the other genres causing class imbalance problems. The second option is to adopt the open-set classification setting where it is possible for some web pages not to be classified into any of the predefined genre categories \parencite{pritsos2013open}. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup \parencite{scheirer2013toward}.
+
+A great variety of features to quantify the stylistic choices related to genre have been proposed in previous work. These are mainly based on textual content (e.g., character and word n-grams) \parencite{mason2009distance,Sharroff2010} and form or structure of the web page (html tags, image count, links count, etc.) \parencite{Lim2005,levering2008using}. Both sources of information are useful and usually their combination enhances a WGI model \parencite{kanaris2009learning}. However, features extracted from textual content are more robust since they do not depend on technology or format used to create a web page and therefore they are more likely to remain stable in time.
+
+In this paper, we focus on the evaluation of WGI in realistic conditions where we assume that the given genre palette covers only a subset of existing genres. Any web documents that does not fall into the predefined genre categories is considered as noise. To be able to handle noise, we adopt the open-set classification setup. In particular, we are testing two open-set classification models, one based on \textit{One-Class Support Vector Machines} (OCSVM) and another based on \textit{Random Feature Subspacing Ensembles} (RFSE). Several text representation schemes based on textual content are examined and we focus on the appropriate selection of parameter settings for each model. Using two benchmark corpora we perform a systematic evaluation of WGI models when noise is either unstructured (the true genre of noisy pages is not available) or structured (the true genre of noisy pages is available). In order to handle the latter case, we employ the openness test in WGI that provides a detailed view of performance for a varying number of known/unknown labels. This test has already been used in visual object recognition \parencite{scheirer2013toward} and it perfectly fits the WGI task.
+
+The rest of the paper is organized as follows. In section \ref{sec:previous_work}, previous work on WGI is described. Section \ref{sec:Ensembles_Description} analytically presents the open-set classification models used in this study. In section \ref{sec:experimental_setup}, the  benchmark corpora and the setup of the conducted experiments are described while in section \ref{sec:Experiments_Results} the results of the conducted experiments are presented. Finally, in section \ref{sec:conclusions} the main conclusions drawn from this study are summarized and future work directions are discussed.
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS CHAPTERS
+%----------------------------------------------------------------------------------------
+\include{Chapters/Relevant_Work}
+\include{Chapters/Open_set}
+\include{Chapters/Evaluation_methodology}
+\include{Chapters/Noise}
+\include{Chapters/Document_representation}
+\include{Chapters/Clustering}
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\printbibliography[heading=bibintoc]
+
+
+\end{document}

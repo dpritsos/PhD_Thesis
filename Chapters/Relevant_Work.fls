@@ -1,0 +1,9 @@
+PWD /home/dimitrios/Documents/MyPublications:Journals-Conferences/PhD_Thesis/Chapters
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /home/dimitrios/Documents/MyPublications:Journals-Conferences/PhD_Thesis/Chapters/Relevant_Work.tex
+OUTPUT /home/dimitrios/Documents/MyPublications:Journals-Conferences/PhD_Thesis/Chapters/Relevant_Work.log
+INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm

@@ -1,0 +1,41 @@
+%!TeX spellcheck = en-US
+
+\chapter{Open-set and Closed-Set Classification for WGI}
+
+\label{chap:relevant_work}
+
+%----------------------------------------------------------------------------------------
+
+% Define some commands to keep the formatting separated from the content
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}\label{chap:relevant_work:sec:intro}
+
+\subsection{One-Class Classification\label{subsec:One-Class-Classification}}
+
+The main difference of the One Class Classification problem (OCC) with respect to the conventional multi-class or binary classification problem is that in OCC there are only available positive examples of a class and none or very few negative examples. There are several approaches towards the solution of this problem. A compact survey on OCC is provided by Khan et al.\cite{khan2010survey}. In this section, we present a brief review of the OCC methods used for Document Classification (DC) and Information Retrieval (IR). We mainly consider SVM-based OCC methods.
+
+To begin with there are several references to the well known Scholkopf et al.\cite{scholkopf1999estimating} \textit{which actually presents an alternative solution to the problem of the overlapping distributions of samples, known as }$\nu$-SVM \cite{bishop2006}. The nature of $\nu$-SVM is allowing us to use it effortless in Binary Classification problems as long as to OCC problems. This is owing to parameter $\nu$ which is both controlling the fraction of SVs and the \textit{margin errors, i.e. point of the positive sample considered as outliers. }In the case of One-Class SVM (OC-SVM) the optimization process begins with considering, as the only negative example, \textit{the origin }of the vector space\textit{, }defined from the \textit{data space. }Some more details for OC-SVM is given into the section \ref{subsec:One-Class-SVM-Model}.
+
+OC-SVM model has been used in DC, where only positive example were available. Building upon OC-SVM concept Manevitz and Yousef \cite{manevitz2002one,khan2010survey}have been build an OCC SVM model, called Outliers-SVM, that takes into account a few more points, other that \textit{the origin}, from the positive sample as outliers for achieving a similar model to the one of Scholkopf et al. The idea of outliers-SVM is to define a model of measurement for measuring the distance of some points, in the positive sample space, where it will treated as \textit{Outliers,} additional to the origin of the data space. In their outliers-SVM they have used \textit{Hamming distance} as the model of measurement. However, while comparing their model (Outliers-SVM) to One-Class SVM, One Class Neural Networks, One Class Naive Bayes Classifier, One Class Nearest Neighbor, and Rocchio Prototype, One-Class SVM has higher or at least comparable performance to all the others. In addition they have pointed out that One-Class SVM it seems to be sensitive to the Term-Vector formats - i.e. \textit{binary, tf, tf-id, etc.} - and sensitive to the amount of features (i.e. dimensions) that have been kept.
+
+The Prototype or Rocchio's algorithm was used for IR problems because of its simplicity and consistency \cite{joachims1997probabilistic}. The learning process for this method is just to add all the vectors of the training set in to one \textit{prototype vector}. An arbitrary vector is classified as positive or negative using the angular distance from the prototype vector and a threshold. In this method term-vectors are having tf-idf format. 
+
+Datta (cited in \cite{manevitz2002one}) proposed Naive Bayes Classifier modification for OCC problems and use only positive samples in the learning process. The prediction model induced in this case is a \textit{probability density function} of a class $E$. Classifying the a document $d$ involves calculating the probability of the document $p(d|E)$ which is equal to the product of its features $w_{n}$ probabilities $p(w|E)$, where $n$ is the number of document's feature/term-vector. To decide weather of not the document is classified as positive its required
+a threshold. 
+
+In OC-SVM and few other OCC method the process of model optimization requires only \textit{positive sample} points and no \textit{negative} or \textit{unlabeled examples}. Thus building process it is not taking into account information that might be useful from even a poor negative sample (if any available) or a set of unlabeled data, vastly available. However, there are some OCC methods exploiting the availability of \textit{unlabeled data} for building an classification models, where some of them have been evaluated in the context of IR and DC. 
+
+Yu proposed two OCC algorithms that use positive and unlabeled data for building a classification model that describes the \textit{single class boundary} \cite{yu2005single}. Their \textit{Mapping Convergence }(MC) algorithm is incrementally labeling negative data from an \textit{unlabeled data set} using the margin maximization property of SVM, while \textit{Support Vector Mapping Convergence} (SVMC) was their second proposed algorithm which optimizes the MC algorithm for fast training. Both of their algorithms had been compared into a real world text classification, letter recognition, and diagnosis of breast cancer. Additionally MC and SVMC had been compared to OC-SVM, Spy Expectation Maximization (S-EM), SVM-NN (i.e. C-SVM using unlabeled data point as negative ones) and Naive Bayes with Noisy Negatives. Above all models SVMC (and MC) performance was significantly better to all the other models, while OC-SVM was the second best in performance. In Yu's paper there are pointed out the difficulties of OCC which are referred briefly in section \ref{subsec:One-Class-SVM-Model}.
+
+Spy EM (Spy EM) is an other method using unlabeled data in the training procedure and it had been tested in DC domain. The procedure proposed in Liu et al.\cite{liu2002partially}, involves the \textit{Naive Bayesian Classification} with \textit{Expectation maximization algorithm}. This method has several limitations such as the assumption of attribute independence which results in linear separation, and the requirement to estimate the proper prior probabilities which is difficult task \cite{yu2005single}.
+
+An alternative \textit{two-step} method like S-EM proposed by Li and Liu \cite{li2003learning}. Again they have pointed out that their `OCC method, like the other OCC methos, need a large positive data `sample and negative samples derived from unlabeled data to induce `a ``good'' classifier.
+
+To conclued, in all OCC publication cited in this paper it had been point out that the problems encountered when using conventional classificaiton models such as the curse of dimensionality, the generalization of the method, etc., it seems to be amplified when in OCC methods. In all the OCC models it has been reported that the problem is the difficulty to decide how tightly should be the boundary that contours the positive data, additional to the problem of the attribute selection which will be used for finding the outliers or the automated formation of a \textit{negative body of samples}. Hence, the performance of OC-SVM should be expected to be poorer comparing to \textit{binary }or \textit{multi-class} classification SVM\cite{khan2010survey,manevitz2002one,yu2005single,scholkopf1999estimating,li2003learning}.
