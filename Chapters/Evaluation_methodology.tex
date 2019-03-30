@@ -16,3 +16,43 @@
 %----------------------------------------------------------------------------------------
 
 \section{Introduction}\label{chap:relevant_work:sec:intro}
+
+
+\subsection{Domain Transfer Measure}
+A practical methodology for evaluating a classification/identification ML model in a text-categorization task is the \textit{Domain Transfer Evaluation}. The goal of this evaluation methodology is to measure the generalization of the model when training corpus is rather small and to evaluate how the model would perform in an unknown domain for the same task. 
+
+Particularly for the AGI/WGI with this measure we can evaluate a ML algorithm when for example the model has been trained to identify \textit{News} and \textit{Wiki} genres, however, the available corpus would be only from \textit{Technology products Topics}. Then by testing it on {Sports Topics} we could evaluate the model in such a case when very small corpus is available for training. In addition using this methodology we can evaluate the models behaviour depending on the \textit{Features} have been selected for the training, e.g. BOW, POS, Term N-grams etc. 
+
+One can measure the performance, say Accuracy, F1-statistic, Precision-Recall Curve,  Receiver Operating Characteristic (ROC) Curve etc, and then compare the two measures pairwise for every domain combination (e.g. $\{Mobile Phones, Football\}$, etc). However, it would be easier to have measure for all possible combinations training/testing of different domain combinations. 
+
+The measure proposed from \parencite{finn2006learning} and shown in equation \ref{eq:gnr_dom_transit_general} in its generalized form. Originally, this measure was designed for Accuracy measure in mind. However, it can be used for any measure say $F_{1}$-statistic in order to fit in open-set framework and not respected to the closed-set also (Να ελέγξω αν το Accuracy μπορεί να χρησιμοποιηθεί για Open-set). 
+
+\begin{equation} \label{eq:office_doc_ensemble}
+	T^{C,F} = \frac{1}{N(N-1)} \sum_{A=1}^{N} \sum_{B, \forall B \neq A}^{N} \left(  \frac{M^{C,F}_{A,B}}{M^{C,F}_{A,A}} \right)
+    \end{equation}
+Where T is the \textit{Transfer Measure Score}, M is the measure of choice (Accuracy, $F_1$, Precision, Recall, etc), F is the \textit{Feature Set}, and C is the \textit{Genre Class}. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

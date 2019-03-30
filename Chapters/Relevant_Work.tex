@@ -134,24 +134,18 @@ In \parencite{chen2012genre} an open-set ensemble presented where two multi-clas
 \end{equation}
 where $\{k, m\}$ are the genre classes and $\{g_{1}, g_{2}\}$, are the genre SVM classifiers.
 
-*****
+The above ensemble is an \textit{Early Fusion} category of ensembles where the potential different features and document representation are all combined in a sum-up vector for each document, i.e. a weighted sum or a concatenation of the different feature vectors. Then the summed-up vectors are the input for the learners of the ensemble where Bagging, Boosting, Majority voting or other strategies are used for then training and testing (or production) phases.
 
-Domain transfer: The ability to transfer across multiple-topic domains. 
+In \parencite{finn2006learning} a \textit{Late Fusion} ensemble is proposed for the AGI task which is an other category of ensembles. Late Fusion ensembles are composed from learners of the same model (say SVM, C4.5, NN etc) where every one is trained only on a specific feature set (or/and document representation). In the testing phase the ensemble me majority voting us a common strategy. 
 
-Investigate the effect of topic on AGI. Particularly in respect of features used for the classification task.
+Particularly the in their study they are testing C4.5 decision trees for BOW, POS, and \textit{Text Statistics} in detail explained in  section \ref{} they shown that their \textit{Multi View Ensemble }, i.e. the Late Fusion Ensemble, performs significantly better because every one of these features was a better choice only for a part of the genres in their taxonomy, thus the fusion of the all three increased the performance for all genre in total. In is important to note that in the training phase \textit{Active Learning}, and binary vector representation also were used. 
 
-*****
+Active Learning in their study was defined as a sample selection strategy while training where an an evaluating process was indicating which sample was better to be used for the specific C4.5 learner, for the specific features set. The Late Fusion ensemble with the active learning strategy shown to be a promising proposal for the Domain Transfer problem for AGI.
 
-
-
-early fusion 
-Για το paper από πάνω.
-
-late fusion
- Για το paper που διαβάζω τώρα
+\textbf{Domain transfer} is the ability to transfer across multiple-topic domains the same learner when it has been only trained in one of these domains. As an example, for the genre \textit{News} there might be several topic domains such as Sports, Technology, Science, Health, Politics. An ML model which has been trained for News only on Sports topic and still can perform similarly good for Technology, etc, it considered to perform well in domain transfer cases. This is very important particularly for AGI where usually the positive available sample for a genre are not available in a wide variate topic-domains (see section \ref{} discussing the genre taxonomy corpus building issues).
 
 
-(Jebary - SOS)
+
 
 \textbf{(Clustering Based)}
 (Open Set Classification)
@@ -426,6 +420,22 @@ Character n-grams (CNG) usually means their frequency of the n-grams, over a spe
 Part of speech n-grams (PNG) same as CNG but for POS.
 
 The frequency of the most discriminative words (MDW) this is usually task dependent as explained in other cases above, and it might be a frequency threshold in their selection. 
+
+In this theses there are several studies mentioned where they have discovered features which in general can be categorized in the \textit{Text Statistics} features. One more case has a particular interest for genre taxonomies which are a mesh of stylistic and sentiment categorization. As an example a taxonomy of a set such: $\{News-Fact, News-Opinion, Review-Positive, Review-Negative\}$ where special words, pactuation marks and superficial pretties are particularly useful for \textit{Domain Transfer} AGI Task \parencite{finn2006learning}. These properties as described in table \ref{chap:relevant_work:tbl:domain_trans_text_statistics} shown to be very informative for News genre in domain transfer.
+
+\begin{table}[t]
+	\center
+	\caption {Text Statistics, found in \parencite{finn2006learning}.}\label{chap:relevant_work:tbl:domain_trans_text_statistics}
+	\begin{tabular}{p{3cm}|p{11cm}}
+		\hline
+		Feature Type & Features\\
+		\hline
+		 Document Superficial Statistics & Sentence length, Number of words, Words length \\
+         Frequency of various function words & because, been, being, beneath, can, can’t, certainly, completely, could, couldn’t, did, didn’t, do, does, doesn’t, doing, don’t, done, downstairs, each, early, enormously, entirely, every, extremely, few, fully, furthermore, greatly, had, hadn’t, has, hasn’t, haven’t, having, he, her, herself, highly, him, himself, his, how, however, intensely, is, isn’t, it, its, itself, large, little, many, may, me, might, mighten, mine, mostly, much, musn’t, must, my, nearly, our, perfectly, probably, several, shall, she, should, shouldn’t, since, some, strongly, that, their, them, themselves, therefore, these, they, this, thoroughly, those, tonight, totally, us, utterly, very, was, wasn’t, we, were, weren’t, what, whatever, when, whenever, where, wherever, whether, which, whichever, while, who, whoever, whom, whomever, whose, why, will, won’t, would, wouldn’t, you, your \\
+         Frequency counts of various punctuation symbols  & ! " \$ \% ' ( ) * + - . : ; = ? \\
+  		\hline
+	\end{tabular}
+\end{table}
 
 \subsubsection{Image processing features for document AGI}
 In \parencite{chen2012genre} there is a very interesting approach where image processing features have been used for the AGI for categorizing \textit{office documents}. In their experiments interestingly the image-based features were significantly better that the text-features when coopering their work to previews ones. The combination of both was increasing the performance even more.
