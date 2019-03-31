@@ -17,6 +17,10 @@
 
 \section{Introduction}\label{chap:relevant_work:sec:intro}
 
+
+Document Genre
+Web page Genre == Cyber-Genre
+
 The notion of \textit{Genre} in linguistics domain is an abstract taxonomy of the \textit{texts}, on which there is a great theoretical and mostly philosophical debate respectively to its internal mechanics of this taxonomy evolution. In computational linguistics domains is yet an other taxonomy where several computational methodologies has been developed for automating the process. All these methods are mainly based on \textit{Machine Learning (ML)} where most of the work historically has been focused on the raw text pre-processing and the feature selection methodologies. In addition, mostly out-of-the-box ML methods has been tested and some of its variations. Only recently there is a redirection of the research focus to the \textit{Vocabulary Learning Models (VLM)} which are used for feeding the input of the Identification or Classification ML models, instead of the \textit{Bag-of-Words (or Bag-of-Terms) BoT }\footnote{In this text Bag-of-Terms (BoT) is equivalent to the Bag-of-Words  (BOW), which has been widely used in the literature of the Information Retrieval and Natural Language Processing domains. Since, BoT is accurately describing the meaning of BOW in most of the cited literature.} model. This study is focude mostly on the Web-Genre Identification (WGI) computational methodologies, which is the main focus of the Natural Language processing and Information Retrieval research focus, in respect of the genre notion. Although there a several other text resources, other than the Web, where the Automated Genre Identification (AGI) has been also been studied and also are cited here.
 
 Genre means "genus" in the Greek language and for the text focused studies (either traditional linguistics or computational) means style. The main utility of the genre taxonomy, or in other words the reason we like as humans to categorize and give a "genus" to our text is for speeding up the communication. Thus, what we mostly do with texts is to use a genre taxonomy for transferring or retrieving the information in the "speed" of a word (or word n-gram) when it comes to describe the texts.....
@@ -144,11 +148,31 @@ Active Learning in their study was defined as a sample selection strategy while 
 
 \textbf{Domain transfer} is the ability to transfer across multiple-topic domains the same learner when it has been only trained in one of these domains. As an example, for the genre \textit{News} there might be several topic domains such as Sports, Technology, Science, Health, Politics. An ML model which has been trained for News only on Sports topic and still can perform similarly good for Technology, etc, it considered to perform well in domain transfer cases. This is very important particularly for AGI where usually the positive available sample for a genre are not available in a wide variate topic-domains (see section \ref{} discussing the genre taxonomy corpus building issues).
 
-
-
-
-\textbf{(Clustering Based)}
+\textbf{(Clustering Based???)}
 (Open Set Classification)
+
+\subsection{Web Genre Temporal Property}
+The temporal idiosyncrasy is also an major  
+
+Moreover the  and the context of the text and \textit{the groups defining, forming, and using the genre tag/category}.
+
+Related to the web genre-types, in the very early studies it has been pointed out that the users are the most important component of the research. 
+
+An other study advocating in the temporal manner of the web-genre is the one of  \parencite{caple2017genre} where they show how News web-genre changed overtime and additionally new sub-genres potentially occurred.
+
+
+""Due to the dynamic nature of the web environment, web genres evolve rapidly. Usually,
+this evolution consists in adapting old genres or producing new genres (Shepherd and
+Watters, 1998). Adapted genres are genres that exist in some other medium, whereas novel
+genres are unique to the web and they could be evolved from existing genres or they could
+be completely original. To deal with adapted genres, this paper proposes an incremental
+centroid-based classifier where new web pages are classified one by one. Each classified
+web page may (or may not) adjusts the genre centroids.""
+
+
+
+
+
 
 \section{Web Genre Noise and the Open-set approach}\label{chap:relevant_work:sec:intro}
 Most previous studies in WGI consider the case where all web pages should belong to a predefined taxonomy of genres \cite{Lim2005,santini2007automatic,kanaris2009learning,jebari2014pure_URL}. Putting this setup under the vantage point of machine learning, it is the same as assuming what is known as a closed-set problem definition. However, this naïve assumption is not appropriate for most applications related to WGI as it is not possible to construct a universal genre palette a priori nor force web pages to always fall into any of the predefined genre labels. Such web pages are considered \textit{noise} and include web documents where multiple genres co-exist~\cite{santini2011cross,levering2008using}. 
@@ -554,6 +578,23 @@ The MCC algorithm is a set of SVM classifiers where each is trained to a particu
 \end{equation}
 Where $|G|$ is the number of genres in a genre taxonomy and the calcification methods is under a closed set setup with $N$ indented (one for each feature set) \textit{SVM multi-class classifier}. 
 
+Hyperlinks can be exploited by extracting information from the URL itself and not from the hyper-graph they are connecting as explained above. Particularly, URL can analyzed farther in its components, i.e. \textit{the web-site's domain name, the URI which is the path after the domain and the anchor text}. Special characters such as $\{_ , . , ?, \$ , \%\}$, top-level domains $\{.gr , .uk , .com, etc\}$, and file suffixes such as ".html", ".pdf" are usually discarded and then character n-grams are extracted from the URL counterparts. Finally several weighing schemes were used from binary, to TF and some special cases such the one of questions \ref{eq:jebary_url_weigh_cngrams_1} and \ref{eq:jebary_url_weigh_cngrams_2}. WGI experiments using only the hyperlink information combined or not with other web-page information seems to be a promising researching path especially for performance oriented WGI applications such as \textit{Genre-Based Focused-Crawling} \parencite{jebari2014pure_URL,jebari2015combination} (εδώ πρέπει να μπεί και το ρεφερενς από το μαστερ που έχει χρησιμοποιοήσει παρόμια τεχνική για focused-genre-crawling)
+
+\begin{equation}\label{eq:jebary_url_weigh_cngrams_1}
+	W_{s}(C_{i}, U_{j}) = \sum_{s} w(s) TF(C_{i}, U_{j})
+\end{equation}
+Where $TF(C_{i}, U_{j}) $ is the n-gram $C_{i}$ frequency in the $s$ segment of the URL $U_{j}$ and $w(s)$ is weight empirically assigned to the segment depending on the type of the segments as shown in eq. \ref{eq:jebary_url_weigh_cngrams_1}. The weights $\{\alpha,\beta,\gamma\}$ should be defined empirically usually upon the corpus. 
+\begin{equation}\label{eq:jebary_url_weigh_cngrams_2}
+	w(s) = \left\{
+    	\begin{array}{lll}
+        	\alpha & if & s = Domain\ Name \\
+            \beta & if & s = URL\ path (non\ domain\ part) \\
+            \gamma & if & s = Document\ name (e.g. .html, .pdf, etc) \\
+         \end{array}
+  \right.
+\end{equation}
+
+
 \section{Focused Crawlers for Genres}\label{chap:relevant_work:sec:intro}
 
 \section{Genres Utility}\label{chap:relevant_work:sec:intro}
@@ -567,19 +608,6 @@ An other TEXT-GENRE identification utility is for video (e.g. movies, TV series,
 As reported in \parencite{rangel2016overview} which is a work related to \textit{Author Profiling}, a cross-genre evaluation has been employed. That is, texts from a variate of different genres such as \textit{Social Media, Blogs, Twitter and Hotel reviews} used for this task's evaluation. Therefore, an automated WGI methods would be really useful for collected fast training data or experimental data sets for such tasks.
 
 An other utility is the AGI/WGI for \textit{office/local documents}, i.e. pdf, images (jpg, png, etc), slides (Powerpoint, Keynote), HTML based tutorials/booklets etc. There is at least one experimental application where in a multi-faceted search/browsing application for locating local documents in an office environment (with shared files) was using an open-set  genre-taxonomy for aiding the users locating their files. Particularly, their application was accepted form the users who tested it and they reported than using the genre-taxonomy filtering they have managed to locate old slides abandoned more than a decayed related to their current work. As explained above they where using an ensemble based algorithm within an open-set framework which was trained in a relatively small data-set of 5,098 pages, while it was tested in a production environment with 30,000 office documents of a 10-year time span \parencite{chen2012genre}. 
-
-\section{Web Genre Temporal Property}\label{chap:relevant_work:sec:intro}
-
-The temporal idiosyncrasy is also an major  
-
-Moreover the  and the context of the text and \textit{the groups defining, forming, and using the genre tag/category}.
-
-Related to the web genre-types, in the very early studies it has been pointed out that the users are the most important component of the research. 
-
-An other study advocating in the temporal manner of the web-genre is the one of  \parencite{caple2017genre} where they show how News web-genre changed overtime and additionally new sub-genres potentially occurred.
-
-Jebary SOS
-
 
 
 \section{Deep Learning Vocabulary of Distributional Features for WGI and WGC}\label{chap:relevant_work:sec:intro}
