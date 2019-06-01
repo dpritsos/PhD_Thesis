@@ -2,7 +2,7 @@
 
 \chapter{Handling the Noise of the Web-Genres}
 
-\label{chap:relevant_work}
+\label{chap:noise}
 
 %----------------------------------------------------------------------------------------
 
@@ -15,4 +15,232 @@
 
 %----------------------------------------------------------------------------------------
 
-\section{Introduction}\label{chap:relevant_work:sec:intro}
+\section{Introduction}\label{chap:noise:sec:intro}
+
+\section{Noise vs Outages on Open-set Classification}\label{chap:noise:sec:noise_vs_outages}
+
+\section{Open-set Framework Evaluation on Noise}\label{chap:noise:sec:openset_evaluation}
+
+%\section{Open-set Ensembles for WGI with Noise}\label{chap:noise:sec:openset_ensembles}
+
+\section{Open-set WGI Methods}\label{sec:Ensembles_Description}
+
+
+
+\section{Experimental Setup}\label{sec:experimental_setup}
+\subsection{Corpora}\label{sec:corpora}
+In this paper we study the performance of the open-set classification models on the WGI task. In particular, the two open-set algorithms described above are analytically tested on benchmark corpora. In particular, our experiments are based on the following corpora already used in previous work in WGI \citep{meyer2004genre,santini2007automatic,kanaris2009learning}:
+
+\begin{enumerate}
+\item \textit{SANTINIS} \citep{mehler2010genres_on_web}: This is a corpus comprising 1,400 English web pages evenly distributed into 7 genres as well as 80 BBC web pages evenly categorized into 4 additional genres. In addition, it comprises a random selection of 1,000 English web pages taken from the SPIRIT corpus \citep{joho2004spirit}. The latter can be viewed as noise in this corpus. Details are given in table \ref{tbl:genre_tags}.
+\item \textit{KI-04} \citep{meyer2004genre}: This is a collection of 1,205 English web pages unevenly categorized into 8 genres. Details can be seen in table \ref{tbl:genre_tags}.
+\end{enumerate}
+
+
+Our text representation features are based exclusively on textual information from web pages excluding any structural information, URLs, etc. Based on the good results reported in \citep{sharoff2010web,pritsos2013open,Asheghi2015} as well as some preliminary experiments, the following document representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G). We use the Term-Frequency (TF) weighting scheme  and the feature space is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only.
+
+As concerns OCSVM model, two parameters have to be tuned: the number of features $F$ and $\nu$. For the former, we used $F=$\textit{\{1k, 5k, 10k, 50k, 90k\}}, of most frequent terms of the vocabulary. Following the reports of previous studies \citep{scholkopf1999estimating} and some preliminary experiments, we examined $\nu$\textit{=\{0.05, 0.07, 0.1, 0.15, 0.17, 0.3, 0.5, 0.7, 0.9\}}. In comparison to \citep{pritsos2013open}, this set of parameter values is more extended. With respect to RFSE, four parameters should be set: the vocabulary size $F$, the number of features used in each iteration $fs$, the number of iterations \textit{I}, and the threshold $\sigma$. We examined $F$\textit{=\{5k, 10k, 50k, 100k\}}, $fs$=\textit{\{1k, 5k, 10k, 50k, 90k\}}, \textit{I}=\textit{\{10, 50, 100\}} (following the suggestion in \citep{koppel2011authorship} that more than 100 iterations does not improve significantly the results) and $\sigma$\textit{=\{0.5, 0.7, 0.9\}} (based on some preliminary tests). Additionally, in this work we are testing three document similarity measures: cosine similarity, MinMax similarity,  and combined cosine similarity and MinMax. Finally, to extract the best possible parameter settings for each classification method we apply grid-search over the space of all parameter value combinations.
+
+\begin{table}
+\center
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{2}{|c|}{SANTINIS} & \multicolumn{2}{c|}{KI-04}\tabularnewline
+\hline
+\multicolumn{1}{|c|}{Genre} & \multicolumn{1}{c|}{Pages} & \multicolumn{1}{c|}{Genre} & \multicolumn{1}{c|}{Pages}\tabularnewline
+\hline
+\multicolumn{1}{|l|}{Blog} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Article} & \multicolumn{1}{c|}{127}\tabularnewline
+\multicolumn{1}{|l|}{Eshop} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Discussion} & \multicolumn{1}{c|}{127}\tabularnewline
+\multicolumn{1}{|l|}{FAQ} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Download} & \multicolumn{1}{c|}{152}\tabularnewline
+\multicolumn{1}{|l|}{Frontpage} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Help} & \multicolumn{1}{c|}{140}\tabularnewline
+\multicolumn{1}{|l|}{Listing} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Link Collection} & \multicolumn{1}{c|}{208}\tabularnewline
+\multicolumn{1}{|l|}{Personal Home Page} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Portrayal-Non Private} & \multicolumn{1}{c|}{179}\tabularnewline
+\multicolumn{1}{|l|}{Search Page} & \multicolumn{1}{c|}{200} & \multicolumn{1}{l|}{Portrayal- Private} & \multicolumn{1}{c|}{131}\tabularnewline
+\multicolumn{1}{|l|}{DIY Mini Guide (BBC)} & \multicolumn{1}{c|}{20} & \multicolumn{1}{l|}{Shop} & \multicolumn{1}{c|}{175}\tabularnewline
+\multicolumn{1}{|l|}{Editorial (BBC)} & \multicolumn{1}{c|}{20} &  & \tabularnewline
+\multicolumn{1}{|l|}{Features (BBC)} & \multicolumn{1}{c|}{20} &  & \tabularnewline
+\multicolumn{1}{|l|}{Short Bio (BBC)} & \multicolumn{1}{c|}{20} &  & \tabularnewline
+\multicolumn{1}{|l|}{Noise (Spirit1000)} & \multicolumn{1}{c|}{1000} &  & \tabularnewline
+\hline
+\end{tabular}
+\caption {Corpora descriptions and amount of pages per genre.}
+\label{tbl:genre_tags}
+\end{table}
+
+
+\section{Experiments}\label{sec:Experiments_Results}
+\subsection{WGI with Unstructured Noise}\label{sec:WGI_noise}
+
+We initially examine the performance of OCSVM and RFSE models based on SANTINIS corpus. In the training phase, only the 11 known genres are considered. In the testing phase, the noise pages coming from the SPIRIT corpus are also used. Note that information about the true genre of these pages is not available. Therefore, we have to deal with unstructured noise. We perform  10-fold cross validation and in each fold we include the full set of 1,000 pages of noise. This evaluation strategy is giving a more realistic evaluation framework since the size of the noise is much greater than the size of any genre included in the given palette.
+
+Figures \ref{fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS} and \ref{fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS} depict the Precision-Recall curves (PRC) of OCSVM and RFSE models, respectively. For each model and each one of the three document representations, the parameters that maximize performance with respect to the $F_{1}$-measure are used. Note that when recall does not reach 1.0 this means that some pages belonging to known classes were classified as unknown. In all cases, RFSE outperforms OCSVM. Moreover, for both methods, W3G seems to be the best feature type for this corpus, followed by C4G. OCSVM performance is only comparable with RFSE when W3G is used.
+
+\hfill \break
+
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[scale=0.38]{diagrams/OCSME_Best_per_DocRep.eps}
+	\caption{Precision-Recall Curves of OCSVM models on SANTINIS corpus using W1G, W3G, and C4G features.}
+	\label{fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[scale=0.38]{diagrams/RFSE_Best_per_DocRep.eps}
+	\caption{Precision-Recall Curves of RFSE models on SANTINIS corpus using W1G, W3G, and C4G features.}
+	\label{fig:MacroPRC_RFSE_W3G_W1G_C4G_OPTIMAL_SANTINIS}
+	\end{center}
+\end{figure}
+
+We further explore the performance of the open-set WGI methods by selecting parameter settings with different optimization criteria. Tables \ref{tbl:OCSVME_SANTINIS} and \ref{tbl:RFSE_SANTINIS} show the combination of parameters that optimize performance of OCSVM and RFSE based on AUC, $F_{1}$ and $F_{0.5}$. Moreover, in the tables we show the values of all three performance measures where one of them is maximized. It is clear that the performance in all cases is maximized when W3G document representation is used. In previous studies based on a closed-set framework, C4G was the document type of features to maximize performance \citep{Sharroff2010}. This indicates that contextual and content information is important for this corpus \citep{Asheghi2015}.
+
+In addition, in almost all cases, RFSE models are far more effective than OCSVM. Another important conclusion is that the optimization criterion plays a crucial role for the properties of the model especially for RFSE. When AUC is maximized, recall is favoured. On the other hand, while $F_{1}$ is maximized, precision is substantially increased. Fig.  \ref{fig:MacroPRC_RFSE_OCSVME_SANTINIS} shows the performance of OCSVM and RFSE models when AUC and $F_{1}$ criteria are used to select parameter settings. As can be seen, the RFSE model based on $F_{1}$ maximization avoids to make wrong decisions and leaves a large number of web pages unclassified. On the other hand, the model optimized by AUC prefers to make a lot of errors in order to recognize more web pages of known genres. OCSVM models seem not significantly affected. Note that choosing between WGI models that prefers precision over recall and vice versa is an application-specific task.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[scale=0.38]{diagrams/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps}
+	\caption{Precision-Recall Curves of OCSVM and RFSE models on SANTINIS corpus optimized either by AUC or $F_{1}$.}
+	\label{fig:MacroPRC_RFSE_OCSVME_SANTINIS}
+	\end{center}
+\end{figure}
+
+% 7Genres
+%
+\begin{table}[H]
+\centering
+
+\pgfplotstableset{
+    create on use/Criterion/.style={ create col/set list={AUC, $F_{1}$, $F_{0.5}$} },
+	columns/DocRep/.style={string type},
+	create on use/DocRep/.style={ create col/set list={W3G, W3G, W3G} },
+	columns/DocRep/.style={string type}
+}
+
+\pgfplotstabletypeset[
+		fixed,
+		precision=3,
+		col sep=comma,
+		every head row/.style={
+			before row = \toprule,
+			after row=\midrule,
+		},
+		every last row/.style={after row=\bottomrule \\},
+		columns={Criterion, DocRep, 0, 1, 2, 3, 4, 5, 6, 7},
+		columns/Criterion/.style ={string type,column type=c, column name=Optim.},
+        columns/DocRep/.style ={string type,column type=c, column name=Features},
+		columns/0/.style ={column type=c, column name=Voc.},
+		columns/1/.style ={column type=c, column name=\textit{f}},
+		columns/2/.style ={column type=c, column name=$\nu$},
+		columns/3/.style ={column type=c, column name=Prec.},
+		columns/4/.style ={column type=c, column name=Rec.},
+		columns/5/.style ={column type=c, column name=AUC},
+        columns/6/.style ={column type=c, column name=$F_{0.5}$},
+        columns/7/.style ={column type=c, column name=$F_{1}$},
+		]{tables_data/AUC_FStatistics_tables/OCSVME_SANTINIS_Best.csv}
+\caption{Best performing models for OCSVM on SANTINIS corpus.}
+\label{tbl:OCSVME_SANTINIS}
+\end{table}
+
+\begin{table}[H]
+\centering
+
+\pgfplotstableset{
+    create on use/Criterion/.style={ create col/set list={AUC,$F_{1}$,$F_{0.5}$} },
+    columns/DocRep/.style={string type},
+	create on use/DocRep/.style={ create col/set list={W3G,W3G,W3G} },
+	columns/DocRep/.style={string type},
+    create on use/SimMeas/.style={ create col/set list={Combo,MinMax,MinMax} },
+	columns/SimMeas/.style={string type}
+}
+
+\pgfplotstabletypeset[
+		fixed,
+		precision=3,
+		col sep=comma,
+		every head row/.style={
+			before row = \toprule,
+			after row=\midrule,
+		},
+		every last row/.style={after row=\bottomrule \\},
+		columns={Criterion, DocRep, SimMeas, 0, 1, 2, 3, 4, 5, 6, 7, 8},
+        columns/Criterion/.style ={string type,column type=c, column name=Optim.},
+		columns/DocRep/.style ={string type,column type=c, column name=Features},
+        columns/SimMeas/.style ={string type,column type=c, column name=Similarity},
+		columns/0/.style ={column type=c, column name=Voc.},
+		columns/1/.style ={column type=c, column name=\textit{f}},
+		columns/2/.style ={column type=c, column name=$\sigma$},
+        columns/3/.style ={column type=c, column name=\textit{I}},
+		columns/4/.style ={column type=c, column name=Prec.},
+		columns/5/.style ={column type=c, column name=Rec.},
+		columns/6/.style ={column type=c, column name=AUC},
+        columns/7/.style ={column type=c, column name=$F_{0.5}$},
+        columns/8/.style ={column type=c, column name=$F_{1}$},
+		]{tables_data/AUC_FStatistics_tables/RFSE_SANTINIS_Best.csv}
+\caption{Best performing models for RFSE on SANTINIS corpus.}
+\label{tbl:RFSE_SANTINIS}
+\end{table}
+
+
+\subsection{WGI with Structured Noise}
+\label{sec:openness_evaluation}
+
+In this section we describe experiments using a corpus with structured noise, i.e., when the true genre of pages not included in the training genre palette is available. In more detail, we use the KI-04 corpus and adopt the openness measure varying the number of training classes from 7 to 1 while keeping the number of testing classes always the same, at maximum 8. As a result, the openness measure varies from 0.065 to 0.646, one extreme refers to the case where only one genre class is unknown while in the other extreme only one genre class is known. For each openness level, we randomly select the known classes and repeat the experiment 8 times, each time performing 10-fold cross-validation. Moreover, to avoid any biased selection of parameter values, we use the parameter settings found to be optimal for the SANTINIS corpus in section \ref{sec:WGI_noise}.
+
+Figures \ref{fig:OCSVME_openness_test} and \ref{fig:RFSE_openness_test} show the performance ($F_{1}$) of OCSVE and RFSE models using different text representation features for varying openness levels. Standard error bars are also depicted to show the variance of performance for each model. Surprisingly, the performance of OCSVM seems to improve by increasing openness and this pattern is consistent in all three feature types while C4G seem to be the most effective type. On the other hand, RFSE models based on C4G and W1G gradually get worse while openness increasing while W3G models seems to be relatively stable.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[scale=0.38]{diagrams/OCSVME_openness_test_graph.eps}
+	\caption{OCSVM performance in varying openness level.}
+	\label{fig:OCSVME_openness_test}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[scale=0.38]{diagrams/RFSE_MIX_openness_test_graph.eps}
+	\caption{RFSE performance in varying openness level.}
+	\label{fig:RFSE_openness_test}
+\end{center}
+\end{figure}
+%
+%
+% APPEND by Dp - Start
+
+As it was highlighted in the previous section, according to the properties of the application in which WGI is involved, precision may be more important than recall or vice-versa. In figure \ref{fig:RFSE_precision_focus_openness_test} the macro-precision of RFSE is depicted for W3G, W1G and C4G features. MinMax similarity is used since it increases significantly the performance of RFSE in respect with precision. As concerns text representation, W1G is the best choice when precision is at more importance than recall. On the other hand, W3G features seem to be more stable because the standard error is lower than that of the other features and also the W3G model is not affected too much when openness surpasses $0.5$ (actually it improves).
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[scale=0.38]{diagrams/RFSE_Precision_Focus_openness_test_graph.eps}
+	\caption{RFSE precision in varying openness level.}
+	\label{fig:RFSE_precision_focus_openness_test}
+\end{center}
+\end{figure}
+
+In the case of C4G and W1G where the openness level is $0.646$ the standard error in both case is very hight. Since, we observe this problem only in the case where the problems has been reduced to binary, we are interested to see whether it is caused by choice of the document representation or by the choice of the similarity measure.
+
+%In figures \ref{fig:RFSE_MIXvsMinMax_W3GvsC4G_openness_test} the $F_{1}$ measure performance in %the openness test of the RFSE is depicted. In all three cases we see the only with MinMax %similarity the standard error is significantly high especially in the case of $0.646$ openness %level.
+
+Despite OCSVM's improvement when structured noise is used, it can only be competitive to RFSE on a high openness level, where all genre labels but one are considered unknown. This can be better viewed in figure \ref{fig:RFSE_vs_OCSVME_W1G_openness_test} where OCSVM is compared with RFSE models based on MinMax and Combo similarity measures for a varying openness level. These curves correspond to W1G features, so they are not the optimal models. However, they provide a fair comparison between examined methods. As standard error bars indicate, the performance of RFSE models with respect to the $F_{1}$ measure is significantly better than that of OCSVM while openness is less than $0.5$. Beyond that level, OCSVM is significantly better than RFSE models. Note also Combo measure helps RFSE in while openness is relatively low and MinMax seems to be a better choice when openness increases.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[scale=0.38]{diagrams/RFSE_vs_OCSVME_W1G.eps}
+	\caption{Comparison of OCSVM and RFSE models based on W1G features in varying Openness levels.}
+	\label{fig:RFSE_vs_OCSVME_W1G_openness_test}
+\end{center}
+\end{figure}
+
+\section{Conclusions}\label{sec:conclusions}
+
+In this paper we presented an experimental study on WGI focusing on open-set evaluation for this task. In contrast to vast majority of previous work in this area, we adopt the open-set scenario that is more realistic for WGI since it is not feasible to construct a genre palette with all available genres and appropriate samples for each one of them. Moreover, we examined two open-set classification methods and several feature types and similarity measures. To the best of our knowledge, this is the first time the performance of WGI models is evaluated using performance measures and tests specifically designed for open-set classification tasks.
+
+The presented evaluation of open-set WGI covers two basic scenarios. The first is when noise is unstructured, i.e., information about the true genre of pages not belonging to the known genre palette is not available. The second scenario applies when noise is structured, i.e., we actually know the true genre of pages not included in the training classes. For both cases, we propose appropriate evaluation methodologies and present comparative results for the tested models.
+
+In almost all examined cases, RFSE models outperformed the corresponding OCSVM models. This verifies previous work findings about the appropriateness of RFSE for WGI \citep{pritsos2013open}. RFSE is able to provide effective models and additionally it is possible to manage preference on recall or precision, an application-dependent choice, by focusing on optimizing AUC or $F_1$ respectively. On the other hand, OCSVM proved to be the best-performing method in extreme cases when openness is high. Actually, the restrictions of the available corpora did not allow us to examine cases where openness approaches $1.0$. However, it seems that when openness is more than $0.5$ OCSVM outperforms RFSE.
+
+As concerns the feature types, in most of the cases W3G and C4G provided the best results. However, the selection of text representation features is a crucial choice that affects performance and it seems to be corpus-dependent. Another crucial parameter of RFSE is the similarity measure. Among the examined measures, MinMax and its combination with cosine similarity provide the most robust results. The choice of similarity measure correlates with feature types. It seems that the combo measure is more effective than MinMax in low openness conditions.
+
+To enhance the evaluation of WGI models in open-set conditions, we need larger corpora including multiple genre labels. New enhanced open-set WGI methods are needed and they should be evaluated using the proposed paradigm. Otherwise, using an evaluation paradigm more appropriate for closed-set tasks, the performance may be over-estimated.

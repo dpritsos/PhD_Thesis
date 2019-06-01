@@ -1,8 +1,8 @@
 %!TeX spellcheck = en-US
 
-\chapter{Evaluation Methodology for Text Categorization and for WGI}
+\chapter{Evaluation Methodology for WGI and Computational Text Categorization}
 
-\label{chap:relevant_work}
+\label{chap:eval_methods}
 
 %----------------------------------------------------------------------------------------
 
@@ -15,10 +15,55 @@
 
 %----------------------------------------------------------------------------------------
 
-\section{Introduction}\label{chap:relevant_work:sec:intro}
+\section{Introduction}\label{chap:eval_mentods:sec:intro}
 
+\section{Closed-set vs Open-set Measures}\label{chap:eval_mentods:sec:Measures} 
 
-\subsection{Domain Transfer Measure}
+\section{Area Under the Curve (AUC)}\label{chap:eval_mentods:sec:closed_set_classification} 
+
+Precision-Recall curve is a standard method to visualize the performance of classifiers. In this paper, the Precision-Recall curve is calculated in 11-standard recall levels $[0,0.1,...,1.0]$. Precision values are interpolated based on the following formula:
+
+\begin{equation}
+	P(r_j)=max_{r_j \leqslant r \leqslant r_{j+1}}(P(r))
+\end{equation}
+
+\noindent
+where $P(r_j)$ is the precision at $r_j$ standard recall level.
+
+To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures. In more detail, we use the modified version of precision and recall for open-set classification tasks proposed by \citep{mendesjunior2016}. This modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use 2 scalar measures, the Area Under the Precision-Recall Curve (AUC)and $F_{1}$. We will show that the appropriate selection of the optimization measure is highly significant in the presence of noise.
+
+\section{Re-defining the Open Space Risk}\label{chap:eval_mentods:sec:open_space_risk} 
+
+The open space risk in \cite{scheirer2013toward} is originally defined as in eq. \ref{eq:the_original_open_space_risk}
+
+\begin{equation}\label{eq:the_origina_open_space_risk}
+	R_{o}(f) = \frac{\int_{o} f_{y}(x) dx}{\int{S_{o}}  f_{y}(x) dx}
+\end{equation}
+where $R_{o}(.)$ is the open-space risk function and $f_{y}(x)  \in \{0, 1\}$ is the classification function of class $y$, where $1$ is for recognizing its class and $0$ when not. $S_{o}$ is the large hyper-sphere where all the positive training data points and the \textit{positive open space area} $O$. 
+The original formulation of the eq. \ref{eq:the_original_open_space_risk} $O$ area cannot be constrained by any means. The only information we are getting is the farther form the training date we go the risk of miss-classification is increasing One method to constrain the problem is by using the center of the positively labeled training data and defining a radios $r_{o}$ where it will reduce the open space area based on the positively labeled empirically observations. Then the $O$ is defined by the equation eq. \ref{eq:openspace_spherical_constrained}
+
+\begin{equation}\label{eq:openspace_spherical_constrained}
+	O = S_{o} - B_{r_{y}}(C_{y})
+\end{equation}
+where $B_{r_{y}}(.)$ is the function which defines the area of radius $r_{y}$ of the $C_{y}$ class defined by its training data \parencite{fei2016breaking}.
+
+\section{Openness test}\label{chap:eval_mentods:sec:open_space_risk}
+
+In Scheirer's et al. \citep{scheirer2013toward} work in image processing, the \textit{openness measure} is introduced, as shown in eq.\ref{eq:openness}. The openness measure indicates properties of an open-set classification task by taking into account the number of \textit{training classes}, i.e. the known labels used in the training phase and the number of \textit{testing classes}, i.e., the labels, both known and unknown, used in the testing phase.
+
+\hfill \break
+
+\begin{equation}\label{eq:openness}
+	openness=1-\sqrt{\frac{ | Training Classes | }{ |Testing Classes | }}
+\end{equation}
+
+\hfill \break
+
+When openness is $0.0$, it is essentially a closed-set task, that is the training and testing classes are the same or there is no noise. When openness reaches $1.0$ this means that the known classes are far less than the unknown classes, that is the amount of noise is especially high. Therefore, by varying the openness level we can study the performance of WGI models in different conditions.
+
+Note that the openness measure can only be applied to corpora where all available documents have been labeled with genre information. In other words, we have to know the genre labels of the pages that form the noise (i.e., structured noise). Thus, it cannot be applied to SANTINIS corpus where the web pages taken from the SPIRIT collection are unclassified (i.e., unstructured noise). On the other hand, the SANTINIS corpus provides the opportunity to examine WGI performance when all documents not belonging to the known labels are grouped into one single (highly heterogeneous) class.
+
+\section{Domain Transfer Measure}\label{chap:eval_mentods:sec:Closed_Set_Classification}
 A practical methodology for evaluating a classification/identification ML model in a text-categorization task is the \textit{Domain Transfer Evaluation}. The goal of this evaluation methodology is to measure the generalization of the model when training corpus is rather small and to evaluate how the model would perform in an unknown domain for the same task. 
 
 Particularly for the AGI/WGI with this measure we can evaluate a ML algorithm when for example the model has been trained to identify \textit{News} and \textit{Wiki} genres, however, the available corpus would be only from \textit{Technology products Topics}. Then by testing it on {Sports Topics} we could evaluate the model in such a case when very small corpus is available for training. In addition using this methodology we can evaluate the models behaviour depending on the \textit{Features} have been selected for the training, e.g. BOW, POS, Term N-grams etc. 
@@ -31,7 +76,6 @@ The measure proposed from \parencite{finn2006learning} and shown in equation \re
 	T^{C,F} = \frac{1}{N(N-1)} \sum_{A=1}^{N} \sum_{B, \forall B \neq A}^{N} \left(  \frac{M^{C,F}_{A,B}}{M^{C,F}_{A,A}} \right)
     \end{equation}
 Where T is the \textit{Transfer Measure Score}, M is the measure of choice (Accuracy, $F_1$, Precision, Recall, etc), F is the \textit{Feature Set}, and C is the \textit{Genre Class}. 
-
 
 
 

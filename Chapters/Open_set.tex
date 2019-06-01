@@ -2,7 +2,7 @@
 
 \chapter{Open-set and Closed-Set Classification for WGI}
 
-\label{chap:relevant_work}
+\label{chap:openset}
 
 %----------------------------------------------------------------------------------------
 
@@ -15,9 +15,11 @@
 
 %----------------------------------------------------------------------------------------
 
-\section{Introduction}\label{chap:relevant_work:sec:intro}
+\section{Introduction}\label{chap:openset:sec:intro}
 
-\subsection{One-Class Classification\label{subsec:One-Class-Classification}}
+\section{Closed-set Classification}\label{chap:openset:sec:Closed_Set_Classification} 
+
+\section{One-Class Classification}\label{chap:openset:sec:One_Class_Classification}
 
 The main difference of the One Class Classification problem (OCC) with respect to the conventional multi-class or binary classification problem is that in OCC there are only available positive examples of a class and none or very few negative examples. There are several approaches towards the solution of this problem. A compact survey on OCC is provided by Khan et al.\cite{khan2010survey}. In this section, we present a brief review of the OCC methods used for Document Classification (DC) and Information Retrieval (IR). We mainly consider SVM-based OCC methods.
 
@@ -39,3 +41,251 @@ Spy EM (Spy EM) is an other method using unlabeled data in the training procedur
 An alternative \textit{two-step} method like S-EM proposed by Li and Liu \cite{li2003learning}. Again they have pointed out that their `OCC method, like the other OCC methos, need a large positive data `sample and negative samples derived from unlabeled data to induce `a ``good'' classifier.
 
 To conclued, in all OCC publication cited in this paper it had been point out that the problems encountered when using conventional classificaiton models such as the curse of dimensionality, the generalization of the method, etc., it seems to be amplified when in OCC methods. In all the OCC models it has been reported that the problem is the difficulty to decide how tightly should be the boundary that contours the positive data, additional to the problem of the attribute selection which will be used for finding the outliers or the automated formation of a \textit{negative body of samples}. Hence, the performance of OC-SVM should be expected to be poorer comparing to \textit{binary }or \textit{multi-class} classification SVM\cite{khan2010survey,manevitz2002one,yu2005single,scholkopf1999estimating,li2003learning}.
+
+\section{Open-set (Ensembles) Classification}\label{chap:openset:sec:Openset_Class_Classification}
+
+\subsection{One-class SVM Ensemble}\label{sec:OC-SVM_Description}
+One-class SVM is actually an $\nu$-SVM for the case we want to find the contour which is prescribing the positive samples of the training set given for a single class, while there are \textit{no negative samples}. nu-SVM ($\nu$-SVM) is providing an alternative \textit{trade-off control method of misclassification}, proposed from Scholkopf et al. \citep{scholkopf1999estimating}. In $\nu$-SVM we are minimizing eq.\ref{eq:3} with the constraints of eq.\ref{eq:4}, eq.\ref{eq:5}.
+
+Following the logic from the conventional SVM, thoroughly analysed in \citep{bishop2006}, the Lagrange multipliers for solving the optimization problem of eq.\ref{eq:3} under eq.\ref{eq:4}, eq.\ref{eq:5} constraints are used. Equation \ref{eq:12} is then derived, i.e. a Lagrangian function to be maximized as subject to the constraints eq.\ref{eq:4}, eq.\ref{eq:5}.
+
+\begin{equation}\label{eq:3}
+	arg\min_{w,b}\left\{ \frac{1}{\nu\lambda}\sum_{n=1}^{N}(\xi_{n}-\rho)+\frac{1}{2}\|w\|^{2}\right\}
+\end{equation}
+
+\begin{equation}\label{eq:4}
+	0\leqslant a_{n}\leqslant1/N,\qquad n=1,...,N
+\end{equation}
+
+\begin{equation}\label{eq:5}
+	\nu\leqslant\sum_{n=1}^{N}a_{n}, \qquad \sum_{n=1}^{N}a_{n}t_{n}=0
+\end{equation}
+
+\begin{equation}\label{eq:12}
+	\widetilde{L}(a)=-\frac{1}{2}\sum_{n=1}^{N}\sum_{m=1}^{M}a_{n}a_{m}t_{n}t_{m}k(x_{n,}x_{m})
+\end{equation}
+
+\newpage
+
+
+It should be noted that $\nu$ in $\nu$-SVM has the flowing properties:
+\begin{itemize}
+	\item $\nu$ is an upper bound on the fraction of \textit{Outliers}.
+	\item $\nu$ is a lower bound on the fraction of \textit{Support Vectors}.
+	\item $\nu$ values cannot exceed 1 (see eq.\ref{eq:4}).
+\end{itemize}
+
+In practice different values of $\nu$ are defining different proportion of the training sample as outliers. For example in Scholkopf et al. \citep{scholkopf1999estimating} is showed that in their experiments when using $\nu=0.05$, 1.4\% of the training set has been classified as outliers while using $\nu=0.5$, 47.4\% is classified as outliers and 51.2\% is kept as SVs.
+
+In the prediction phase in order for an OCSVM model to decide whether a document is belonging to the target genre-class (or not) a \textit{decision function} is used. The decision function indicates the distance of the document, positive or negative, to the hyperplane separating the classes. In the case of OCSVM we are usually only interested whether the decision function is positive or negative for deciding if an arbitrary document belonging or not to the target class.
+
+In this work we are using the OCSVM in an ensemble form, first proposed in \citep{pritsos2013open}, as analytically described in algorithm \ref{alg:OCSVM-Ensemble}. There we are both interested in the positive and negative decision of each ensemble's classifier, and the decision scores.
+
+\hfill \break
+
+\begin{algorithm}[H]
+\caption{The \textit{OCSVM} algorithm.}\label{alg:OCSVM-Ensemble}
+\KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
+		 $w$ an unknown webpage of the $W_{a}$ arbitrary webpages set,
+		 $F$ the feature set,
+		 $\boldsymbol\nu$ the nu hyper-parameter of OCSVM,
+         }
+\KwResult{ $r \in \{G,\,\emptyset\}$ }
+$score[:, :]$=0, the score 2D matrix where rows are for genre's class tags and columns for each webpage under evaluation
+\For{each $g \in G$}{
+  $Model(g) = ocsvmTrain(W_{g},F,\boldsymbol\nu)$, train a OCSVM model in vector space $F$ with hyper-paramenter $\boldsymbol\nu$ for genre $g$\;
+}
+\For{each $g \in G$}{
+    \For{each $w \in W_{a}$}{
+        $score[g, w] = ocsvmApply(Model(g),F,w)$, the distance of the unknown page $w$ from the hyperplane\;
+    }
+}
+\eIf{$max(score[:, :])< 0$}{
+    $r \in \emptyset$, i.e. none of the known genres or "I don't know";
+}
+{
+        $r = argmax_{g \in G}(score[:, :])$, i.e. $w$ belongs to the genre of highest score\;
+    }
+\end{algorithm}
+
+\hfill \break
+
+
+In training phase of the ensemble one OCSVM is built for each known genre label. The hyper-parameter $\nu$ has the same value for all OCSVM models. In the prediction phase, the document is assigned to the class with the highest positive distance from the hyperplane (or the contour for OCSVM). If all OCSVMs return a negative distance (i.e. the web-page does not belong to this genre) the document remains unclassified, that is the final answer corresponds to "I Don't Know". The OCSVM ensemble was implemented in Python using the \textit{scikit-learn}\footnote{http://scikit-learn.org} package.
+
+\subsection{Random Feature Subpacing Ensemble}\label{sec:RFSE_Description}
+
+The RFSE algorithm is a variation of the method presented by Koppel et al. \citep{koppel2011authorship} for the task of \textit{author identification}. In the original approach, there is only one training example for each author and a number of simple classifiers is learned based on random feature subspacing. Each classifier uses the cosine distance to estimate the most likely author. The key idea is that it is more likely for the true author to be selected by the majority of the classifiers since the used subset of features will still be able to reveal that high similarity. That is, the style of the author is captured by many different features so a subset of them will also contain enough stylistic information. Since WGI is also a style-based text categorization task, this idea should also work for it.
+
+\hfill \break
+
+\begin{algorithm}[H]
+\caption{The \textit{RFSE} algorithm.}\label{alg:RFS-Ensemble}
+\KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
+		 $w$ an arbitrary web-page of the $W_{a}$ arbitrary webpages set,
+		 $F$ the feature set,
+		 $fs$ a fraction of feature set size,
+		 $I$ a number of iterations,
+		 $\boldsymbol\sigma$ the decision threshold }
+\KwResult{ $r \in \{G,\,\emptyset\}$ }
+\For{each $g \in G$}{
+  $centroid[g] = average(W_{g},F)$, average all known web-pages $W_{g}$ of genre $g$ to build a centroid vector\;
+  $score[g]=0$\;
+}
+\Repeat{$I$ times}{
+    $f = subset(F,fs)$, Randomly choose $fs$ features from the full feature set $F$\;
+    \For{each $g$ in $G$}{
+        \For{each $w$ in $W_{a}$}{
+    	   $sim[g, w] = similarity(w, centroid(g), f)$, estimate similarity of unknown page $w$ with $centroid(g)$ in vector space $f$\;
+        }
+    }
+   	$maxg = argmax_{g \in G}(sim[:, :])$, find the top match genre\;
+   	$score(maxg) = score(maxg) + 1$, increase the score of top match genre\;
+}
+
+\eIf{$max(score(g))/I > \boldsymbol\sigma$}{
+   $r = argmax_{g \in G}(score(g))$, assign the unknown page to genre with maximum top matches\;
+}
+{
+      $r = \emptyset$, none of the known genres or "I don't know"\;
+}
+\end{algorithm}
+
+\hfill \break
+
+In our study we adopt the RFSE method as introduced in \citep{pritsos2013open} shown in \textit{Algorithm \ref{alg:RFS-Ensemble}}. There are multiple training examples (documents) for each available genre. To maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors of the training examples of web pages for each genre.
+
+The class centroids are all formed for a given feature type. Then, an evaluation document is compared against every centroid and this process is repeated $I$ times. Every time a different feature sub-set is used. Then, the scores are ranked from highest to lowest and we measure the number of times the document is top-matched with every class. The document is assigned to the genre with maximum number of matches given that this score exceed a predefined $\sigma$ threshold. In the opposite case, the document remains unclassified, the RFSE responds "I Don't Know".
+
+
+With respect to the similarity function, we examine cosine similarity (similar to \citep{pritsos2013open}) and MinMax similarity (inspired by \citep{koppel2014determining}). Moreover, in this paper we introduce a measure that combines these two similarity functions and selects the one that is most confident in each iteration. More specifically, since cosine and MinMax may have different mean and standard deviation for the set of all evaluation documents and all iterations per document, we first normalize their value. Then, for each evaluation document and each iteration we select the one with maximum normalized value. We call this similarity measure \textit{Combo}.
+
+\section{Nearest Neighbors Distance Ratio}\label{sec:NNRD_Description}
+
+The Nearest Neighbors Distance Ratio (NNRD) algorithm is our variant implementation of the proposed open-set algorithm of Mendes et al. \cite{mendesjunior2016}. In the original approach euclidean distance has been used because of the variation of data set on which the algorithm has been evaluated. In our approach we are using cosine distance, because in text classification is being confirmed to be the proper choice in hundreds of publications. Moreover, the cosine distance is comparable to the results of the \textit{Random Feature Sub-spacing Ensemble} algorithm found in \cite{pritsos2018open} where cosine similarity is used for the WGI evaluation.
+
+The NNRD algorithm is an extension of the simple \textit{Nearest Neighbors} NN algorithm where additionally to the sets of training vectors (one set for each class) a threshold is selected by maximizing the \textit{Normalized Accuracy} (NA) as shown in equation\ref{eq:NA}) on the \textit{Known} and the \textit{Marked as Unknown samples}.
+
+\begin{equation} \label{eq:NA}
+    NA = \lambda A_{KS} + (1 - \lambda) A_{MUS}
+\end{equation}
+
+\noindent
+where $A_{KS}$ is the \textit{Known Samples Accuracy} and $A_{MUS}$ is the \textit{Marked as Unknown Samples Accuracy}. The balance parameters \lambda regulates the mistakes trade-off on the known and marked-unknown samples prediction.
+
+The optimally selected threshold is the the \textit{Distance Ratio Threshold} (DRT) where NA is maximized. Equation \ref{eq:DR} is used for calculating the Distance Ratio (DR) of the two nearest class samples, say $s_{c_{a}}$ and $u_{c_{b}}$, to a random sample $r_{x}$ under the constrain $c_{a} \notequal c_{b}$, where $c_{g}$ is the sample's class.
+
+It is very important to note that the $c_{g}$ is trained in an open-set framework, therefore, the samples pairs selected for comparison might either be from the known of the marked as unknown samples. Thus $g \in {1,2,...,N}$ and $g = \emptyset$ when samples is marked as unknown.
+
+\begin{equation} \label{eq:DR}
+    DR = \frac{D(r_{x}, s_{c_{a}})}{D(r_{x}, s_{c_{b}})}
+\end{equation}
+\noindent
+where $D(x,y)$ is the distance between the samples where in this study is the \textit{Cosine Distance}.
+
+Therefore, the fitting function of the NN algorithm, described in pseudo-code \ref{alg:NNDR_fitting}, is the optimization procedure to find the DRT values for classes respective sets of training samples where NA is maximized.
+
+\hfill \break
+
+\begin{algorithm}[H]
+\caption{\textit{Nearest Neighbor Distance Ratio} training data fitting function}\label{chap:openset:alg:NNDR_fitting}
+\KwData{$G$ the set of genre class tags $\{1,2,...,N\}$,
+        $p$ the hyper-parameter regulates the percentage of $G$ tags will be marked as unknown,
+        $k$ the hyper-parameter regulates the percentage of known $G$ tags that will be keept for validation only,
+        $T$ the \textit{Distance Ratio} thresholds set than will test for finding the one which is minimizing the \textit{Normalized Accuracy},
+        $\lambda$ regulates the mistakes trade-off on the known and marked-unknown samples prediction (see eq.\ref{eq:DR}),
+        $C[g]$ the matrix of class vector sets one for every genre class tag $g \in G$}
+\KwResult{$DRT$ the \textit{Distance Ration Threshold} calculated by the NNRD algorithm's fitting function, $C[g]$}
+
+$K^{G}_i, K^{G}_{validation}_i, U^{G}_{validation}_i, I^{G} = Split(G,p,k)$ splitting the $G$ tags in to known/unknown samples combinations using the $p$ and $k$ hyper-parameters. The amount of split combinations is calculated by the equations \ref{eq:splt_percent} and \ref{eq:splt}.\;
+
+$V^{G} = U^{G}_{validation} \cup K^{G}_{validation}$ the validation set is the union of the $I$ splits of the known-validation and the marked-as-unknown sets, of the whole training set\;
+
+\For{each $i \in I$}{
+    $D^{cos}_{VK}[i] = COS_{D}(V^{G}_i, K^{G}_i)$ calculating all the Cosine Distances between the web-page of $K^{G}$ and $V^{G}$ sets for \textit{every $I$ split combination};
+}
+
+$Ci^{min}_{A} = argmin(D^{cos}_{VK})$ getting the indices of the closest classes from $V$\;
+$Ci^{min}_{B} = argmin(D^{cos}_{VK})$ getting the indices of the \textit{second closest} classes from $V$\;
+
+$R_{V} = D^{cos}_{VK}[Di^{min}_{A}] / D^{cos}_{VK}[Di^{min}_{B}]$ calculating the Distance Rations $R$ for all the vectors in $V$
+
+$NA^{max} \gets 0$ initializing \textit{Maximized Normalized Accuracy} with $0$ value.
+$DRT \gets 0$ initializing \textit{Distance Ratio Threshold} with $0$ value.
+
+\For{each $drt \in T$}{
+
+    \For{each $r, i \in \{R_{V}, count(R_{V})\}$}{
+
+        \eIf{$r < drt$}{
+            $vi = Ci^{min}_{A}[i]$ keep the respective index\;
+            $Y[i] = G[vi]$ setting the genre's class tag as prediction for this random vector of set $V$\;
+        }
+        {
+            $Y[i] = \emptyset$ setting as none of the known genres or "I don't know"\;
+        }
+
+    }
+
+    $NA_{V} = NormalizedAccuracy(Y, R_{V})$ calculating the Normalized Accuracy as shown in equation \ref{eq:NA} for tested threshold $drt$\;
+
+    \eIf{$NA_{V} > NA^{max}$}{
+        $NA^{max} \gets NA_{V}$ keeping the maximum $NA$ until the outer for-loop finishes\;
+        $DRT \gets drt$ keeping the \textit{Distance Ratio Threshold} maximizes the \textit{Normalized Accuracy}\;
+    }
+
+}
+
+\end{algorithm}
+
+In the optimization procedure the training samples are split based on their class tags $c_{x}$. Then some class tags are \textit{marked as unknown} and some are left being known. Therefore, all the samples of the marked as unknown are used only in the validation subset while the known class tags samples are farther split into the classes sets (one for each class) and into the known validation set. Then, samples of the validation sets, both then known and then marked as unknown, are used seamlessly for calculating the set of Distance Rations (one for each class). Afterwards, a set of DRT values are tested given a range of values $R \in {t_{1}, t_{2}, t_{n}}$ beforehand where the $t_{x}$ is selected which is maximizing the NA of the validation set.
+
+The splitting procedure the of the training set is regulated by a hyper-parameter $p$ which defines the percentage of the class tags set $g \in {1,2,...,N}$ where they will be marked as unknown. Then the total number of all possible splitting combination are calculated and these split-sets are used for finding the DRT. The combination are found using equations \ref{eq:splt_percent} and \ref{eq:splt}, where eq.\ref{eq:splt} is the \textit{Binomial Coefficient}.
+
+\begin{equation} \label{eq:splt_percent}
+    U_{num} = int(N * p)
+\end{equation}
+
+\noindent
+where $N$ is the size of the class tags set ${1,2,...,N}$ and $p$ is the percentage regulation parameter for keeping the number of tags to be marked as unknown.
+
+\begin{equation} \label{eq:splt}
+    S_{num} = \frac{N!}{U_{num}!(N-U_{num})!}
+\end{equation}
+
+The NNDR is a open-set classification algorithm, therefore, every random sample will be classified to one of the classes the NNRD has been fitted or to the unknown when its DR is greater then DRT. While training as explained above the DRT values are tested incrementally until the optimal data fitting for the training function.
+
+In prediction phase the DRT is passed to the NNDR prediction function together with the random samples and the training samples as shown in pseudo-code \ref{alg:NNDR_prediction}.
+
+\begin{algorithm}[H]
+\caption{\textit{Nearest Neighbor Distance Ratio} prediction function}\label{alg:NNDR_prediction}
+\KwData{ $W$ the vector set of the random web-page to be classified,
+         $C[g]$ the matrix of class vector sets one for every genre class tag $g \in G$,
+		 $DRT$ the \textit{Distance Ration Threshold} calculated by the NNRD algorithms fitting function}
+\KwResult{ $Y \in \{G,\,\emptyset\}$,
+           $R$ the Distance Ratio scores vector, one score for every input vector of the random set $W$}
+
+\For{each $g \in G$}{
+    $D^{cos}_{C_{g}X} = COS_{D}(C[g], X)$ calculating all the Cosine Distances between the random web-page vectors and the class vectors of class $g$\;
+}
+
+$Ci^{min}_{A} = argmin(D^{cos}_{C_{g}W})$ getting the indices of the closest classes from $W$\;
+$Ci^{min}_{B} = argmin(D^{cos}_{C_{g}W})$ getting the indices of the \textit{second closest} classes from $W$\;
+
+$R_{W} = D^{cos}_{C_{g}W}[Di^{min}_{A}] / D^{cos}_{C_{g}W}[Di^{min}_{B}]$ calculating the Distance Rations $R$ for all the vectors in $W$
+
+\For{each $r, i \in \{R_{W}, count(R_{W})\}$}{
+
+    \eIf{$r < DRT$}{
+        $vi = Ci^{min}_{A}[i]$ keep the respective index\;
+        $Y[i] = G[vi]$ setting the genre's class tag as prediction for this random vector of set $W$\;
+    }
+    {
+        $Y[i] = \emptyset$ setting as none of the known genres or "I don't know"\;
+    }
+
+}
+
+\end{algorithm}
+
+Our implementation of the above NNRD algorithm can be found at \url{https://github.com/dpritsos/OpenNNDR}, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.
