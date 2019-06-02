@@ -72,7 +72,7 @@ The process of scanning and especially skimming in practice follows some specifi
   
 As \textit{Web Search} from an extension of IR because the main subject under investigation \parencite{manning2008introduction}, \textit{Web page Genre Classification } is becoming the main subject of document classification research.
 
-Blogs is a genre-type has attracted as special interest on its own, in differed domains such as in sociology, psychology, linguistics and mostly in computational linguistics and WGI. There are several blogs' properties of interest of the research and  also blogs having their own sub-genre taxonomy. Blog-taxonomy general genres are \textit{Filter, Personal-diary} and \textit{Notebook} and other related to the authors group of styles such as \textit{Reflective, Narrative, Emotional, Rational} and \textit{Personal , Non-Personal}. The thought research on the blog-types classification has delivered a set of special linguistic and web-page structural properties which are increasing the performance of the closed set classification. Details for this linguistic properties used for specially for blogs sub-taxonomy classification are described in section \ref{chap:relevant_work:sec:features:subsec:heuristics} \cite{virik2017blog,hoffmann2012cohesive,hoffmann2012cohesive,derczynski2014social,qu2006automated}. 
+Blogs is a genre-type has attracted as special interest on its own, in differed domains such as in sociology, psychology, linguistics and mostly in computational linguistics and WGI. There are several blogs' properties of interest of the research and  also blogs having their own sub-genre taxonomy. Blog-taxonomy general genres are \textit{Filter, Personal-diary} and \textit{Notebook} and other related to the authors group of styles such as \textit{Reflective, Narrative, Emotional, Rational} and \textit{Personal , Non-Personal}. The thought research on the blog-types classification has delivered a set of special linguistic and web-page structural properties which are increasing the performance of the closed set classification. Details for this linguistic properties used for specially for blogs sub-taxonomy classification are described in section \ref{chap:relevant_work:sec:features:subsec:heuristics} \parencite{virik2017blog,hoffmann2012cohesive,hoffmann2012cohesive,derczynski2014social,qu2006automated}. 
 
 Most previous work in WGI follows a typical closed-set text categorization approach where, first, features are extracted from documents and, then, a classifier is built to distinguish between classes. Attention is paid to the appropriate definition of features that are able to capture genre characteristics and should not be affected by topic shifts or personal style choices. 
 
@@ -162,7 +162,7 @@ The accuracy using this method on shown to have been reached $93\%$ compare to $
 
 Most notably is the used of Recurrent Neural Networks (RNN) where Linguistic Complexity Contours (LCC) where employed as modeling features (LCC details are explained in section \ref{chap:relevant_work:sec:intro:subsec:heuristics}). Their model was based on 32 LLC features where fed to 32 Gated Recurrent Units (GRU)  and the output of each GRU was also fed to the next. Then all the output GRU output was the input of a Dense Layer of the RNN where a Softmax decision function was applied on. Their model was a closed-set framework with very high performance where was reaching over $90\%$  accuracy\parencite{strobel2018text}.
 
-\paragraph{Ensemble Based} There are very few \textit{ensemble based} algorithms employed for the WGI and AGI task, however, they seem to be a very promising path as shown in \cite{onan2018ensemble,pritsos2015clef,pritsos2013open,pritsos2018open}. Particularly there are three methods, mainly, where an ensemble can be formed, namely, AdaBoost, Bagging and Random Feature (RFS) Subspace ( (i.e. random sub-sampling). In this study we mainly focusing on the RFS, it is one of the algorithms are thoroughly presented in the context of WGI/AGI task.
+\paragraph{Ensemble Based} There are very few \textit{ensemble based} algorithms employed for the WGI and AGI task, however, they seem to be a very promising path as shown in \parencite{onan2018ensemble,pritsos2015clef,pritsos2013open,pritsos2018open}. Particularly there are three methods, mainly, where an ensemble can be formed, namely, AdaBoost, Bagging and Random Feature (RFS) Subspace ( (i.e. random sub-sampling). In this study we mainly focusing on the RFS, it is one of the algorithms are thoroughly presented in the context of WGI/AGI task.
 
 \textit{AdaBoost} is a \textit{Boosting} algorithm where usually a random sampling is performed over the data and s set of classifier are trained over these samples. There is a weighting scheme over the samples which is changing in every training iteration, where for the samples mostly miss-classified, by most of the learners, their weights are increasing. In this manner the difficult samples repetitively to classification are presented to the weak learner in more iterations in order the whole systems of learners fit adjust better over these samples.
 
@@ -213,7 +213,7 @@ The results in this study were very promising given that with a generic language
 
 Firstly, they are using two \textit{clustering methods} attempting to develop an \textit{Automated Hierarchical Clustering (AHC)} where a raw multi-class taxonomy could potentially organized in a hierarchical manner. That is, given a set of  \textit{"leaf" class-tags} by using an agglomerative or a balanced k-means algorithm the tried to create a class-tag hierarchy and compare with the one of an expert. Secondly, they show than the Balanced k-means works better for this task on their data set and experimental set-up.
 
-The utility of the Balanced K-means is for pre-defining the size of the clusters assumed to be. Thus, the objective function of the \textit{balanced k-means} is implicitly (or explicitly) optimizes two (contradictory) objectives. Firstly, is to find most dense and well separated clusters and secondly, is to maintain the sizes of the clusters equal. To do so, the \textit{Hungarian algorithm} algorithm is used for the optimization process \cite{malinen2014balanced}, where it is a combinatorial optimization algorithm that solves the assignment problem in polynomial time.
+The utility of the Balanced K-means is for pre-defining the size of the clusters assumed to be. Thus, the objective function of the \textit{balanced k-means} is implicitly (or explicitly) optimizes two (contradictory) objectives. Firstly, is to find most dense and well separated clusters and secondly, is to maintain the sizes of the clusters equal. To do so, the \textit{Hungarian algorithm} algorithm is used for the optimization process \parencite{malinen2014balanced}, where it is a combinatorial optimization algorithm that solves the assignment problem in polynomial time.
 
 Their method compared with the hierarchical taxonomy created by an expert, seems to work equally or betters for the HMC scenario of AGI. They also show the their result of the AHC can be also used for  a multi-class classification scenario.
 
@@ -237,23 +237,23 @@ In section \ref{chap:relevant_work:sec:openset_and_noise} the open-set approach 
 
 The main contribution of this work is the establishment of the novel open-set approach for the WGI and AGI tasks. In addition three previously presented algorithms adapted to the open-set classification and they are also presented briefly in this section together with an only few other similar efforts to towards to this research direction. The algorithms are thoroughly presented and evaluated in the following chapter \ref{chap:openset}, while in chapter \ref{chap:noise} are stressfully tested under the presence of noise.
 
-Most previous studies in WGI consider the case where all web pages should belong to a predefined taxonomy of genres \cite{Lim2005,santini2007automatic,kanaris2009learning,jebari2014pure_URL}. Putting this setup under the vantage point of machine learning, it is the same as assuming what is known as a closed-set problem definition. However, this naïve assumption is not appropriate for most applications related to WGI as it is not possible to construct a universal genre palette a priori nor force web pages to always fall into any of the predefined genre labels. Such web pages are considered \textit{noise} and include web documents where multiple genres co-exist \cite{santini2011cross,levering2008using}. 
+Most previous studies in WGI consider the case where all web pages should belong to a predefined taxonomy of genres \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2014pure_URL}. Putting this setup under the vantage point of machine learning, it is the same as assuming what is known as a closed-set problem definition. However, this naïve assumption is not appropriate for most applications related to WGI as it is not possible to construct a universal genre palette a priori nor force web pages to always fall into any of the predefined genre labels. Such web pages are considered \textit{noise} and include web documents where multiple genres co-exist \parencite{santini2011cross,levering2008using}. 
 
 To handle noise in WGI there are two options. First, to adopt the closed-set classification setup having one predefined category devoted to noise. Since this category would comprise all web pages not belonging to the known genre labels, it would not be homogeneous. Moreover, this noise class would be much more greater with respect to the other genres causing class imbalance problems. 
 
-The second option is to adopt the open-set classification setting where it is possible for some web pages not to be classified into any of the predefined genre categories \parencite{pritsos2013open,pritsos2015clef,pritsos2018open}. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup \parencite{scheirer2013toward} and showed that it is much more challenging to perform WGI \cite{Asheghi2015}.
+The second option is to adopt the open-set classification setting where it is possible for some web pages not to be classified into any of the predefined genre categories \parencite{pritsos2013open,pritsos2015clef,pritsos2018open}. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup \parencite{scheirer2013toward} and showed that it is much more challenging to perform WGI \parencite{Asheghi2015}.
 
-The effect of noise in WGI  was first studied in \cite{shepherd2004cybergenre,kennedy2005automatic,dong2006binary,levering2008using} where predefined genres were personal, organizational, and corporate home pages \textit{while noise consisted of non-home pages}. However, the distribution of pages into these four categories was practically balanced, hence it was not realistic.
+The effect of noise in WGI  was first studied in \parencite{shepherd2004cybergenre,kennedy2005automatic,dong2006binary,levering2008using} where predefined genres were personal, organizational, and corporate home pages \textit{while noise consisted of non-home pages}. However, the distribution of pages into these four categories was practically balanced, hence it was not realistic.
 
 \textit{Noise} in WGI can be categorized into \textit{Structured Noise (s-noise)} and into \textit{Unstructured Noise (u-noise)}, where s-noise defines as the collection of web pages belonging to several (known) genres. However, it is highly unlikely that such a collection  represents the real distribution of pages on the web. On the other hand, u-noise defines a random collection of web-pages \parencite{santini2011cross}.
 
 There are few studies where they have handled somehow the \textit{structured and unstructured noise} in a closed-set approach. That is either the "noise" was assumed in the training phase of the prediction model where some sample had been left as \textit{outages} \parencite{jebari2015combination}, or s-noise has been used \textit{as a negative class} for training a binary classifier \parencite{Vidulin2007}. Noise also\textit{ used as the majority class} in experiments where one class was the positive sample case and several other genre with combination of some other randomly selected pages where used for fitting prediction models binary or multi-class \parencite{dong2006binary,levering2008using}. 
 
-Open-set classification models for WGI were first described in \cite{pritsos2013open,stubbe2007genre}. These models were tested in \textit{noise-free} and \textit{noise-full} corpora \cite{pritsos2015clef,pritsos2018open,pritsos2019open}. Particularly, these are the models are described in detail in section \ref{chap:openset} and they are the main contribution to the domains of WGI and AGI. Here, are briefly described.
+Open-set classification models for WGI were first described in \parencite{pritsos2013open,stubbe2007genre}. These models were tested in \textit{noise-free} and \textit{noise-full} corpora \parencite{pritsos2015clef,pritsos2018open,pritsos2019open}. Particularly, these are the models are described in detail in section \ref{chap:openset} and they are the main contribution to the domains of WGI and AGI. Here, are briefly described.
 
-Recently, \textit{Ensemble Methods} were shown to achieve high effectiveness in open-set WGI setups \cite{pritsos2013open,pritsos2015clef,pritsos2018open,pritsos2019open}. Two variants are studied in detail in this work, where one is based on the OC-SVM or $\nu$-SVM and the other is based a random features sub-sampling distance comparisons called \textit{RFSE (Random Feature Subspace Ensemble)}. 
+Recently, \textit{Ensemble Methods} were shown to achieve high effectiveness in open-set WGI setups \parencite{pritsos2013open,pritsos2015clef,pritsos2018open,pritsos2019open}. Two variants are studied in detail in this work, where one is based on the OC-SVM or $\nu$-SVM and the other is based a random features sub-sampling distance comparisons called \textit{RFSE (Random Feature Subspace Ensemble)}. 
 
-One-class SVM is actually an $\nu$-SVM for the case we want to find the contour which is prescribing the positive samples of the training set given for a single class, while there are \textit{no negative samples}. $\nu$-SVM is providing an alternative \textit{trade-off control method of misclassification}, proposed from Scholkopf et al. \citep{scholkopf1999estimating}. 
+One-class SVM is actually an $\nu$-SVM for the case we want to find the contour which is prescribing the positive samples of the training set given for a single class, while there are \textit{no negative samples}. $\nu$-SVM is providing an alternative \textit{trade-off control method of misclassification}, proposed from Scholkopf et al. \parencitep{scholkopf1999estimating}. 
 
 It should be noted than $\nu$-SVM has the $\nu$ parameter which is regulating the following properties of the algorithm.
 \begin{itemize}
@@ -261,13 +261,13 @@ It should be noted than $\nu$-SVM has the $\nu$ parameter which is regulating th
 \item $\nu$ is a lower bound on the fraction of \textit{Support Vectors}.
 \end{itemize}
 
-In practice different values of $\nu$ are defining different proportion of the training sample as outliers. For example in Scholkopf et al. \citep{scholkopf1999estimating} is showed that in their experiments when using $\nu=0.05$, 1.4\% of the training set has been classified as outliers while using $\nu=0.5$, 47.4\% is classified as outliers and 51.2\% is kept as SVs.
+In practice different values of $\nu$ are defining different proportion of the training sample as outliers. For example in Scholkopf et al. \parencitep{scholkopf1999estimating} is showed that in their experiments when using $\nu=0.05$, 1.4\% of the training set has been classified as outliers while using $\nu=0.5$, 47.4\% is classified as outliers and 51.2\% is kept as SVs.
 
 In the prediction phase in order for an OCSVM model to decide whether a document is belonging to the target genre-class (or not) a \textit{decision function} is used. The decision function indicates the distance of the document, positive or negative, to the hyperplane separating the classes. In the case of OCSVM we are usually only interested whether the decision function is positive or negative for deciding if an arbitrary document belonging or not to the target class.
 
-The ensemble form of  OCSVM proposed in this work, and published in \citep{pritsos2013open}, is described in algorithm \ref{alg:OCSVM-Ensemble}. Specifically, an OCSVM is trained for every web-genre class individually. In the prediction phase, the document is assigned to the class with the highest positive distance from the hyperplane (or the contour for OCSVM). If all OCSVMs return a negative distance (i.e. the web-page does not belong to this genre) the document remains unclassified, that is the final answer corresponds to "I Don't Know". Note than the $\nu$ parameter is the same for all the OCSVM learner. 
+The ensemble form of  OCSVM proposed in this work, and published in \parencitep{pritsos2013open}, is described in algorithm \ref{alg:OCSVM-Ensemble}. Specifically, an OCSVM is trained for every web-genre class individually. In the prediction phase, the document is assigned to the class with the highest positive distance from the hyperplane (or the contour for OCSVM). If all OCSVMs return a negative distance (i.e. the web-page does not belong to this genre) the document remains unclassified, that is the final answer corresponds to "I Don't Know". Note than the $\nu$ parameter is the same for all the OCSVM learner. 
 
-The RFSE algorithm is a variation of the method presented in \citep{koppel2011authorship}. In this work the RFSE shown in \textit{Algorithm \ref{alg:RFS-Ensemble}}. There are multiple training examples (documents) for each available genre from which a \textit{centroid vector} is calcualted for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors of the training examples of web pages for each genre.
+The RFSE algorithm is a variation of the method presented in \parencitep{koppel2011authorship}. In this work the RFSE shown in \textit{Algorithm \ref{alg:RFS-Ensemble}}. There are multiple training examples (documents) for each available genre from which a \textit{centroid vector} is calcualted for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors of the training examples of web pages for each genre.
 
 An random document is compared against every centroid and this process is repeated $I$ times. Every time \textit{a Different Feature Sub-set is used}. Then, the scores are ranked from highest to lowest and the number of times the document is top-matched is measured, with every class. The \textit{document is assigned to the genre with maximum number of matches}. A \$\sigma$ threshold is regulating amount of documents remaining unclassified, i.e. the RFSE responds "I Don't Know" for these documents.
 
@@ -283,11 +283,11 @@ Their main contribution is the transitions of the problem form the \textit{featu
 
 where $D_{+}$ is the set of documents in the positive class and $\lvert . \rvert$ is the size of function. $\alpha$ and $\beta$ are parameters, which are usually set empirically.
 
-The SVM methods under testing where 1-vs-rest multi-class SVM (Platt200...), 1-vs-set Machine SVM \cite{scheirer2013toward}, W-SVM (Scheirer2014....), $P_{1}$-SVM (Jain2014), $P_{1}$-SVM (Jain2014), Exploratory Seeded K-means (Exploratory EM) (Dalvi2013...). They have also used a kind of \textit{openness testing}, by using $25\%$ to $100\%$ of the classes and their method were mostly outperforming the other methods. The macro-F1 score range of their methods from the most open set-up to the totally closed (i.e. using the $100\%$ of the classes) was from $0.417$ to $0.873$ depending on the corpus and the special class set-up \parencite{fei2016breaking}.
+The SVM methods under testing where 1-vs-rest multi-class SVM (Platt200...), 1-vs-set Machine SVM \parencite{scheirer2013toward}, W-SVM (Scheirer2014....), $P_{1}$-SVM (Jain2014), $P_{1}$-SVM (Jain2014), Exploratory Seeded K-means (Exploratory EM) (Dalvi2013...). They have also used a kind of \textit{openness testing}, by using $25\%$ to $100\%$ of the classes and their method were mostly outperforming the other methods. The macro-F1 score range of their methods from the most open set-up to the totally closed (i.e. using the $100\%$ of the classes) was from $0.417$ to $0.873$ depending on the corpus and the special class set-up \parencite{fei2016breaking}.
 
 In this work it is presented an adapted implantation, for the WGI task, of the \textit{Nearest Neighbours Distance Ration (NNDR)} which it is also handles the open space risk and it is presented in detail in chapter \ref{chap:openset} and described in algorithm \ref{chap:openset:alg:NNDR_fitting}.
 
-NNRD algorithm is our variant implementation of the proposed in \cite{mendesjunior2016}. In the original approach euclidean distance has been used because of the variation of data set on which the algorithm has been evaluated. in algorithm \ref{chap:openset:alg:NNDR_fitting}, the cosine distance is used, because in text classification is being confirmed to be the proper choice in hundreds of publications. 
+NNRD algorithm is our variant implementation of the proposed in \parencite{mendesjunior2016}. In the original approach euclidean distance has been used because of the variation of data set on which the algorithm has been evaluated. in algorithm \ref{chap:openset:alg:NNDR_fitting}, the cosine distance is used, because in text classification is being confirmed to be the proper choice in hundreds of publications. 
 
 The NNRD algorithm is an extension of the \textit{Nearest Neighbors} NN algorithm where additionally to the sets of training vectors (one set for each class) a threshold is selected by maximizing the \textit{Normalized Accuracy} (NA) as shown in equation\ref{eq:NA}) on the \textit{Known} and the \textit{Marked as Unknown samples}.
 
@@ -298,7 +298,7 @@ The NNRD algorithm is an extension of the \textit{Nearest Neighbors} NN algorith
 \noindent
 where $A_{KS}$ is the \textit{Known Samples Accuracy} and $A_{MUS}$ is the \textit{Marked as Unknown Samples Accuracy}. The balance parameters \lambda regulates the mistakes trade-off on the known and marked-unknown samples prediction.
 
-The optimally selected threshold is the the \textit{Distance Ratio Threshold} (DRT) where NA is maximized. Equation \ref{eq:DR} is used for calculating the Distance Ratio (DR) of the two nearest class samples, say $s_{c_{a}}$ and $u_{c_{b}}$, to a random sample $r_{x}$ under the constrain $c_{a} \notqual c_{b}$, where $c_{g}$ is the sample's class.
+The optimally selected threshold is the the \textit{Distance Ratio Threshold} (DRT) where NA is maximized. Equation \ref{eq:DR} is used for calculating the Distance Ratio (DR) of the two nearest class samples, say $s_{c_{a}}$ and $u_{c_{b}}$, to a random sample $r_{x}$ under the constrain $c_{a} \neq c_{b}$, where $c_{g}$ is the sample's class.
 
 It is very important to note that the $c_{g}$ is trained in an open-set framework, therefore, the samples pairs selected for comparison might either be from the known of the marked as unknown samples. Thus $g \in {1,2,...,N}$ and $g = \emptyset$ when samples is marked as unknown.
 
@@ -310,24 +310,23 @@ where $D(x,y)$ is the distance between the samples where in this study is the \t
 
 Therefore, the fitting function of the NN algorithm, described in algorithm \ref{chap:openset:alg:NNDR_fitting}, is the optimization procedure to find the DRT values for classes respective sets of training samples where NA is maximized.
 
-The NNDR is a open-set classification algorithm, therefore, every random sample will be classified to one of the classes the NNRD has been fitted or to the unknown when its DR is greater then DRT. While training as explained above the DRT values are tested incrementally until the optimal data fitting for the training function.
+The NNDR is a open-set classification algorithm, therefore, a random sample will be classified to one of the classes it has been trained or to the \textit{unknown class} when its DR score is greater than DRT threshold. During training the DRT values are tested incrementally until the optimal data are fitted for the training function.
 
-In prediction phase the DRT is passed to the NNDR prediction function together with the random samples and the training samples as shown in algorithm \ref{chap:openset:alg:NNDR_prediction}.
+In prediction phase the DRT is passed to the NNDR prediction function together with the training samples as shown in algorithm. Then for every sample of the testing set a classification decision is returned as shown in algorithm \ref{chap:openset:alg:NNDR_prediction}.
 
+To sum up, as concerns the classification models involved in WGI studies, when a given genre taxonomy is utilized and there is no noise, then well-known machine learning models, like SVMs, decision trees, neural networks, naive Bayes, Random Forests, etc. are used \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2015combination,sharoff2010web}. In case of presence of noise, in a clustering framework described in \parencite{kennedy2005automatic} one cluster is built for each predefined class and another cluster is built for the noise. However, the most common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of all other predefined categories plus the noise \parencite{kennedy2005automatic,dong2006binary,levering2008using}. Such a combination of binary classifiers can also be seen as a multi-label and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. 
 
-
-Concerning the classification models involved in WGI studies, when a given genre taxonomy is utilized and there is no noise, then well-known machine learning models, like SVMs, decision trees, neural networks, naive Bayes, Random Forests, etc. are used \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2015combination,sharoff2010web}. In case of presence of noise, in a clustering framework described in \parencite{kennedy2005automatic} one cluster is built for each predefined class and another cluster is built for the noise. However, the most common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of all other predefined categories plus the noise \parencite{kennedy2005automatic,dong2006binary,levering2008using}. Such a combination of binary classifiers can also be seen as a multi-label and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. More concrete open-set classification models for WGI were presented in \parencite{stubbe2007genre,pritsos2013open}. However, these models were only tested in noise-free corpora \parencite{pritsos2015clef}. More recently, Asheghi \parencite{Asheghi2015} showed that it is much more challenging to perform WGI in the noisy web in comparison to noise-free corpora.
-
-
+More concrete open-set classification models for WGI have been presented here are the RFSE and the NNRD . In the  next chapters these algorithms together with the issues related to the model building for the WGI task in an open-set framework with the presence of Noise is analysed in details. Before that there is one more issue one could pursue in this research domain however it out of the scope of this work and that is way is only preseted here briefly in subsection \ref{chap:relevant_work:sec:temporal_wgi}
 
 \subsection{Web Genre Temporal Property}
-The temporal idiosyncrasy of the genre-taxonomy is a major factor, yet not deeply studied in the linguistics and computational linguistic domains. Naturally, as in other human arts there is an evolution in the genres, while other genres emerging and others stop existing. Web-genre taxonomy is a result of an even more dynamic environment and it evolves rapidly. Genres are adapting due to the medium transition such as News on paper and News on the Web, or because of the medium itself emerging novelties such as the Blogs which have evolved to micro-blogs and finally to social-media. 
+\label{chap:relevant_work:sec:temporal_wgi}
+The temporal idiosyncrasy of the genre-taxonomy is a major factor, yet not deeply studied in the linguistics and computational linguistic domains. Naturally, as in other human arts there is an evolution in the genres, while other genres emerging and others stop existing. Web-genre taxonomy is a result of an even more dynamic environment and it evolves rapidly. Genres are adapting due to the medium transition such as from \textit{News on paper} to \textit{News on the Web}, or because of the medium itself emerging novelties such as the \textit{Blogs} which have evolved to\textit{ micro-Blogs} and finally to \textit{the Social-Media}. 
 
 In \parencite{caple2017genre} there is a characteristic study advocating in the temporal manner of the web-genre, where it is analyzed how the News (as a web-genre) have changed overtime and the way the News sub-genres occurred.
 
 An \textit{Enhanced Centroid-based Classification (ECC)} ensemble model has been proposed for dealing with adapted genres and the temporal idiosyncrasy of the genre-taxonomy. The model is an \textit{incremental centroid-based} ensemble where new web pages are classified one by one, where in the testing/production phase the centroids adjust to the new data as long as they are "close-enough" \parencite{jebari2015combination}.
 
-The ECC learning algorithm is calculating an initial set of centroids for every given class based on the equation \ref{eq:jebary_ecc_centroids} and then using the threshold calculated by the equation \ref{eq:jebary_ecc_theshold} is re-evaluating the samples. When the samples of  class are not "close-enough" are considered to be \textit{outages} and an new centroid is calculated from the rest of the samples for this class. 
+The ECC learning algorithm is calculating an initial set of centroids for every given class based on the equation \ref{eq:jebary_ecc_centroids} and then using the threshold calculated by the equation \ref{eq:jebary_ecc_theshold} is re-evaluating the samples. When the samples of  class are not "close-enough" are considered to be \textit{outages} and a new centroid is calculated from the rest of the samples for this class. 
 
 \begin{equation}\label{eq:jebary_ecc_centroids}
 	GC_{i}^{N} = \frac{GC^{S}_{i}}{\Vert GC^{S}_{i}\Vert }
@@ -336,8 +335,8 @@ The ECC learning algorithm is calculating an initial set of centroids for every 
 \begin{equation}\label{eq:jebary_ecc_theshold}
 	\sigma_{i} = \frac{1}{\vert g_{i} \vert } \sum_{p_{j} \in T_{r_{g_{i}}}} sim(p_{j}, GC_{i}^{N})
 \end{equation}
-
-Where $GC^{S}_{i} \in G$ is a set of predefined genre centroids for the $S_{i} \in G$ set of samples for each genre class $G$. $T_{r_{g_{i}}} =   \{ (p_{i}, g_{j}) \vert g_{i} \in G  \}$ is a set of training set samples initially and at the and is formed to $T_{r_{g_{i}}} =   \{ (p_{i}, g_{j}) \vert sim(p_{j}, GC^{N}_{i}) \leq \sigma_{i} \}$  after eq. will be applied \ref{eq:jebary_ecc_theshold}.
+\noindent
+where $GC^{S}_{i} \in G$ is a set of predefined genre centroids for the $S_{i} \in G$ set of samples for each genre class $G$. $T_{r_{g_{i}}} =   \{ (p_{i}, g_{j}) \vert g_{i} \in G  \}$ is a set of training set samples initially and at the and is formed to $T_{r_{g_{i}}} =   \{ (p_{i}, g_{j}) \vert sim(p_{j}, GC^{N}_{i}) \leq \sigma_{i} \}$  after eq. will be applied \ref{eq:jebary_ecc_theshold}.
 
 In the testing phase an arbitrary page is ranked in deciding order to the \textit{similarity-rank} $\theta(p)$, as defined in the equation \ref{eq:jebary_ecc_rank}. Then the centroids and the threshold are re-calculated based on the equations \ref{eq:jebary_ecc_new_centr} and \ref{eq:jebary_ecc_new_thres}. 
 
@@ -351,34 +350,35 @@ In the testing phase an arbitrary page is ranked in deciding order to the \texti
 \begin{equation}\label{eq:jebary_ecc_new_thres}
 	\sigma_{i} = \frac{S_{i} +  sim(p, GC_{i}^{N})}{\vert g_{i} \vert}
 \end{equation}
-The ECC has been designed to adapt in the evolution of genres in time, thus, it makes no sense to classify the web pages exclusively on the contrary is returning the similarly-rank $\theta(p)$. Consequently, this algorithm can be considered open-set \textit{because possible for same web-pages the  $\theta(p)$ set might return empty}. On the other hand since the algorithm will adapt some web-pages that are not strictly belonging to the genre it is trained for, i.e. noise pages, will be incorporated to the new centroids and the threshold value. 
+The ECC has been \textit{designed to adapt in the evolution of genres in time}, thus, it makes no sense to classify the web pages exclusively on the contrary is returning the similarly-rank $\theta(p)$. Consequently, this algorithm can be considered open-set \textit{because possible for same web-pages the  $\theta(p)$ set might return empty}. On the other hand since the algorithm will adapt some web-pages that are not strictly belonging to the genre it is trained for, i.e. noise pages, will be incorporated to the new centroids and the threshold value.  Consequently, ECC is sensitive to noise as it has been defined in section \ref{chap:relevant_work:sec:openset_and_noise}.
 
-Consequently, ECC is sensitive to noise as defined in section \ref{chap:relevant_work:sec:noise} where the web-genre noise and open-set multi-class classification approach is discussed in detail.
+\section{Features Selection and Vector Space Dimensions}\label{chap:relevant_work:sec:features}
 
-\section{Features Selection and Vectors Space Dimensions}\label{chap:relevant_work:sec:features}
+In most of the applied research domains where machine learning is the dominant subject of choice the main concern is to extract and select the proper features from the raw data samples of the data set. Therefore, in addition to the process of inverting a machine learning method for inducing prediction models for the problem the process of feature extraction and dimensionality reduction are coming together. The same applies for the WGI where most of the focus where in these two procedures and less in creating new machine learning algorithms. On the contrary, in all studies usually a closed-set and out-of-the-box ML models were tested with the exception of the cases described in sections \ref{chap:relevant_work:sec:machine_learning_methods} and \ref{chap:relevant_work:sec:openset_and_noise}.
 
- To this end, several document representation features have been proposed and are related with textual content, e.g. character n-grams, word n-grams, part-of-speech histograms etc. \parencite{kumari2014web,petrenz2011stable,mason2009n,sharoff2010web} as well as the form, structure, and visual appearance of web documents, e.g., html tags, number of images, scripts etc. \parencite{Lim2005,levering2008using}. Usually, the combination of features from different sources enhances the robustness of WGI approaches \parencite{levering2008using,kanaris2009learning}.
+In this section are summarized all feature selection and dimentionality reduction successful ideas for WGI and AGI. To begin with the features that can be extracted from a web-pages can be grouped to the \textit{textual}, the \textit{HTML tags} and the \textit{URL links} with or without their \textit{anchor text}. Cornering the URL links it will be discussed in more detail in section \ref{chap:relevant_work:sec:url} where either the URL it self as a character string can be analyzed or the structure of the web-pages connections can be exploited \parencite{abramson2012_URL,asheghi2014semi,jebari2014pure_URL,priyatam2013don_URL,zhu2011enhance}. 
 
-Great attention historically on WGI has been given to the appropriate definition of features that are capable of capturing genre characteristics --- which includes but are not limited to character n-grams or word n-grams, part-of-speech histograms, the frequency of the most discriminative words, etc.  \cite{kanaris2009learning,kumari2014web,levering2008using,Lim2005,mason2009n,onan2018ensemble,petrenz2011stable,sharoff2010web}. Additionally, some additional useful features might come from exploiting HTML structure and/or the hyperlink functionality of web pages \cite{abramson2012_URL,asheghi2014semi,jebari2014pure_URL,priyatam2013don_URL,zhu2011enhance}. Recently deep learning methods have also been tested in genre detection setups with promising results~\cite{worsham2018genre}. 
+In respect of the HTML tags, the most adaptive approach it the frequency counting of the HTML tags distributed in the hypertext. Special focus in some cases are given to the image tags and the link tags\parencite{Lim2005,levering2008using}.  There are also other cases where only pure structural information of a web page, i.e. the HTML tags, are exploited {[}Philipp Scholl{]}. In addition there are very few cases where the DOM object structure is analyzed for extracting information but usually as part of the whole set of features selected and not as a stand alone choice \parencite{mehler2011integrating}.
 
-A great variety of features to quantify the stylistic choices related to genre have been proposed in previous work. These are mainly based on textual content (e.g., character and word  n-grams) \parencite{mason2009distance,Sharroff2010} and form or structure of the web page (html tags, image count, links count, etc.) \parencite{Lim2005,levering2008using}. Both sources of  information are useful and usually their combination enhances a WGI model \parencite{kanaris2009learning}. However, features extracted from textual content are more robust since they do not  depend on technology or format used to create a web page and therefore they are more likely to remain stable in time.
+The \textit{Textual content} is the most analyzed part of the hypertext which has been used for WGI \parencite{mason2009distance,Sharroff2010}. There are several features than can be extracted used alone or combined to getting the maximum information one can get from the web-paged and feed it for training a prediction ML algorithm. Character n-grams, Word n-grams, Part-of-Speach n-grams and some \textit{special discriminative words} have been commonly used and usually combined with some heuristically extracted features \parencite{kanaris2009learning,kumari2014web,levering2008using,Lim2005,mason2009n,onan2018ensemble,petrenz2011stable,sharoff2010web,Nooralahzadeh2014}.
 
- Several text  representation schemes based on textual content are examined and we focus on the appropriate selection of parameter settings for each model. Using two benchmark corpora we perform a  systematic evaluation of WGI models when noise is either unstructured (the true genre of noisy pages is not available) or structured (the true genre of noisy pages is available). In order  to handle the latter case, we employ the openness test in WGI that provides a detailed view of performance for a varying number of known/unknown labels. This test has already been used in  visual object recognition \parencite{scheirer2013toward} and it perfectly fits the WGI task.
+The web-page's extracted features were also presented in a variety of  text  representation schemes such as Term Frequency (TF), Term Frequency  Inverted Document Frequency (TF-IDF), Binary Term, and Smoothing Distribution (see LOWBOW ref). The \textit{Superficial Document Characteristics (SDC)} can be considered as features and document representations together where they are the counts of the Words lenghs (in characters) frequency, the Sentencies length (in words) frequency, the Paragraphs length etc. In addition the Max, Min, and Ratios of these SDC were also count such as the \textit{Average to Max size of Words Ratio, the Max Word Length Frequency} etc. In general several facets, i.e. \textit{terms types}, have been tested for WGI cornering the Hypertext \parencite{feldman2009classifying,santini2005linguistic}.
 
- For example, given that a set of web pages has to be part-of-speech tagged, appropriate models can be applied to each web page according to their genre \parencite{Nooralahzadeh2014}
+ Superficial features, such as \textit{colon frequency, document length, sentence mean length and single-sentence paragraph count}, were successfully used as in input to an SVM classifier for a closed-set genre classification task where training and testing has been applied on different languages (cross-lingual genre classification) \parencite{nguyen2019cross}.
 
-There are several other approaches on the problem of WPGC such as the use of part-of-speech and other linguistic facents as \textit{terms types} \parencite{feldman2009classifying,santini2005linguistic}, or even studies on the use of pure structural information of a web page,i.e. the HTML tags, instead of the text of these pages {[}Philipp Scholl{]}. However, in all studies in WPGC there are some important issues related to the experimental framework used from most of these studies that so far haven not been tackles. The most important of them is the size of the corpora which is extremely small to the size of the web (obviously) but is not even a good representative sample of the genres they include. This issues raised from Santini and Serge \parencite{santini2009web} on their paper that pointing out the issues of the current corpora and a road map of what should be done. 
+Usually, the combination of features from different sources enhances the robustness of WGI approaches \parencite{levering2008using,kanaris2009learning}. However, features extracted from textual content are more robust since they do not  depend on technology or format used to create a web page and therefore they are more likely to remain constant in time given that the W3C is changing the specification of the HTML regularly, for covering the occurring needs. This is the reason that this work is only focusing on the textual information in the next chapters.
+
+Althought the textual information is more robust and constant in time there are a lot of heuristics that where successfully in WGI and AGI experiments. In section \ref{chap:relevant_work:sec:features:subsec:heuristics} the most interesting feature extraction heuristics are summarized.
 
 \subsection{Heuristics has been used with success in WGI}\label{chap:relevant_work:sec:features:subsec:heuristics}
-Focusing mainly in methodologies where the Prepossessing Heuristics has been used with great success in WGI.
 
-There are several study approaches either in computational linguistics or in linguistics statistical approaches, where several heuristics has been proved to be efficient in extracting informative indicators for recognizing ans discriminating the genres. Usually it is required a more complex or sophisticated combination of text characteristics and not just word, character on n-gram (of both characters or words) counting. Such characteristics can be grammatical, syntactical, formatting and their combinations with  with counting or superficial information such the cases explained in ref{} paragraph.
+(ADD LOWBOW MAYBE)
 
-Starting with \textit{Writing Style Features} and \textit{Key Event Placement (KEP) Features} improving significantly the performance of an out-of-the-box SVM classifier \parencite{dai2018fine}.  The writing style features were features extracted as a combination of also complex features, i.e. the combination of \textit{grammar production rules (GPR} and features from a semantic category of a \textit{Linguistic Inquiry and Word count (LIWC)} dictionary. GPR was also the combination of POS and word lexical rules and LIWC was a sophisticated dictionary of occurrences of word from a word category. The KEP was a set of text formatting
+Raw document pre-processing is essential part for the document categorization and this is the case for the WGI also. Several heuristic methods for selecting and/or extracting the document's information have been tested together with the representation of the extracted information a vector space. The objective o these heuristics is to capture the features carriers of the required information for training the model correctly and moreover, to reduce the vector space implicitly compare to the BOW approach.   
 
-features or one could say "landmarks"such as characters, time, location in specific areas of the text. In practice it was the \textit{words overlapping count} between the first paragraph and the the title of the text The combination of both these structured based complex features where improved the macro-F1 performance from $47.9\%$ to $51.60\%$. In addition the micro-F1 was reaching $71\%$. 
+To begin with, it shown that the \textit{Writing Style Features} and \textit{Key Event Placement (KEP) Features} are improving significantly the performance of the SVM classifier \parencite{dai2018fine}.  The writing style features are extracted as a combination of  other complex features, i.e. the combination of \textit{grammar production rules (GPR} and features from a semantic category of a \textit{Linguistic Inquiry and Word count (LIWC)} dictionary. GPR are the combination of POS and word lexical rules. LIWC is a sophisticated dictionary of occurrences of word from a word category. The KEP is a set of text formatting features, or "landmarks", such as \textit{specific characters, time, location} at specific areas of the text. In practice it is the \textit{words overlapping count} between the \textit{first paragraph} and \textit{the title} of a document. The combination of these structured based features has improved the macro-F1 performance.
 
-Another notable methodology in respect of  feature selection and document representation is the \textit{Complexity Measures (CM)}.  Particularly a sliding window of characters and words is considered over a text. Then using this window several heuristics and superficial metrics are counted and/or calculated. Particularly them there are 32 of them as depicted in table \ref{chap:relevant_work:tbl:complexity_measures}. These features can be categorized in the following four (4) classes: (1) \textit{Raw Text Features} such as the Mean Sentence Length, (2) \textit{Lexical Features} such as Type Token Ration, (3) \textit{Morpho-Syntactic Features} such as Lexical Density of say verbs, (4) \textit{Syntactic Features},such as \textit{Complex Nominals} per Term Unit \parencite{strobel2018text}.
+Another notable methodology in respect of the feature selection and document representation is the \textit{Complexity Measures (CM)}. Particularly a sliding window of characters and words is considered over a text. Then using this window several heuristics and superficial metrics are counted and/or calculated. Particularly there are 32 features, depicted in table \ref{chap:relevant_work:tbl:complexity_measures}. These features can be categorized in the following four (4) classes: (1) \textit{Raw Text Features} such as the Mean Sentence Length, (2) \textit{Lexical Features} such as Type Token Ration, (3) \textit{Morpho-Syntactic Features} such as Lexical Density, (4) \textit{Syntactic Features}, such as \textit{Complex Nominals} per term unit \parencite{strobel2018text}.
 
 \begin{table}[t]
 	\center
@@ -424,9 +424,7 @@ Another notable methodology in respect of  feature selection and document repres
 	\end{tabular}
 \end{table}
 
- An other very interesting set of features are the superficial, such as \textit{colon frequency, document length, sentence mean length and single-sentence paragraph count}. These features were successfully used as in input to an SVM classifier for a closed-set cross-lingual genre classification task. Particularly as mentioned in section \ref{chap:relevant_work:sec:intro} superficial information related only to the formatting of the text was successfully used for genre classification where training and testing were applied on different languages\parencite{nguyen2019cross}.
- 
-Blogs is a genre with special interest for the research communities and there are several studies analyzing aspects of sentiment classification and sub-genre or topic (or combination of all) taxonomy classification and/or identification. Such an analysis requires special feature extraction such as from\textit{ Lexical Analysis, Morphological Analysis, Lightweight Syntactical Analysis} and \textit{Structural Analysis}. In table \ref{chap:relevant_work:tbl:blogs_special_features} all the linguistic properties used for blogs sub-genre classification are presented in detail. In \parencite{virik2017blog} there is a detailed analysis for the correlation of the linguistic features and the blog-genres such as; \textit{informative, affecting, reflective, narrative, emotional} and \textit{rational}.
+\textit{The Blog} is a genre with special interest for several research domains and as might be expected it has its own special set of heuristics for selecting informative features. This requires \textit{Lexical Analysis, Morphological Analysis, Lightweight Syntactical Analysis} and \textit{Structural Analysis}. In table \ref{chap:relevant_work:tbl:blogs_special_features} all the linguistic properties used for Blog's sub-genres classification are presented in detail. In \parencite{virik2017blog} there is a detailed analysis for the correlation of the \textit{linguistic features} and the Blog's sub-genres. Example of these sub-genre are \textit{informative, affecting, reflective, narrative, emotional} and \textit{rational}.
 
 \begin{table}[t]
 	\center
@@ -464,7 +462,7 @@ Blogs is a genre with special interest for the research communities and there ar
 	\end{tabular}
 \end{table}
 
-An other set of features used for genre classification of video content based on its text subtitles and descriptions is depicted in table \ref{chap:relevant_work:tbl:videogenre_textbased_special_features}. In this study the text, mainly the subtitles, was nte only source for classifying the videos, e.g. movies or TV-series. The have used a combination of BOW, superficial and syntactical features. Superficial features in this study were called \textit{content-free} and the ones related to specific words called \textit{content-specific} \parencite{lee2017text}. In the process they found that not all these features where so important where the most important of them were token-type ration, words per minute, characters per minute, Hapax legomena, Dis legomena, Short words ratio, Rations of  (10, 4, 3, 1)-letter words. 
+The \textit{automated genre-taxonomy} is a subject of interest in other domain of intellectual products (e.g. paintings, music, movies etc) as explained before. Movies taxonomy has also a special interest for the technology and entertainment industries, besides other methods a special interst for this work is the case where the genre of a moves is induced by textural features such as \textit{the subtitles} and the \textit{text description} of a video content. These features are summarized in table \ref{chap:relevant_work:tbl:videogenre_textbased_special_features}. Particularly, BOW, Superficial and Syntactical features were combined. Superficial features in this study were called \textit{content-free} and the ones related to specific words called \textit{content-specific} \parencite{lee2017text}. In the process it has been found that not all these features were so important. The most important of them were the \textit{Token-Type Ration, Words per minute, Characters per minute, Hapax legomena, Dis legomena, Short words ratio, Rations of  (10, 4, 3, 1)-letter words}. 
 
 \begin{table}[t]
 	\center
@@ -495,7 +493,7 @@ An other set of features used for genre classification of video content based on
 	\end{tabular}
 \end{table}
 
-Table \ref{chap:relevant_work:tbl:pop_science_features} shows the set of features used for capturing sub-genre of the  Popular Science genre of the  Web-documents (e.g. Wikipedia, Nature, New Scientist, Wikinews, etc) \parencite{lieungnapar2017genre}. They have shown that using this linguistic features 4 clusters can be formed with their centroid have as significant distance thus the documents can be separated, although their performance scores were not very high their approach seems promising. 
+Wikipedia and in general Wiki sites, is considered as a special genre due to its characteristic, mainly the rich of textual content per page and secondary its \textit{informative linguistic register}. Also there are several sub-genre wiki pages which are also characterized as \textit{Popular Science} web-site and web-documents (e.g. Wikipedia, Nature, New Scientist, Wikinews, etc). There are some heuristically selected features that seems to work well for classifying the wiki-pages into a sub-genre taxonomy. Table \ref{chap:relevant_work:tbl:pop_science_features} shows the set of features used for capturing sub-genre of the Popular Science. Testing these feature with a clustering algorithm it has been shown that 4 clusters can be formed with where their centroid have as significant distance. Thus the documents can be separated easily. Although, the performance scores were not very high this approach seems promising \parencite{lieungnapar2017genre}. 
 
 \begin{table}[t]
 	\center
@@ -545,7 +543,7 @@ Table \ref{chap:relevant_work:tbl:pop_science_features} shows the set of feature
 	\end{tabular}
 \end{table}
 
-An other aspect of their study is the text-registers correlation to the genre, thus, they are implicitly are defining an other form of, say. "abstact" features which potentially can be used for genre identification. In table \ref{} are presented the correlations of lexical features to text registers.
+\textit{Registers and Genres} are correlated and also used interchangeably, although different. A set of \textit{ "abstract" features} can be used for explicitly correlating \textit{the registers} and the \textit{Popular Science sub-genres}.  In table \ref{chap:relevant_work:tbl:pop_science_registers_features} are presented these abstract features are listed, which potentially can be tested for any \textit{register to genre} correlation other than the aforementioned use case.
 
 \begin{table}[t]
 	\center
@@ -562,19 +560,21 @@ An other aspect of their study is the text-registers correlation to the genre, t
 	\end{tabular}
 \end{table}
 
-The Language Function Analysis (LFA) is concentrating on single aspects of genre and it aims to classify text documents into abstract  classes. Particularly in \textit{Expressive, Appellative,} and \textit{Informative} classes \parencite{onan2018ensemble}. Overall, this method is combining features that successfully used for other NLP tasks for archiving functional analysis of the texts. Mainly, the function analysis is equal to genre identification in a multi-class classification task. However, this method seems promising for other than the genre-taxonomy with potentially different combination of features categories found in the genre-taxonomy study. As an example a \textit{text's register taxonomy} multi-class classification could be also studied using under the LFA framework. The features combined where; Features used in authorship attribution (AA), Linguistic features (LF), Character n-grams (CNG), Part of speech n-grams (PNG), The frequency of the most discriminative words (MDW).
+As registers are also considered as genres then there is also a set of heuristics have been used for a classification for this taxonomy. Particularly in \parencite{onan2018ensemble} Language Function Analysis (LFA) has been introduced for a classification task on a taxonomy of \textit{Expressive, Appellative,} and \textit{Informative} classes.
 
-Features used in authorship attribution (AA) usually are words, POS n-grams, character n-grams, capitalized words, lowercase words frequency, punctuation and quotation marks frequencies. 
+The LFA is combining features that successfully used for Authorship Attribution (AA), Linguistic Features (LF), Character n-grams (CNG), Part of Speech n-grams (POSNG), and the frequency of the most discriminative words (MDW). 
 
-Linguistic features (LF) usually are time and money entities, POS, personal pronouns, possessive pronouns, adjectives and nouns frequencies. 
+\begin{itemize}
+\item Features used in authorship attribution (AA) usually are words, POS n-grams, character n-grams, capitalized words, lowercase words frequency, punctuation and quotation marks frequencies. 
+\item Linguistic features (LF) usually are time and money entities, POS, personal pronouns, possessive pronouns, adjectives and nouns frequencies. 
+\item Character n-grams (CNG) usually means their frequency of the n-grams, over a specific frequency threshold, say at least 4 times occurrence. 
+\item Part of speech n-grams (POSNG) same as CNG but for POS.
+\item The frequency of the most discriminative words (MDW) this is usually task dependent.
+\end{itemize}
 
-Character n-grams (CNG) usually means their frequency of the n-grams, over a specific frequency threshold, say at least 4 times occurrence. 
+\textit{News} sub-genres is also a subject of great interest in several domain related to text categorization. The News sub-genre are also resembles more to document registers such as the case of $\{News-Fact, News-Opinion, Review-Positive, Review-Negative\}$. This kind of classification is also called {Domain Transfer} AGI Task \parencite{finn2006learning}. 
 
-Part of speech n-grams (PNG) same as CNG but for POS.
-
-The frequency of the most discriminative words (MDW) this is usually task dependent as explained in other cases above, and it might be a frequency threshold in their selection. 
-
-In this theses there are several studies mentioned where they have discovered features which in general can be categorized in the \textit{Text Statistics} features. One more case has a particular interest for genre taxonomies which are a mesh of stylistic and sentiment categorization. As an example a taxonomy of a set such: $\{News-Fact, News-Opinion, Review-Positive, Review-Negative\}$ where special words, pactuation marks and superficial pretties are particularly useful for \textit{Domain Transfer} AGI Task \parencite{finn2006learning}. These properties as described in table \ref{chap:relevant_work:tbl:domain_trans_text_statistics} shown to be very informative for News genre in domain transfer.
+\textit{Text Statistics} features have been used for such a task described in table \ref{chap:relevant_work:tbl:domain_trans_text_statistics}. It seems that special function words frequencies have a special significance in these special case. 
 
 \begin{table}[t]
 	\center
@@ -590,71 +590,90 @@ In this theses there are several studies mentioned where they have discovered fe
 	\end{tabular}
 \end{table}
 
-\subsubsection{Image processing features for document AGI}
-In \parencite{chen2012genre} there is a very interesting approach where image processing features have been used for the AGI for categorizing \textit{office documents}. In their experiments interestingly the image-based features were significantly better that the text-features when coopering their work to previews ones. The combination of both was increasing the performance even more.
+\paragraph{Image processing features for document AGI} In \parencite{chen2012genre} there is a very interesting approach where image processing features have been used for the AGI for categorizing \textit{office documents}. In their experiments interestingly the image-based features were significantly better that the text-features when coopering their work to previews ones. The combination of both was increasing the performance even more.
 
-The image-based features was extracted by splitting the image of the document into 25 tils (5 horizontally and 5 vertically) plus a full-page til. The image-based features used where; (a) \textit{Image Density}, (b) \textit{Horizontal projection}, (c) \textit{Vertical projection}, (d) \textit{Color Correlogram}, (e) \textit{Lines}, (f) \textit{Image Size}. In all cases the documents images where converted to back and white for these features to be extracted. The exception is the \textit{Correlogram} which is analyzing the full color spectrum of the document's in its image format.
+The image-based features were extracted by splitting the image of the document into 25 tils (5 horizontally and 5 vertically) plus a full-page til. The image-based features used where; (a) \textit{Image Density}, (b) \textit{Horizontal projection}, (c) \textit{Vertical projection}, (d) \textit{Color Correlogram}, (e) \textit{Lines}, (f) \textit{Image Size}. In all cases the documents images where converted to back and white for these features to be extracted. The exception is the \textit{Correlogram} which is analyzing the full color spectrum of the document's in its image format.
 
-The \textit{Image Density} utility was used for differentiating where the images and the text was located. In addition the titles form the rest of the text could be also separated. To capture this feature the black to total pixels ration was calculated for each til of the document. 
+\begin{itemize}
+\item The \textit{Image Density} utility was used for differentiating where the images and the text was located. In addition the titles form the rest of the text could be also separated. To capture this feature the black to total pixels ration was calculated for each til of the document. 
+\item The \textit{Horizontal Projection} was used for differentiating the slides where the text is large and less than the rest of the non-slides documents. After the process required for locating the text boxes (similarly tho the OCR software) then a five-bin histogram were used for identifying the majority of the text font sizes.
+\item The \textit{Vertical Projection} was used to differentiating the papers from tables by capturing the number of text columns and the distribution of their width. Similarly to the horizontal projection a five-bin histogram of column width were used.
+\item The \textit{Color Correlogram} is representing the spatial correlation of colors. The process is starting by quantizing the colors to a 96 scale in distance range for 0 to 1. In addition 3 pixels are used thus every til of the document has 288 dimensions. The selection of the optimal features for reducing even farther the dimensions was operated using Maximally Relevant Minimally Redundant (mRMR) method, resulting 50 features pare til. The preservation of the location of the spatial color correlation coefficients is important thus an implicit strategy was followed. Particularly after the mRMR the selected features where preserved to their til-vector position and then all tils vectors concatenated into one vector. Finally the non-selected features from mRMR where discarded and the "compressed" form of the concatenated vector was the final outcome of the Correlogram preprocessing.
+\item The \textit{Lines} was used particularly for locating tables. The process was operated on the full-page til and it was measuring the continues sequence of black pixels of the black and white form of the picture. Then a line-length histogram was used for discriminating the table lines from other lines present in a text such as header of footer lines often met in textbooks.
+\item The \textit{Image Size} was operated only on the full-page size, for finding the page size of the document and differentiate the papers form slides or picture usually having different sized while papers usually delivered in a specific size page size.
+\end{itemize}
 
-The \textit{Horizontal Projection} was used for differentiating the slides where the text is large and less than the rest of the non-slides documents. After the process required for locating the text boxes (similarly tho the OCR software) then a five-bin histogram were used for identifying the majority of the text font sizes.
+However, their experiments where conducted to a very special case of  the AGI research and for a very specialized taxonomy the \textit{office documents}. The corpus was including \textit{Papers} such as PDF, \textit{Photos} such as JPG, \textit{Slides} such as PowerPoint, \textit{Tables} in documents. This corpus has been collected manually and then also manually annotated. \textit{Fleiss' Kappa} agreement score for the annotators, has been used in order to evaluate the quality of their corpus (the \textit{Kappa} score was from 0.88 to 0.92).
 
-The \textit{Vertical Projection} was used to differentiating the papers from tables by capturing the number of text columns and the distribution of their width. Similarly to the horizontal projection a five-bin histogram of column width were used.
+The image-based features described above are similar to the ones used from the human evaluator in \parencite{clark2014you} described in \ref{chap:relevant_work:sec:linguistics_definition}.
 
-The \textit{Color Correlogram} is representing the spatial correlation of colors. The process is starting by quantizing the colors to a 96 scale in distance range for 0 to 1. In addition 3 pixels are used thus every til of the document has 288 dimensions. The selection of the optimal features for reducing even farther the dimensions was operated using Maximally Relevant Minimally Redundant (mRMR) method, resulting 50 features pare til. The preservation of the location of the spatial color correlation coefficients is important thus an implicit strategy was followed. Particularly after the mRMR the selected features where preserved to their til-vector position and then all tils vectors concatenated into one vector. Finally the non-selected features from mRMR where discarded and the "compressed" form of the concatenated vector was the final outcome of the Correlogram preprocessing.
+\paragraph{Graph based features} Several heuristics, superficial, lexical, grammatical, syntactical and specialized to context information has been explored for WGI/AGI in the context of using the textual information of the text/web-pages. However, there is a effort from \parencite{nabhan2016graph} where they using Graph-based features for \textit{Text Genre Analysis}. This work is no testing these features for identification or classification. However, it seems that the texts-genres are having \textit{Graph Properties Measurements} than can potentially could be used for automated identification.
 
-The \textit{Lines} was used particularly for locating tables. The process was operated on the full-page til and it was measuring the continues sequence of black pixels of the black and white form of the picture. Then a line-length histogram was used for discriminating the table lines from other lines present in a text such as header of footer lines often met in textbooks.
+The graph measures has been analysed related to the text-genre were \textit{Node degree, Clustering Coefficient, Average Shortest Path Length, Network Diameter, Number of Connected Components, Average Neighborhood Connectivity, Network Centralization} and \textit{Network Heterogeneity}. The graph they used was constructed be Word 2-Grams (bigrams). The graph was underweight and no bigram frequency was considered.  
 
-The \textit{Image Size} was operated only on the full-page size, for finding the page size of the document and differentiate the papers form slides or picture usually having different sized while papers usually delivered in a specific size page size.
+The average node degree, i.e. the number of neighbors connections, shown  to be a discriminating criterion for discriminating for example \textit{scientific} to \textit{humor genres}. Higher average node degree may indicate a preference to use established vocabulary than a random one.
 
-However, their experiments where conducted to a very special case of  the AGI research and for a very specialized taxnomy that it seems to be restricted only for \textit{office documents}. The \textit{office documents} genre taxonomy is constituted by \textit{Papers} such as PDF, \textit{Photos} such as JPG, \textit{Slides}such as PowerPoint, \textit{Tables} such as results tables in documents. 
+The clustering coefficient with high value would mean there is tendency for a set of nodes to cohere or stay connected in a sub-network. The \textit{Religion, Fiction} and \textit{Adventure} seems to have higher value to their clustering coefficient compare to \textit{News, Editorial} and \textit{Hobbies}. 
 
-Their corpus has been collected manually and then several human emulators tagged every page to is genre. Then the Fleiss' Kappa agreement score has been used for evaluating the quality of their corpus. The \textit{Kappa} score was 0.88 to 0.92.
+The Number of connected components with high number is indicating a \textit{Topic Diversity} within genre. News and Hobbies shown to have higher score, i.e. higher diversity, than Religion and Fiction. Related to this, also high score in Network Centralization seems to be a good indicator for Fiction and Adnventure genres.
 
-Although their corpus is a very special case for one to consider a generalized outcome for the AGI research. However, their image-based features resembles in qualities used from the human evaluator in \parencite{clark2014you}, where in their perception process was tracked as explained in \ref{chap:relevant_work:sec:linguistics_definition}. 
+The Network Heterogeneity where shown to be higher in News and Hobbies reflects the tendency of the graph to have alto of links between high-degree to low degree-nodes. This can indicate tendency to use functional keywords in text.
 
-****
-Different modulates, including pain-text, web-texts, ans image/scanned-texts
-While we pages usually are reach with URL links, office documents having HTML format contain very little link information. 
+\textit{Genre-specific graph characteristics} also found it this study. Such as, \textit{high global clustering coefficient} found for Learned and Religious text genres. Moreover, the \textit{Average Local Clustering} strongly correlated to the node degree shown to be a good indicator for genres showing concentration to \textit{specific concepts}.
 
-Its an Open-Set Ensemble identifier. 
+Ultimately, the graph-metric patterns can also be used for discovering the existence of sub-genre within a genre such as in News. It has been shown that there are some areas in the News genre bigram graph with \textit{High Node Connection Concentration (or High edge Concentration}.  
 
-Using HTML tags frequency some times improves performance and others decreases it, depending on the genre\textbf{ (<---papers claim) }.  \textbf{(my opinion --->)} However, it should be emphasized that most studies related to the web genre taxonomy have been tested on corpora either outdated or custom for the task. Therefore, the utility of the HTML structure and tags never have been research in depth. On the contrary of the utility of the textual information related to the WGI task there is a more solid research work volume in addition to the AGI task for other texts from non-web sources.
+\paragrpah{Readability Assessment Features} Finally, the \textit{Readability Assessment Features (RAF)} have also been tested for the WGI/AGI task. Moreover, a primitive attempt also presented related to these features where they have been evaluated (and compared to others features) in their effectiveness on different taxonomies. Particularly they compared on the \textit{Domain-taxonomy} and the \textit{Genre-taxonomy} \parencite{falkenjack2016exploratory}.
 
-Tag zones of the office documents are used for classifying the genre of the documents.
+Although, there is a ambiguity in the research literature related to the Domain/Genre definition, usually the genre considers to be (as explained in section \ref{chap:relevant_work:sec:definitions}) more abstract and related to \textit{the texts organization, rhetorical structure, length, syntax, morphology} and \textit{vocabulary richness}. Domain is more related to the \textit{General topic of a group of text}. Consequently, \textit{Sports} as category is considered to be a Domain while \textit{Academic papers} are considered Genres.
 
-"Analogous to the surface and structural types of cues for text features, these features may be thought of as structural cues, while simple visual features than can be extracted directly without classification are analogous to surface cues."
+It has been shown that genre-taxonomy ML classification is benefit by the use of RAF while the domain-taxonomy does not. 
 
-Multiple page image-tiles cues combined for genre indemnification by combining the genre identified per page.
+The RAF are very old in because they are studied since 1920 where their main purpose is to help in the evaluation of a text in respect the ease in reading and comperhation by the abilities of the reader. Although, the function includes two (2) variables the research is mainly focusing on the aspect of the evaluation of the text side only. 
 
-Stop words (Stamatatos) surface cues (Kessler)
+The most basic metrics are LIX metric (see eq \ref{chap:relevant_work:eq:LIX}) , OVIX (Word Variation Index) and NR (Nominal Ration) metric. However, since the evolution of ML there are several other text information have been evaluated and also used in combination with the basic metrics \parencite{falkenjack2013features}.
 
-****
+RAF other than the basics are including some \textit{Superficial features, Lexical features, Morpho-syntactic features} and \textit{Syntactic features}. Specifically the selected features from every lingustic categories are:
 
-\textbf{There cases where a Terms (word or char n-gram) to be selected only when appears in more than a specific number of texts of the corpus}
+\begin{enumerate}
+\item Superficial: Average Word Lengh (in Characters), Averga Word Length Syllables per word, Average Sentence Length.
+\item Lexical: Vocabulary Lemmas for Communication, Everyday use, High frequent, Unique.
+\item Morpho-syntactic: Unigram-POS, Ration-to-content of nouns, verbs etc.
+\item Syntactic: Average Dependency Distance, Ration of Dependencies, Sentence Depth (in dependency terms), Unigram Dependency Type (based on token terms), Verbal Roots, Average Verbal Arity, Unigram Verbal Arity, Tokens per clause, Average Nominal Pre and Pos Modifiers, Average Number of Prepositional components.
+\end{enumerate}
 
-\textbf{There are cases where more than one length of n-grams was extracted for each text, usually the length varies from \textit{2-grams to 5-grams}, where all the extracted terms where counted to a concatenated TF vector (some time binary)}
+It should be noted that other than the basic LIX, NR and the Superficial of the RAF, all the other are language dependent such as the OVIX which mainly has been tested on Swedish language.
 
-\textbf{Syntactical and superficial features seem work better and lighter than BoT}
+\begin{equation} \label{chap:relevant_work:eq:LIX}
+	LIX = \frac{A}{B} + \frac{C \cdot 100}{A}
+\end{equation}
+Where $A$ is the number of words, $B$ is the number of periods (colon, dot, capital fist letter), $C$ is the number of long words, more than 6 letters for the English language. 
 
- \textbf{TF-IGF } Feature selection is, as we have seen, the major aspect where the WGI research was focusing, however, the dimentionality reduction and the \textit{selected features encoding in to a multi-dimensional vector} it seem to be more important and the focus of the WGI research gradually goes to this direction. The \textit{term weighting schemes} is an other aspect occasionally have been considered, however, most of the studies where mostly using the common TF-IDF. In the study of \parencite{sugiyanto2014term} clearly is shown that they are TF-IDF schema is not proper for the WGI task and also they proposed the TF-IGF schema. 
+\subsection{Feature Selection and Term Weighting Schemes}
  
- TF-IDF for each term (Word n-gram, Character n-gram, POS n-gram, etc) is a balancing weighting scheme, in a collection of documents, where it regulates the information value of the very low and very high frequency terms of the collection. That is, it decreases the value of the in the very high frequency terms of the collection, and increases the the very low frequency terms when they are occurring in a high amount of documents of the collection, but low in the document level. The calculation of a terms IDF in a documents collection is shown in equation \ref{chap:relevant_work:eq:idf}
+ \textit{Term Weighting Schemes} is also an essential issue together with the features selection for the pre-processing of the web-pages and the induction of the ML models for WGI task.
+
+ \paragraph{TF-IGF}  The \textit{term weighting schemes} is an other aspect have been considered merely for WGI. Most of the studies were commonly selecting the  TF-IDF schema. In the study of \parencite{sugiyanto2014term} it is shown that TF-IDF is not the proper schema for the WGI task. On the contrary a TF-IGF schema was proposed and shown to perform better. 
+ 
+TF-IDF is a balancing weighting scheme of the document's terms (Word n-gram, Character n-gram, POS n-gram, etc), in a collection of documents, where it regulates the information value of the very low and very high frequency terms of the collection. That is, it decreases the value of the very high frequency terms, and increases the the very low frequency terms when they are occurring in a high amount of documents in the collection ( and also  low in the document level). The calculation of a terms IDF in a documents collection is shown in equation \ref{chap:relevant_work:eq:idf}
  
  \begin{equation}\label{chap:relevant_work:eq:idf}
  	IDF(T) = log \left( \frac{N}{1 - f_{D,T}} \right)
  \end{equation}
- 
- Where $N$ is the number of the collection documents and $f_{d,t}$ is the \textit{frequency of the documents} where term $t$ occurs. Following the same line of thought, and replacing the collection of documents with a \textit{collection of documents on a specific genre} TF-IGF is a weighting schema where the high frequency terms in the genre are smoothed and the low frequency terms are weight higher as long as they occur in a significant amount of documents of this genre. Then in a multi-genre corpus the TF-IGF calculated be calculated as in equation \ref{chap:relevant_work:eq:tf_igf}
+\noindent
+where $N$ is the number of the collection documents and $f_{d,t}$ is the \textit{frequency of the documents} where term $t$ occurs. Following the same line of thought, and replacing the collection of documents with a \textit{collection of documents on a specific genre} TF-IGF is a weighting schema where the high frequency terms in the genre are smoothed and the low frequency terms are weight higher as long as they occur in a significant amount of documents of this genre. Then in a multi-genre corpus the \textit{Term Frequency - Inverse Genre Frequency (TF-IGF)} is calculated as in equation \ref{chap:relevant_work:eq:tf_igf}
 
  \begin{equation}\label{chap:relevant_work:eq:tf_igf}
  	F^{TF-IDF}(T) = f_{T,G_{i}} \cdot log \left( \frac{N}{1 - f_{G_{i},T}} \right)
  \end{equation}
-Where $f_{T,G_{i}}$ is the frequency of the Term in the genre and $F^{TF-IDF}(T)$  is the TF-IGF. In  \parencite{sugiyanto2014term} they also used the average $Avg(F^{TF-IDF}(T))$ for ranking the terms and they have tested the 100, 500, and 1000 most frequent in average terms. Comparing them with the averaged TF-IDF on their 7-Genre corpus they show clearly that the confusion matrix has great improvement when it used as an input to a \textit{Random Forest Algorithm}.  Especially for the 100 features where the $F_{1}$ climbed from $0.091$ to $0.642$ and for 500 to $0.775$ from $0.249$.
+\noindent
+where $f_{T,G_{i}}$ is the frequency of the Term in the genre and $F^{TF-IDF}(T)$  is the TF-IGF. In  \parencite{sugiyanto2014term} they also used the average $Avg(F^{TF-IDF}(T))$ for ranking the terms and they have tested the 100, 500, and 1000 most frequent in average terms. Comparing them with the averaged TF-IDF on their 7-Genre corpus they show clearly that the confusion matrix has great improvement when it used as an input to a \textit{Random Forest Algorithm}. Especially for the 100 features where the $F_{1}$ climbed from $0.091$ to $0.642$ and for 500 to $0.775$ from $0.249$.
 
-Although the improvement was impressive by just changing the weighting schema, especially for  the size of the vector space, one should consider that the experimental set-up was only for the closed-set scenario. Moreover, the TF-IGF similarly to the TF-IDF is tightly related to the collection itself, therefore, the results closely are related to the 7-Genres collection. Given that these collection are old and the nature of the highly temporal idiosyncrasy of the genre-taxonomies, it is high likely this method not have high bias. On the other hand in closed-set cases where the texts collection is constrained considering documents number (i.e. slowly expanding) and genre-taxonomy size (i.e. rarely updated) the TF-IGF seems to be efficient, and with very low computational cost.  
+Although the improvement was impressive by just changing the weighting schema, especially for  the size of the vector space, one should consider that the experimental set-up was only for the closed-set scenario. Moreover, the TF-IGF similarly to the TF-IDF is tightly related to the collection itself, therefore, the results closely are related to the 7-Genres collection. Given that these collection are old and the nature of the highly temporal idiosyncrasy of the genre-taxonomies, it is high likely this method to have high bias. On the other hand in closed-set cases where the texts collection is constrained considering documents number (i.e. slowly expanding) and genre-taxonomy size (i.e. rarely updated) the TF-IGF seems to be efficient, and with very low computational cost.  
 
-\textbf{Fuzzy extension of TF-IDF} Other than text categorization upan their genre taxonomy there are also other intellectual entities that are also categorized on based on their genre such as movies, music, graphic arts etc. Movies genre are also classified based on the views comments or raw categorization. Particularly in public site like IMDB and Movelens it is possible for the the users to create their own \textit{tags} in addition to the \textit{keywords} mainly created for the data curators of these sites. There is a work where the \textit{tags}, and the \textit{keywords} are used for multi-class classification task of Movies upon their genre where they show that tags is a reach information source and more effective than keywords alone. In addition they are using a \textit{Fuzzy extension of TF-IDF weighting schema} which has been shown to return $F_{1}$ up to $0.9$ when tags alone were used and $0.7$ when keywords were used.
+\textbf{Fuzzy extension of TF-IDF} In section \ref{chap:relevant_work:sec:features:subsec:heuristics} a set of heuristics presented where Video content can be categorized on its respective genre taxonomy based on the textual information of the videos such as the subtitles and the small description of the video. In formation from public site like IMDB and Movelens. There it is also possible for the the users to create their own \textit{tags} in addition to the \textit{keywords} mainly created for the data curators of these sites. 
+
+These user created tags can be exploited in a similar manner as the words of the subtitle text for classification of the video to their genre. Particularly there is a work where the \textit{tags}, and the \textit{keywords} are used for multi-class classification task of Movies upon their genre. It has been shown that the user tags is a rich information source and more effective than keywords alone. However, the user tags wouldn't be useful features without the proposed \textit{Fuzzy extension of TF-IDF weighting schema}.  This schema returned $F_{1}$ score up to $0.9$ when user tags alone where used.
 
 Although the above method was aiming for building an effective recommendation system here it is presented briefly for the innovative weighting scheme which is exploiting the meta-data of the tags. Particularly the aforementioned user tags are in fact triplets of  $\{Tag, Movie, User \}$. The idea is to exploit the frequency of the users selecting a tag for a movie and then the frequency of the movies a tag was occurring, similarly to the TF-IDF.
 
@@ -682,57 +701,19 @@ Where $\oint=OWA$,  $g_{i}$ is a particular genre, $G$ is the number of the genr
 
 Finally, for the movie genre categorization a binary vector of the genres list is returned of the \textit{Quantised  $\max_{t \in T} deg()$}. The maximum degree values of the genre tag is set to $1$ when it is above the \textit{mean values of all tag-degrees} and zero otherwise.
 
-\textbf{Graph based features} Several heuristics, superficial, lexical, grammatical, syntactical and specialized to context information has been exploited for WGI/AGI in the context of using purely (or combined) the textual information of the text/web-pages. However, there is a effort from \parencite{nabhan2016graph} where they using Graph-based features for Text Genre Analysis. Although this work is no testing these features for identification or classification it seems that the texts-genres are having characteristically different values, between them, on several out-of-the-box \textit{Graph Measures}. Consequently seem to be sufficient to be used for AGI, although haven been yet.
+\section{Dimensionality Reduction}
 
-The graph measures has been analysed related to the text-genre were \textit{Node degree, Clustering Coefficient, Average Shortest Path Length, Network Diameter, Number of Connected Components, Average Neighborhood Connectivity, Network Centralization} and \textit{Network Heterogeneity}. The graph they used was constructed be Word 2-Grams (bigrams). The graph was underweight and no bigram frequency was considered.  
+Dimentionality reduction and the \textit{selected features encoding in to a multi-dimensional vector} is an important aspect concerns the WGI research. As aforementioned \textit{features selection} implicitly affects the compression of the vector space, however, there are other explicit methods than have been tested for WGI.
 
-The average node degree, i.e. the number of neighbors connections, shown  to be a discriminating criterion for discriminating for example \textit{scientific} to \textit{humor genres}. Higher average node degree may indicate a preference to use established vocabulary than a random one.
+BOT and TF-IDF approaches seems to work almost as good as more complex features such as POS, $\chi^{2}$ statisics etc. However, in some cases explained before such as Wikipedia, blogs, news sub-genre the complex features (and heuristics) seems to work better. It seems that is is the result of the implicit dimentionality reduction which enables an ML model to be optimized in a more informative vector space.
 
-The clustering coefficient with high value would mean there is tendency for a set of nodes to cohere or stay connected in a sub-network. The \textit{Religion, Fiction} and \textit{Adventure} seems to have higher value to their clustering coefficient compare to \textit{News, Editorial} and \textit{Hobbies}. 
+Although, the above statement might be a subject of a great research arguments, what we unsuitably know is that in a smaller and more informational dense vector space a ML algorithm will perform much better with great certainty. Thus, a method that could potentially reduce the vector space and manage to encode the maximum of the required information, it would at least improve significantly the speed performance of any ML algorithm. 
 
-The Number of connected components with high number is indicating a \textit{Topic Diversity} within genre. News and Hobbies shown to have higher score, i.e. higher diversity, than Religion and Fiction. Related to this, also high score in Network Centralization seems to be a good indicator for Fiction and Adnventure genres.
+This is the case of the \textit{Distributional Features Modeling} where it is discussed in section \ref{chap:Document_Representation} and it is shown how a week ML algorithm can be trained with 100 times less features than the features given to an better algorithm for the WGI task.
 
-The Network Heterogeneity where shown to be higher in News and Hobbies reflects the tendency of the graph to have alto of links between high-degree to low degree-nodes. This can indicate tendency to use functional keywords in text.
+In order to make an intuition about the "curse of dimensionality"  and on how the feature selection can encode more information in case dimensionality reduction, a mind experiment is presented bellow. 
 
-\textit{Genre-specific graph characteristics} also found it this study. Such as, \textit{high global clustering coefficient} found for Learned and Religious text genres. Moreover, the \textit{Average Local Clustering} strongly correlated to the node degree shown to be a good indicator for genres showing concentration to \textit{specific concepts}.
-
-Ultimately, the graph-metric patterns can also be used for discovering the existence of sub-genre within a genre such as in News. It has been shown that there are some areas in the News genre bigram graph with \textit{High Node Connection Concentration (or High edge Concentration}.  
-
-Finally, the \textit{Readability Assessment Features (RAF)} have also been tested for the WGI/AGI task. Moreover, a primitive attempt also presented related to these features where they have been evaluated (and compared to others features) in their effectiveness on different taxonomies. Particularly they compared on the \textit{Domain-taxonomy} and the \textit{Genre-taxonomy} \parencite{falkenjack2016exploratory}.
-
-Although, there is a ambiguity in the research literature related to the Domain/Genre definition, usually the genre considers to be (as explained in section \ref{chap:relevant_work:sec:definitions}) more abstract and related to \textit{the texts organization, rhetorical structure, length, syntax, morphology} and \textit{vocabulary richness}. Domain is more related to the \textit{General topic of a group of text}. Consequently, \textit{Sports} as category is considered to be a Domain while \textit{Academic papers} are considered Genres.
-
-It has been shown that genre-taxonomy ML classification is benefit by the use of RAF while the domain-taxonomy does not. 
-
-The RAF are very old in because they are studied since 1920 where their main purpose is to help in the evaluation of a text in respect the ease in reading and comperhation by the abilities of the reader. Although, the function includes two (2) variables the research is mainly focusing on the aspect of the evaluation of the text side only. 
-
-The most basic metrics are LIX metric (see eq \ref{}) , OVIX (Word Variation Index) and NR (Nominal Ration) metric. However, since the evolution of ML there are several other text information have been evaluated and also used in combination with the basic metrics \parencite{falkenjack2013features}.
-
-RAF other than the basics are including some \textit{Superficial features, Lexical features, Morpho-syntactic features} and \textit{Syntactic features}. Specifically the selected features from every lingustic categories are:
-
-\begin{enumerate}
-\item Superficial: Average Word Lengh (in Characters), Averga Word Length Syllables per word, Average Sentence Length.
-\item Lexical: Vocabulary Lemmas for Communication, Everyday use, High frequent, Unique.
-\item Morpho-syntactic: Unigram-POS, Ration-to-content of nouns, verbs etc.
-\item Syntactic: Average Dependency Distance, Ration of Dependencies, Sentence Depth (in dependency terms), Unigram Dependency Type (based on token terms), Verbal Roots, Average Verbal Arity, Unigram Verbal Arity, Tokens per clause, Average Nominal Pre and Pos Modifiers, Average Number of Prepositional components.
-\end{enumerate}
-
-It should be noted that other than the basic LIX, NR and the Superficial of the RAF, all the other are language dependent such as the OVIX which mainly has been tested on Swedish language.
-
-\begin{equation} \label{chap:relevant_work:eq:LIX}
-	LIX = \frac{A}{B} + \frac{C \cdot 100}{A}
-\end{equation}
-Where $A$ is the number of words, $B$ is the number of periods (colon, dot, capital fist letter), $C$ is the number of long words, more than 6 letters for the English language. 
-
-\subsection{Feature Selection and Dimensionality Reduction}
-
-In this study so far we have discussed about the AGI and specially for the WGI task and its aspects one should consider for tackling this problem and building an ML algorithm. Irrespectivelly of the ML framework set-up, i.e. open-set or closed-set, and independently of the special cased of features BOW seems to be the weakest set of features in case there is not heuristic augmenting the information is derived from. However, the same approach when it comes to the Bag-of-Character n-grams the results seem to be improved significantly to the closed an open set classification framework. 
-
-More sophisticated features (and heuristics) seems to work similarly well to the character n-grams, such as POS or Word n-grams, whoever some times seems not worth the complexity and computational effort. Yet one would wonder why this is happening?
-
-Let do a mind experiment which reasons what exactly is happening in the case of WGI, but also in general for the text classification and identification tasks. In the case of WGI, as mentioned above we are dealing with an open-set problem (mostly) where the corpus is the whole WWW. Thus, it seems that TF-IDF or even TF-IGF described above to be a good solution for case studied or constraint, in respect of data size, task, however, not really generic considering the whole WWW. That is, in practice the Vocabulary one should one have use would be the whole English Vocabulary.
-
-In an case where a ML algorithn would have been used for a WGI task an the whole WWW corpus, then main difficulty would be the so called "curse of dimensionality". In that case the whole Oxford Dictionary would have defining the vector space of the problem, then the sparsity of the web-pages vectors would have been intractable. 
+Lets assume task where a ML model should be trained in a multi-class classification task for the whole genre-taxonomy of the WWW and assuming that all the genre of the Web where idd and known. In that case the whole Oxford Dictionary would have defining the vector space of the problem. 
 
 The Oxford dictionary English is containing $171,476$ words thus the vector space would have been very sparse. The amount words can be calculated also by using the Combinatorial Calculation using the \textit{binomial coefficient} minus the invalid combinations, of the $26$ English letters (assuming the the whole Web was only written in English language), as shown in equation \ref{chap:relevant_work:eq:en_vocab_size_calc}.
 
@@ -750,20 +731,6 @@ The Oxford dictionary English is containing $171,476$ words thus the vector spac
             k = 2\\
          \end{array}
 	\right) 
-      +
-    \left(
-    	\begin{array}{c}
-        	n = 26\\
-            k = 3\\
-         \end{array}
-	\right) 
-      +
-    \left(
-    	\begin{array}{c}
-        	n = 26\\
-            k = 4\\
-         \end{array}
-	\right) 
     +
      \cdots 
     +
@@ -775,8 +742,17 @@ The Oxford dictionary English is containing $171,476$ words thus the vector spac
 	\right) 
     = 300430 - \{The Invalid Combinations\} =  171,476
 \end{equation}
-However if we are using the Character n-grams of size $3$ (C3G) and $4$ (C4G) where in most cases seems to returning the highest score in WGI research, then for C3G the vector space is $2600$ \textit{minus the set of invalid combinations} and for C4G becomes $14950$. 
+On the other hand if we are using the Character n-grams of size $3$ (C3G) or $4$ (C4G) then for C3G the vector space is $2600$ \textit{minus the set of invalid combinations} and for C4G becomes $14950$. As we also know from the literature and it will presented later in this study the CNG features are returning the highest score in WGI ML modeling. Moreover, the \textit{character tuples} are capturing stylistic properties of the texts, where it is an information which is lost when it is "hidden" in the words.
 
+
+
+
+
+
+
+
+
+-------------- MAKE IT ONE PARAGRAPH --------------
 To conclude one case understand the analogy in a subset where the vector spaces are more close related to the corpora are used for the experimental setups. Consequently the vector space of the BOT is much denser than the BOW, thus, is expected to return better results for any ML algorithm would used.
 
 Considering the POS and Word n-grams, are combative and some times better choice as it will be shown farther in this study due to the additional information is included by the correlation of the words in respect the proximity and distributional information is captured.
@@ -785,10 +761,43 @@ Finally, as we have seen above in paragraph for the \textbf{Graph based features
 
 Distributional Features/Word embedding it is the state-of-the art text feature selection and encoding methodology for improving the ML algorithms performance on the  AGI/ WGI tasks, other than other Text Categorization domains. The Distributional Features/Word embedding on WGI will be discussed in section \ref{} separately form the rest features used in the domain due to its importance and its efficiency. 
 
+%\section{Web-Genres Identification using other than textual information}\label{chap:relevant_work:sec:intro}
 
-\section{Web-Genres Identification using other than textual information}\label{chap:relevant_work:sec:intro}
+Different modulates, including plain-text, web-texts, ans image/scanned-texts
+While we pages usually are reach with URL links, office documents having HTML format contain very little link information. 
 
-\section{The Hyper (URL) links significance}\label{chap:relevant_work:sec:intro}
+Its an Open-Set Ensemble identifier. 
+
+Using HTML tags frequency some times improves performance and others decreases it, depending on the genre\textbf{ (<---papers claim) }.  \textbf{(my opinion --->)} However, it should be emphasized that most studies related to the web genre taxonomy have been tested on corpora either outdated or custom for the task. Therefore, the utility of the HTML structure and tags never have been research in depth. On the contrary of the utility of the textual information related to the WGI task there is a more solid research work volume in addition to the AGI task for other texts from non-web sources.
+
+Tag zones of the office documents are used for classifying the genre of the documents.
+
+"Analogous to the surface and structural types of cues for text features, these features may be thought of as structural cues, while simple visual features than can be extracted directly without classification are analogous to surface cues."
+
+Multiple page image-tiles cues combined for genre indemnification by combining the genre identified per page.
+
+Stop words (Stamatatos) surface cues (Kessler)
+
+\textbf{There cases where a Terms (word or char n-gram) to be selected only when appears in more than a specific number of texts of the corpus}
+
+\textbf{There are cases where more than one length of n-grams was extracted for each text, usually the length varies from \textit{2-grams to 5-grams}, where all the extracted terms where counted to a concatenated TF vector (some time binary)}
+
+\textbf{Syntactical and superficial features seem work better and lighter than BoT}
+
+-------------- MAKE IT ONE PARAGRAPH --------------
+
+
+
+
+
+
+
+
+
+
+
+
+\section{The Hyper (URL) links significance}\label{chap:relevant_work:sec:url}
 
 An alternative approach to WGI exploits the connection of the web pages via hyperlinks. 
 Another study is based on the web-graph and the implicit genre relation among web pages assuming that neighbouring web pages are more likely to belong to the same genre, a property called \textit{homophily}. Then, the content of neighboring pages is used to enhance the representation of a given web page in a semi-supervised learning framework \parencite{asheghi2014semi}.
@@ -906,8 +915,10 @@ Than is in an experimental set-up on in a special task for a production environm
 
 In all studies it was pointed out that in most cases in a webpages or in a text usually there are multiple genres.... \parencite{lee2017text} (also Ashegi, Santini, and other old citations).
 
-\section{Deep Learning Vocabulary of Distributional Features for WGI and WGC}\label{chap:relevant_work:sec:intro}
+\section{Deep Learning Vocabulary of Distributional Features for WGI and WGC}\label{chap:relevant_work:sec:word_embedding}
 
+
+Recently deep learning methods have also been tested in genre detection setups with promising results \parencite{worsham2018genre}. 
 
 PRIMITIVE DISTRIBUTIONAL \parencite{kim2010formulating} 
 
@@ -969,12 +980,18 @@ An other utility is the AGI/WGI for \textit{office/local documents}, i.e. pdf, i
 
 \section{Web Genre Corpora: An unfinished work in progress}\label{chap:relevant_work:sec:intro}
 
+
+However, in all studies in WPGC there are some important issues related to the experimental framework used from most of these studies that so far haven not been tackles. The most important of them is the size of the corpora which is extremely small to the size of the web (obviously) but is not even a good representative sample of the genres they include. This issues raised from Santini and Serge \parencite{santini2009web} on their paper that pointing out the issues of the current corpora and a road map of what should be done. 
+
+
+
+
 The constitution process for the rules required to be followed for composing a text corpus is still a research problem in \textit{linguistics studies}, while the utility of the genre-taxonomy is vividly pointed out. A collection of texts cannot be assumed to be a corpus by default due to several issues should be considered starting with the taxonomy definition where mostly is an overlapping problem, then the texts should have several properties linguistically and statistically defined. The homogeneity in temporal manner, whether are from multiple languages and the way have been collected; \textit{speech, spoken or written corpus}. Particularly speech corpus implies voice recording while spoken means to be transcribed from speech samples. Particularly for the genre-taxonomy the homogeneity related to the time samples has been collected is very critical since the genres are changing over time until a new genre occurs replacing or dividing from an older \parencite{dash2018history}. Blogs, for example, was the evolution of "personal/memory diaries" when they became public on the web and named "web-logs" then in a second time evolution renamed to "blogs" where their content also changed now is mostly like an \textit{informal journalism} rather than a diary.
 
 The NLP community has overcome, by ignoring mostly, the problem of a non-well established corpus of the WGI, and in general for the \textit{Text Genre Identification}. There are at least tree publication on the effort on \textit{corpus building methodologies} with vividly different approaches, yet the problem is remaining open due to several issues described in detail in section
 \ref{chap:relevant_work:sec:linguistics_definition} and in \parencite{melissourgou2017genre,asheghi2014semi} (Ashegi,2018_Book_HistoryFeaturesAndTypologyOfLa_WEB_TEXT_CORPUS.pdf). 
 
-All the approaches are focusing on the genre's main principals, i.e. the function, form and communicative purpose. While in \cite{asheghi2014semi} the focus was on the semi-automated evaluation procedure in the categorization of the texts, in \parencite{melissourgou2017genre} the process is focusing on the systematic manual process.  This process is based on a well established theory of  the Systemic Functional Linguistic (STL) framework where as a shortcut in the process can help on building and evaluating a genre taxonomy corpus. 
+All the approaches are focusing on the genre's main principals, i.e. the function, form and communicative purpose. While in \parencite{asheghi2014semi} the focus was on the semi-automated evaluation procedure in the categorization of the texts, in \parencite{melissourgou2017genre} the process is focusing on the systematic manual process.  This process is based on a well established theory of  the Systemic Functional Linguistic (STL) framework where as a shortcut in the process can help on building and evaluating a genre taxonomy corpus. 
 
 There is no drought for the significant contribution of the above studies where all three can be used as the solid framework for building \textit{web-genre-taxonomy corpora} and web-text corpora in general. The utility of the each work can be used as multi-layer filtering process:  1) starting with the automated crawling of the web using focused crawling as explained above \ref{}, 2) Using non-experts crowd-sourcing semi-automated procedures form first level filtering, 3) using the methodology of manual STL based evaluation for fast qualitative analysis and categorization of the post-crowdsourcing-filtered corpus. 
 
