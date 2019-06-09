@@ -2,7 +2,8 @@
 
 \chapter{Distributional Features: "Deep Learning" of the text's terms relations}
 
-\label{chap:relevant_work}
+\label{chap:word_embedding}
+
 
 %----------------------------------------------------------------------------------------
 
@@ -17,17 +18,17 @@
 
 \section{Introduction}{chap:word_emending:sec:intro}
 
-\section{Terms N-grams vs Word Embedding}{chap:word_emending:sec:ngrans_vs_doc2vec}
+\section{Terms N-grams vs Word Embedding}{chap:word_embedding:sec:ngrans_vs_doc2vec}
 
 
-\section{Word Embedding for Improving Low Performance Learners on WGI}{chap:word_emending:sec:all_algorithms_test_with_doc2vec}
+\section{Word Embedding for Improving Low Performance Learners on WGI}{chap:word_embedding:sec:all_algorithms_test_with_doc2vec}
 
 
-\section{Random Features vs Word Embedding for the Open-set Framework}{chap:word_emending:sec:last_paper_presentation}
+\section{Random Features vs Word Embedding for the Open-set Framework}{chap:word_embedding:sec:last_paper_presentation}
 
 
 
-\section{Distributional Features Learning}\label{sec:Gensim}
+\section{Distributional Features Learning}\label{chap:word_embedding:sec:word_embedding}
 
 In this study we are using the Doc2Vec out-of-the-box algorithm which is based on the there publications PUBA, PUBB, PUBC while the algorithm can be found at Gensim package \url{https://github.com/RaRe-Technologies/gensim}. In particular we have implemented a special module inside our package, specialized for HTML prepossessing, named \textit{Html2Vec} (see \url{https://github.com/dpritsos/html2vec}) where a whole corpus can be fed and matrix of \textit{Bag-of-Words Paragraph Vectors} (PV-BOW) is returned as an output. One PVBOW vector per Web-document for the corpus.
 
@@ -49,7 +50,7 @@ In our study we are training a PVBOW Distributional Feature model for the whole 
 
 
 
-\section{Experiments}\label{sec:experimental_setup}
+\section{Experiments}\label{chap:word_embedding:sec:experimental_setup}
 
 \subsection{Open-set Evaluation Methodology}
 In this study we are measuring the performance of a novel extension of the NN method, designed for open-set classification when the web-documents used as input are \textit{Distributional Encoding of Fixed Size Vectors} derived from an PVBOW NNet model. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process.
@@ -65,12 +66,12 @@ Precision-Recall curve is a standard method to visualize the performance of clas
 \noindent
 where $P(r_j)$ is the precision at $r_j$ standard recall level.
 
-\subsection{Corpora}\label{sec:corpora}
+\subsection{Corpora}\label{chap:word_embedding:sec:corpora}
 In this paper we study NNRD performance with distributional features derived from a NNet PVBOW corpus. In particular, the open-set algorithms described above are analytically tested on benchmark corpus already used in previous work in WGI \citep{meyer2004genre,santini2007automatic,kanaris2009learning,pritsos2018open}, the \textit{SANTINIS} \cite{mehler2010genres_on_web} corpus.Details are given in table \ref{tbl:genre_tags}. This is a corpus comprising 1,400 English web pages evenly distributed into 7 genres as well as 80 BBC web pages evenly categorized into 4 additional genres. In addition, it comprises a random selection of 1,000 English web pages taken from the SPIRIT corpus \cite{joho2004spirit}. The latter can be viewed as noise in this corpus. In particular in this study SPIRIT tags are considered \textit{Marked as Unknown} (MU) and this is how we measure them.
 
 Note that in the evaluation process we both measuring two kind classification-as-unknown of the open-set algorithm; the \textit{false positive unknown} where are classification of samples which have class tags known to the NNRD model and the \textit{true positive unknown} where they are marked-as-unknown (or marked-as-noise) where they are considered as noise.
 
-\subsection{Settings}\label{sec:evaluation_measures}
+\subsection{Settings}\label{chap:word_embedding:sec:evaluation_measures}
 Our text representation features are based exclusively on textual information from web pages excluding any structural information, URLs, etc. Based on the good results reported in \citep{sharoff2010web,pritsos2013open,Asheghi2015} as well as some preliminary experiments. The following document representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G).
 
 We use the Term-Frequency (TF) weighting scheme and Distributional Learning scheme. The feature space for TF is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only. The TF-Vocabulary range of dimensions have been tested are $V_{TF}\textit{=\{5k,10k,50k,100k\}}$. The feature space in the Distributional model is pre-selected while the deep learning process of PVBOW model. The range of the models fixed dimensions has been tested are $D_{dim}\textit{=\{50,100,250,500,1000\}}$ based of previews studies related to the distributional features on Natural Language Processing domain where relatively small dimensions are used, compare to TF scheme.
@@ -114,7 +115,7 @@ Finally, to extract the best possible parameter settings for each classification
 \end{table}
 
 
-\section{Results}\label{sec:Experiments_Results}
+\section{Results}\label{chap:word_embedding:sec:Experiments_Results}
 
 In this study we are evaluating the performance of NNDR algorithm into the open-set framework with the presence of noise, as the notion of noise explained above. That is we are only using the 11 known genre classes of SANTINIS corpus for training, while for evaluation we are using all 12 classes. The true genre class tags for the documents of the in the 12th class is not known and it is only considered as noise. Therefore, we have to deal with \textit{unstructured noise}. Additionally, since the noise-class is marked then the algorithm is evaluated in both false-positive classifications of the marked-unknown-classes as known an the false-negative classifications of the known-classes as unknown. In both cases the false classifications are causing a penalty to the Macro-F1 and Macro-Precision-Recall Curves we are using for evaluation.
 
