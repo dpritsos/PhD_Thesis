@@ -60,7 +60,7 @@
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Computational Open-Set Identification of The Web's ( Context ) Genres}
+\thesistitle{Open-set Web Genres Identification}
 \supervisor{Dr. Efstathios \textsc{Stamatatos}}
 % \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
 \degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
@@ -158,65 +158,14 @@ Finally, one will find the new avenues for improving the research on the field a
 %----------------------------------------------------------------------------------------
 %	THESIS INTRODUCTION
 %----------------------------------------------------------------------------------------
-\chapter*{Introduction}\label{sec:intro}
 
-\addchaptertocentry{Introduction}
-Computations \textit{Context Genre Identification} is the natural progress of the almost ancient process of categorizing the human intellectual creations on such an abstract taxonomy as their Genus. Artifacts such as paintings, music peaces and written texts are always a subject of research interest to be classified based on their from, style and communicative purpose other than their content. \textit{Literature or poems, impressionism or expressionism, blues or funky} are some examples of these artifacts genre which are independent of their topic.
-
-This work is focused on the Text Genre-taxonomy and more specifically for the Web's Context Genres, motivated by its potential contribution towards the handling of the web content scale as the future concerns of the \textit{Information Retrieval (IR)} and \textit{Natural Language Processing (NLP)}. 
-
-The ability to automatically recognize the genre of web documents can enhance modern IR systems by enabling genre-based grouping/filtering of search results or building intuitive hierarchies of web page collections combining topic and genre information \parencite{Braslavski2007,Rosso2008,de2009genre}. Similarly, the modern NLP systems for author attribution, automated translation can be benefit by narrowing the feature space for an algorithm model induction. The recognition of web genre can also enhance the effectiveness of processing the content of web pages in information extraction applications. For example, given that a set of web pages has to be part-of-speech tagged, appropriate models can be applied to each web page according to their genre \parencite{Nooralahzadeh2014}.
-
-There also several research and application where the \textit{Automated Genre Identification (AGI)} advances can directly benefit them. Such as \textit{foreign language teaching} and \textit{journalism history research} where the genre-taxonomy is very important for locating the proper documents as a starting point for their work.
-
-The \textit{Web Genre Identification  (WGI)} also can benefit a a search engine which it can provide its users with the option to define complex queries (e.g., blogs about machine learning or eshops about sports equipment) as well as the option to navigate through results based on genre labels (e.g. social media pages, web shops, discussion forum, blogs, etc).
-
-However, research in WGI is relatively limited due to fundamental difficulties emanating from the genre notion itself. The most significant difficulties in the WGI domain are: (1) There is not a consensus on the exact definition of genre \parencite{crowston2011problems}; (2) There is not a common genre palette that comprises all available genres and sub-genres \parencite{santini2011cross,mehler2010genres_on_web,mason2009n,sharoff2010web}, moreover, genres are evolving in time since new genres are born or existing genres are modified \parencite{Boese2005}; (3) It is not clear whether a whole web page should belong to a genre or sections of the same web page can belong to different genres \parencite{jebari2015combination,madjarov2015web}; (4) Style of documents is affected by both genre-related choices and author-related choices \parencite{petrenz2011stable,Sharroff2010}. As a result, it is hard to accurately distinguish between personal style characteristics and genre properties when style is quantified.
-
-Most previous studies in WGI consider the case where all web pages should belong to a predefined taxonomy of genres \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2014pure_URL}. However, this naive assumption is not appropriate for most applications related with WGI. As in traditional text genres what are evolving in time, say novel to comics, forking and evolution, the same applies to Web-genres, say news to blog forking and to micro-blogging evolution. In fact the evolution of the web-genre taxonomy is even more rapid and the temporal idiosyncrasy of the genres more vivid. In addition to the scale of the Web where is intractable to locate all the possible genres in a given time, it is not possible to construct a universal genre palette. Thus there should always exist web pages that would not fall into any of the predefined genre labels.
-
-In that sense the Web-pages \textit{Noise} is introduced and well defined in this study. {Noise} web-pages are considered also when multiple genres (predefined or not) co-exist \parencite{santini2011cross,levering2008using}. The vast majority of previous work in WGI avoid to examine the problems arising from the presence of noise and as a result it is not possible to estimate the effectiveness of most existing WGI approaches in realistic conditions.
-
-The Genre-units are, also, discussed in this study such as \textit{the web-page, the web-page section, the web-page paragraph} or \textit{the web-site genres}. Consequently, the URL utility in the WGI task is raised and discussed in respect of the linking of these units and how it can be used as an indicator of the genre-identification. Then noise notion is changing slightly but the same approach can be applied to the one will be used when web-page is assumed as the main mono-genre unit.
-
-To handle noise in WGI there are two options. First, to adopt the closed-set classification setup having one predefined category devoted to noise. Since this category would comprise all web pages not belonging to the known genre labels, it would not be homogeneous. Moreover, this noise class would be much more greater with respect to the other genres causing class imbalance problems. The second option is to adopt the open-set classification setting where it is possible for some web pages not to be classified into any of the predefined genre categories \parencite{pritsos2013open}. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup \parencite{scheirer2013toward}.
-
-Open-set classification framework is closely related to the Novelty Detection and the One-class Classification where it is assumed that only positive examples are available for the surprised model induction methods. These methods then have been adapted to this problem and there are several examples such as One-Class SVM, One-Class Neural Networks... etc. It might sound similar but it is not a binary classification setup for training these algorithms due to the lack of the negative examples. In respect of WGI this is the realistic case scenario where one might be able to collect a good sample (however not complete due to the scaling of the Web) for the positive samples but for the negative samples is virtually impossible since not even the temporal genre-taxonomy pallet is not available. 
-
-As an even more complicated task the open-set classification usually (use Open set Classification Survey reference HERE) assumes a multi-class classification problem where a few genres might be available to the \textit{Learner} and again the total number of the negative samples are not available. Then several issues rise and the most important of all is to constraint the \textit{Open-Space Risk}. 
-
-The {Open-Space Risk} is a definition for form the domain of Open-Set classification research to describe the weakness of the current closed-set ML algorithms usually are used out-of-the-box to regulate low Recall performance of the models due to the luck of negative samples. Usually also of the constraint positive samples. In order to measure the performance of such algorithms the \textit{Openness} test have very recently introduced. 
-
-In this study is also confirmed and rediscovered the proper methods for measuring the performance of the open-set algorithms on the WGI task. Measure like $F_{1}$ statistic, \textit{Precision, Recall, Accuracy, Precision-Recall Curves (PRC) and PRC Area Under the Curve (AUC)} are inappropriate for the open-set classification where an algorithm can classify an arbitrary sample one one of it is \textit{Known} classes but it can also let the sample as \textit{Unknown} or in a "Don't know bucket". It is shown that the $Macro F_{1}$ form of the above measures it can tackle the problem of proper measurement and overcome the usually \textit{imbalanced available corpora} for the WGI research. 
-
-In combination with the \textit{openness test} and the proper measurement it is presented in this work that simple \textit{Distance based algorithms} is a perspective approach towards the handling of the WGI task, comparing them to more sophisticated methods like SVM. It also the open-set Ensemble Learners are shown to have higher performance. 
-
-In this study are introduced and tested two open-set classification models, the \textit{Random Feature Subspacing Ensembles} (RFSE) and the \textit{Open Nearest Neighbours Distance Ratio} OpenNNDR, as an evolutionary adaption for the WGI task, of two already suggested algorithms. 
-
-The evaluation of these algorithms is mainly focuses on the textual information one can get from the web-pages such as Word n-grams (WNG), Character n-grams (CNG), Part-of-Speach n-grams (POSNG). However, there are several other features have been suggested in the related literature. All of them are presented in chapters \ref{} and an extra focus is given to some of the most notable ones other than the ones have been thoroughly tested in this study.
-
-Starting with the \textit{Bag-of-word (BOW)} together with the Bag-of-HTML-tags ($BOT^{html}$) there was a great effort to exploit information one could get from the text and the html structure of the web-pages, where in the closed-set framework seemed to work. Several other approaches of the same pattern also have been tested such as the POS or the POSNG and eventually the best one could was from the CNG where after that more sophisticated features have been tried especially for more complex and more close to the real world scenario.
-
-In other AGI cases where the Web was not in the main focus, also \textit{Superficial-Features} (SUF) where tested in combination usually to the BOW or more generally Bag-of-Terms (BOT) features. Such features where the \textit{length of words, paragraphs, stances Frequency's} or the \textit{Ration of the Max-to-Lengths} for the same patters of the text. Moreover, lexicographic, and morphological features are also testes.....
-
-Most notably the Word-Graph connection was attempted to be exploited where the Graph properties measurement where used of  deriving good indicators for discriminating the genres. An even farther approach was to exploit the text structure of the URLs in the web-pages other than their Linking property discussed above....
-
-All the above examples are heuristics and this was so far the main focus for the AGI/WGI research. Other heuristics where focusing on the amplification of the information by using not only the URL linking information but also the text of the neighbouring pages in order to enable an algorithm to classify, in a closed-set framework, an arbitrary web-page. 
-
-There where not but a few attempts to approach the WGI in the open-set framework where the most notable is the case where and adaptive algorithm was presented with interesting results. However, its weakness to noise tolerance was found to be very high, which is something one would have been expected in the first place. 
-
-In respect of the document representation usually the TF or the TF-IDF approach where used and most of the cases the results seems to be very closely related to the corpus the algorithms have been tested. However, there is one interesting case where a \textit{Ranking Vocabulary Distance} was used for the classification, where the representation and the decision method are tightly related.
- 
-Finally, this study have tested the Distributional Features (Word Embedding) modeling on the WGI task for the first time showing very interesting results. The \textit{Word Embedding} modeling method is using a multi-layer \textit{Neural Network (NNet} in order to project the word of the texts in a multi-dimensional feature space. The NNet modeling then is used in order to bring the word that are "similar" in the context of taxonomy-classes. In the end every word is encoded to this model with a fix-size vector. The same process can be followed an then a vector for each document....
-
-Using two benchmark corpora we perform a systematic evaluation of WGI models when noise is either unstructured (the true genre of noisy pages is not available) or structured (the true genre of noisy pages is available). In order to handle the latter case, we employ the openness test in WGI that provides a detailed view of performance for a varying number of known/unknown labels. This test has already been used in visual object recognition \parencite{scheirer2013toward} and it perfectly fits the WGI task.
-
-The rest of this work is organized as follows. In section ...
+% Moved to Chapter 1 as usually done in Thesis
 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CHAPTERS
 %----------------------------------------------------------------------------------------
+\include{Chapters/Introduction}
 \include{Chapters/Relevant_Work}
 \include{Chapters/Open_set}
 \include{Chapters/Evaluation_methodology}
