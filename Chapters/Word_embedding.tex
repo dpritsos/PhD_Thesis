@@ -188,6 +188,111 @@ In this study a PVBOW Distributional Feature model for the whole corpus is train
 \section{Random Features vs Paragraph Vector Bag-of-Words for the Open-set Framework} \label{chap:word_embeddings:sec:last_paper_presentation}
 
 
+\section{Experiments}\label{sec:experiments}
+
+%\subsection{Open-set Evaluation Methodology}
+%In this study we are measuring the performance of a novel extension of the NN method, designed for open-set classification. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process. To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures \parencite{mendesjunior2016}. Our modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use two scalar measures, the \textit{Area Under the Precision-Recall Curve} (AUC) to the  standard \textit{11 Recall Levels} and $F_{1}$.
+
+\subsection{Corpus}\label{sec:corpora}
+Our experiments are based on~\textit{SANTINIS}, a benchmark corpus already used in previous work in WGI \parencite{mehler2010genres_on_web,pritsos2018open,santini2007automatic}. This dataset comprises 1,400 English web-pages evenly distributed into seven genres (blog, eshop, FAQ, frontpage, listing, personal home page, search page) as well as 80 BBC web-pages evenly categorized into four additional genres (DIY mini-guide, editorial, features, short-bio). In addition, the dataset comprises a random selection of 1,000 English web-pages taken from the SPIRIT corpus \parencite{joho2004spirit}. The latter can be viewed as \emph{unstructured noise} since genre labels are missing. 
+
+%\begin{definition}{Web-Genre} is defined, in this study, as a class where its samples are i.i.d. Thus every web-pages is always derived under a unique class distribution and the class distributions (i.e. other web-genres) are not overlapped.
+%\end{definition}
+%
+\subsection{Experimental Setup}\label{sec:evaluation_measures}
+To represent web-pages, we use features exclusively related to textual information, excluding any structural information, URLs, etc. The following representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G). For each of these schemes, we use either Term-Frequency (TF) weights or DF features. The feature space for TF is defined by a vocabulary $V_{TF}$, which is extracted based on the most frequent terms of the training set --- we consider $V_{TF}=\{5k,10k,50k,100k\}$. The DF space is pre-defined in the PV-BOW model --- we consider $DF_{dim}=\{50,100,250,500,1000\}$.
+
+In PV-BOW, the terms with very low-frequency in the training set are discarded. In this study, we examine $TF_{min}=\{3,10\}$ as cutoff frequency threshold. The text window size is selected from $W_{size}=\{3,8,20\}$. The remaining parameters of PV-BOW are set as follows: $\alpha=0.025$, $epochs=\{1, 3, 10\}$ and $decay=\{0.002, 0.02\}$.
+
+Regarding the NNRD open-set classifier, there are two parameters, $lambda$ and DRT, and their considered values are: $\lambda =\{0.2, 0.5, 0.7\}$, $DRT\textit{=\{0.4, 0.6, 0.8, 0.9\}}$. All aforementioned parameters are adjusted based on grid-search using only the training part of the corpus.
+
+For a proper comparison with prior art, we use two open-set WGI approaches with good previously reported results as baselines: Random Feature Subset Ensemble (RFSE) and one-class SVM (OCSVM) \parencite{pritsos2013open,pritsos2018open}. All parameters of these methods have been been adjusted as suggested in~\parencite{pritsos2018open} (based on the same corpus).
+
+We follow the open-set evaluation framework with unstructured noise introduced in~\parencite{pritsos2018open}. In particular, the open-set F1 score~\parencite{mendesjunior2016} is calculated over the known classes (the noisy class is excluded). The reported evaluation results are obtained by performing 10-fold cross-validation and, in each fold, we include the full set of 1,000 pages of noise. This setup is comparable to previous studies~\parencite{pritsos2018open}.
+
+\section{Results}\label{sec:Experiments_Results}
+
+We apply the baselines and NNDR in the SANTINIS corpus. In the training phase, we use only the 11 known genre classes while in test phase, we also consider an additional class (unstructured noise). Table~\ref{tbl:results} shows the performance of tested methods when either TF or DF representation schemes, based on C4G, W1G, or W4G features, are used. 
+
+\begin{table}[t]
+\center
+\caption {Performance of baselines and NNDR on the SANTINIS coprus. All evaluation scores are macro-averaged.}
+\label{tbl:results}
+\begin{tabular}{ccccccc}
+\hline
+Model & Features & Dim. & Precision & Recall & AUC & F1 \\
+\hline
+RFSE & TF-C4G & 50k & 0.739 & \textbf{0.780} & 0.652 & 0.759 \\
+RFSE & TF-W1G & 50k & 0.776 & 0.758 & \textbf{0.657} & \textbf{0.767} \\
+RFSE & TF-W3G & 50k & 0.797 & 0.722 & 0.615 & 0.758 \\
+OCSVM & TF-C4G & 5k & 0.662 & 0.367 & 0.210 & 0.472\\
+OCSVM & TF-W1G & 5k & 0.332 & 0.344 & 0.150 & 0.338\\
+OCSVM & TF-W3G & 10k & 0.631 & 0.654 & 0.536 & 0.643\\
+NNDR & TF-C4G & 5k & 0.664 & 0.403 & 0.291 & 0.502 \\
+NNDR & TF-W1G & 5k & 0.691 & 0.439 & 0.348 & 0.537 \\
+NNDR & TF-W3G & 10k & 0.720 & 0.664 & 0.486 & 0.691 \\
+NNDR & DF-C4G & 50 & \textbf{0.829} & 0.600 & 0.455 & 0.696 \\
+NNDR & DF-W1G & 50 & 0.733 & 0.670 & 0.541 & 0.700 \\
+NNDR & DF-W3G & 100 & 0.827 & 0.615 & 0.564 & 0.706 \\
+\hline
+\end{tabular}
+\end{table}
+
+First, we compare NNDR using TF features with baselines, also using this kind of features. In this case, NNDR outperforms OCSVM. On the other hand, RFSE performed better than NNDR for Macro-F1 and Macro-AUC. This is consistent for any kind of features (C4G, W1G, or W3G). There is notable difference in the dimensionality of representation used by the examined approaches though. RFSE relies upon a 50k-D manifold while NNDR and OCSVM are based on much lower dimensional spaces. It has to be noted that RFSE builds an ensemble by iteratively selecting a subset of the available features (randomly). That way, it internally reduces the dimensionality for each constituent base classifier. On the other hand, NNDR seems to be confused when thousands of features are considered as it is based on distance calculations. 
+
+Next, we compare NNDR models using either TF or DF features. There is a notable improvement when DFs are used in associated with the open-set NNDR classifier. The dimensionality of DF is much lower than TF and this seems to be crucial to improve the performance of NNDR. This is consistent for all three feature types (C4G, W1G, and W3G). NNDR with TF scheme is competitive only when W3G features are used. It has also to be noted that in all cases the selected value of parameter DRT is 0.8. This indicates that NNDR is a very robust algorithm.
+
+Finally, the proposed approach using NNDR and DF outperforms OCSVM but it is outperformed by the strong baseline RFSE in both macro-AUC and macro F1. However, when precision is concerned, NNDR is much better. A closer look at  the comparison of the two methods is provided in Fig. \ref{fig:NNDR_W3G_Best_RFSE_Baseline}, where precision curves in 11-standard recall levels are depicted. The precision value at $r_j$ level is interpolated as follows: $P(r_j)=max_{r_j \leq r \leq r+{j+1}}(P(r))$.
+
+The NNDR-DF model maintains very high precision scores for low levels of recall. The difference between NNDR-DF and RFSE at that point is clearer when W3G features are used. NNDR-TF is clearly worse than both NNDR-DF and RFSE. In addition, OCSVM is competitive in terms of precision only when W3G features are used but its performance drops abruptly in comparison to that of NNDR-DF. Note that the point where the curves end indicates the percentage of corpus that is left unclassified (assigned to unknown class). RFSE manages to recognize correctly larger part of the corpus, more than $70\%$, with respect to NNDR-DF that reaches $60\%$. 
+
+%****Intuitively DF space differs to the TF space by "encoding" the correlations of the features in a small fixed dimensional space where both the dimensionality reduction and the feature selection is co-occurring. Also more efficiently, although implicitly, to the RFSE.****
+%
+%\begin{table}
+%\center
+%\begin{tabular}{|l|l|rcr|cr|cl|rrrr|}
+%\hline
+%MAX. & MODEL & FSS & $\sigma$T & ITER. &T.TYPE & DIMs &WS & DEC. & M\emph{P} & M\emph{R} & M\emph{AUC} & M\emph{F1} \\
+%\hline
+%F1/AUC & NNDR-DF & - & - & - & C4G & 50 & 8 & 0.002 & 0.829 & 0.600 & 0.455 & 0.696 \\
+%F1/AUC & NNDR-DF & - & - & - & W1G & 50 & 3 & 0.02 & 0.733 & 0.670 & 0.541 & 0.700 \\
+%F1/AUC & NNDR-DF & - & - & - & W3G & 100 & 3 & 0.02 & 0.827 & 0.615 & 0.564 & 0.706 \\
+%F1/AUC & NNDR-TF & - & - & - & C4G & 5000 & - & - & 0.664 & 0.403 & 0.291 & 0.502 \\
+%F1/AUC & NNDR-TF & - & - & - & W1G & 5000 & - & - & 0.691 & 0.439 & 0.348 & 0.537 \\
+%F1/AUC & NNDR-TF & - & - & - & W3G & 10000 & - & - & 0.720 & 0.664 & 0.486 & 0.691 \\
+%% AUC & NNDR-TF & - & - & - & W3G & 5000 & - & - & 0.738 & 0.604 & 0.437 & 0.664 \\
+%F1 & RFSE-TF & 1000 & 0.5 & 100 & C4G & 50000 & - & - & 0.739 & 0.780 & 0.652 & 0.759 \\
+%%AUC & RFSE-TF & 500 & 0.5 & 300 & C4G & 10000 & - & - & 0.686 & 0.831 & 0.722 & 0.751 \\
+%F1 & RFSE-TF & 10000 & 0.5 & 1000 & W1G & 50000 & - & - & 0.776 & 0.758 & 0.657 & 0.767 \\
+%%AUC & RFSE-TF & 1000 & 0.5 & 300 & W1G & 5000 & - & -  & 0.618 & 0.807 & 0.673 & 0.700 \\
+%F1  & RFSE-TF & 1000 & 0.7 & 100 & W3G & 50000 & - & - & 0.797 & 0.722 & 0.488 & 0.758 \\
+%AUC & RFSE-TF & 10000 & 0.5 & 100 & W3G & 100000 & - & - & 0.657 & 0.805 & 0.696 & 0.723 \\
+%\hline
+%\end{tabular}
+%\caption {Performance of NNDR and RFSE on the SANTINIS coprus using TF and DF features. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro PR Curve. MF1 is the F1 score of the Macro Precision and Macro Recall. T.TYPE is the Terms Type. DIMs is the features model's dimensions. RFSE: FSS is the Features Subset Selection number. $\sigma$T is the sigma threshold. ITER is the number of iterations. DF: WS is the Windows Size of the text sentence. DEC is the decay parameter. }
+%\label{tbl:NNDR_VS_RFSE}
+%\vspace{-8mm}
+%\end{table}
+
+%\begin{figure}[t]
+%\begin{center}
+%    \includegraphics[scale=0.70]{NNDR_W3G_Best_RFSE-Baseline_2.eps}
+%	\caption{Precision curves in 11-standard recall levels of NNDR and RFSE models.}
+%	\label{fig:NNDR_W3G_Best_RFSE_Baseline}
+%   \end{center}
+%\vspace{-7mm}
+%\end{figure}
+
+\begin{figure}[t]
+\begin{center}
+    \includegraphics[scale=0.95]{NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps}
+	\caption{Precision curves in 11-standard recall levels of the examined open-set classifiers using either W3G features (left) or W1G features (right).}
+	\label{fig:NNDR_W3G_Best_RFSE_Baseline}
+	\end{center}
+\vspace{-7mm}
+\end{figure}
+
+%, i.e. the remaining part after the last mark of each curve it the percentage of the corpus tha has been classified as Unknown from the algorithms.
 
 
 
@@ -378,111 +483,4 @@ Finally it almost became tradition to be underlined that there is a need for a w
 The Nearest Neighbors Distance Ratio (NNRD) classifier is an open-set classification algorithm introduced in \parencite{mendesjunior2016}, which in turn, is an extension upon the \textit{Nearest Neighbors} (NN) algorithm. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. Then, if the ratio $d(s,t)/d(s,u)$ is higher than a threshold, the new sample is classified to the class of $s$. Otherwise, it is left unclassified. 
 
 It is remarkable that, in contrast to other open-set classifiers, training of NNDR requires both known samples (belonging to classes known during training) and unknown examples (belonging to other/unknown classes) of interest. In more details, the \textit{Distance Ratio Threshold} (DRT) used to classify new samples is adjusted by maximizing the \textit{Normalized Accuracy} (NA)  $NA = \lambda A_{KS} + (1 - \lambda) A_{US}$, where $A_{KS}$ is the accuracy on known samples and $A_{US}$ is the accuracy on unknown samples. The parameter $\lambda$ regulates the mistakes trade-off on the known and unknown samples prediction. Since usually in training phase only known classes are available, Mendes et al. \parencite{mendesjunior2016} propose an approach to repeatedly split available training classes into two sets (known and "simulated" unknown). In our implementation of NNDR, we use cosine distance rather than the Euclidean distance because previous work found this type of distance more suitable for WGI \parencite{pritsos2018open}.\footnote{\url{https://github.com/dpritsos/OpenNNDR}}
-
-\section{Experiments}\label{sec:experiments}
-
-%\subsection{Open-set Evaluation Methodology}
-%In this study we are measuring the performance of a novel extension of the NN method, designed for open-set classification. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process. To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures \parencite{mendesjunior2016}. Our modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use two scalar measures, the \textit{Area Under the Precision-Recall Curve} (AUC) to the  standard \textit{11 Recall Levels} and $F_{1}$.
-
-\subsection{Corpus}\label{sec:corpora}
-Our experiments are based on~\textit{SANTINIS}, a benchmark corpus already used in previous work in WGI \parencite{mehler2010genres_on_web,pritsos2018open,santini2007automatic}. This dataset comprises 1,400 English web-pages evenly distributed into seven genres (blog, eshop, FAQ, frontpage, listing, personal home page, search page) as well as 80 BBC web-pages evenly categorized into four additional genres (DIY mini-guide, editorial, features, short-bio). In addition, the dataset comprises a random selection of 1,000 English web-pages taken from the SPIRIT corpus \parencite{joho2004spirit}. The latter can be viewed as \emph{unstructured noise} since genre labels are missing. 
-
-%\begin{definition}{Web-Genre} is defined, in this study, as a class where its samples are i.i.d. Thus every web-pages is always derived under a unique class distribution and the class distributions (i.e. other web-genres) are not overlapped.
-%\end{definition}
-%
-\subsection{Experimental Setup}\label{sec:evaluation_measures}
-To represent web-pages, we use features exclusively related to textual information, excluding any structural information, URLs, etc. The following representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G). For each of these schemes, we use either Term-Frequency (TF) weights or DF features. The feature space for TF is defined by a vocabulary $V_{TF}$, which is extracted based on the most frequent terms of the training set --- we consider $V_{TF}=\{5k,10k,50k,100k\}$. The DF space is pre-defined in the PV-BOW model --- we consider $DF_{dim}=\{50,100,250,500,1000\}$.
-
-In PV-BOW, the terms with very low-frequency in the training set are discarded. In this study, we examine $TF_{min}=\{3,10\}$ as cutoff frequency threshold. The text window size is selected from $W_{size}=\{3,8,20\}$. The remaining parameters of PV-BOW are set as follows: $\alpha=0.025$, $epochs=\{1, 3, 10\}$ and $decay=\{0.002, 0.02\}$.
-
-Regarding the NNRD open-set classifier, there are two parameters, $lambda$ and DRT, and their considered values are: $\lambda =\{0.2, 0.5, 0.7\}$, $DRT\textit{=\{0.4, 0.6, 0.8, 0.9\}}$. All aforementioned parameters are adjusted based on grid-search using only the training part of the corpus.
-
-For a proper comparison with prior art, we use two open-set WGI approaches with good previously reported results as baselines: Random Feature Subset Ensemble (RFSE) and one-class SVM (OCSVM) \parencite{pritsos2013open,pritsos2018open}. All parameters of these methods have been been adjusted as suggested in~\parencite{pritsos2018open} (based on the same corpus).
-
-We follow the open-set evaluation framework with unstructured noise introduced in~\parencite{pritsos2018open}. In particular, the open-set F1 score~\parencite{mendesjunior2016} is calculated over the known classes (the noisy class is excluded). The reported evaluation results are obtained by performing 10-fold cross-validation and, in each fold, we include the full set of 1,000 pages of noise. This setup is comparable to previous studies~\parencite{pritsos2018open}.
-
-\section{Results}\label{sec:Experiments_Results}
-
-We apply the baselines and NNDR in the SANTINIS corpus. In the training phase, we use only the 11 known genre classes while in test phase, we also consider an additional class (unstructured noise). Table~\ref{tbl:results} shows the performance of tested methods when either TF or DF representation schemes, based on C4G, W1G, or W4G features, are used. 
-
-\begin{table}[t]
-\center
-\caption {Performance of baselines and NNDR on the SANTINIS coprus. All evaluation scores are macro-averaged.}
-\label{tbl:results}
-\begin{tabular}{ccccccc}
-\hline
-Model & Features & Dim. & Precision & Recall & AUC & F1 \\
-\hline
-RFSE & TF-C4G & 50k & 0.739 & \textbf{0.780} & 0.652 & 0.759 \\
-RFSE & TF-W1G & 50k & 0.776 & 0.758 & \textbf{0.657} & \textbf{0.767} \\
-RFSE & TF-W3G & 50k & 0.797 & 0.722 & 0.615 & 0.758 \\
-OCSVM & TF-C4G & 5k & 0.662 & 0.367 & 0.210 & 0.472\\
-OCSVM & TF-W1G & 5k & 0.332 & 0.344 & 0.150 & 0.338\\
-OCSVM & TF-W3G & 10k & 0.631 & 0.654 & 0.536 & 0.643\\
-NNDR & TF-C4G & 5k & 0.664 & 0.403 & 0.291 & 0.502 \\
-NNDR & TF-W1G & 5k & 0.691 & 0.439 & 0.348 & 0.537 \\
-NNDR & TF-W3G & 10k & 0.720 & 0.664 & 0.486 & 0.691 \\
-NNDR & DF-C4G & 50 & \textbf{0.829} & 0.600 & 0.455 & 0.696 \\
-NNDR & DF-W1G & 50 & 0.733 & 0.670 & 0.541 & 0.700 \\
-NNDR & DF-W3G & 100 & 0.827 & 0.615 & 0.564 & 0.706 \\
-\hline
-\end{tabular}
-\end{table}
-
-First, we compare NNDR using TF features with baselines, also using this kind of features. In this case, NNDR outperforms OCSVM. On the other hand, RFSE performed better than NNDR for Macro-F1 and Macro-AUC. This is consistent for any kind of features (C4G, W1G, or W3G). There is notable difference in the dimensionality of representation used by the examined approaches though. RFSE relies upon a 50k-D manifold while NNDR and OCSVM are based on much lower dimensional spaces. It has to be noted that RFSE builds an ensemble by iteratively selecting a subset of the available features (randomly). That way, it internally reduces the dimensionality for each constituent base classifier. On the other hand, NNDR seems to be confused when thousands of features are considered as it is based on distance calculations. 
-
-Next, we compare NNDR models using either TF or DF features. There is a notable improvement when DFs are used in associated with the open-set NNDR classifier. The dimensionality of DF is much lower than TF and this seems to be crucial to improve the performance of NNDR. This is consistent for all three feature types (C4G, W1G, and W3G). NNDR with TF scheme is competitive only when W3G features are used. It has also to be noted that in all cases the selected value of parameter DRT is 0.8. This indicates that NNDR is a very robust algorithm.
-
-Finally, the proposed approach using NNDR and DF outperforms OCSVM but it is outperformed by the strong baseline RFSE in both macro-AUC and macro F1. However, when precision is concerned, NNDR is much better. A closer look at  the comparison of the two methods is provided in Fig. \ref{fig:NNDR_W3G_Best_RFSE_Baseline}, where precision curves in 11-standard recall levels are depicted. The precision value at $r_j$ level is interpolated as follows: $P(r_j)=max_{r_j \leq r \leq r+{j+1}}(P(r))$.
-
-The NNDR-DF model maintains very high precision scores for low levels of recall. The difference between NNDR-DF and RFSE at that point is clearer when W3G features are used. NNDR-TF is clearly worse than both NNDR-DF and RFSE. In addition, OCSVM is competitive in terms of precision only when W3G features are used but its performance drops abruptly in comparison to that of NNDR-DF. Note that the point where the curves end indicates the percentage of corpus that is left unclassified (assigned to unknown class). RFSE manages to recognize correctly larger part of the corpus, more than $70\%$, with respect to NNDR-DF that reaches $60\%$. 
-
-%****Intuitively DF space differs to the TF space by "encoding" the correlations of the features in a small fixed dimensional space where both the dimensionality reduction and the feature selection is co-occurring. Also more efficiently, although implicitly, to the RFSE.****
-%
-%\begin{table}
-%\center
-%\begin{tabular}{|l|l|rcr|cr|cl|rrrr|}
-%\hline
-%MAX. & MODEL & FSS & $\sigma$T & ITER. &T.TYPE & DIMs &WS & DEC. & M\emph{P} & M\emph{R} & M\emph{AUC} & M\emph{F1} \\
-%\hline
-%F1/AUC & NNDR-DF & - & - & - & C4G & 50 & 8 & 0.002 & 0.829 & 0.600 & 0.455 & 0.696 \\
-%F1/AUC & NNDR-DF & - & - & - & W1G & 50 & 3 & 0.02 & 0.733 & 0.670 & 0.541 & 0.700 \\
-%F1/AUC & NNDR-DF & - & - & - & W3G & 100 & 3 & 0.02 & 0.827 & 0.615 & 0.564 & 0.706 \\
-%F1/AUC & NNDR-TF & - & - & - & C4G & 5000 & - & - & 0.664 & 0.403 & 0.291 & 0.502 \\
-%F1/AUC & NNDR-TF & - & - & - & W1G & 5000 & - & - & 0.691 & 0.439 & 0.348 & 0.537 \\
-%F1/AUC & NNDR-TF & - & - & - & W3G & 10000 & - & - & 0.720 & 0.664 & 0.486 & 0.691 \\
-%% AUC & NNDR-TF & - & - & - & W3G & 5000 & - & - & 0.738 & 0.604 & 0.437 & 0.664 \\
-%F1 & RFSE-TF & 1000 & 0.5 & 100 & C4G & 50000 & - & - & 0.739 & 0.780 & 0.652 & 0.759 \\
-%%AUC & RFSE-TF & 500 & 0.5 & 300 & C4G & 10000 & - & - & 0.686 & 0.831 & 0.722 & 0.751 \\
-%F1 & RFSE-TF & 10000 & 0.5 & 1000 & W1G & 50000 & - & - & 0.776 & 0.758 & 0.657 & 0.767 \\
-%%AUC & RFSE-TF & 1000 & 0.5 & 300 & W1G & 5000 & - & -  & 0.618 & 0.807 & 0.673 & 0.700 \\
-%F1  & RFSE-TF & 1000 & 0.7 & 100 & W3G & 50000 & - & - & 0.797 & 0.722 & 0.488 & 0.758 \\
-%AUC & RFSE-TF & 10000 & 0.5 & 100 & W3G & 100000 & - & - & 0.657 & 0.805 & 0.696 & 0.723 \\
-%\hline
-%\end{tabular}
-%\caption {Performance of NNDR and RFSE on the SANTINIS coprus using TF and DF features. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro PR Curve. MF1 is the F1 score of the Macro Precision and Macro Recall. T.TYPE is the Terms Type. DIMs is the features model's dimensions. RFSE: FSS is the Features Subset Selection number. $\sigma$T is the sigma threshold. ITER is the number of iterations. DF: WS is the Windows Size of the text sentence. DEC is the decay parameter. }
-%\label{tbl:NNDR_VS_RFSE}
-%\vspace{-8mm}
-%\end{table}
-
-%\begin{figure}[t]
-%\begin{center}
-%    \includegraphics[scale=0.70]{NNDR_W3G_Best_RFSE-Baseline_2.eps}
-%	\caption{Precision curves in 11-standard recall levels of NNDR and RFSE models.}
-%	\label{fig:NNDR_W3G_Best_RFSE_Baseline}
-%   \end{center}
-%\vspace{-7mm}
-%\end{figure}
-
-\begin{figure}[t]
-\begin{center}
-    \includegraphics[scale=0.95]{NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps}
-	\caption{Precision curves in 11-standard recall levels of the examined open-set classifiers using either W3G features (left) or W1G features (right).}
-	\label{fig:NNDR_W3G_Best_RFSE_Baseline}
-	\end{center}
-\vspace{-7mm}
-\end{figure}
-
-%, i.e. the remaining part after the last mark of each curve it the percentage of the corpus tha has been classified as Unknown from the algorithms.
-
 
