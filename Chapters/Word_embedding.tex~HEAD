@@ -1,8 +1,9 @@
+
 %!TeX spellcheck = en-US
+%\chapter{Word Embedding and Distributional Features of the web-pages and texts}
+\chapter{Open-set WGI with Distributional Features}
 
-\chapter{Word Embedding and Distributional Features of the web-pages and texts}
-
-\label{chap:word_embedding}
+\label{chap:word_embeddings}
 
 
 %----------------------------------------------------------------------------------------
@@ -16,11 +17,11 @@
 
 %----------------------------------------------------------------------------------------
 
-\section{Introduction}\label{chap:word_embedding:sec:intro}
+\section{Introduction}\label{chap:word_embeddings:sec:intro}
  
  
 
-\section{N-grams, Term Embeddings and Distributional Features} \label{chap:word_embedding:sec:ngrans_vs_doc2vec}
+\section{N-grams, Word Embeddings and Distributional Features} \label{chap:word_embeddings:sec:ngrans_vs_doc2vec}
 
 
 The Bag of Terms (BOT) n-grams, a.k.a the Bag of Words (BOW), is the most common text modeling in NLP and other text related research domains. The assumption as in other features from other domain, say image processing, is the \textit{Independent and Identical Distribution (i.i.d)} of the terms, then it is easy to express context of a text into a \textit{fixed vector} sample which is the main requirement of most ML algorithms to work. Moreover, is computationally very easy and in the past the creation of such a fast document representing in respect of time consumption was critical due to the lack of the today's resources.
@@ -33,9 +34,9 @@ In this section it is described the PV-BOW modeling in detail, which have been u
 
 The goal of \textit{Statistical Language Modeling (SLM) } is to learn \textit{joint probability distribution function} of word sequences, i.e. word n-grams. The main difference to the BOW and particularly to the word n-grams TF (or TF-IDF) model, is the \textit{semantic proximity} of the word's neighbouring in the sentences. Implicitly the WNG-TF models is also capturing some of this information and definitely not explicitly. Additionally, the SLM can always return an estimate value for n-grams never seen before, while for the WNG-TF this is impossible  \parencite{bengio2003neural}
 
-The SLM model is defined as the \textit{joint conditional probability distribution} of the next word given the probabilities of previous ones as shown in equation \ref{chap:word_embedding:eq:slm}
+The SLM model is defined as the \textit{joint conditional probability distribution} of the next word given the probabilities of previous ones as shown in equation \ref{chap:word_embeddings:eq:slm}
 
-\begin{equation} \label{chap:word_embedding:eq:slm}
+\begin{equation} \label{chap:word_embeddings:eq:slm}
 	P(w = i) = \prod_{i=1}^{|V|} P(w_{i}|w_{i-k}, ... , w_{i+k})
 \end{equation}
 \noindent
@@ -43,55 +44,55 @@ where $w_{i}$ is the i-th word, and $k$ is for the number of words before or/and
 
 With this model it can be captured the semantic proximity but it will return zero in the case a sequence have never been met before in the samples. A solution to this problem is the interpolation or smoothness factor that can be applied such as in the \textit{back-off tri-gram model} (Katz, 1980 see in bengio2003neural). 
 
-The model of equation \ref{chap:word_embedding:eq:slm} can capture the joint probability of word-sequences in terms of feature vectors, however, it cannot capture the correlation of the words in terms of semantics. Models like LSI or LDA are methodologies also been tested in IR and NLP for capturing the semantics in the context of the n-gram based SLM. 
+The model of equation \ref{chap:word_embeddings:eq:slm} can capture the joint probability of word-sequences in terms of feature vectors, however, it cannot capture the correlation of the words in terms of semantics. Models like LSI or LDA are methodologies also been tested in IR and NLP for capturing the semantics in the context of the n-gram based SLM. 
 
 The goal of the DF models is to learn simultaneously the \textit{word feature vectors}, a.k.a \textit{Word Embeddings}, and the probability function or word sequences, a.k.a \textit{Distributional Features}. The word embeddings is a \textit{continuous vector space} where the words are positioned in \textit{Vocabulary} context, where the similarity of words can be learned. The word sequences are capturing the proximity of words in the paragraph (or sentence) context.
 
-The DF models then are able to learning the \textit{Continuous Distribution of Words in Sequences} and not only their role in sentences (such as in eq.  \ref{chap:word_embedding:eq:slm} model) or only their similarity (such as the LSI models). The DF modeling is a NLM procedure where Neural Networks are used for approximating the\textit{ joint probability distribution function of the continuous distributed feature-sequences}, where the probability features are associated to the words of the Vocabulary.
+The DF models then are able to learning the \textit{Continuous Distribution of Words in Sequences} and not only their role in sentences (such as in eq.  \ref{chap:word_embeddings:eq:slm} model) or only their similarity (such as the LSI models). The DF modeling is a NLM procedure where Neural Networks are used for approximating the\textit{ joint probability distribution function of the continuous distributed feature-sequences}, where the probability features are associated to the words of the Vocabulary.
 
-In practice the distributed features is the mapping of the Vocabulary words $V = \{w_{i}, i \in [1, |V|] \}$ to a real vector $\vec{t}(i) \in \mathbb{R}^{m}$. Then the semantic distance can be approximated by a NNet algorithm given the distribution of the words. The words are initially are having a vector 1-of-V representation, a.k.a. \textit{One-hot representation}. Then the probability of the a word $w_{i}$ in equation \ref{chap:word_embedding:eq:slm} can be replaced by the real continues vector $t{i}$ and the conditional probability $P(.|.)$ to be approximated my a NNet function $\hat{p}(.)$. The $\hat{}$ (hat) is for symbolizing a special condition where the probability is approximated given a sequence with a specific order, say preceding words or succeeding words or both. 
+In practice the distributed features is the mapping of the Vocabulary words $V = \{w_{i}, i \in [1, |V|] \}$ to a real vector $\vec{t}(i) \in \mathbb{R}^{m}$. Then the semantic distance can be approximated by a NNet algorithm given the distribution of the words. The words are initially are having a vector 1-of-V representation, a.k.a. \textit{One-hot representation}. Then the probability of the a word $w_{i}$ in equation \ref{chap:word_embeddings:eq:slm} can be replaced by the real continues vector $t{i}$ and the conditional probability $P(.|.)$ to be approximated my a NNet function $\hat{p}(.)$. The $\hat{}$ (hat) is for symbolizing a special condition where the probability is approximated given a sequence with a specific order, say preceding words or succeeding words or both. 
 
 Now the DF neural model can be calculated with several architectures where the $\vec{t}$ and the $\hat{p}$ continues distribution can feed separate layers of joint layers, and also the learning strategy can have variant implementations such as Continues Bag-of-Words, Skip-grams etc. The strategy of learning and the NNet architecture are very close related and the results are \textit{continues probability functions with substantially different meaning}, where they can either encode word similarities, word semantics or even paragraph and documents encoding and similarities. 
 
-To begin with, the most general architecture is to use the \textit{Feedforward Neural Network} with a projection layer, a hidden layer and an output layer as shown in figure \ref{chap:word_embeddings:fig:CBOW_diagram}. This NNet has an input layer where every word in the vocabulary is assigned to an One-hot vector $\hat{t}_{i}$ and all the sequence of the \textit{word vectors} are concatenated and forming the input vector $\hat{w}_{i}$ . The $\hat{w}$ is the input the projection layer $\vec{t} = \hat{w}W_{in}$ as show in the figure. The $W_{in}$ is the weight matrix of the projection layer with same regularization parameters $\theta$.
+To begin with, the most general architecture is to use the \textit{Feedforward Neural Network} with a projection layer, a hidden layer and an output layer as shown in figure \ref{chap:word_embeddingss:fig:CBOW_diagram}. This NNet has an input layer where every word in the vocabulary is assigned to an One-hot vector $\hat{t}_{i}$ and all the sequence of the \textit{word vectors} are concatenated and forming the input vector $\hat{w}_{i}$ . The $\hat{w}$ is the input the projection layer $\vec{t} = \hat{w}W_{in}$ as show in the figure. The $W_{in}$ is the weight matrix of the projection layer with same regularization parameters $\theta$.
 
 \begin{figure}[t]
 	\begin{center}
     	\includegraphics[scale=0.99]{Figures/CBOW_diagram.eps}
 		\caption{Diagram for C-BOW and General NLM architecture. Depending whether the $t_{i*}$ is part of the projection and the hidden layer or the layers are different. In practice the weighting matrices are either shared or diff rent between the word projection and the hidden layer or it is the same matrix, which is equivalent to the words been projected to the same position as their vectors are averaged and not concatenated.}
-		\label{chap:word_embeddings:fig:CBOW_diagram}
+		\label{chap:word_embeddingss:fig:CBOW_diagram}
 	\end{center}
 \end{figure}
 
 Now the $\vec{t}$ is the input to a hidden layer $\vec{h}=\vec{t}H$, which is usually the \textit{hyperbolic tangent hidden layer}, where $H$ is the weights of the hidden layer. Then, the output $\hat{p}=\vec{h}W_{out}$ is the last layer of the NNet.
 
-The generic architecture of the final output of the NLM described above is the equation \ref{chap:word_embeddings:nlm_generic}. Note that the output vector $\vec{y}$ has size $|V|$ due to the input $\hat{w}$ and is the inference model of a \textit{continues distribution} of both the proximity of the words in the sentences (captured by the hidden layer) and the distribution over the vocabulary, which is the continues similarity of the words in this vocabulary. The output layer then is as described in equation \ref{chap:word_embedding:eq:NLM}
+The generic architecture of the final output of the NLM described above is the equation \ref{chap:word_embeddingss:nlm_generic}. Note that the output vector $\vec{y}$ has size $|V|$ due to the input $\hat{w}$ and is the inference model of a \textit{continues distribution} of both the proximity of the words in the sentences (captured by the hidden layer) and the distribution over the vocabulary, which is the continues similarity of the words in this vocabulary. The output layer then is as described in equation \ref{chap:word_embeddings:eq:NLM}
 
-\begin{equation} \label{chap:word_embedding:eq:NLM}
+\begin{equation} \label{chap:word_embeddings:eq:NLM}
 	\vec{y} = \vec{t} + W_{out}(\vec{t}H + b_{h}) + b_{o}
 \end{equation}
 
 \noindent
 where $b_{o}$ and $b_{h}$ are the output and hidden layers biases. Usually the Hidden layer typically has a size of 500 to 1000 neurons while the projection layer might be 500 to 2000. Due to the multiple layers and the feeding of both the projection and the hidden to the output layer there is great complexity and the process is very computationally demanding. 
 
-A more efficient method is suggested in \cite{mikolov2013efficient} where the non-linear hidden layer is removed and the projection layer is shared to all words, geometrically this is equivalent to the projection of the words to the same position. Then the algorithm is reformed and the $\hat{w}$ vectors are replaced by the $t^{*}$ which is the sum of the \textit{one-hot word vectors} \cite{mitra2018introduction}. 
+A more efficient method is suggested in \parencite{mikolov2013efficient} where the non-linear hidden layer is removed and the projection layer is shared to all words, geometrically this is equivalent to the projection of the words to the same position. Then the algorithm is reformed and the $\hat{w}$ vectors are replaced by the $t^{*}$ which is the sum of the \textit{one-hot word vectors} \parencite{mitra2018introduction}. 
 
-Now the equation \ref{chap:word_embedding:eq:NLM} is becoming \ref{chap:word_embedding:eq:CBOW}. Due to the new form of the NNet where the tangent hidden layer is absent, there is no constraint in the presenting sequence of the words order. Moreover, the succeeding words also can also be taken in to account in a given \textit{window} say for $k_{w}$ number of words around the specific one. 
+Now the equation \ref{chap:word_embeddings:eq:NLM} is becoming \ref{chap:word_embeddings:eq:CBOW}. Due to the new form of the NNet where the tangent hidden layer is absent, there is no constraint in the presenting sequence of the words order. Moreover, the succeeding words also can also be taken in to account in a given \textit{window} say for $k_{w}$ number of words around the specific one. 
 
-\begin{equation} \label{chap:word_embedding:eq:CBOW}
+\begin{equation} \label{chap:word_embeddings:eq:CBOW}
 	\vec{y} = W_{out}(t^{*}W_{in}) + b_{o}
 \end{equation}
 The suggested algorithm is called \textit{Continues Bag-of-Words (CBOW)} because the words of the surrounding sequences is not important but it is still are taken into account for predicting the next word. Moreover the $\vec{y}$ has a size equivalent to the size of the Vocabulary $V$. 
 
-In respect of training the CBOW model, a \textit{multiclass classifier} is set by a \textit{Softmax function} is described in equation \ref{} where the $y$ is the output of the equation \ref{chap:word_embedding:eq:CBOW}. Note now the $\hat{p}$ continues probability is replaced by the $p$ district probability and because now the order in the words sequences are not important. Additionally, the $\vec{t}$ are replaced by the $t$ because it denotes that the words can be any term; character, words, word n-grams, character n-grams. 
+In respect of training the CBOW model, a \textit{multiclass classifier} is set by a \textit{Softmax function} is described in equation \ref{} where the $y$ is the output of the equation \ref{chap:word_embeddings:eq:CBOW}. Note now the $\hat{p}$ continues probability is replaced by the $p$ district probability and because now the order in the words sequences are not important. Additionally, the $\vec{t}$ are replaced by the $t$ because it denotes that the words can be any term; character, words, word n-grams, character n-grams. 
 
-\begin{equation} \label{chap:word_embedding:eq:CBOW_softmax}
+\begin{equation} \label{chap:word_embeddings:eq:CBOW_softmax}
 	p(t_{i}|t_{i-k},...,t_{i+k}) = \frac{e^{y_{t_{i}}}}{\sum^{|V|}_{i}{e^{y_i}}}
 \end{equation}
 
-The objective of the training of the NLM CBOW model is to maximize the conditional log probability in equation \ref{chap:word_embedding:eq:CBOW_log_likelihood}. 
+The objective of the training of the NLM CBOW model is to maximize the conditional log probability in equation \ref{chap:word_embeddings:eq:CBOW_log_likelihood}. 
 
-\begin{equation} \label{chap:word_embedding:eq:CBOW_log_likelihood}
+\begin{equation} \label{chap:word_embeddings:eq:CBOW_log_likelihood}
 	 \mathcal{L}_{CBOW} = \frac{1}{|S|} \sum_{i=1}^{|S|}{\log{p(t_{i}|t_{i-k}, ... ,t_{i+k};\theta)}}
 \end{equation}
 
@@ -99,24 +100,24 @@ The objective of the training of the NLM CBOW model is to maximize the condition
 \noindent
 where $S$ is the \textit{set $k$-size of sampling windows} and  $\theta=\{b_{o},W_{in},W_{out}\}$ are the parameters and weights should be optimized in order the CBOW model to converge. \textit{Stochastic Gradient Decent} and \textit{Backpropagation} is used for training the NNet.
 
-An other training strategy is the \textit{Skip-Gram} modeling, where the objective is to maximizes the log-likelihood of the equation \ref{chap:word_embedding:eq:skipgram_log_likelihood}.
+An other training strategy is the \textit{Skip-Gram} modeling, where the objective is to maximizes the log-likelihood of the equation \ref{chap:word_embeddings:eq:skipgram_log_likelihood}.
 
-\begin{equation} \label{chap:word_embedding:eq:skipgram_log_likelihood}
+\begin{equation} \label{chap:word_embeddings:eq:skipgram_log_likelihood}
 	 \mathcal{L}_{SkipGram} = \frac{1}{|S|} \sum_{i=1}^{|S|}{ \sum_{-k \leq j \leq +k}{ \log {p(t_{i+j}|t_{i};\theta)}  } }
 \end{equation}
 \noindent
-where $S$ is the prediction windows over the training text and $k$ is the number of the words to be predicted surrounding the input word $\theta$ set of parameters to be optimized. The Softmax function of equation \ref{chap:word_embedding:eq:skipgram_softmax} is applied at the output layer.
+where $S$ is the prediction windows over the training text and $k$ is the number of the words to be predicted surrounding the input word $\theta$ set of parameters to be optimized. The Softmax function of equation \ref{chap:word_embeddings:eq:skipgram_softmax} is applied at the output layer.
 
-\begin{equation} \label{chap:word_embedding:eq:skipgram_softmax}
+\begin{equation} \label{chap:word_embeddings:eq:skipgram_softmax}
 	p(t_{i+k}|t_{i}) = \frac{ e^{(W_{out}  \times  t_{i+j})^{T} (W_{in} \times  t_{i})}}{\sum^{|V|}_{i}{ e^{(W_{out}  \times  t_{k})^{T} (W_{in} \times  t_{i})}}} 
 \end{equation}
-As shown in figure \ref{chap:word_embeddings:fig:skipgram_diagram} the input and the output are one-hot vectors.
+As shown in figure \ref{chap:word_embeddingss:fig:skipgram_diagram} the input and the output are one-hot vectors.
 
 \begin{figure}[t]
 	\begin{center} 
     	\includegraphics[scale=0.99]{Figures/skip_gram.eps}
 		\caption{Diagram for Skip-Gram.}
-		\label{chap:word_embeddings:fig:skipgram_diagram}
+		\label{chap:word_embeddingss:fig:skipgram_diagram}
 	\end{center}
 \end{figure}
 
@@ -127,11 +128,11 @@ A very important difference between the CBPW and Skip-Grams is the NNet architec
 
 Finally, all the above neural models, either CBOW or Skip-Grams, since they are approximating the continues distribution probability function of words over the the Vocabulary $V$ they have the constraint described in equation \ref{chap:words_embedding:eq:nnet_constraint}
 
-\begin{equation} \label{chap:word_embedding:eq:nnet_condtraint}
+\begin{equation} \label{chap:word_embeddings:eq:nnet_condtraint}
 	\sum_{i=1}^{|V|}{p(t_{i}|t_{i-k}, ... ,t_{i+k})} = 1
 \end{equation}
 
-To summarize, the NLM models such as the CBOW are very effective \textit{Language Modeling} and it has the agility to measure simultaneously several properties form the context. That is, the distribution of the terms in the paragraphs of the texts and in the vocabulary and they are also called \textit{Distributional Features}. The features are set in a continues vector space and the model can return a prediction value $y$ (see equation \ref{chap:word_embedding:eq:CBOW}) for set of terms given as an input at the test phase of the model and they can be treated as response signals of a text. Particularly a sequence of words.
+To summarize, the NLM models such as the CBOW are very effective \textit{Language Modeling} and it has the agility to measure simultaneously several properties form the context. That is, the distribution of the terms in the paragraphs of the texts and in the vocabulary and they are also called \textit{Distributional Features}. The features are set in a continues vector space and the model can return a prediction value $y$ (see equation \ref{chap:word_embeddings:eq:CBOW}) for set of terms given as an input at the test phase of the model and they can be treated as response signals of a text. Particularly a sequence of words.
 
 The texts also now are considered as signal and the sequence of words now has a temporal property where the proximity and the order are providing important information. In respect of the term frequencies are still considered due to the temporal properties, where now the words with the higher TF are weighting or amplifying the sequential signal input to the network.
 
@@ -148,7 +149,7 @@ In this study, the Paragraph Vector Bag-of-Words (PV-BOW) model is used for the 
  
 The CDP can be derived with two methods, one is based on CBOW and the other on Skip-Grams, which is used in this study. The CBOW extension is called Distributed Memory Paragraph Vector (PV-DM) because the Paragraph Vector is given as an input together with the word vectors, and it is considered as memory of the words distribution.
  
-Another way is to ignore the context words in the input, and make a model for predicting words randomly sampled from the paragraph in the output. That is the Skip-gram model but instead of a words the whole paragraph vector is given as an input as shown in figure \ref{chap:word_embeddings:fig:PVBOW_diagram}. In practice, at each iteration of stochastic gradient descent, text window of $k$ size is sampled. Then a random word sampled from the text window and form a classification task given the Paragraph Vector and  this is the PV-DBOW. This model requires to store less data, because only the softmax weights are stored as opposed to both softmax weights and word vectors in the PV-DM. 
+Another way is to ignore the context words in the input, and make a model for predicting words randomly sampled from the paragraph in the output. That is the Skip-gram model but instead of a words the whole paragraph vector is given as an input as shown in figure \ref{chap:word_embeddingss:fig:PVBOW_diagram}. In practice, at each iteration of stochastic gradient descent, text window of $k$ size is sampled. Then a random word sampled from the text window and form a classification task given the Paragraph Vector and  this is the PV-DBOW. This model requires to store less data, because only the softmax weights are stored as opposed to both softmax weights and word vectors in the PV-DM. 
 
 
 
@@ -156,21 +157,21 @@ Another way is to ignore the context words in the input, and make a model for pr
 	\begin{center} 
       	\includegraphics[scale=0.50]{Figures/pvbow.eps}
     		\caption{Diagram for PV-BOW}
-		\label{chap:word_embeddings:fig:PVBOW_diagram}
+		\label{chap:word_embeddingss:fig:PVBOW_diagram}
 	\end{center}
 \end{figure}
 
-It should be noted that the Paragraph Vectors can be a text paragraph, a sentence, or the whole document. In this study, the whole web-pages is considered as shown in the first vector at the left in figure \ref{chap:word_embeddings:fig:PVBOW_diagram}. There are several implementation for the PV-BOW modeling and a late evolution proposal for making the model more appreciate for IR problems. Including, \textit{Document frequency based Negative Sampling} and \textit{Document Length Regularization} \parencite{le2014distributed,posadas2017application}.
+It should be noted that the Paragraph Vectors can be a text paragraph, a sentence, or the whole document. In this study, the whole web-pages is considered as shown in the first vector at the left in figure \ref{chap:word_embeddingss:fig:PVBOW_diagram}. There are several implementation for the PV-BOW modeling and a late evolution proposal for making the model more appreciate for IR problems. Including, \textit{Document frequency based Negative Sampling} and \textit{Document Length Regularization} \parencite{le2014distributed,posadas2017application}.
 
-The PV-BOW objective log likelihood of Skip-gram models described in equation \ref{chap:word_embedding:eq:skipgram_log_likelihood} is changing to the equation \ref{chap:word_embedding:eq:pvbow_log_likelihood}  
+The PV-BOW objective log likelihood of Skip-gram models described in equation \ref{chap:word_embeddings:eq:skipgram_log_likelihood} is changing to the equation \ref{chap:word_embeddings:eq:pvbow_log_likelihood}  
 
-\begin{equation} \label{chap:word_embedding:eq:pvbow_log_likelihood}
+\begin{equation} \label{chap:word_embeddings:eq:pvbow_log_likelihood}
 	 \mathcal{L}_{SkipGram} = \frac{1}{|S|} \sum_{i=1}^{|S|}{ \sum_{-k \leq j \leq +k}{ \log {p(t_{i+j}|D_{i};\theta)}  } }
 \end{equation}
 \noindent
-where $D_{i}$ is the Document Vector or Document ID, $S$ is the prediction windows over the training text and $k$ is the number of the words to be predicted surrounding the input word $\theta$ set of parameters to be optimized. Consequently,  the Softmax function is becoming as shown in equation \ref{chap:word_embedding:eq:pvbow_softmax}.
+where $D_{i}$ is the Document Vector or Document ID, $S$ is the prediction windows over the training text and $k$ is the number of the words to be predicted surrounding the input word $\theta$ set of parameters to be optimized. Consequently,  the Softmax function is becoming as shown in equation \ref{chap:word_embeddings:eq:pvbow_softmax}.
 
-\begin{equation} \label{chap:word_embedding:eq:pvbow_softmax}
+\begin{equation} \label{chap:word_embeddings:eq:pvbow_softmax}
 	p(t_{i+k}|t_{i}) = \frac{ e^{(W_{out}  \times  t_{i+j})^{T} (W_{in} \times  D_{i})}}{\sum^{|V|}_{i}{ e^{(W_{out}  \times  t_{k})^{T} (W_{in} \times  D_{i})}}} 
 \end{equation}
 Paragraph Vectors address some of the key weaknesses of bag-of-words (remember words can be any terms characters, words or POS) models. First, they capture the semantics of the terms. Therefore, words like “strong”  and "powerful" are closer together both and far from "Athens". Secondly, paragraph vectors take into consideration the word order, at least in sentence or paragraph level, in the same way that an Word n-Gram model would do in the size of n-Terms. As we will see experimentally the n-gram model also preserves a lot of information of the paragraph such as the word order. However, even if in some cases like in the experiments below, the n-grams perform equally to the PV-BOW DF models, the DF models can generalize better. They encoding more information with much denser and continuous dimemntionality or at least the information they capture is not sparse and maybe "broken" in the small ranges of n-terms.
@@ -181,23 +182,23 @@ In this study a PVBOW Distributional Feature model for the whole corpus is train
 
 
 
-\section{Paragraph-Vectors for Improving Low Performance Learners on WGI} \label{chap:word_embedding:sec:all_algorithms_test_with_doc2vec}
+\section{Paragraph-Vectors for Improving Low Performance Learners on WGI} \label{chap:word_embeddings:sec:all_algorithms_test_with_doc2vec}
 
 
-\section{Random Features vs Paragraph Vector Bag-of-Words for the Open-set Framework} \label{chap:word_embedding:sec:last_paper_presentation}
-
-
-
+\section{Random Features vs Paragraph Vector Bag-of-Words for the Open-set Framework} \label{chap:word_embeddings:sec:last_paper_presentation}
 
 
 
 
-\section{Experiments}\label{chap:word_embedding:sec:experimental_setup}
+
+
+
+\section{Experiments}\label{chap:word_embeddings:sec:experimental_setup}
 
 \subsection{Open-set Evaluation Methodology}
 In this study we are measuring the performance of a novel extension of the NN method, designed for open-set classification when the web-documents used as input are \textit{Distributional Encoding of Fixed Size Vectors} derived from an PVBOW NNet model. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process.
 
-To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures. Than is a modified version of precision and recall for open-set classification tasks proposed by \cite{mendesjunior2016}. This modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use two scalar measures, the \textit{Area Under the Precision-Recall Curve} (AUC)and $F_{1}$. We will show that the appropriate selection of the optimization measure is highly significant in the presence of noise.
+To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures. Than is a modified version of precision and recall for open-set classification tasks proposed by \parencite{mendesjunior2016}. This modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use two scalar measures, the \textit{Area Under the Precision-Recall Curve} (AUC)and $F_{1}$. We will show that the appropriate selection of the optimization measure is highly significant in the presence of noise.
 
 Precision-Recall curve is a standard method to visualize the performance of classifiers. In this paper, the Precision-Recall curve is calculated in 11-standard recall levels $[0,0.1,...,1.0]$. Precision values are interpolated based on the following formula:
 
@@ -208,13 +209,13 @@ Precision-Recall curve is a standard method to visualize the performance of clas
 \noindent
 where $P(r_j)$ is the precision at $r_j$ standard recall level.
 
-\subsection{Corpora}\label{chap:word_embedding:sec:corpora}
-In this paper we study NNRD performance with distributional features derived from a NNet PVBOW corpus. In particular, the open-set algorithms described above are analytically tested on benchmark corpus already used in previous work in WGI \citep{meyer2004genre,santini2007automatic,kanaris2009learning,pritsos2018open}, the \textit{SANTINIS} \cite{mehler2010genres_on_web} corpus.Details are given in table \ref{tbl:genre_tags}. This is a corpus comprising 1,400 English web pages evenly distributed into 7 genres as well as 80 BBC web pages evenly categorized into 4 additional genres. In addition, it comprises a random selection of 1,000 English web pages taken from the SPIRIT corpus \cite{joho2004spirit}. The latter can be viewed as noise in this corpus. In particular in this study SPIRIT tags are considered \textit{Marked as Unknown} (MU) and this is how we measure them.
+\subsection{Corpora}\label{chap:word_embeddings:sec:corpora}
+In this paper we study NNRD performance with distributional features derived from a NNet PVBOW corpus. In particular, the open-set algorithms described above are analytically tested on benchmark corpus already used in previous work in WGI \parencitep{meyer2004genre,santini2007automatic,kanaris2009learning,pritsos2018open}, the \textit{SANTINIS} \parencite{mehler2010genres_on_web} corpus.Details are given in table \ref{tbl:genre_tags}. This is a corpus comprising 1,400 English web pages evenly distributed into 7 genres as well as 80 BBC web pages evenly categorized into 4 additional genres. In addition, it comprises a random selection of 1,000 English web pages taken from the SPIRIT corpus \parencite{joho2004spirit}. The latter can be viewed as noise in this corpus. In particular in this study SPIRIT tags are considered \textit{Marked as Unknown} (MU) and this is how we measure them.
 
 Note that in the evaluation process we both measuring two kind classification-as-unknown of the open-set algorithm; the \textit{false positive unknown} where are classification of samples which have class tags known to the NNRD model and the \textit{true positive unknown} where they are marked-as-unknown (or marked-as-noise) where they are considered as noise.
 
-\subsection{Settings}\label{chap:word_embedding:sec:evaluation_measures}
-Our text representation features are based exclusively on textual information from web pages excluding any structural information, URLs, etc. Based on the good results reported in \citep{sharoff2010web,pritsos2013open,Asheghi2015} as well as some preliminary experiments. The following document representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G).
+\subsection{Settings}\label{chap:word_embeddings:sec:evaluation_measures}
+Our text representation features are based exclusively on textual information from web pages excluding any structural information, URLs, etc. Based on the good results reported in \parencitep{sharoff2010web,pritsos2013open,Asheghi2015} as well as some preliminary experiments. The following document representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G).
 
 We use the Term-Frequency (TF) weighting scheme and Distributional Learning scheme. The feature space for TF is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only. The TF-Vocabulary range of dimensions have been tested are $V_{TF}\textit{=\{5k,10k,50k,100k\}}$. The feature space in the Distributional model is pre-selected while the deep learning process of PVBOW model. The range of the models fixed dimensions has been tested are $D_{dim}\textit{=\{50,100,250,500,1000\}}$ based of previews studies related to the distributional features on Natural Language Processing domain where relatively small dimensions are used, compare to TF scheme.
 
@@ -222,13 +223,13 @@ The DM vocabulary creation process is also driven by an internal terms \textit{v
 
 Particularly for NNRD then following parameters have been tested:1) $\lamba\textit{=\{0.2, 0.5, 0.7\}}$ which is regulating the balance between the known and the unknown classification accuracy risk in the formula \ref{eq:NA}, 2)DRT threshold selection candidates $DRT\textit{=\{0.4, 0.6, 0.8, 0.9\}}$. Also two other parameters we have introduced in our implementation; the percentage of the training set to be split internally as Training/Validation sub-sets where $V_{ptg}\textit{=\{0.5, 0.7\}}$ has been tested. Then the percentage of the validation set which was split as unknown $U_{ptg}\textit{=\{0.3, 0.5\}}$ has been tested.
 
-The Random Feature Sub-spacing Ensemble (RFSE) algorithm is a variation of the method presented by Koppel et al. \citep{koppel2011authorship} for the task of \textit{author identification}. In the original approach, there is only one training example for each author and a number of simple classifiers is learned based on random feature subspacing. Each classifier uses the cosine distance to estimate the most likely author. The key idea is that it is more likely for the true author to be selected by the majority of the classifiers since the used subset of features will still be able to reveal that high similarity.  That is, the style of the author is captured by many different features so a subset of them will also contain enough stylistic information. Since WGI is also a style-based text categorization task, this idea should also work for it.
+The Random Feature Sub-spacing Ensemble (RFSE) algorithm is a variation of the method presented by Koppel et al. \parencitep{koppel2011authorship} for the task of \textit{author identification}. In the original approach, there is only one training example for each author and a number of simple classifiers is learned based on random feature subspacing. Each classifier uses the cosine distance to estimate the most likely author. The key idea is that it is more likely for the true author to be selected by the majority of the classifiers since the used subset of features will still be able to reveal that high similarity.  That is, the style of the author is captured by many different features so a subset of them will also contain enough stylistic information. Since WGI is also a style-based text categorization task, this idea should also work for it.
 
-In our study we adopt the RFSE method as introduced in \citep{pritsos2013open} shown in \textit{Algorithm \ref{alg:RFS-Ensemble}}. There are multiple training examples (documents) for each available genre. To maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors  of the training examples of web pages for each genre.
+In our study we adopt the RFSE method as introduced in \parencitep{pritsos2013open} shown in \textit{Algorithm \ref{alg:RFS-Ensemble}}. There are multiple training examples (documents) for each available genre. To maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors  of the training examples of web pages for each genre.
 
 The class centroids are all formed for a given feature type. Then, an evaluation document is compared against every centroid and this process is repeated $I$ times. Every time a different feature sub-set is used. Then, the scores are ranked from highest to lowest and we measure the number of times the document is top-matched with every class. The document is assigned to the genre with maximum number of matches given that this score exceed a predefined $\sigma$ threshold. In the opposite case, the document remains unclassified, the RFSE responds "I Don't Know".
 
-As comparative \textit{Baseline} we have employed RFSE. With respect to RFSE, four parameters should be set: the vocabulary size $V_{F}$, the number of features used in each iteration $FSS$, the number of iterations \textit{I}, and the threshold $\sigma$. We examined, $FSS$=\textit{\{1k, 5k, 10k, 50k, 90k\}}, \textit{I}=\textit{\{10, 50, 100, 200, 300, 500, 1000\}} and $\sigma$\textit{=\{0.5, 0.7, 0.9\}}. Additionally, in this work we are testing three document similarity measures: cosine similarity. All these parameters have been selected as suggested in \cite{pritsos2018open}.
+As comparative \textit{Baseline} we have employed RFSE. With respect to RFSE, four parameters should be set: the vocabulary size $V_{F}$, the number of features used in each iteration $FSS$, the number of iterations \textit{I}, and the threshold $\sigma$. We examined, $FSS$=\textit{\{1k, 5k, 10k, 50k, 90k\}}, \textit{I}=\textit{\{10, 50, 100, 200, 300, 500, 1000\}} and $\sigma$\textit{=\{0.5, 0.7, 0.9\}}. Additionally, in this work we are testing three document similarity measures: cosine similarity. All these parameters have been selected as suggested in \parencite{pritsos2018open}.
 
 Finally, to extract the best possible parameter settings for each classification method we apply grid-search over the space of all parameter value combinations.
 
@@ -257,7 +258,7 @@ Finally, to extract the best possible parameter settings for each classification
 \end{table}
 
 
-\section{Results}\label{chap:word_embedding:sec:Experiments_Results}
+\section{Results}\label{chap:word_embeddings:sec:Experiments_Results}
 
 In this study we are evaluating the performance of NNDR algorithm into the open-set framework with the presence of noise, as the notion of noise explained above. That is we are only using the 11 known genre classes of SANTINIS corpus for training, while for evaluation we are using all 12 classes. The true genre class tags for the documents of the in the 12th class is not known and it is only considered as noise. Therefore, we have to deal with \textit{unstructured noise}. Additionally, since the noise-class is marked then the algorithm is evaluated in both false-positive classifications of the marked-unknown-classes as known an the false-negative classifications of the known-classes as unknown. In both cases the false classifications are causing a penalty to the Macro-F1 and Macro-Precision-Recall Curves we are using for evaluation.
 
@@ -328,7 +329,7 @@ However, there is a notable difference in the behavior of the two algorithms whe
 
 In order to research our null hypothesis where the textual-genre information is pervasive in the correlation of the features and not only in their frequency, we employee the distributional features explained above. Comparing tables \ref{tbl:NNDR_TF} and \ref{tbl:NNDR_Gensim} there is a notable improvement. Particularly for the Macro-F1 Score the performance reaches $0.7$ in all cases. Moreover, the STP, SUP and $\lambda$ parameters can my any of the set we have tested, on the contrary to the TF features model where only a specific value pare case is returning the maximum performance. Concerning TF model only when W3G terms-type is used we have a comparable $F1$ and $AUC$ value to the respective performance of the distributional model for NNDR.
 
-We have also examined the case where $AUC$ is maximized because it seems in \cite{pritsos2018open} study this measure is maximized when precision is maximized while the recall is kept as max as possible. As an example note line 6 at table \ref{tbl:NNDR_TF} where for W3G the precision can reach $0.738$ while recall only reduced to $0.604$ compare to the $0.664$ in the above line where F1 is maximized.
+We have also examined the case where $AUC$ is maximized because it seems in \parencite{pritsos2018open} study this measure is maximized when precision is maximized while the recall is kept as max as possible. As an example note line 6 at table \ref{tbl:NNDR_TF} where for W3G the precision can reach $0.738$ while recall only reduced to $0.604$ compare to the $0.664$ in the above line where F1 is maximized.
 
 The open-set classification framework evaluation design naturally turns our interest to the precision performance of the algorithms. To reason it we have to consider that a classifier in a binary case should distinguish the \textit{known and the unknown web documents} are not belonging to the target class. In addition it has to recognize the the documents of the target class. Thus 2 out of 3 evaluation score naturally related to the precision score.
 
@@ -374,17 +375,17 @@ Finally it almost became tradition to be underlined that there is a need for a w
 
 \subsection{Nearest Neighbors Distance Ratio Classifier}\label{sec:NNRD_Description}
 
-The Nearest Neighbors Distance Ratio (NNRD) classifier is an open-set classification algorithm introduced in \cite{mendesjunior2016}, which in turn, is an extension upon the \textit{Nearest Neighbors} (NN) algorithm. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. Then, if the ratio $d(s,t)/d(s,u)$ is higher than a threshold, the new sample is classified to the class of $s$. Otherwise, it is left unclassified. 
+The Nearest Neighbors Distance Ratio (NNRD) classifier is an open-set classification algorithm introduced in \parencite{mendesjunior2016}, which in turn, is an extension upon the \textit{Nearest Neighbors} (NN) algorithm. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. Then, if the ratio $d(s,t)/d(s,u)$ is higher than a threshold, the new sample is classified to the class of $s$. Otherwise, it is left unclassified. 
 
-It is remarkable that, in contrast to other open-set classifiers, training of NNDR requires both known samples (belonging to classes known during training) and unknown examples (belonging to other/unknown classes) of interest. In more details, the \textit{Distance Ratio Threshold} (DRT) used to classify new samples is adjusted by maximizing the \textit{Normalized Accuracy} (NA)  $NA = \lambda A_{KS} + (1 - \lambda) A_{US}$, where $A_{KS}$ is the accuracy on known samples and $A_{US}$ is the accuracy on unknown samples. The parameter $\lambda$ regulates the mistakes trade-off on the known and unknown samples prediction. Since usually in training phase only known classes are available, Mendes et al. \cite{mendesjunior2016} propose an approach to repeatedly split available training classes into two sets (known and "simulated" unknown). In our implementation of NNDR, we use cosine distance rather than the Euclidean distance because previous work found this type of distance more suitable for WGI \cite{pritsos2018open}.\footnote{\url{https://github.com/dpritsos/OpenNNDR}}
+It is remarkable that, in contrast to other open-set classifiers, training of NNDR requires both known samples (belonging to classes known during training) and unknown examples (belonging to other/unknown classes) of interest. In more details, the \textit{Distance Ratio Threshold} (DRT) used to classify new samples is adjusted by maximizing the \textit{Normalized Accuracy} (NA)  $NA = \lambda A_{KS} + (1 - \lambda) A_{US}$, where $A_{KS}$ is the accuracy on known samples and $A_{US}$ is the accuracy on unknown samples. The parameter $\lambda$ regulates the mistakes trade-off on the known and unknown samples prediction. Since usually in training phase only known classes are available, Mendes et al. \parencite{mendesjunior2016} propose an approach to repeatedly split available training classes into two sets (known and "simulated" unknown). In our implementation of NNDR, we use cosine distance rather than the Euclidean distance because previous work found this type of distance more suitable for WGI \parencite{pritsos2018open}.\footnote{\url{https://github.com/dpritsos/OpenNNDR}}
 
 \section{Experiments}\label{sec:experiments}
 
 %\subsection{Open-set Evaluation Methodology}
-%In this study we are measuring the performance of a novel extension of the NN method, designed for open-set classification. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process. To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures \cite{mendesjunior2016}. Our modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use two scalar measures, the \textit{Area Under the Precision-Recall Curve} (AUC) to the  standard \textit{11 Recall Levels} and $F_{1}$.
+%In this study we are measuring the performance of a novel extension of the NN method, designed for open-set classification. In particular we are measuring the effect the marked-as-unknown (or marked-as-noise) genre class tags, to the open-set prediction process. To compensate the potentially unbalanced distribution of web pages over the genres, we are using the macro-averaged precision and recall measures \parencite{mendesjunior2016}. Our modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. To find parameter settings that obtain optimal evaluation performances we use two scalar measures, the \textit{Area Under the Precision-Recall Curve} (AUC) to the  standard \textit{11 Recall Levels} and $F_{1}$.
 
 \subsection{Corpus}\label{sec:corpora}
-Our experiments are based on~\textit{SANTINIS}, a benchmark corpus already used in previous work in WGI \cite{mehler2010genres_on_web,pritsos2018open,santini2007automatic}. This dataset comprises 1,400 English web-pages evenly distributed into seven genres (blog, eshop, FAQ, frontpage, listing, personal home page, search page) as well as 80 BBC web-pages evenly categorized into four additional genres (DIY mini-guide, editorial, features, short-bio). In addition, the dataset comprises a random selection of 1,000 English web-pages taken from the SPIRIT corpus \cite{joho2004spirit}. The latter can be viewed as \emph{unstructured noise} since genre labels are missing. 
+Our experiments are based on~\textit{SANTINIS}, a benchmark corpus already used in previous work in WGI \parencite{mehler2010genres_on_web,pritsos2018open,santini2007automatic}. This dataset comprises 1,400 English web-pages evenly distributed into seven genres (blog, eshop, FAQ, frontpage, listing, personal home page, search page) as well as 80 BBC web-pages evenly categorized into four additional genres (DIY mini-guide, editorial, features, short-bio). In addition, the dataset comprises a random selection of 1,000 English web-pages taken from the SPIRIT corpus \parencite{joho2004spirit}. The latter can be viewed as \emph{unstructured noise} since genre labels are missing. 
 
 %\begin{definition}{Web-Genre} is defined, in this study, as a class where its samples are i.i.d. Thus every web-pages is always derived under a unique class distribution and the class distributions (i.e. other web-genres) are not overlapped.
 %\end{definition}
@@ -396,9 +397,9 @@ In PV-BOW, the terms with very low-frequency in the training set are discarded. 
 
 Regarding the NNRD open-set classifier, there are two parameters, $lambda$ and DRT, and their considered values are: $\lambda =\{0.2, 0.5, 0.7\}$, $DRT\textit{=\{0.4, 0.6, 0.8, 0.9\}}$. All aforementioned parameters are adjusted based on grid-search using only the training part of the corpus.
 
-For a proper comparison with prior art, we use two open-set WGI approaches with good previously reported results as baselines: Random Feature Subset Ensemble (RFSE) and one-class SVM (OCSVM) \cite{pritsos2013open,pritsos2018open}. All parameters of these methods have been been adjusted as suggested in~\cite{pritsos2018open} (based on the same corpus).
+For a proper comparison with prior art, we use two open-set WGI approaches with good previously reported results as baselines: Random Feature Subset Ensemble (RFSE) and one-class SVM (OCSVM) \parencite{pritsos2013open,pritsos2018open}. All parameters of these methods have been been adjusted as suggested in~\parencite{pritsos2018open} (based on the same corpus).
 
-We follow the open-set evaluation framework with unstructured noise introduced in~\cite{pritsos2018open}. In particular, the open-set F1 score~\cite{mendesjunior2016} is calculated over the known classes (the noisy class is excluded). The reported evaluation results are obtained by performing 10-fold cross-validation and, in each fold, we include the full set of 1,000 pages of noise. This setup is comparable to previous studies~\cite{pritsos2018open}.
+We follow the open-set evaluation framework with unstructured noise introduced in~\parencite{pritsos2018open}. In particular, the open-set F1 score~\parencite{mendesjunior2016} is calculated over the known classes (the noisy class is excluded). The reported evaluation results are obtained by performing 10-fold cross-validation and, in each fold, we include the full set of 1,000 pages of noise. This setup is comparable to previous studies~\parencite{pritsos2018open}.
 
 \section{Results}\label{sec:Experiments_Results}
 

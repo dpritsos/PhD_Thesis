@@ -1,4 +1,5 @@
-s%!TeX spellcheck = en-US
+%!TeX spellcheck = en-US
+
 
 \chapter{Introduction}
 
@@ -37,7 +38,11 @@ Text analysis involves IR, Word Embedding, Pattern Recognition, Tagging (e.g. PO
 
 Text classification is a super-branch of the text-manning because the methods and the application is passing thought all the text mining domains aforementioned. It also has been widely studied in other than text mining domains such as the \textit{database domain}.  The problem of classification is defined as the assignment of a  $k$ \textit{label} from a given set $\{1, ..., k\}$ of labels, to a Document $d_{i}$ from a corpus $D = \{d_{i},...,d_{N} \}$ of $N$ documents. In the \textit{hard version}of the classification problem, a particular label is explicitly assigned to the instance. In the \textit{soft version} of the classification problem, a probability value or a similarity/confidence score is assigned to the arbitrary document.
 
+<<<<<<< HEAD
 The above generic definition implies that the text classification is a closed-set classification problem where it is assumed that the prediction model induced by the $D$ corpus - when it is given as a training set - is trained for the whole possible document \textit{label/categories space}. However, this is high likely impossible for several practical application then the problem is becoming \textit{open-set} and the label set is becoming  $\{1, ..., k, \emptyset \}$ where $\emptyset$ means \textit{none-of-the-k} categories. Some examples of practical domain where text-mining is applied is \textit{News filtering/Organization, Document Organization, Opinion Mining} and \textit{Email Spam Filtering} \parencite{Aggarwal2012ASO}.
+=======
+The above generic definition implies that the text classification is a closed-set classification problem where it is assumed that the prediction model induced by the $D$ corpus - when it is given as a training set - is trained for the whole possible document \textit{label/categories space}. However, this is high likely impossible for several practical application then the problem is becoming \textit{open-set} and the label set is becoming  $\{1, ..., k, \emptyset \}$ where $\emptyset$ means \textit{none-of-the-k} categories. Some examples of practical domain where text-mining is applied is \textit{News filtering/Organization, Document Organization, Opinion Mining} and \textit{Email Spam Filtering} \cite{Aggarwal2012ASO}.
+>>>>>>> 991a8be8c2704b326782a8b19aa2c24eb4c8cc41
 
 This thesis is focused on the \textit{Web Genre Identification} text mining domain which is a super-branch of the AGI described above because it is dealing with the Hypertexts which is practically the expansion of the traditional Document texts.
 
@@ -86,6 +91,7 @@ The HTML tags can be treated as raw text where the frequency of the \textit{html
 
 All the research work on WGI has focused mostly on the features which they can be extracted from the \textit{raw text} of the  HTML, cleaned from the html-tags. There are five general categories of text features, the \textit{term-based frequency counts}, the \textit{superficial text-based counts}, the \textit{morpho-syntactic features} and the \textit{distributional features}. Moreover, it has been shown that same domain specific words can contribute to the WGI task, an other heuristic \parencite{mason2009classifying,sharoff2010web,Sharroff2010,Nooralahzadeh2014,onan2018ensemble}. 
 
+
 The text based features for the WGI that thoroughly tested among all were the following:
 
 \begin{enumerate}
@@ -115,10 +121,12 @@ describes a scenario with the assumption that the \textit{training and testing d
 
 \theoremstyle{definition}
 \begin{definition}{\textit{Open-set Identification}}
+
 describes a scenario where samples of unseen, in training phase, classes appear in testing phase. Then the classifiers classify accurately the the \textit{known classes} and also effectively deal with the unknown ones. Therefore, the classifiers need to have a \textit{rejection option} when an arbitrary sample is from an unknown class \parencite{geng2018recent}.
 \end{definition}
 
 Although, the rejection option is emphasized in the definition of the open-set identification, the algorithms with rejection option are not open-set by default. Particularly there are several scenarios such as in \parencite{onan2018ensemble} where this option is used for rejecting the outages for improving the precision score. However, the framework remains as closed-set.
+
 
 Open-set classification framework is closely related to the \textit{Novelty Detection} and the \textit{One-class Classification} where it is assumed that only positive examples are available for the surprised model induction methods. These methods then have been adapted to this problem and there are several examples such as One-Class SVM, One-Class Neural Networks... etc. It might sound similar but it is not a binary classification setup for training these algorithms due to the lack of the negative examples. In respect of WGI this is the realistic case scenario where one might be able to collect a good sample (however not complete due to the scaling of the Web) for the positive samples but for the negative samples is virtually impossible since not even the temporal genre-taxonomy pallet is not available. 
 
@@ -135,6 +143,7 @@ Let $C$ be the training data, and let $R_{O}$ open space risk and $R_{ε}$ the e
 Mathematically described as $arg_{min} \{R_{O(f )} + \lambda R_{ε (f (V ))}\}$, where $f (x) > 0$ implies correct recognition and $\lambda$ is a regularization constant.
 
 Thus \textit{open-set risk} balances the \textit{empirical risk} and the \textit{open space risk} over the space of allowable recognition functions \parencite{geng2018recent}.
+
 \end{definition}
 
 In practice the \textit{empirical risk} is the weighted loss function of the open-set multi-class classification model. The \textit{open space risk} is in practice the ratio of the open vector space to the full vector space, where the full vector space is the concatenation of the space defined by the known data samples and the unconstrained unknown space.
@@ -181,6 +190,7 @@ The main contributions of this thesis in the WGI problem is the establishment of
 This thesis contributions are listed bellow:
 
 \begin{enumerate}
+
 \item \textbf{The introduction of the Open-set classification frame work for the WGI task.} The open-set classification framework has been used for several text mining related tasks but it is the first time being applied for the WGI task. The open-set framework is closely related to the \textit{Novelty Detection} and the \textit{One-class Classification}. It is assumed that only positive examples are available for the model's induction methods. This is the realistic case scenario where one might be able to collect a good sample (however not complete due to the scaling of the Web) for the positive samples but for the negative samples is virtually impossible since not even the temporal genre-taxonomy pallet is available. There are several variation on the open-set classification related to the specification of the problem. In this thesis two of the open-set cases are considered. The unknown samples are derived from a distribution of known genres or they are derived from a random distribution where the samples genre are not. In both bases samples are \textit{tagged-as-unknown} in the testing phase in order to be separate from the false positives unknown samples, i.e. the samples becoming from the genre distribution that the learner is already trained with \parencite{geng2018recent}.
 \item \textbf{The definition of  the Web Genre Noise and separating the from the Outages.} {Noise}web-pages are considered when multiple genres (predefined or not) co-exist \parencite{santini2011cross,levering2008using}. The vast majority of previous work in WGI avoid to examine the problems arising from the presence of noise and as a result it is not possible to estimate the effectiveness of most existing WGI approaches in realistic conditions. In this thesis the difference of the outages the the noise samples is clarified. In addition this thesis is contributing in the disambiguation of the \textit{Structure} and the \textit{Unstructured Noise}. Showing also how these kind of noises are affecting the difficulty of the WGI task. 
 \item \textbf{The Genre-units} are, also, discussed in this study such as \textit{the web-page, the web-page section, the web-page paragraph} or \textit{the web-site multi-genres}. Consequently, the URL utility in the WGI task is raised and discussed in respect of the linking of these units and how it can be used as an indicator of the genre-identification. Then noise notion is changing slightly but the same approach can be applied.
@@ -198,8 +208,6 @@ This thesis contributions are listed bellow:
 \item In order to pre-process the HTML raw web-pages of the corpora used for the experiments of this thesis a specialized tool has been implemented called \textbf{Html2Vec}\footnote{https://github.com/dpritsos/html2vec}. This has a well designed API in order to be rapid expandable for handling any HTML heuristics and return any kind of Vectors required for a specific experiment. It handles special HTML characters, is cleaning or extracting the HTML elements. It can also recognize the \textit{Numbers, IP addresses, URLs, Currency Numbers} for reducing the noise might be created in the \textit{dot (,)} and \textit{space ( )} will be used as separation characters for the terms extraction form the text. Moreover, in can return the TF, and Word2Vec vectors of a corpus.
 \end{enumerate}
 
-
-
 \section{Thesis Outline} \label{chap:Introduction:sec:thesis_outline}
 
 The structure of this theses is essentially divide in three parts. The first is related to the argument about the appropriateness of the open-set framework for the WGI instead of the closed-set and the and the presentation of the ML algorithms. These are the chapters \ref{} and \ref{}. The second is the evaluation framework discussion and the establishment of the proper measures for the open-set WGI, found in chapter \ref{}. The third part is the experimentation and discovery of the approriate features and document representation for the open-set WGI. These are the chapters \ref{} and \ref{}.
@@ -215,4 +223,5 @@ Chapter \ref{} 5 a set of experiments using three well established corpora, i.e,
 Chapter \ref{} 6 the powerful effect of the distributional features on the open-set algorithm NNDR is presented, where from a very weak learner is becoming a state-of-the-art solution for the open-set WGI. The Distributional Features and Word Embeddings are presented in detail. It is shown how they can potentially replace all the heuristics have been so far applied for WGI. Since the Distributional Features are a more effective, corpus independent, mathematically modeled compare to the heuristics or the \textbf{feature selection manual assumption}. 
 
 Finally, chapter \ref{} 7 presents the conclusions and the future work of on the Open-Set WGI task. Discussing the research paths towards the development of algorithms where the feature modeling (or encoding) and the class modeling (or induction), could be unified. This is possible feasible using the state-of-the-art Neural Modeling and \textit{Stochastic Optimization Algorithms}.
+
 
