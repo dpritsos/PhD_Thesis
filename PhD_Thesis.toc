@@ -1,0 +1,89 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\contentsline {chapter}{Abstract}{iii}{section*.1}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.3}
+\contentsline {section}{\numberline {1.1}Text Mining}{3}{section.4}
+\contentsline {section}{\numberline {1.2}Classifying Documents by Genre}{4}{section.5}
+\contentsline {section}{\numberline {1.3}Representation of Web Genres}{5}{section.7}
+\contentsline {section}{\numberline {1.4}Closed-set vs. Open-set Classification}{7}{section.15}
+\contentsline {section}{\numberline {1.5}Motivation and Objective}{8}{section.19}
+\contentsline {section}{\numberline {1.6}Contribution}{10}{section.29}
+\contentsline {section}{\numberline {1.7}Thesis Outline}{12}{section.42}
+\contentsline {chapter}{\numberline {2}Relevant work}{15}{chapter.43}
+\contentsline {section}{\numberline {2.1}Introduction (Not Final)}{15}{section.44}
+\contentsline {section}{\numberline {2.2}Genre Definitions: The Linguistics and the Computational Linguistics}{18}{section.47}
+\contentsline {paragraph}{Definition Debate}{18}{section*.49}
+\contentsline {paragraph}{Readers Perception}{18}{section*.50}
+\contentsline {paragraph}{Writers Awareness}{19}{section*.51}
+\contentsline {paragraph}{"News" Sub-genres}{19}{section*.52}
+\contentsline {paragraph}{Genre as Writing Style}{19}{section*.53}
+\contentsline {paragraph}{The Web Genre}{19}{section*.54}
+\contentsline {section}{\numberline {2.3}Machine-Learning Methodology for Web Genre Identification and Classification}{20}{section.56}
+\contentsline {paragraph}{SVM Based}{20}{section*.57}
+\contentsline {paragraph}{Distance Based}{21}{section*.58}
+\contentsline {paragraph}{Neural Based}{22}{section*.68}
+\contentsline {paragraph}{Ensemble Based}{22}{section*.69}
+\contentsline {paragraph}{\textbf }{23}{section*.71}
+\contentsline {paragraph}{Domain transfer: Cross-Lingual Genre Classification}{24}{section*.72}
+\contentsline {paragraph}{Clustering Based and Hierarchical multi-class classification (HMC)}{24}{section*.77}
+\contentsline {paragraph}{Random Forest}{25}{section*.78}
+\contentsline {paragraph}{Semi-supervised classification (Co-Training}{25}{section*.79}
+\contentsline {section}{\numberline {2.4}Web Genre Noise and the Open-set approach}{26}{section.80}
+\contentsline {subsection}{\numberline {2.4.1}Web Genre Temporal Property}{29}{subsection.84}
+\contentsline {section}{\numberline {2.5}Features Selection and Vector Space Dimensions}{30}{section.90}
+\contentsline {subsection}{\numberline {2.5.1}Heuristics has been used with success in WGI}{31}{subsection.91}
+\contentsline {paragraph}{Image processing features for document AGI}{33}{section*.98}
+\contentsline {paragraph}{Graph based features}{34}{section*.99}
+\contentsline {subsection}{\numberline {2.5.2}Feature Selection and Term Weighting Schemes}{36}{subsection.105}
+\contentsline {paragraph}{TF-IGF}{36}{section*.106}
+\contentsline {section}{\numberline {2.6}Dimensionality Reduction}{43}{section.113}
+\contentsline {section}{\numberline {2.7}Deep Learning Vocabulary of Distributional Features for WGI}{44}{section.115}
+\contentsline {section}{\numberline {2.8}The Hyper (URL) links significance}{46}{section.120}
+\contentsline {section}{\numberline {2.9}The Web Genre units: Section, Page, Site and "Stage"}{48}{section.130}
+\contentsline {section}{\numberline {2.10}Focused Crawlers for Genres}{50}{section.136}
+\contentsline {section}{\numberline {2.11}Genres Utility}{51}{section.137}
+\contentsline {section}{\numberline {2.12}Web Genre Corpora: An unfinished work in progress}{52}{section.138}
+\contentsline {chapter}{\numberline {3}Open-set WGI algorithms}{53}{chapter.139}
+\contentsline {section}{\numberline {3.1}Introduction}{53}{section.140}
+\contentsline {section}{\numberline {3.2}Closed-set Classification}{53}{section.141}
+\contentsline {section}{\numberline {3.3}One-Class Classification}{53}{section.142}
+\contentsline {section}{\numberline {3.4}Open-set (Ensembles) Classification}{54}{section.143}
+\contentsline {subsection}{\numberline {3.4.1}One-class SVM Ensemble}{54}{subsection.144}
+\contentsline {subsection}{\numberline {3.4.2}Random Feature Subpacing Ensemble}{57}{subsection.165}
+\contentsline {section}{\numberline {3.5}Nearest Neighbors Distance Ratio}{58}{section.187}
+\contentsline {chapter}{\numberline {4}Evaluation framework for open-set WGI}{63}{chapter.235}
+\contentsline {section}{\numberline {4.1}Introduction}{63}{section.236}
+\contentsline {section}{\numberline {4.2}Closed-set vs Open-set Measures}{63}{section.237}
+\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{63}{section.238}
+\contentsline {section}{\numberline {4.4}Re-defining the Open Space Risk}{63}{section.240}
+\contentsline {section}{\numberline {4.5}Openness test}{64}{section.243}
+\contentsline {section}{\numberline {4.6}Domain Transfer Measure}{64}{section.245}
+\contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{67}{chapter.247}
+\contentsline {section}{\numberline {5.1}Introduction}{67}{section.248}
+\contentsline {section}{\numberline {5.2}Noise vs Outages on Open-set Classification}{67}{section.249}
+\contentsline {section}{\numberline {5.3}Open-set Framework Evaluation on Noise}{67}{section.250}
+\contentsline {section}{\numberline {5.4}Experimental Setup}{67}{section.251}
+\contentsline {subsection}{\numberline {5.4.1}Corpora}{67}{subsection.252}
+\contentsline {section}{\numberline {5.5}Experiments}{68}{section.256}
+\contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{68}{subsection.257}
+\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{70}{subsection.263}
+\contentsline {section}{\numberline {5.6}Conclusions}{71}{section.268}
+\contentsline {chapter}{\numberline {6}Open-set WGI with Distributional Features}{73}{chapter.269}
+\contentsline {section}{\numberline {6.1}Introduction}{73}{section.270}
+\contentsline {section}{\numberline {6.2}N-grams, Word Embeddings and Distributional Features}{73}{section.271}
+\contentsline {section}{\numberline {6.3}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{78}{section.282}
+\contentsline {section}{\numberline {6.4}Paragraph-Vectors for Improving Low Performance Learners on WGI}{80}{section.288}
+\contentsline {section}{\numberline {6.5}Random Features vs Paragraph Vector Bag-of-Words for the Open-set Framework}{80}{section.289}
+\contentsline {section}{\numberline {6.6}Experiments}{80}{section.290}
+\contentsline {subsection}{\numberline {6.6.1}Corpus}{80}{subsection.291}
+\contentsline {subsection}{\numberline {6.6.2}Experimental Setup}{80}{subsection.292}
+\contentsline {section}{\numberline {6.7}Results}{81}{section.293}
+\contentsline {section}{\numberline {6.8}Experiments}{82}{section.296}
+\contentsline {subsection}{\numberline {6.8.1}Open-set Evaluation Methodology}{82}{subsection.297}
+\contentsline {subsection}{\numberline {6.8.2}Corpora}{83}{subsection.299}
+\contentsline {subsection}{\numberline {6.8.3}Settings}{83}{subsection.300}
+\contentsline {section}{\numberline {6.9}Results}{84}{section.302}
+\contentsline {section}{\numberline {6.10}Conclusions}{88}{section.307}
+\contentsline {section}{\numberline {6.11}Final VERSION}{89}{section.308}
+\contentsline {section}{\numberline {6.12}Proposed Approach --- Open-Set Web Genre Identification}{89}{section.309}
+\contentsline {subsection}{\numberline {6.12.1}Nearest Neighbors Distance Ratio Classifier}{89}{subsection.310}
