@@ -76,8 +76,4 @@
 \contentsline {section}{\numberline {6.3}Experiments}{80}{section.289}
 \contentsline {subsection}{\numberline {6.3.1}Corpus}{80}{subsection.290}
 \contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{80}{subsection.291}
-\contentsline {section}{\numberline {6.4}Results}{81}{section.292}
-\contentsline {subsection}{\numberline {6.4.1}Paragraph-Vectors vs. N-Gram-Vectors(TF): Improving Low Performance Learners}{81}{subsection.293}
-\contentsline {subsection}{\numberline {6.4.2}Nearest Neighbours Distance Ration with Paragraph-Vectors}{83}{subsection.297}
-\contentsline {section}{\numberline {6.5}Conclusions}{85}{section.300}
-\contentsline {chapter}{Bibliography}{87}{chapter*.301}
+\contentsline {chapter}{Bibliography}{83}{chapter*.292}

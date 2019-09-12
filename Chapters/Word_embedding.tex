@@ -159,6 +159,7 @@ Another way is to ignore the context words in the input, and make a model for pr
 	\end{center}
 \end{figure}
 
+
 It should be noted that the Paragraph Vectors can be a text paragraph, a sentence, or the whole document. In this study, the whole web-pages is considered as shown in the first vector at the left in figure \ref{chap:word_embeddingss:fig:PVBOW_diagram}. There are several implementation for the PV-BOW modeling and a late evolution proposal for making the model more appreciate for IR problems. Including, \textit{Document frequency based Negative Sampling} and \textit{Document Length Regularization} \parencite{le2014distributed,posadas2017application}.
 
 The PV-BOW objective log likelihood of Skip-gram models described in equation \ref{chap:word_embeddings:eq:skipgram_log_likelihood} is changing to the equation \ref{chap:word_embeddings:eq:pvbow_log_likelihood}  
@@ -176,7 +177,9 @@ Paragraph Vectors address some of the key weaknesses of bag-of-words (remember w
 
 In practice a library for HTML reprocessing and and Vector Representation of the web-pages has been created for this work, named  \textit{Html2Vec}\footnote{\url{https://github.com/dpritsos/html2vec}}. There as special module for PV-BOW modeling has been build, where it is based on the the algorithm can be found at \textit{Gensim package} \footnote{\url{https://github.com/RaRe-Technologies/gensim}}. 
 
+
 In this study a PVBOW Distributional Feature model for the whole corpus is trained. The corpus initially is split to a set of paragraphs, as required from PVBOW. To be more specific the paragraphs are sentences split from all the document of the whole corpus. Then several models PVBOW feature models are trained for a variety of parameters and vector dimensions, explained in the experiments section below. After the model has been fitted then one vector for each web-document was inferred from the PVBOW. The final document vectors derived from \tetxit{Distributional Feature Model} are given to the open-set learning model explained below. 
+
 
 \section{Experiments}\label{chap:word_embeddings:sec:experiments_setup}
 
@@ -184,15 +187,13 @@ In this study a PVBOW Distributional Feature model for the whole corpus is train
 
 The experiments of this chapter, are based on \textit{SANTINIS}, a benchmark corpus already used in previous work in WGI \parencite{mehler2010genres_on_web,pritsos2018open,santini2007automatic}. Briefly, this dataset comprises 1,400 English web-pages evenly distributed into seven genres (blog, eshop, FAQ, frontpage, listing, personal home page, search page) as well as 80 BBC web-pages evenly categorized into four additional genres (DIY mini-guide, editorial, features, short-bio). In addition, the dataset comprises a random selection of 1,000 English web-pages taken from the SPIRIT corpus \parencite{joho2004spirit}. The latter can be viewed as \emph{unstructured noise} since genre labels are missing. More details for SATNINIS corpus are discussed in section \ref{}. 
 
-%\begin{definition}{Web-Genre} is defined, in this study, as a class where its samples are i.i.d. Thus every web-pages is always derived under a unique class distribution and the class distributions (i.e. other web-genres) are not overlapped.
-%\end{definition}
-%
 
 \subsection{Open-set Models Parameters Setup}\label{chap:word_embeddings:sec:experiments_params}
 
 To represent web-pages again the features are exclusively related to textual information, excluding any structural information, URLs, etc. The following representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G). For each of these schemes, we use either Term-Frequency (TF) weights or DF features. The feature space for TF is defined by a vocabulary $V_{TF}$, which is extracted based on the most frequent terms of the training set --- we consider $V_{TF}=\{5k,10k,50k,100k\}$. The DF space is pre-defined in the PV-BOW model --- we consider $DF_{dim}=\{50,100,250,500,1000\}$.
 
-In PV-BOW, the terms with very low-frequency in the training set are discarded. In this study, we examine $TF_{min}=\{3,10\}$ as cutoff frequency threshold. The text window size is selected from $W_{size}=\{3,8,20\}$. The remaining parameters of PV-BOW are set as follows: $\alpha=0.025$, $epochs=\{1, 3, 10\}$ and $decay=\{0.002, 0.02\}$.
+In PV-BOW, the terms with very low-frequency in the training set are discarded. In this study, we examine $TF_{min}=\{3,10\}$ as cutoff frequency threshold. The text window size is selected from $W_{size}=\{3,8,20\}$. The remaining parameters of PV-BOW are set as follows: $\alpha=0.025$, $epochs=\{1, 3, 10\}$ and $decay=\{0.002, 0.02\}$. The PV-BOW creation process is also driven by an internal terms \textit{vocabulary} which is used for eliminating the terms with lower than a preferred frequency and then discards the terms from the text window for the PV-BOW (see section \ref{}).
+
 
 Regarding the NNRD open-set classifier, there are two parameters, $lambda$ and DRT, and their considered values are: $\lambda =\{0.2, 0.5, 0.7\}$, $DRT\textit{=\{0.4, 0.6, 0.8, 0.9\}}$. All aforementioned parameters are adjusted based on grid-search using only the training part of the corpus.
 
@@ -204,7 +205,8 @@ This evaluation strategy is giving a more realistic evaluation. Since the noise 
 
 To compensate the unbalanced distribution of web pages over the genres because of the noise part, the macro-averaged precision and recall measures is used as explained in section \ref{} and also used in \parencite{mendesjunior2016}. Note again than this special modified method calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives. 
 
-Finally, for selection parameter settings that obtain optimal evaluation performances the two scalar measures are used where their usage is reasoned in section \ref{}. Firstly, the \textit{Area Under the Precision-Recall Curve} (AUC) to the  standard \textit{11 Recall Levels} and particualrly the Macro-AUC (MAUC). Secondly, the $F_{1}$ and specifically the Macro-F1 (MF1) score.
+Finally, for selection parameter settings that obtain optimal evaluation performances the two scalar measures are used where their usage is reasoned in section \ref{}. Firstly, the \textit{Area Under the Precision-Recall Curve} (AUC) to the  standard \textit{11 Recall Levels and particularly the Macro-AUC (MAUC). Secondly, the $F_{1}$ and specifically the Macro-F1 (MF1) score.
+
 
 \section{Results}\label{chap:word_embeddings:sec:results}
 
@@ -231,23 +233,7 @@ STP & SUP & DRT & $\lambda$ & T.TYPE & DIMs & M\emph{P} & M\emph{R} & M\emph{AUC
 \label{chap:word_embeddings:tbl:NNDR_TF}
 \end{table}
 
-%\begin{table}
-%\center
-%\begin{tabular}{|l|ccc|lr|rrrr|}
-%\hline
-%MAX. & FSS & $\sigma$T & ITER. & T.TYPE & DIMs & M\emph{P} & M\emph{R} & M\emph{AUC} & M\emph{F1} \\
-%\hline
-%F1 & 1000 & 0.5 & 100 & C4G & 50000 & 0.739 & 0.780 & 0.652 & 0.759 \\
-%AUC & 500 & 0.5 & 300 & C4G & 10000 & 0.686 & 0.831 & 0.722 & 0.751 \\
-%F1 & 10000 & 0.5 & 1000 & W1G & 50000 & 0.776 & 0.758 & 0.657 & 0.767 \\
-%AUC & 1000 & 0.5 & 300 & W1G & 5000 & 0.618 & 0.807 & 0.673 & 0.700 \\
-%F1 & 1000 & 0.7 & 100 & W3G & 50000 & 0.797 & 0.722 & 0.488 & 0.758 \\
-%AUC & 10000 & 0.5 & 100 & W3G & 100000 & 0.657 & 0.805 & 0.696 & 0.723 \\
-%\hline
-%\end{tabular}
-%\caption {Maximum performance of RFSE on TF Features of SANTINIS coprus. FSS is the Features Subset Selection number. $\sigma$T is the sigma threshold of the RFSE. ITER is the number of iterations of the RFSE. T.TYPE is the Terms Type. DIMs is the features model's dimensions. MP is the Macro Precision. MR is the Macro Recall. MAUC is the Area Under the Macro Precision-Recall Curve. MF1 is the F1 score of the Macro Precision and Macro Recall.}
-%\label{tbl:RFSE_TF}
-%\end{table}
+
 
 \begin{table}
 \center
@@ -271,11 +257,13 @@ The NNRD consistently returns is highest performance with the W3G for PVBOW mode
 The PRC diagram is shown in figure  \ref{chap:word_embeddings:fig:NNDR_W3G} for having a better insight of the NNDR algorithm's improvement with the PVBOW neural language model compare to the BOW with TF weighting scheme. In particular, the W3G document representation is used for both diagrams of the NNDR because in both cases the $MACU$ and the MF1 are both maximized for either BOW or PVBOW.
 
 \begin{figure}[H]
+
 \begin{center}
-    \includegraphics[scale=0.99]{Figures/NNDR_W3G.eps}
-	\caption{Precision-Recall Curves of NNDR on SANTINIS corpus. The curves are for W3G terms-type and for AUC optimization criterion. The 11-recall-levels are shown for each evaluation experiment. The lines are stopping before the 11th recall level due to the open-set framework, i.e. the remaining part after the last mark of each curve it the percentage of the corpus tha has been classified as Unknown from the algorithms.}
-	\label{chap:word_embeddings:fig:NNDR_W3G}
-	\end{center}
+\includegraphics[scale=0.99]{Figures/NNDR_W3G.eps}
+\caption{Precision-Recall Curves of NNDR on SANTINIS corpus. The curves are for W3G terms-type and for AUC optimization criterion. The 11-recall-levels are shown for each evaluation experiment. The lines are stopping before the 11th recall level due to the open-set framework, i.e. the remaining part after the last mark of each curve it the percentage of the corpus tha has been classified as Unknown from the algorithms.}
+\label{chap:word_embeddings:fig:NNDR_W3G}
+\end{center}
+
 \end{figure}
 
 The NNDR-DF is starting higher than NNDR-TF and it remains to $0.99$ precision for the $30\%$ of the corpus. Then it drops rgradualy and remains over $0.80$ up to $60\%$ of the corpus. The the rest of the corpus is classified as unknown. RFSE manages to recognize correctly part of the corpus up to $80\%$ with the precision to drop to $0.70$ and then to $0.65$. 
@@ -354,3 +342,4 @@ The open-set algorithm NNDR have been evaluated with distributional features whi
 The evaluation methodology previews shown to be proper for evaluation open-set scenarios. The natural focus in an open-set evaluation framework is the macro-precision, because always there is a part of the corpus will be classified as unknown. Either in the case of structured and unstructured or it is considered as outage while training.
 
 Further research could focus on more appropriate distance measures within NNDR specially with recent data-driven features obtained with powerful NLP convolutional and recurrent deep networks. Moreover, alternative types of distributional features could be used (e.g., topic modeling). Finally, a combination of NNDR with RFSE models could be studied as they seem to exploit complementary views of the same problem.
+
