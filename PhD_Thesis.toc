@@ -79,10 +79,5 @@
 \contentsline {section}{\numberline {6.4}Results}{81}{section.292}
 \contentsline {subsection}{\numberline {6.4.1}Paragraph-Vectors vs. N-Gram-Vectors(TF): Improving Low Performance Learners}{81}{subsection.293}
 \contentsline {subsection}{\numberline {6.4.2}Nearest Neighbours Distance Ration with Paragraph-Vectors}{83}{subsection.297}
-\contentsline {section}{\numberline {6.5}Conclusions}{84}{section.300}
-\contentsline {section}{\numberline {6.6}Experiments -- OLD STAFF}{85}{section.301}
-\contentsline {subsection}{\numberline {6.6.1}Open-set Evaluation Methodology}{85}{subsection.302}
-\contentsline {subsection}{\numberline {6.6.2}Corpora}{86}{subsection.304}
-\contentsline {subsection}{\numberline {6.6.3}Settings}{86}{subsection.305}
-\contentsline {subsection}{\numberline {6.6.4}Nearest Neighbors Distance Ratio Classifier}{87}{subsection.307}
-\contentsline {chapter}{Bibliography}{89}{chapter*.309}
+\contentsline {section}{\numberline {6.5}Conclusions}{85}{section.300}
+\contentsline {chapter}{Bibliography}{87}{chapter*.301}

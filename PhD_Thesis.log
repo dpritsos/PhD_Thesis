@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  12 SEP 2019 10:30
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  12 SEP 2019 19:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2327,15 +2327,6 @@ LaTeX Warning: Label `eq:office_doc_ensemble' multiply defined.
 LaTeX Warning: Label `chap:word_embeddings:sec:experiments_setup' multiply defi
 ned.
 
-
-LaTeX Warning: Label `sec:conclusions' multiply defined.
-
-
-LaTeX Warning: Label `tbl:genre_tags' multiply defined.
-
-
-LaTeX Warning: Label `sec:NNRD_Description' multiply defined.
-
 ) (./Chapters/Conclusion.aux))
 \openout1 = `PhD_Thesis.aux'.
 
@@ -4209,7 +4200,7 @@ Missing character: There is no Μ in font zptmcm7m!
 
 LaTeX Warning: Reference `' on page 83 undefined on input line 281.
 
-[83]
+[83] [84]
 ./Chapters/Word_embedding.tex:330: Undefined control sequence.
 l.330 ...ecause it is left unclassified as \tetxit
                                                   {unknown class}.
@@ -4219,99 +4210,41 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-Invalid UTF-8 byte or sequence at line 335 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 335 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 335 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 335 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 335 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 335 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
 File: Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps Graphic file (type eps
 )
 <Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps>
-[84] [85]
-./Chapters/Word_embedding.tex:379: Undefined control sequence.
-l.379 ... used in previous work in WGI \parencitep
-                                                  {meyer2004genre,santini200...
+./Chapters/Word_embedding.tex:346: Undefined control sequence.
+l.346 ... open-set algorithm combined with \tetxit
+                                                  {neural language model}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-Overfull \hbox (197.0759pt too wide) in paragraph at lines 379--380
-\T1/ptm/m/n/10.95 on bench-mark cor-pus al-ready used in pre-vi-ous work in WGI
- meyer2004genre,santini2007automatic,kanaris2009learning,pritsos2018open,
- []
-
-
-Overfull \hbox (1.08922pt too wide) in paragraph at lines 381--382
-[]\T1/ptm/m/n/10.95 Note that in the eval-u-a-tion pro-cess we both mea-sur-ing
- two kind classification-as-unknown
- []
-
-./Chapters/Word_embedding.tex:384: Undefined control sequence.
-l.384 ... the good results reported in \parencitep
-                                                  {sharoff2010web,pritsos201...
+./Chapters/Word_embedding.tex:348: Undefined control sequence.
+l.348 ...apter \ref{chap:openset}. A \textDistance
+                                                   Ration threshold is calcu...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-Overfull \hbox (3.03308pt too wide) in paragraph at lines 384--385
-\T1/ptm/m/n/10.95 sharoff2010web,pritsos2013open,Asheghi2015 as well as some pr
-e-lim-i-nary ex-per-i-ments. The
- []
-
-
-LaTeX Warning: Reference `sec:Gensim' on page 86 undefined on input line 388.
-
-./Chapters/Word_embedding.tex:390: Undefined control sequence.
-<recently read> \lamba 
-                       
-l.390 ...ng parameters have been tested:1) $\lamba
-                                                  \textit{=\{0.2, 0.5, 0.7\}...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:392: Undefined control sequence.
-l.392 ...od presented by Koppel et al. \parencitep
-                                                  {koppel2011authorship} for...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (4.45033pt too wide) in paragraph at lines 392--393
-[]\T1/ptm/m/n/10.95 The Ran-dom Fea-ture Sub-spacing En-sem-ble (RFSE) al-go-ri
-thm is a vari-a-tion of the method
- []
-
-[86]
-./Chapters/Word_embedding.tex:394: Undefined control sequence.
-l.394 ... RFSE method as introduced in \parencitep
-                                                  {pritsos2013open} shown in...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[87]) [88]
+) [85] [86]
 \openout2 = `Chapters/Conclusion.aux'.
 
 
 No file Chapters/Conclusion.tex.
 Missing character: There is no ’ in font ptmr8t!
 1: section
-[89
+[87
 
 
 
@@ -4328,7 +4261,7 @@ Overfull \hbox (0.83423pt too wide) in paragraph at lines 181--181
 i-fi-ca-tion of Web Pages^^Q. In: \T1/ptm/m/it/10.95 Database
  []
 
-[90]
+[88]
 Overfull \hbox (5.67198pt too wide) in paragraph at lines 181--181
 [][]\T1/ptm/m/n/10.95 Lieungnapar, Angvar-rah, Richard Wat-son Todd, and Wan-na
 pa Trakulka-sem-suk (2017). ^^P  Genre
@@ -4347,7 +4280,7 @@ Overfull \hbox (18.27432pt too wide) in paragraph at lines 181--181
 ram Ap-proach^^Q. In: \T1/ptm/m/it/10.95 2009 IEEE/WIC/ACM
  []
 
-[91]
+[89]
 Overfull \hbox (15.46317pt too wide) in paragraph at lines 181--181
 \T1/ptm/m/it/10.95 Em-pir-i-cal Stud-ies\T1/ptm/m/n/10.95 . Text, Speech and La
 n-guage Tech-nol-ogy. Springer. \T1/ptm/m/sc/10.95 isbn\T1/ptm/m/n/10.95 : 9789
@@ -4357,11 +4290,11 @@ n-guage Tech-nol-ogy. Springer. \T1/ptm/m/sc/10.95 isbn\T1/ptm/m/n/10.95 : 9789
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 181.
 Missing character: There is no ’ in font ptmr8t!
-[92] [93]
+[90] [91]
 
 Package natbib Warning: There were undefined citations.
 
-[94]
+[92]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 184.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 184.
  (./PhD_Thesis.aux (./Chapters/Introduction.aux)
@@ -4388,12 +4321,12 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 57352 strings out of 493007
- 1316858 string characters out of 6136720
- 1732886 words of memory out of 5000000
- 60521 multiletter control sequences out of 15000+600000
+ 57709 strings out of 493007
+ 1320977 string characters out of 6136720
+ 1738099 words of memory out of 5000000
+ 60878 multiletter control sequences out of 15000+600000
  632606 words of font info for 156 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,20n,128p,10379b,6119s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,20n,128p,10379b,6118s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on PhD_Thesis.pdf (100 pages).
+Output written on PhD_Thesis.pdf (98 pages).
