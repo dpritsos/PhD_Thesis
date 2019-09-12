@@ -325,7 +325,9 @@ The dimensionality of DF is much lower than TF and this seems to be crucial to i
 
 Finally, the proposed approach using NNDR and DF outperforms OCSVM but, as said above, it is outperformed by the strong baseline RFSE in both MAUC and MF1. However, when precision is concerned, NNDR is much better. A closer look at  the comparison of the two methods is provided in Fig. \ref{chap:word_embeddings:fig:NNDR_W3G_Best_RFSE_Baseline}, where MPRCs are depicted. 
 
-The NNDR-DF model maintains very high precision scores for low levels of recall. The difference between NNDR-DF and RFSE at that point is clearer when W3G features are used. NNDR-TF is clearly worse than both NNDR-DF and RFSE. In addition, OCSVM is competitive in terms of precision only when W3G features are used but its performance drops abruptly in comparison to that of NNDR-DF. Note that the point where the curves end indicates the percentage of corpus that is left unclassified (assigned to unknown class). RFSE manages to recognize correctly larger part of the corpus, more than $70\%$, with respect to NNDR-DF that reaches $60\%$. 
+The NNDR-DF model maintains very high precision scores for low levels of recall. Particularly, for W3G the difference between NNDR-DF and RFSE at that point is clearer. NNDR-TF is clearly worse than both NNDR-DF and RFSE. In addition, OCSVM is competitive in terms of precision only when W3G features are used but its performance drops abruptly in comparison to that of NNDR-DF. 
+
+RFSE with W1G performs significantly better in terms of MP than NNDR (with DF). It also manages to recognize correctly larger part of the corpus, more than $70\%$ either for W3G or for W1G, compare to NNDR-DF that reaches $60\%$ in both left and right diagrams of figure \ref{chap:word_embeddings:fig:NNDR_W3G_Best_RFSE_Baseline}. Note that the point where the curves end indicates the percentage of corpus that is left unclassified because it is left unclassified as \tetxit{unknown class}.
 
 
 \begin{figure}[t]
