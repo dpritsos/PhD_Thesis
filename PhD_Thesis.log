@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  13 SEP 2019 17:04
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  16 SEP 2019 16:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2303,38 +2303,10 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
- [3] [4]
-./Chapters/Introduction.tex:111: Undefined control sequence.
-l.111 \theoremstyle
-                   {definition}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Introduction.tex:116: Undefined control sequence.
-l.116 \theoremstyle
-                   {definition}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[5]
-./Chapters/Introduction.tex:131: Undefined control sequence.
-l.131 \theoremstyle
-                   {definition}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
+ [3] [4] [5]
 Missing character: There is no ε in font zptmcm7m!
 Missing character: There is no ε in font zptmcm7m!
-[6]
+ [6]
 
 LaTeX Warning: Reference `chap:relevant_work:sec:heuristics' on page 7 undefined on input line 165.
 
@@ -2409,10 +2381,14 @@ LaTeX Warning: Reference `' on page 11 undefined on input line 215.
 
 LaTeX Warning: Reference `' on page 11 undefined on input line 217.
 
-) [11] [12]
+) [11]
 \openout2 = `Chapters/Relevant_Work.aux'.
 
- (./Chapters/Relevant_Work.tex
+ (./Chapters/Relevant_Work.tex [12
+
+
+
+]
 Chapter 2.
 
 ./Chapters/Relevant_Work.tex:11: LaTeX Error: Command \keyword already defined.
@@ -2487,11 +2463,7 @@ or  <return>  to continue without it.
 File: Figures/Sotlen_diagram.eps Graphic file (type eps)
 <Figures/Sotlen_diagram.eps>
 1: section
-[13
-
-
-
-] [14] [15] [16]
+[13] [14] [15] [16]
 
 LaTeX Warning: Reference `' on page 17 undefined on input line 96.
 
@@ -3007,8 +2979,8 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./Chapters/Open_set_algorithms.tex:21: Undefined control sequence.
-l.21 ...g some sophisticated issues of the \tetxit
+./Chapters/Open_set_algorithms.tex:22: Undefined control sequence.
+l.22 ...g some sophisticated issues of the \tetxit
                                                   {Automated Genre Identific...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3016,17 +2988,76 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+./Chapters/Open_set_algorithms.tex:24: Undefined control sequence.
+l.24 Particularly, the \tetxit
+                              {One Class SVM Ensemble (OCSVME)} has been dev...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Reference `subsec:One-Class-SVM-Model' on page 53 undefined on input line 27.
+./Chapters/Open_set_algorithms.tex:28: Undefined control sequence.
+l.28 ... which also is special case of the \tetxit
+                                                  {Nearest Neighbor (NN)} fo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Open_set_algorithms.tex:36: Undefined control sequence.
+l.36 ...e presences of Outages the luck of \tetxit
+                                                  {Negative samples} and the...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 1: section
 [53]
-
-LaTeX Warning: Reference `subsec:One-Class-SVM-Model' on page 54 undefined on input line 38.
+./Chapters/Open_set_algorithms.tex:62: Undefined control sequence.
+l.62 ...thms. These similar algorithms are \tetxit
+                                                  {Spy Expectation Maximizat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 [54]
-./Chapters/Open_set_algorithms.tex:49: Undefined control sequence.
-l.49 ...proposed from Scholkopf et al. \parencitep
+
+LaTeX Warning: Reference `[' on page 55 undefined on input line 65.
+
+./Chapters/Open_set_algorithms.tex:65: Missing $ inserted.
+<inserted text> 
+                $
+l.65 ...xt chapter (\ref[chap:openset:sec:Openset_
+                                                  Class_Classification) the ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Chapters/Open_set_algorithms.tex:66: Missing $ inserted.
+<inserted text> 
+                $
+l.66 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (194.65952pt too wide) in paragraph at lines 65--66
+[][]\T1/ptm/m/n/10.95 2002[][]; []Yu, [][]2005[][]; []Scholkopf et al., [][]1999[][]; []Li and Liu, [][]2003[][]). In the next chap-ter ([]chap:openset:sec:Openset$[]\OML/ztmcm/m/it/10.95 lass[]lassification\OT1/zplm/m/n/10.95 )\OML/ztmcm/m/it/10.95 theopen \OMS/ztmcm/m/n/10.95 ^^@
+ []
+
+
+Overfull \hbox (58.5008pt too wide) in paragraph at lines 65--66
+\OML/ztmcm/m/it/10.95 setclassificationproblemisdiscussedandthethreealgorithmdevelopedforthisthesisarepresentedindetail\OT1/ztmcm/m/n/10.95 .$ 
+ []
+
+./Chapters/Open_set_algorithms.tex:81: Undefined control sequence.
+l.81 ...proposed from Scholkopf et al. \parencitep
                                                   {scholkopf1999estimating}....
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3034,8 +3065,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Open_set_algorithms.tex:51: Undefined control sequence.
-l.51 ...al SVM, thoroughly analysed in \parencitep
+./Chapters/Open_set_algorithms.tex:83: Undefined control sequence.
+l.83 ...al SVM, thoroughly analysed in \parencitep
                                                   {bishop2006}, the Lagrange...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3044,8 +3075,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [55]
-./Chapters/Open_set_algorithms.tex:79: Undefined control sequence.
-l.79 ...le as outliers. For example in \parencitep
+./Chapters/Open_set_algorithms.tex:111: Undefined control sequence.
+l.111 ...e as outliers. For example in \parencitep
                                                   {scholkopf1999estimating} ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3053,8 +3084,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Open_set_algorithms.tex:83: Undefined control sequence.
-l.83 ...semble form, first proposed in \parencitep
+./Chapters/Open_set_algorithms.tex:115: Undefined control sequence.
+l.115 ...emble form, first proposed in \parencitep
                                                   {pritsos2013open}, as anal...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3063,20 +3094,20 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 95.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 127.
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
 [56]
-./Chapters/Open_set_algorithms.tex:119: Undefined control sequence.
-l.119 ...od presented by Koppel et al. \parencitep
+./Chapters/Open_set_algorithms.tex:151: Undefined control sequence.
+l.151 ...od presented by Koppel et al. \parencitep
                                                   {koppel2011authorship} for...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3085,22 +3116,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (19.28201pt too wide) in paragraph at lines 119--120
+Overfull \hbox (19.28201pt too wide) in paragraph at lines 151--152
 \T1/ptm/m/n/10.95 The RFSE al-go-rithm is a vari-a-tion of the method pre-sented by Kop-pel et al. kop-pel2011authorship
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
-./Chapters/Open_set_algorithms.tex:157: Undefined control sequence.
-l.157 ... RFSE method as introduced in \parencitep
+./Chapters/Open_set_algorithms.tex:189: Undefined control sequence.
+l.189 ... RFSE method as introduced in \parencitep
                                                   {pritsos2013open} shown in...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3109,8 +3140,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [57]
-./Chapters/Open_set_algorithms.tex:162: Undefined control sequence.
-l.162 ...cosine similarity (similar to \parencitep
+./Chapters/Open_set_algorithms.tex:194: Undefined control sequence.
+l.194 ...cosine similarity (similar to \parencitep
                                                   {pritsos2013open}) and Min...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3118,8 +3149,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Open_set_algorithms.tex:162: Undefined control sequence.
-l.162 ...inMax similarity (inspired by \parencitep
+./Chapters/Open_set_algorithms.tex:194: Undefined control sequence.
+l.194 ...inMax similarity (inspired by \parencitep
                                                   {koppel2014determining}). ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3127,29 +3158,29 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Open_set_algorithms.tex:175: Missing $ inserted.
+./Chapters/Open_set_algorithms.tex:207: Missing $ inserted.
 <inserted text> 
                 $
-l.175 ...Accuracy}. The balance parameters \lambda
+l.207 ...Accuracy}. The balance parameters \lambda
                                                    regulates the mistakes tr...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Open_set_algorithms.tex:176: Missing $ inserted.
+./Chapters/Open_set_algorithms.tex:208: Missing $ inserted.
 <inserted text> 
                 $
-l.176 
+l.208 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (3.07507pt too wide) in paragraph at lines 174--176
+Overfull \hbox (3.07507pt too wide) in paragraph at lines 206--208
 \T1/ptm/m/it/10.95 cu-racy\T1/ptm/m/n/10.95 . The bal-ance pa-ram-e-ters $\OML/ztmcm/m/it/10.95 ^^Uregulatesthemistakestrade \OMS/ztmcm/m/n/10.95 ^^@ \OML/ztmcm/m/it/10.95 offontheknownandmarked \OMS/ztmcm/m/n/10.95 ^^@
  []
 
-./Chapters/Open_set_algorithms.tex:177: Undefined control sequence.
-l.177 ...{x}$ under the constrain $c_{a} \notequal
+./Chapters/Open_set_algorithms.tex:209: Undefined control sequence.
+l.209 ...{x}$ under the constrain $c_{a} \notequal
                                                    c_{b}$, where $c_{g}$ is ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3158,25 +3189,25 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `alg:NNDR_fitting' on page 58 undefined on input line 187.
+LaTeX Warning: Reference `alg:NNDR_fitting' on page 58 undefined on input line 219.
 
 [58]
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
 
-./Chapters/Open_set_algorithms.tex:201: Double subscript.
-l.201 $K^{G}_i, K^{G}_{validation}_
+./Chapters/Open_set_algorithms.tex:233: Double subscript.
+l.233 $K^{G}_i, K^{G}_{validation}_
                                    i, U^{G}_{validation}_i, I^{G} = Split(G,...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-./Chapters/Open_set_algorithms.tex:201: Double subscript.
-l.201 ...K^{G}_{validation}_i, U^{G}_{validation}_
+./Chapters/Open_set_algorithms.tex:233: Double subscript.
+l.233 ...K^{G}_{validation}_i, U^{G}_{validation}_
                                                   i, I^{G} = Split(G,p,k)$ s...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 [59]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 292.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 324.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )) [60] [61]
@@ -3911,10 +3942,10 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 57689 strings out of 493007
- 1320511 string characters out of 6136720
- 1735918 words of memory out of 5000000
- 60859 multiletter control sequences out of 15000+600000
+ 57688 strings out of 493007
+ 1320486 string characters out of 6136720
+ 1735904 words of memory out of 5000000
+ 60858 multiletter control sequences out of 15000+600000
  630910 words of font info for 155 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  82i,20n,128p,10452b,6118s stack positions out of 5000i,500n,10000p,200000b,80000s

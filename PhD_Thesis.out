@@ -25,9 +25,9 @@
 \BOOKMARK [1][-]{section.138}{Web\040Genre\040Corpora:\040An\040unfinished\040work\040in\040progress}{chapter.43}% 25
 \BOOKMARK [0][-]{chapter.139}{Open-set\040WGI\040algorithms}{}% 26
 \BOOKMARK [1][-]{section.140}{Introduction}{chapter.139}% 27
-\BOOKMARK [1][-]{section.141}{One-Class\040and\040Closed-set\040Classification}{chapter.139}% 28
+\BOOKMARK [1][-]{section.141}{One-class\040Closed-set\040Classification\040Methods}{chapter.139}% 28
 \BOOKMARK [1][-]{section.142}{Open-set\040Classification}{chapter.139}% 29
-\BOOKMARK [2][-]{subsection.143}{One-class\040SVM\040Ensemble}{section.142}% 30
+\BOOKMARK [2][-]{subsection.143}{One-Class\040SVM\040Ensemble}{section.142}% 30
 \BOOKMARK [2][-]{subsection.164}{Random\040Feature\040Subpacing\040Ensemble}{section.142}% 31
 \BOOKMARK [1][-]{section.186}{Nearest\040Neighbors\040Distance\040Ratio}{chapter.139}% 32
 \BOOKMARK [0][-]{chapter.234}{Evaluation\040framework\040for\040open-set\040WGI}{}% 33

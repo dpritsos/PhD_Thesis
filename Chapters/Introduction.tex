@@ -108,12 +108,12 @@ In that sense the Web-pages \textit{Noise} is introduced and well defined in thi
 
 To handle noise in WGI there are two options. First, to adopt the closed-set classification setup having one predefined category devoted to noise. Since this category would comprise all web pages not belonging to the known genre labels, it would not be homogeneous. Moreover, this noise class would be much more greater with respect to the other genres causing class imbalance problems. The second option is to adopt the open-set classification setting where it is possible for some web pages not to be classified into any of the predefined genre categories \parencite{pritsos2013open}. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup \parencite{scheirer2013toward}.
 
-\theoremstyle{definition}
+%\theoremstyle{definition}
 \begin{definition}{\textit{Close-set Classification}}
 describes a scenario with the assumption that the \textit{training and testing data are drawn from the same label space and the same distribution}.  The "traditional" classification/identification assumes a static environment where an arbitrary sample is drown from one of the distribution of the training set. There are several variation where soft-classification is also considered closed-set where an algorithm can return the probability score for every class from the trained label space\parencite{geng2018recent}.
 \end{definition}
 
-\theoremstyle{definition}
+%\theoremstyle{definition}
 \begin{definition}{\textit{Open-set Identification}}
 describes a scenario where samples of unseen, in training phase, classes appear in testing phase. Then the classifiers classify accurately the the \textit{known classes} and also effectively deal with the unknown ones. Therefore, the classifiers need to have a \textit{rejection option} when an arbitrary sample is from an unknown class \parencite{geng2018recent}.
 \end{definition}
@@ -128,7 +128,7 @@ The {Open-Space Risk} is a definition form the domain of Open-Set classification
 
 A more formal definition of the Open-set classification is the one where the open space risk is considered.
 
-\theoremstyle{definition}
+%\theoremstyle{definition}
 \begin{definition}{\textit{Open-set Multi-class Classification}}
 Let $C$ be the training data, and let $R_{O}$ open space risk and $R_{ε}$ the empirical risk. Then the objective of open-set classification is to find a function $f \in L$ which is minimizing the following \textit{Open-Set Risk}. 
 
