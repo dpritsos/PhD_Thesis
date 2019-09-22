@@ -47,32 +47,33 @@
 \contentsline {section}{\numberline {3.1}Introduction}{53}{section.140}
 \contentsline {section}{\numberline {3.2}One-class Closed-set Classification Methods}{54}{section.141}
 \contentsline {section}{\numberline {3.3}Open-set Classification}{55}{section.142}
-\contentsline {subsection}{\numberline {3.3.1}One-Class SVM Ensemble}{55}{subsection.143}
-\contentsline {subsection}{\numberline {3.3.2}Random Feature Subpacing Ensemble}{57}{subsection.164}
-\contentsline {section}{\numberline {3.4}Nearest Neighbors Distance Ratio}{58}{section.186}
-\contentsline {chapter}{\numberline {4}Evaluation framework for open-set WGI}{63}{chapter.234}
-\contentsline {section}{\numberline {4.1}Introduction}{63}{section.235}
-\contentsline {section}{\numberline {4.2}Closed-set vs Open-set Measures}{63}{section.236}
-\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{63}{section.237}
-\contentsline {section}{\numberline {4.4}Re-defining the Open Space Risk}{63}{section.239}
-\contentsline {section}{\numberline {4.5}Openness test}{64}{section.242}
-\contentsline {section}{\numberline {4.6}Domain Transfer Measure}{64}{section.244}
-\contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{67}{chapter.246}
-\contentsline {section}{\numberline {5.1}Introduction}{67}{section.247}
-\contentsline {section}{\numberline {5.2}Noise vs Outages on Open-set Classification}{67}{section.248}
-\contentsline {section}{\numberline {5.3}Open-set Framework Evaluation on Noise}{67}{section.249}
-\contentsline {section}{\numberline {5.4}Experimental Setup}{67}{section.250}
-\contentsline {subsection}{\numberline {5.4.1}Corpora}{67}{subsection.251}
-\contentsline {section}{\numberline {5.5}Experiments}{68}{section.255}
-\contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{68}{subsection.256}
-\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{70}{subsection.262}
-\contentsline {section}{\numberline {5.6}Conclusions}{71}{section.267}
-\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{73}{chapter.268}
-\contentsline {section}{\numberline {6.1}Introduction}{73}{section.269}
-\contentsline {section}{\numberline {6.2}Neural Language Models}{73}{section.270}
-\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{73}{subsection.271}
-\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{78}{subsection.282}
-\contentsline {section}{\numberline {6.3}Experiments}{80}{section.288}
-\contentsline {subsection}{\numberline {6.3.1}Corpus}{80}{subsection.289}
-\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{80}{subsection.290}
-\contentsline {chapter}{Bibliography}{83}{chapter*.291}
+\contentsline {subsection}{\numberline {3.3.1}Noise defined in the open-set classification}{57}{subsection.145}
+\contentsline {subsection}{\numberline {3.3.2}One-Class SVM Ensemble}{58}{subsection.146}
+\contentsline {subsection}{\numberline {3.3.3}Random Feature Subpacing Ensemble}{60}{subsection.167}
+\contentsline {section}{\numberline {3.4}Nearest Neighbors Distance Ratio}{61}{section.189}
+\contentsline {chapter}{\numberline {4}Evaluation framework for open-set WGI}{65}{chapter.237}
+\contentsline {section}{\numberline {4.1}Introduction}{65}{section.238}
+\contentsline {section}{\numberline {4.2}Closed-set vs Open-set Measures}{65}{section.239}
+\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{65}{section.240}
+\contentsline {section}{\numberline {4.4}Re-defining the Open Space Risk}{65}{section.242}
+\contentsline {section}{\numberline {4.5}Openness test}{66}{section.245}
+\contentsline {section}{\numberline {4.6}Domain Transfer Measure}{66}{section.247}
+\contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{69}{chapter.249}
+\contentsline {section}{\numberline {5.1}Introduction}{69}{section.250}
+\contentsline {section}{\numberline {5.2}Noise vs Outages on Open-set Classification}{69}{section.251}
+\contentsline {section}{\numberline {5.3}Open-set Framework Evaluation on Noise}{69}{section.252}
+\contentsline {section}{\numberline {5.4}Experimental Setup}{69}{section.253}
+\contentsline {subsection}{\numberline {5.4.1}Corpora}{69}{subsection.254}
+\contentsline {section}{\numberline {5.5}Experiments}{70}{section.258}
+\contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{70}{subsection.259}
+\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{72}{subsection.265}
+\contentsline {section}{\numberline {5.6}Conclusions}{73}{section.270}
+\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{75}{chapter.271}
+\contentsline {section}{\numberline {6.1}Introduction}{75}{section.272}
+\contentsline {section}{\numberline {6.2}Neural Language Models}{75}{section.273}
+\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{75}{subsection.274}
+\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{80}{subsection.285}
+\contentsline {section}{\numberline {6.3}Experiments}{82}{section.291}
+\contentsline {subsection}{\numberline {6.3.1}Corpus}{82}{subsection.292}
+\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{82}{subsection.293}
+\contentsline {chapter}{Bibliography}{85}{chapter*.294}
