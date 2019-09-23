@@ -984,6 +984,34 @@
     \field{year}{2006}
   \endentry
 
+  \entry{geng2018collective}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GC}{%
+         family={Geng},
+         familyi={G\bibinitperiod},
+         given={Chuanxing},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Songcan},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GCCS1}
+    \strng{fullhash}{GCCS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{year}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Collective decision for open set recognition}
+    \field{journaltitle}{arXiv preprint arXiv:1806.11258}
+    \field{year}{2018}
+  \endentry
+
   \entry{geng2018recent}{article}{}
     \name{author}{3}{}{%
       {{hash=GC}{%
