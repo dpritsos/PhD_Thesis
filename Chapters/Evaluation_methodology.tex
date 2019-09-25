@@ -18,13 +18,36 @@
 
 \section{Introduction}\label{chap:eval_methods:sec:intro}
 
+This chapter is describing the evaluation metrics required for the open-set WGI task. Particularly it is shown with simple examples the effect of the a measurement methods to the evaluation results and the misleading conclusions on can have when the wrong measurement method is adopted. Moreover some evaluation measures are presented specialized for the open-set framework where recently have been discover and adopted for several domains inside and outside the \tetxit{text minminng} domain.
+
+The standard evaluation approach is to use a previously well tested evaluation methodology and measures. However, the closed-set measures is later shown that they are not proper for the open-set framework in their standard form. 
+
+To reason it in few words the problem is that these measures are based on the \tetxit{Confusion Matrix} which can capture only two condition per variable. However, in the case of open-set framework there is one say "global" condition where all the variables of the table drops. This condition is occurring when the \tetxit{rejection condition of the open-set algorithm is trigered. That is when an open-set algorithm responds "I don't know" for an arbitrary sample. 
+
+As expled in chapter \ref{chap:openset} there are some effortes to crate open-set algorithms than could model the \tetxit{unkown} or \textit{unstructured noise} samples. In this case it could be possible the out-of-the-box closed-set evaluation methods be sufficent,however, in most ML algorithms where a rejection critirion is considered this is nearly imposible as it will be presented later.
 
 \section{Closed-set vs Open-set Measures}\label{chap:eval_methods:sec:measures} 
 
 In this section it is presented how the text mining evaluation measures are affected by the type of the by the type of the task's approach scenario. That is, whether it is an open-set of closed-set classification framework.
 
+Starting with the \textit{Confusion matrix} where the basic closed-set evaluation measures are based it is shown the diffence in measure of the Precision and Macro-Precision diffence (also for Recall) in the open-set framework. Moreover, it is shown how these measures are affected by he openness score which is the score for evaluating the difficulty level of an open-set problem.
 
-\subsection{Contingency Table and $F$ Statistic}\label{chap:eval_methods:sec:prf_micro}
+Finally, the \tetxit{Open Space Risck} is presented which is the measure helping an open-set algorithm to regulate the potentially error in the presense of \tetxit{noise} in the testing or/and \tetxit{outages} in the training phase.
+
+
+\subsection{Confusion Matrix and $F$ Score}\label{chap:eval_methods:sec:prf_micro}
+
+In the field of machine learning and specifically the problem of statistical classification, a confusion matrix, also known as an error matrix,[5] is a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one (in unsupervised learning it is usually called a matching matrix). Each row of the matrix represents the instances in a predicted class while each column represents the instances in an actual class (or vice versa).[2] The name stems from the fact that it makes it easy to see if the system is confusing two classes (i.e. commonly mislabeling one as another).
+
+It is a special kind of contingency table, with two dimensions ("actual" and "predicted"), and identical sets of "classes" in both dimensions (each combination of dimension and class is a variable in the contingency table).
+
+First binary with 2 var
+
+Second multiclass with 7 var closed set
+
+third multiclass open set
+
+
 
 
 
