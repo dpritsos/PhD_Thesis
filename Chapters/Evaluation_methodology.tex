@@ -28,7 +28,8 @@ As expled in chapter \ref{chap:openset} there are some effortes to crate open-se
 
 \section{Closed-set vs Open-set Measures}\label{chap:eval_methods:sec:measures} 
 
-In this section it is presented how the text mining evaluation measures are affected by the type of the by the type of the task's approach scenario. That is, whether it is an open-set of closed-set classification framework.
+In this section it is presented how the text mining evaluation measures are affected by the type of the by the type of the task's approach scenario. That is, whether i
+t is an open-set of closed-set classification framework.
 
 Starting with the \textit{Confusion matrix} where the basic closed-set evaluation measures are based it is shown the diffence in measure of the Precision and Macro-Precision diffence (also for Recall) in the open-set framework. Moreover, it is shown how these measures are affected by he openness score which is the score for evaluating the difficulty level of an open-set problem.
 
@@ -37,15 +38,38 @@ Finally, the \tetxit{Open Space Risck} is presented which is the measure helping
 
 \subsection{Confusion Matrix and $F$ Score}\label{chap:eval_methods:sec:prf_micro}
 
-In the field of machine learning and specifically the problem of statistical classification, a confusion matrix, also known as an error matrix,[5] is a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one (in unsupervised learning it is usually called a matching matrix). Each row of the matrix represents the instances in a predicted class while each column represents the instances in an actual class (or vice versa).[2] The name stems from the fact that it makes it easy to see if the system is confusing two classes (i.e. commonly mislabeling one as another).
+In Machine Learning (and Statistical) Classification, a \textit{Confusion Matrix} is a table that depicts the performance of an algorithm. It is a special case of a \textit{Contingency Table}, with two dimensions, actual and predicted classes. Thus, in the a binary case such as in the table \ref{chap:eval_methods:tbl:bin_confusion}, there are for cases occuring. True Positive (TP), True Negative (TN), False Postive (FP), False Negative (FN).
 
-It is a special kind of contingency table, with two dimensions ("actual" and "predicted"), and identical sets of "classes" in both dimensions (each combination of dimension and class is a variable in the contingency table).
+In the case of binary classification the sampels under the class distribution A are desired, i.e. positive, and all the other samples outside the distribution are considered negative, classified in say class B. Then TP and TN are the counts of samples predicted corectly under the a class A (positive) or class B (negative). Therefore, the FP and FN are the samples a binary algorithm missleaded and predicted the wrong class. 
 
-First binary with 2 var
+\begin{table}[H]
+	\center
+	\caption{Confusion matric of binary classification}\label{chap:eval_methods:tbl:bin_confusion}
+	\begin{tabular}{c c c c c}
+		& & \multicolumn{2}{c}{Actual} & \\
+		\cline{3-4}
+		\multirow{3}{*}{\rotatebox[origin=r]{90}{Predicted}} & & \multicolumn{1}{|c}{A} & \multicolumn{1}{c|}{B} & \\
+		\cline{2-4}
+		& \multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{\textbf{50}} & \multicolumn{1}{c|}{25} & 75 \\
+		& \multicolumn{1}{|c}{B} & \multicolumn{1}{|c}{20} & \multicolumn{1}{c|}{\textbf{45}} & 65 \\
+		\cline{2-4}
+		&  & 70 & 70 & \textbf{95}\\
+	\end{tabular}
+\end{table}
+
+In order to measure the performance a binary classification algorithm the \tetxit{Accuracy} is a common measure which is actually the ration of all the correct prediction overall the predictions (which is equivalent to the number of the samples of the whole data set). Formally, it is shown in the equation \ref{chap:eval_methods:eq:accuracy} and for the example of the table \ref{chap:eval_methods:tbl:bin_confusion} its value is $A = 95/140 = 0.68$
+
+\begin{equation}\label{chap:eval_methods:eq:accuracy}
+A = \frac {TP + TN} {TP +  TN + FP + FN}
+\end{equation}
+
+However, one can get a better insight when it is measured the algorithms ability distinguishing the samples which they are under the distribution it has been trained for. Moreover, to be measured its ability of recognizing the samples of this distribution. The former is called \tetxit{Precision} and the second it is called \tetxit{Recall} and their formal expressions are in equation \ref{} and \ref{} respectively. 
+
+
 
 Second multiclass with 7 var closed set
 
-third multiclass open set
+third multiclass open set 
 
 
 
