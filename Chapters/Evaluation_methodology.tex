@@ -63,9 +63,17 @@ In order to measure the performance a binary classification algorithm the \tetxi
 A = \frac {TP + TN} {TP +  TN + FP + FN}
 \end{equation}
 
-However, one can get a better insight when it is measured the algorithms ability distinguishing the samples which they are under the distribution it has been trained for. Moreover, to be measured its ability of recognizing the samples of this distribution. The former is called \tetxit{Precision} and the second it is called \tetxit{Recall} and their formal expressions are in equation \ref{} and \ref{} respectively. 
+However, one can get a better insight when it is measured the algorithms ability distinguishing the samples which they are under the distribution it has been trained for. Moreover, to be measured its ability of recognizing the samples of this distribution. The former is called \tetxit{Precision} and the second it is called \tetxit{Recall} and their formal expressions are in equation \ref{chap:eval_methods:eq:precision} and \ref{chap:eval_methods:eq:recall} respectively. 
 
+\begin{equation}\label{chap:eval_methods:eq:precision}
+	P = \frac {TP} {TP + FP}
+\end{equation}
 
+\begin{equation}\label{chap:eval_methods:eq:recall}
+	R = \frac {TP} {TP + FN}
+\end{equation}
+
+\tetxit{Precision} is also known as \tetxit{Positive Predictive Value (PPV)}. \textit{Recall} is also known as \textit{Sensitivity, Hit Rate and True Positive Rate (TPR)}. 
 
 Second multiclass with 7 var closed set
 
