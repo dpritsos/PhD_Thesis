@@ -81,9 +81,11 @@ In the same table \ref{chap:eval_methods:tbl:bin_confusion} the \textit{precisio
 
 If one would like to consider the performance on class A separately to the performance on class B then the respective calculations are for precision and recall. The ration of the A correct predictions over the whole positive prediction of row A and similarly for B. Thus, $p_{A} = 0.625$ and $p_{B} = 35 / 60 = 0.583$. Moreover, the recall are $r_{A} = 0.714$ and $r_{B} = 35 / 70 = 0.500$.
 
+\subsection{Macro-Precision and Macro-Recall}\label{chap:eval_methods:sec:prf_macro}
+
 The calculation where the positive and negative predictions of both classes are calculated together are called micro-Precision and micro-Recall. In the case where per class calculation of the precision and recall are averaged these scores are called macro-Precision and macro-Recall. 
 
-The macro-P and macro-R are $p_{macro} = 0.604$ and $r_{macro} = 0.607$. There is a slight difference only in micro and macro precision. However, the problem is significantly amplified when the multi-class classification is becoming open-set and also with more classes.
+The macro-P and macro-R for table \ref{chap:eval_methods:tbl:bin_confusion}, are $p_{macro} = 0.604$ and $r_{macro} = 0.607$. There is a slight difference only in micro and macro precision. However, the problem is significantly amplified when the multi-class classification is becoming open-set and also with more classes.
 
 The table \ref{chap:eval_methods:tbl:bin_confusion} has $140$ total samples which is equal either the the row-sums or the column-sums are summed up. In the case of open-set classification some of the samples are remaining as non-classification or as \textit{unknown} where there is no class trained for them. 
 
@@ -120,29 +122,59 @@ In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample 
 		& \multicolumn{1}{|c}{Precision} & \multicolumn{1}{c|}{Recall}\\
 		\cline{1-3}
 		\multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{0.866} & \multicolumn{1}{c|}{0.650}\\
-		\multicolumn{1}{|c}{B} & \multicolumn{1}{|c}{0.625} & \multicolumn{1}{c|}{0.833}\\
+		\multicolumn{1}{|c}{B} & \multicolumn{1}{|c}{0.625} & \multicolumn{1}{c|}{0.500}\\
 		\multicolumn{1}{|c}{C} & \multicolumn{1}{|c}{0.250} & \multicolumn{1}{c|}{0.050}\\
 		\multicolumn{1}{|c}{D} & \multicolumn{1}{|c}{0.800} & \multicolumn{1}{c|}{0.400}\\
 		\multicolumn{1}{|c}{E} & \multicolumn{1}{|c}{0.800} & \multicolumn{1}{c|}{1.000}\\
 		\multicolumn{1}{|c}{F} & \multicolumn{1}{|c}{0.769} & \multicolumn{1}{c|}{0.500}\\
 		\multicolumn{1}{|c}{G} & \multicolumn{1}{|c}{0.533} & \multicolumn{1}{c|}{0.400}\\
 		\cline{1-3}
-		\multicolumn{1}{|c}{Macro} & \multicolumn{1}{|c}{0.663} & \multicolumn{1}{c|}{0.548}\\
+		\multicolumn{1}{|c}{Macro} & \multicolumn{1}{|c}{0.663} & \multicolumn{1}{c|}{0.500}\\
 		\multicolumn{1}{|c}{Micro} & \multicolumn{1}{|c}{0.714} & \multicolumn{1}{c|}{0.500}\\
 		\cline{1-3}
 	\end{tabular}
 \end{table}
 
 
-Clearly the is a significant difference of the 
+Clearly the is a significant difference in the macro-P compare to the micro-P and for this case, micro and macro recalls are have both $0.500$ score. It should be noted that due to the 42 samples of the 140 that haven't been classified at all there is bias over precision score when its micro score is calculated. Moreover, there is problem in calculation of the recall based in the equation form \ref{chap:eval_methods:eq:recall} because in the closed set classification the denominator is equal to the total number pf samples that we know they are under the distribution of the class we are evaluating for. 
 
+The recall calculation issue is cased because of the open-set framework and the sample are renaming out of the classification processing because of the rejection criterion of an open-set algorithm. In order to calculate the recall we are following the theoretical definition of the this score which is formally expressed in equation \ref{chap:eval_methods:eq:recall_theory}.
 
-\subsection{Macro-Precision and Macro-Recall}\label{chap:eval_methods:sec:prf_macro}
+\begin{equation}\label{chap:eval_methods:eq:recall_theory}
+	R = \frac {\text{The sum of correctly classified samples}} {\text{The total number of distribution's testing samples}}
+\end{equation}
 
+Thus in the case of \textit{micro-R} is the denominator is equal to the total number of all samples of the data-set. In the \textit{macro-R} case, is the number of the class-samples for every class separately and then the average score recall score of all classes.
+
+In the table \ref{chap:eval_methods:tbl:multi_confusion} the micro recall show that only the $50\%$ of the total samples have been correctly classified and the $98/140 = 70\%$ of the total samples have been classified while the rest has been remained as \textit{unknown}. The macro recall is also $0.5$ based on the separated evaluation for every different class.
+
+However, the precision is much more accurate in the case of macro compare to the micro because the micro precision is bias for the algorithms positive performance since the rejected samples (characterized as unknown) are not calculate in the precision performance or their are not causing any kind of penalty to the precision score. In addition the proper calculation of recall (micro and macro) as explained above will not differ in the extend of regulating the F-score.
+
+The F-Score is the \textit{Harmonic Mean} of two other scores, i.e. the difference between the to score is creating a kind of penalty to the final value. The general calculation function of F-Score is the shown equation \ref{chap:eval_methods:eq:f_score}
+
+\begin{equation}\label{chap:eval_methods:eq:recall}
+	F_{\beta} = (1 + \beta^{2}) \frac {P R} {\beta^{2} P + R}
+\end{equation}
+
+\noindent
+where $\beta$ in $F_{\beta}$ regulates the weighting bias towards the Precision or Recall score. Usually the $F_{1}$, i.e. with $\beta = 1$, is the used for equally weighted precision and recall significance. Calculating the F-scores for macro and micro scores of the table \ref{chap:eval_methods:tbl:bin_macro_vs_micro} we have $F1_{micro} = 0.588$ and $F1_{macro} = 0.559$.
+
+The macro scores are then less biased for the the open-set framework evaluation. Moreover, in the highly imbalanced corpora also the macro scoring is reported to be more realistic and less biased. Due to the above reasoning the macro-P, macro-R, and Macro-F1 will mainly be the evaluation measure is used in this thesis.
+
+In the next chapter the Precision Recall Curves will be presented where it is more vivid the effect of the micro and macro measurement. That is there it is clear the bias over the precision in the algorithm's performance because of the open-set algorithm criterion.
 
 
 \subsection{PRC and ROC Curves}\label{chap:eval_methods:sec:roc_prc}
 
+
+
+\begin{figure}[t]
+	\begin{center}
+    	\includegraphics[scale=0.4]{Figures/pr_macro_micro_example.eps}
+		\caption{Open-set Macro (Red line) and Micro (grey line) Precision Recall Curves of confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}}
+		\label{chap:eval_methods:tbl:prc_macro}
+	\end{center}
+\end{figure}
 
 
 \section{Area Under the Curve (AUC)}\label{chap:eval_methods:sec:closed_set_classification} 
