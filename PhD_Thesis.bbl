@@ -47,12 +47,12 @@
     \field{year}{2012}
   \endentry
 
-  \entry{Aggarwal2012ASO}{inproceedings}{}
+  \entry{Aggarwal2012}{book}{}
     \name{author}{2}{}{%
       {{hash=ACC}{%
          family={Aggarwal},
          familyi={A\bibinitperiod},
-         given={Charu\bibnamedelima C.},
+         given={Charu\bibnamedelima C},
          giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
       }}%
       {{hash=ZC}{%
@@ -62,6 +62,9 @@
          giveni={C\bibinitperiod},
       }}%
     }
+    \list{publisher}{1}{%
+      {Springer Science \& Business Media}%
+    }
     \strng{namehash}{ACCZC1}
     \strng{fullhash}{ACCZC1}
     \field{labelnamesource}{author}
@@ -70,8 +73,7 @@
     \field{labeldatesource}{year}
     \field{sortinit}{A}
     \field{sortinithash}{A}
-    \field{booktitle}{Mining Text Data}
-    \field{title}{A Survey of Text Classification Algorithms}
+    \field{title}{Mining text data}
     \field{year}{2012}
   \endentry
 
@@ -1149,6 +1151,46 @@
   weblogs}
     \field{volume}{219}
     \field{year}{2012}
+  \endentry
+
+  \entry{hotho2005}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HA}{%
+         family={Hotho},
+         familyi={H\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=NA}{%
+         family={N{\"u}rnberger},
+         familyi={N\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PG}{%
+         family={Paa{\ss}},
+         familyi={P\bibinitperiod},
+         given={Gerhard},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Citeseer}%
+    }
+    \strng{namehash}{HANAPG1}
+    \strng{fullhash}{HANAPG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{labeldatesource}{year}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Ldv Forum}
+    \field{number}{1}
+    \field{pages}{19\bibrangedash 62}
+    \field{title}{A brief survey of text mining.}
+    \field{volume}{20}
+    \field{year}{2005}
   \endentry
 
   \entry{jebari2014pure_URL}{inproceedings}{}
@@ -3134,6 +3176,41 @@
     \field{year}{1999}
   \endentry
 
+  \entry{sebastiani2002}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SF}{%
+         family={Sebastiani},
+         familyi={S\bibinitperiod},
+         given={Fabrizio},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{SF1}
+    \strng{fullhash}{SF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{year}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb http://doi.acm.org/10.1145/505282.505283
+    \endverb
+    \field{issn}{0360-0300}
+    \field{number}{1}
+    \field{pages}{1\bibrangedash 47}
+    \field{title}{Machine learning in automated text categorization}
+    \field{volume}{34}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{journaltitle}{ACM Comput. Surv.}
+    \field{year}{2002}
+  \endentry
+
   \entry{sharoff2010web}{inproceedings}{}
     \name{author}{3}{}{%
       {{hash=SS}{%
@@ -3504,6 +3581,49 @@
     \field{sortinithash}{W}
     \field{title}{The Feature Difference Coefficient: Classification Using
   Feature Distribution}
+  \endentry
+
+  \entry{Weiss2010}{book}{}
+    \name{author}{4}{}{%
+      {{hash=WSM}{%
+         family={Weiss},
+         familyi={W\bibinitperiod},
+         given={Sholom\bibnamedelima M},
+         giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=IN}{%
+         family={Indurkhya},
+         familyi={I\bibinitperiod},
+         given={Nitin},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=ZT}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Tong},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=DF}{%
+         family={Damerau},
+         familyi={D\bibinitperiod},
+         given={Fred},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Science \& Business Media}%
+    }
+    \strng{namehash}{WSM+1}
+    \strng{fullhash}{WSMINZTDF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2010}
+    \field{labeldatesource}{year}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Text mining: predictive methods for analyzing unstructured
+  information}
+    \field{year}{2010}
   \endentry
 
   \entry{wu2010fine}{inproceedings}{}
