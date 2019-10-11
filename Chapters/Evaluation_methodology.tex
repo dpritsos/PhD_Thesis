@@ -18,29 +18,29 @@
 
 \section{Introduction}\label{chap:eval_methods:sec:intro}
 
-This chapter is describing the evaluation metrics required for the open-set WGI task. Particularly it is shown with simple examples the effect of the a measurement methods to the evaluation results and the misleading conclusions on can have when the wrong measurement method is adopted. Moreover some evaluation measures are presented specialized for the open-set framework where recently have been discover and adopted for several domains inside and outside the \tetxit{text minminng} domain.
+This chapter is describing the evaluation metrics required for the open-set WGI task. Particularly it is shown with simple examples the effect of the a measurement methods to the evaluation results and the misleading conclusions on can have when the wrong measurement method is adopted. Moreover some evaluation measures are presented specialized for the open-set framework where recently have been discover and adopted for several domains inside and outside the \textit{text mining} domain.
 
 The standard evaluation approach is to use a previously well tested evaluation methodology and measures. However, the closed-set measures is later shown that they are not proper for the open-set framework in their standard form. 
 
-To reason it in few words the problem is that these measures are based on the \tetxit{Confusion Matrix} which can capture only two condition per variable. However, in the case of open-set framework there is one say "global" condition where all the variables of the table drops. This condition is occurring when the \tetxit{rejection condition of the open-set algorithm is trigered. That is when an open-set algorithm responds "I don't know" for an arbitrary sample. 
+To reason it in few words the problem is that these measures are based on the \textit{Confusion Matrix} which can capture only two condition per variable. However, in the case of open-set framework there is one say "global" condition where all the variables of the table drops. This condition is occurring when the \textit{rejection condition} of the open-set algorithm is triggered. That is when an open-set algorithm responds "I don't know" for an arbitrary sample. 
 
-As expled in chapter \ref{chap:openset} there are some effortes to crate open-set algorithms than could model the \tetxit{unkown} or \textit{unstructured noise} samples. In this case it could be possible the out-of-the-box closed-set evaluation methods be sufficent,however, in most ML algorithms where a rejection critirion is considered this is nearly imposible as it will be presented later.
+As explained in chapter \ref{chap:openset} there are some efforts to crate open-set algorithms than could model the \textit{unknown} or \textit{unstructured noise} samples. In this case it could be possible the out-of-the-box closed-set evaluation methods be sufficient,however, in most ML algorithms where a rejection criterion is considered this is nearly impossible as it will be presented later.
 
 \section{Closed-set vs Open-set Measures}\label{chap:eval_methods:sec:measures} 
 
 In this section it is presented how the text mining evaluation measures are affected by the type of the by the type of the task's approach scenario. That is, whether i
 t is an open-set of closed-set classification framework.
 
-Starting with the \textit{Confusion matrix} where the basic closed-set evaluation measures are based it is shown the diffence in measure of the Precision and Macro-Precision diffence (also for Recall) in the open-set framework. Moreover, it is shown how these measures are affected by he openness score which is the score for evaluating the difficulty level of an open-set problem.
+Starting with the \textit{Confusion matrix} where the basic closed-set evaluation measures are based it is shown the difference in measure of the Precision and Macro-Precision difference (also for Recall) in the open-set framework. Moreover, it is shown how these measures are affected by he openness score which is the score for evaluating the difficulty level of an open-set problem.
 
-Finally, the \tetxit{Open Space Risck} is presented which is the measure helping an open-set algorithm to regulate the potentially error in the presense of \tetxit{noise} in the testing or/and \tetxit{outages} in the training phase.
+Finally, the \textit{Open Space Risk} is presented which is the measure helping an open-set algorithm to regulate the potentially error in the presence of \textit{noise} in the testing or/and \textit{outages} in the training phase.
 
 
 \subsection{Confusion Matrix and $F$ Score}\label{chap:eval_methods:sec:prf_micro}
 
-In Machine Learning (and Statistical) Classification, a \textit{Confusion Matrix} is a table that depicts the performance of an algorithm. It is a special case of a \textit{Contingency Table}, with two dimensions, actual and predicted classes. Thus, in the a binary case such as in the table \ref{chap:eval_methods:tbl:bin_confusion}, there are for cases occuring. True Positive (TP), True Negative (TN), False Postive (FP), False Negative (FN).
+In Machine Learning (and Statistical) Classification, a \textit{Confusion Matrix} is a table that depicts the performance of an algorithm. It is a special case of a \textit{Contingency Table}, with two dimensions, actual and predicted classes. Thus, in the a binary case such as in the table \ref{chap:eval_methods:tbl:bin_confusion}, there are for cases occurring. True Positive (TP), True Negative (TN), False Positive (FP), False Negative (FN).
 
-In the case of binary classification the sampels under the class distribution A are desired, i.e. positive, and all the other samples outside the distribution are considered negative, classified in say class B. Then TP and TN are the counts of samples predicted corectly under the a class A (positive) or class B (negative). Therefore, the FP and FN are the samples a binary algorithm missleaded and predicted the wrong class. 
+In the case of binary classification the samples under the class distribution A are desired, i.e. positive, and all the other samples outside the distribution are considered negative, classified in say class B. Then TP and TN are the counts of samples predicted correctly under the a class A (positive) or class B (negative). Therefore, the FP and FN are the samples a binary algorithm misleaded and predicted the wrong class. 
 
 \begin{table}[H]
 	\center
@@ -89,27 +89,28 @@ The macro-P and macro-R for table \ref{chap:eval_methods:tbl:bin_confusion}, are
 
 The table \ref{chap:eval_methods:tbl:bin_confusion} has $140$ total samples which is equal either the the row-sums or the column-sums are summed up. In the case of open-set classification some of the samples are remaining as non-classification or as \textit{unknown} where there is no class trained for them. 
 
-In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample distributed in a seven (7) classes and also with 42 of them remaining as unclassified. Given these cases, the respective per class, macro and micro recall for this confusion matrix are calculated and shown in table \ref{}.
+In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample distributed in a seven (7) classes and also with 42 of them remaining as unclassified. Given these cases, the respective per class, macro and micro recall for this confusion matrix are calculated and shown in table \ref{chap:eval_methods:tbl:bin_macro_vs_micro}.
 
 \begin{table}[H]
 	\center
-	\caption{Confusion matric of binary classification}\label{chap:eval_methods:tbl:multi_confusion}
-	\begin{tabular}{c c c c c c c c c c}
+	\caption{Confusion metric of binary classification}\label{chap:eval_methods:tbl:multi_confusion}
+	\begin{tabular}{c c c c c c c c c c c}
 		& & \multicolumn{7}{c}{Classified of Actual} & \\
-		\cline{3-9}
-		\multirow{9}{*}{\rotatebox[origin=c]{90}{Predicted}} & & \multicolumn{1}{|c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} & \multicolumn{1}{c}{D} & \multicolumn{1}{c}{E}  & \multicolumn{1}{c}{F} & \multicolumn{1}{c|}{G} & \\
-		\cline{2-9}
-		& \multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{\textbf{13}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{0} & 15 \\
-		& \multicolumn{1}{|c}{B} & \multicolumn{1}{|c}{1} & \multicolumn{1}{c}{\textbf{10}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c|}{3} & 16 \\
-		& \multicolumn{1}{|c}{C} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{\textbf{1}} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{3} & 4 \\
-		& \multicolumn{1}{|c}{D} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{\textbf{8}} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{1} & 10 \\
-		& \multicolumn{1}{|c}{E} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{\textbf{20}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c|}{1} & 25 \\
-		& \multicolumn{1}{|c}{F} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{\textbf{10}} & \multicolumn{1}{c|}{0} & 13 \\
-		& \multicolumn{1}{|c}{G} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c|}{\textbf{8}} & 15 \\
-		\cline{2-9}
-		&  & 14 & 12 & 11 & 12 & 20 & 13 & 16 & \textbf{70}\\
+		\cline{3-10}
+		\multirow{9}{*}{\rotatebox[origin=c]{90}{Predicted}} & & \multicolumn{1}{|c}{\emptyset} & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} & \multicolumn{1}{c}{D} & \multicolumn{1}{c}{E}  & \multicolumn{1}{c}{F} & \multicolumn{1}{c|}{G} & \\
 		\cline{2-10}
-		&  & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 140\\
+		& \multicolumn{1}{|c}{\emptyset} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{\textit{6}} & \multicolumn{1}{c}{\textit{8}} & \multicolumn{1}{c}{\textit{9}} & \multicolumn{1}{c}{\textit{8}} & \multicolumn{1}{c}{\textit{0}} & \multicolumn{1}{c}{\textit{7}} & \multicolumn{1}{c|}{\textit{4}} & 15 \\
+		& \multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{\textbf{13}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{0} & 15 \\
+		& \multicolumn{1}{|c}{B} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{\textbf{10}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c|}{3} & 16 \\
+		& \multicolumn{1}{|c}{C} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{\textbf{1}} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{3} & 4 \\
+		& \multicolumn{1}{|c}{D} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{\textbf{8}} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{1} & 10 \\
+		& \multicolumn{1}{|c}{E} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{\textbf{20}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c|}{1} & 25 \\
+		& \multicolumn{1}{|c}{F} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{\textbf{10}} & \multicolumn{1}{c|}{0} & 13 \\
+		& \multicolumn{1}{|c}{G} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c|}{\textbf{8}} & 15 \\
+		\cline{2-10}
+		& & 0 & 14 & 12 & 11 & 12 & 20 & 13 & 16 & \textbf{70}\\
+		\cline{3-10}
+		& & \textit{0} & \textit{20} & \textit{20} & \textit{20} & \textit{20} & \textit{20} & \textit{20} & \textit{20} & 140\\
 	\end{tabular}
 \end{table}
 
@@ -166,11 +167,40 @@ In the next chapter the Precision Recall Curves will be presented where it is mo
 
 \subsection{PRC and ROC Curves}\label{chap:eval_methods:sec:roc_prc}
 
+The \tetxit{Precision Recall Curves (PRC)} and the \tetxit{Receiver Operating Characteristic} are two standardized methods for evaluating the Information Retrieval algorithms. Usually is an out-of-the-box choice for ranking systems. They also can be used for classification as long as there is available the probability or any certainty score for the classification. Thus, it can be applied in "soft" classification, while in "hard" classification is possible when the decision scores are available. 
+
+The calculation of the PR curves requires the truth-table sequence for the predictions, ranked in descending order based on the \textit{algorithm's certainty scores}. 
+
+
+\begin{table}[H]
+	\center
+	\caption{Macro and Micro calculation for the Confusion matrix (Table \ref{chap:eval_methods:tbl:bin_confusion}) of binary classification}\label{chap:eval_methods:tbl:bin_macro_vs_micro}
+	\begin{tabular}{|c|c|c|c|}
+		\cline{1-4}
+		Certainty & Predicted & Expected & Correct\\
+		\cline{1-4}
+		0.99 & 1 & 1 & 1 \\
+		0.99 & 2 & 2 & 1 \\
+		0.99 & 4 & 4 & 1 \\
+		... & ... & ... & ... \\
+		0.79 & 2 & 6 & 0 \\
+		0.79 & 4 & 4 & 1 \\
+		0.69 & 7 & 6 & 0 \\
+		0.69 & 4 & 4 & 1 \\
+		... & ... & ... & ... \\
+		0.64 & \emptyset & 6 & 0 \\
+		0.60 & 2 & 2 & 1 \\
+		... & ... & ... & ... \\
+		0.60 & \emptyset & 4 & 0 \\
+		\cline{1-4}
+	\end{tabular}
+\end{table}
+
 
 
 \begin{figure}[t]
 	\begin{center}
-    	\includegraphics[scale=0.4]{Figures/pr_macro_micro_example.eps}
+    	\includegraphics[scale=0.45]{Figures/pr_macro_micro_example.eps}
 		\caption{Open-set Macro (Red line) and Micro (grey line) Precision Recall Curves of confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}}
 		\label{chap:eval_methods:tbl:prc_macro}
 	\end{center}
