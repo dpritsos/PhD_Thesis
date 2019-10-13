@@ -61,7 +61,7 @@
 \contentsline {subsection}{\numberline {4.2.3}PRC and ROC Curves}{66}{subsection.239}
 \contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{68}{section.242}
 \contentsline {section}{\numberline {4.4}Re-defining the Open Space Risk}{68}{section.244}
-\contentsline {section}{\numberline {4.5}Openness test}{68}{section.247}
+\contentsline {section}{\numberline {4.5}Openness test}{69}{section.247}
 \contentsline {section}{\numberline {4.6}Domain Transfer Measure}{69}{section.249}
 \contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{71}{chapter.251}
 \contentsline {section}{\numberline {5.1}Introduction}{71}{section.252}
