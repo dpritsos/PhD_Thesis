@@ -100,7 +100,7 @@ In order to use supervised learning technology to WGI, it is required to transfo
 
 The web-documents can be considered a super-set of the document format types because it expands Postscript \footnote{Postscript is the digital format used from the Desktop Publishing (e.g. PDF or PS formats). In this thesis this term is used to describe all traditional document formats such as books, magazines, newspapers, in contrast to the enriched (hyperlinked) web-documents.} by introducing functionality and versatility based on HTML and virtually infinite inter-connectivity because of the URL links. 
 
-In relevant literature there is a great variety of ideas aiming at document representation for the WGI. The features that can be extracted from web-pages can be related to the following information:
+In relevant literature there is a great variety of ideas aiming at document representation for the WGI. The main features that can be extracted from web-pages are related to the following information:
 
 \begin{enumerate}
 \item The URL links and the graph formed by the connection of the web-pages.
@@ -119,8 +119,7 @@ The bulk of research work in WGI has focused mostly on the features which can be
 \begin{enumerate}
 \item Lexical features: Each web-page is seen as a series of tokens and frequencies of specific words (e.g. function words) or sequences of tokens (e.g., word n-grams) can be measured. In addition, information about the length of words and sentences can be useful.
 \item Character features: Each web-page is handled as a alphanumeric string and usually frequencies of character n-grams can provide a very detailed and highly dimensional representation. 
-\item Syntactic features. This requires some kind of sophisticated analysis by Natural Language Processing (NLP) tools that can provide information about the syntactic patterns found in the web-pages. One popular and relatively simple approach is the use of part-of-speech n-grams. Syntactic features are language-dependent and their reliability correlates with the error rate of the used NLP tools.
-\item Superficial features: The length in characters of the sentences, paragraphs, texts and their length rations over the full-text's length.
+\item Syntactic features: This requires some kind of sophisticated analysis by Natural Language Processing (NLP) tools that can provide information about the syntactic patterns found in the web-pages. One popular and relatively simple approach is the use of part-of-speech n-grams. Syntactic features are language-dependent and their reliability correlates with the error rate of the used NLP tools.
 \end{enumerate}
 
 Typical term weighting schemes, like Term Frequency (TF) and Term Frequency - Inverted Document Frequency (TF-IDF) are popular in WGI. In addition, there are some interesting features have been used for the WGI such as the Readability Assessment Features, the TF-IGF, the fuzzy extension of TF-IDF. The TF-IGF is the acronym of \textit{Term Frequency - Inverted Genre Frequency} which similarly to the TF-IDF the regularization was based on the respective frequencies of the a genre and not on the whole corpus \parencite{sugiyanto2014term,}.
@@ -181,9 +180,9 @@ Chapter \ref{chap:openset} focuses on open-set WGI and analytically presents the
 
 Chapter \ref{chap:eval_methods} introduces the experimental framework proposed in this thesis for evaluating open-set WGI approaches. The use of openess as a means to control the difficulty of WGI tasks is discussed. Appropriate evaluation measures are defined for both unstructured and structured noise. 
 
-Chapter \ref{chap:noise} 5 deals with the experimental analysis of the examined open-set WGI algorithms. The variety of evaluation corpora and their properties are discussed. Experiments when structured and unstructured noise is considered are presented. The effect of text representation on the effectiveness of the examined methods is studied.
+Chapter \ref{chap:noise} deals with the experimental analysis of the examined open-set WGI algorithms. The variety of evaluation corpora and their properties are discussed. Experiments when structured and unstructured noise is considered are presented. The effect of text representation on the effectiveness of the examined methods is studied.
 
-In Chapter \ref{chap:word_embeddings} 6, the use of distributional features in open-set WGI is presented. Experimental results show the effect of this kind of features to specific open-set WGI algorithms. 
+In Chapter \ref{chap:word_embeddings}, the use of distributional features in open-set WGI is presented. Experimental results show the effect of this kind of features to specific open-set WGI algorithms. 
 
 Finally, Chapter \ref{chap:conclusions} summarizes the main conclusions drawn from this study and discusses future work directions. 
 
