@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  13 OCT 2019 15:22
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  15 OCT 2019 20:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3067,38 +3067,20 @@ my insertion and my current dilemma will both disappear.
 
 [65]
 
-LaTeX Warning: Reference `chap:eval_methods:eq:f_score' on page 66 undefined on input line 157.
-
-./Chapters/Evaluation_methodology.tex:173: Undefined control sequence.
-l.173 The \tetxit
-                 {Precision Recall Curves (PRC)} and the \tetxit{Receiver Op...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Evaluation_methodology.tex:173: Undefined control sequence.
-l.173 ...sion Recall Curves (PRC)} and the \tetxit
-                                                  {Receiver Operating Charac...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+LaTeX Warning: Reference `chap:eval_methods:eq:f_score' on page 66 undefined on input line 154.
 
 [66]
 
-Package caption Warning: \label without proper reference on input line 178.
+Package caption Warning: \label without proper reference on input line 175.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `chap:eval_methods:tbl:prc' on page 67 undefined on input line 175.
+LaTeX Warning: Reference `chap:eval_methods:tbl:prc' on page 67 undefined on input line 172.
 
-./Chapters/Evaluation_methodology.tex:175: Undefined control sequence.
+./Chapters/Evaluation_methodology.tex:172: Undefined control sequence.
 <argument> \chap 
                  :eval_methods:tbl:multi_confusion
-l.175 ...f{\chap:eval_methods:tbl:multi_confusion}
+l.172 ...f{\chap:eval_methods:tbl:multi_confusion}
                                                   , and the macro-prediction...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3106,10 +3088,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Evaluation_methodology.tex:175: Undefined control sequence.
+./Chapters/Evaluation_methodology.tex:172: Undefined control sequence.
 <write> ^^JLaTeX Warning: Reference `\chap 
                                            :eval_methods:tbl:multi_confusion...
-l.175 ...f{\chap:eval_methods:tbl:multi_confusion}
+l.172 ...f{\chap:eval_methods:tbl:multi_confusion}
                                                   , and the macro-prediction...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3118,20 +3100,20 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `:eval_methods:tbl:multi_confusion' on page 67 undefined on input line 175.
+LaTeX Warning: Reference `:eval_methods:tbl:multi_confusion' on page 67 undefined on input line 172.
 
-./Chapters/Evaluation_methodology.tex:194: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:191: Missing $ inserted.
 <inserted text> 
                 $
-l.194 ^^I^^I0.64 & \emptyset
+l.191 ^^I^^I0.64 & \emptyset
                              & 6 & 0 \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Evaluation_methodology.tex:194: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:191: Missing $ inserted.
 <inserted text> 
                 $
-l.194 ^^I^^I0.64 & \emptyset &
+l.191 ^^I^^I0.64 & \emptyset &
                                6 & 0 \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3139,18 +3121,18 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./Chapters/Evaluation_methodology.tex:197: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:194: Missing $ inserted.
 <inserted text> 
                 $
-l.197 ^^I^^I0.60 & \emptyset
+l.194 ^^I^^I0.60 & \emptyset
                              & 4 & 0 \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Evaluation_methodology.tex:197: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:194: Missing $ inserted.
 <inserted text> 
                 $
-l.197 ^^I^^I0.60 & \emptyset &
+l.194 ^^I^^I0.60 & \emptyset &
                                4 & 0 \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3159,76 +3141,32 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Package caption Warning: \label without proper reference on input line 178.
+Package caption Warning: \label without proper reference on input line 175.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `chap:eval_methods:tbl:prc' on page 67 undefined on input line 202.
+LaTeX Warning: Reference `chap:eval_methods:tbl:prc' on page 67 undefined on input line 199.
 
 File: Figures/pr_macro_micro_example.eps Graphic file (type eps)
 <Figures/pr_macro_micro_example.eps>
+
+Package caption Warning: \label without proper reference on input line 175.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `chap:eval_methods:tbl:prc' on page 67 undefined on input line 215.
+
 [67]
-./Chapters/Evaluation_methodology.tex:238: Missing $ inserted.
-<inserted text> 
-                $
-l.238 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-./Chapters/Evaluation_methodology.tex:238: Display math should end with $$.
-<to be read again> 
-                   \par 
-l.238 
-      
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
+Package caption Warning: \label without proper reference on input line 175.
+See the caption package documentation for explanation.
 
 
-./Chapters/Evaluation_methodology.tex:239: LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.239 \end{equation}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./Chapters/Evaluation_methodology.tex:239: You can't use `\eqno' in vertical mode.
-\endmathdisplay@a ...\df@tag \@empty \else \veqno 
-                                                  \alt@tag \df@tag \fi \ifx ...
-l.239 \end{equation}
-                    
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-./Chapters/Evaluation_methodology.tex:239: Missing $ inserted.
-<inserted text> 
-                $
-l.239 \end{equation}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./Chapters/Evaluation_methodology.tex:239: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.239 \end{equation}
-                    
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
+LaTeX Warning: Reference `chap:eval_methods:tbl:prc' on page 68 undefined on input line 221.
 
 [68] [69]
 
-LaTeX Warning: Reference `eq:gnr_dom_transit_general' on page 70 undefined on input line 275.
+LaTeX Warning: Reference `eq:gnr_dom_transit_general' on page 70 undefined on input line 282.
 
 Missing character: There is no Ν in font ptmr8t!
 Missing character: There is no α in font ptmr8t!
@@ -3930,10 +3868,10 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 57832 strings out of 493007
- 1323415 string characters out of 6136720
- 1740670 words of memory out of 5000000
- 60993 multiletter control sequences out of 15000+600000
+ 57833 strings out of 493007
+ 1323452 string characters out of 6136720
+ 1740732 words of memory out of 5000000
+ 60994 multiletter control sequences out of 15000+600000
  634937 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  82i,21n,128p,10452b,6114s stack positions out of 5000i,500n,10000p,200000b,80000s

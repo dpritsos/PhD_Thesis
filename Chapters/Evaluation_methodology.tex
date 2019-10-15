@@ -99,11 +99,8 @@ In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample 
 		\cline{3-10}
 		\multirow{10}{*}{\rotatebox[origin=c]{90}{Predicted}} & & \multicolumn{1}{|c}{\emptyset} & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} & \multicolumn{1}{c}{D} & \multicolumn{1}{c}{E}  & \multicolumn{1}{c}{F} & \multicolumn{1}{c|}{G} & \\
 		\cline{2-10}
-		& \multicolumn{1}{|c}{\emptyset} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{\textit{6}} & \multicolumn{1}{c}{\textit{8}} & \multicolumn{1}{c}{\textit{9}} & \multicolumn{1}{c}{\textit{8}} & \multicolumn{1}{c}{\textit{0}} & \multicolumn{1}{c}{\textit{7}} & \multicolumn{1}{c|}{\textit{4}} & 15 \\
-		& \multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{\textbf{13}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{0} & \textbf{42}
-		
-		
-		\\
+		& \multicolumn{1}{|c}{\emptyset} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{\textit{6}} & \multicolumn{1}{c}{\textit{8}} & \multicolumn{1}{c}{\textit{9}} & \multicolumn{1}{c}{\textit{8}} & \multicolumn{1}{c}{\textit{0}} & \multicolumn{1}{c}{\textit{7}} & \multicolumn{1}{c|}{\textit{4}} & \textbf{42} \\
+		& \multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{\textbf{13}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{0} & 15 \\
 		& \multicolumn{1}{|c}{B} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{\textbf{10}} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c|}{3} & 16 \\
 		& \multicolumn{1}{|c}{C} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{\textbf{1}} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{3} & 4 \\
 		& \multicolumn{1}{|c}{D} & \multicolumn{1}{|c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{\textbf{8}} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0} & \multicolumn{1}{c|}{1} & 10 \\
@@ -234,6 +231,9 @@ where $P(r_j)$ is the precision at $r_j$ standard recall level.
 
 
 \section{Area Under the Curve (AUC)}\label{chap:eval_methods:sec:closed_set_classification} 
+
+F1 0.570
+AUC 0.448
 
 To find parameter settings that obtain optimal evaluation performances we use 2 scalar measures, the Area Under the Precision-Recall Curve (AUC)and $F_{1}$. We will show that the appropriate selection of the optimization measure is highly significant in the presence of noise.
 
