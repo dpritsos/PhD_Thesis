@@ -60,26 +60,26 @@
 \contentsline {subsection}{\numberline {4.2.2}Macro-Precision and Macro-Recall}{65}{subsection.233}
 \contentsline {subsection}{\numberline {4.2.3}Precision Recall Curves}{66}{subsection.238}
 \contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{68}{section.242}
-\contentsline {section}{\numberline {4.4}Re-defining the Open Space Risk}{69}{section.243}
-\contentsline {section}{\numberline {4.5}Openness test}{69}{section.246}
-\contentsline {section}{\numberline {4.6}Domain Transfer Measure}{70}{section.248}
-\contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{71}{chapter.250}
-\contentsline {section}{\numberline {5.1}Introduction}{71}{section.251}
-\contentsline {section}{\numberline {5.2}Noise vs Outages on Open-set Classification}{71}{section.252}
-\contentsline {section}{\numberline {5.3}Open-set Framework Evaluation on Noise}{71}{section.253}
-\contentsline {section}{\numberline {5.4}Experimental Setup}{71}{section.254}
-\contentsline {subsection}{\numberline {5.4.1}Corpora}{71}{subsection.255}
-\contentsline {section}{\numberline {5.5}Experiments}{72}{section.259}
-\contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{72}{subsection.260}
-\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{74}{subsection.266}
-\contentsline {section}{\numberline {5.6}Conclusions}{75}{section.271}
-\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{77}{chapter.272}
-\contentsline {section}{\numberline {6.1}Introduction}{77}{section.273}
-\contentsline {section}{\numberline {6.2}Neural Language Models}{77}{section.274}
-\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{77}{subsection.275}
-\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{82}{subsection.286}
-\contentsline {section}{\numberline {6.3}Experiments}{84}{section.292}
-\contentsline {subsection}{\numberline {6.3.1}Corpus}{84}{subsection.293}
-\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{84}{subsection.294}
-\contentsline {chapter}{\numberline {7}Conclusions}{87}{chapter.295}
-\contentsline {chapter}{Bibliography}{89}{chapter*.296}
+\contentsline {section}{\numberline {4.4}Re-defining the Open Space Risk}{69}{section.244}
+\contentsline {section}{\numberline {4.5}Openness test}{69}{section.247}
+\contentsline {section}{\numberline {4.6}Domain Transfer Measure}{70}{section.250}
+\contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{73}{chapter.252}
+\contentsline {section}{\numberline {5.1}Introduction}{73}{section.253}
+\contentsline {section}{\numberline {5.2}Noise vs Outages on Open-set Classification}{73}{section.254}
+\contentsline {section}{\numberline {5.3}Open-set Framework Evaluation on Noise}{73}{section.255}
+\contentsline {section}{\numberline {5.4}Experimental Setup}{73}{section.256}
+\contentsline {subsection}{\numberline {5.4.1}Corpora}{73}{subsection.257}
+\contentsline {section}{\numberline {5.5}Experiments}{74}{section.261}
+\contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{74}{subsection.262}
+\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{76}{subsection.268}
+\contentsline {section}{\numberline {5.6}Conclusions}{77}{section.273}
+\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{79}{chapter.274}
+\contentsline {section}{\numberline {6.1}Introduction}{79}{section.275}
+\contentsline {section}{\numberline {6.2}Neural Language Models}{79}{section.276}
+\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{79}{subsection.277}
+\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{84}{subsection.288}
+\contentsline {section}{\numberline {6.3}Experiments}{86}{section.294}
+\contentsline {subsection}{\numberline {6.3.1}Corpus}{86}{subsection.295}
+\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{86}{subsection.296}
+\contentsline {chapter}{\numberline {7}Conclusions}{89}{chapter.297}
+\contentsline {chapter}{Bibliography}{91}{chapter*.298}

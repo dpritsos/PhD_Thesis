@@ -169,12 +169,12 @@ In the next chapter the Precision Recall Curves will be presented where it is mo
 
 The \textit{Precision Recall Curves (PRC)} is a standardized method for evaluating the Information Retrieval algorithms. Usually is an out-of-the-box choice for ranking systems. They also can be used for classification as long as there is available the probability or any certainty score for the classification. Thus, it can be applied in "soft" classification, while in "hard" classification is possible when the decision scores are available. 
 
-The calculation of the PRC requires the \textit{algorithm's certainty scores} in order to rank the prediction in a descending order. In the case of Micro-PRC it is also required the truth table as shown in tale \ref{chap:eval_methods:tbl:prc}, last column. In the case of Macro-PRC the precision and recall for every prediction is should be calculated in every step of the calculation of the curve. Particularly, in macro-PRC for every prediction new confusion matrix should be calculated, such as the one of table \ref{\chap:eval_methods:tbl:multi_confusion}, and the macro-prediction and macro-recall is calculated in each step.
+The calculation of the PRC requires the \textit{algorithm's certainty scores} in order to rank the prediction in a descending order. In the case of Micro-PRC it is also required the truth table as shown in table \ref{chap:eval_methods:tbl:prc}, last column. In the case of Macro-PRC the precision and recall for every prediction is should be calculated in every step of the calculation of the curve. Particularly, in macro-PRC for every prediction new confusion matrix should be calculated, such as the one of table \ref{chap:eval_methods:tbl:multi_confusion}, and the macro-prediction and macro-recall is calculated in each step.
 
 
-\begin{table}[H]\label{chap:eval_methods:tbl:prc}
+\begin{table}[H]
 	\center
-	\caption{Macro and Micro calculation for the Confusion matrix (Table \ref{chap:eval_methods:tbl:bin_confusion}) of binary classification}\label{chap:eval_methods:tbl:bin_macro_vs_micro}
+	\caption{Macro and Micro calculation for the Confusion matrix (Table \ref{chap:eval_methods:tbl:multi_confusion}) of binary classification}\label{chap:eval_methods:tbl:prc}
 	\begin{tabular}{|c|c|c|c|}
 		\cline{1-4}
 		Certainty & Predicted & Expected & Correct\\
@@ -208,17 +208,17 @@ In table \ref{chap:eval_methods:tbl:prc} it is shown an sequence of calculation 
 
 The two curves yielding from this calculations, micro and macro PRC are shown in figure \ref{chap:eval_methods:fig:prc_macro}. Clearly, the micro-PRC is misleading compare to the macro-PRC and the results of table \ref{chap:eval_methods:tbl:macro_vs_micro}. 
 
-The micro-P and micro-R is measures (in table \ref{chap:eval_methods:tbl:macro_vs_micro}) are leading to the conclusion of a low performance algorithm, especially for the recall score. On the contrary the micro-PRC is leading to the conclusion of a high performance algorithm, which we know that it is not true, form the confusion matrix of \ref{chap:eval_methods:tbl:multi_confusion}.
+The macro-P is measures (in table \ref{chap:eval_methods:tbl:macro_vs_micro}) are leading to the conclusion of a low performance algorithm, especially for the recall score. On the contrary the micro-P is leading to the conclusion of a high performance algorithm, which we know that it is not true, form the confusion matrix of \ref{chap:eval_methods:tbl:multi_confusion}.
 
 To compensate the potentially unbalanced distribution of web pages over the genres, the macro-averaged precision and recall measures is used. In more detail, in this thesis a modified version of precision and recall is used, for open-set classification tasks proposed by \parencite{mendesjunior2016}. This modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives.
 
 The problem of the misleading micro-PRC is cased by the presence of the outages, depicted in the first row, in the confusion matrix \ref{chap:eval_methods:tbl:multi_confusion}. Particularly, as shown in table \ref{chap:eval_methods:tbl:prc} and the rows 10 and 13, the micro-PRC calculation is considering the rejected incorrect predicted and it is including them in the prediction. Thus these predictions are not calculated in the precision equation \ref{chap:eval_methods:eq:precision}. These predictions are just decreasing the micro-R. Consequently, the curve is overestimating the performance of the algorithm.
 
-On the contrary the macro-PRC is closer to the macro prediction and recall. Particularly it is show that the curve stops near the $0.5$ values which is equal to the macro-R. Moreover, macro-precision is high yet drops significantly due to the $0.69$. The PRC is giving the same evaluation performance with the table's \ref{chap:eval_methods:tbl:macro_vs_micro} scores per class and macro-scores. That is, the algorithm is having really good performance for some classes and really bad for some other.
+On the contrary the macro-PRC is closer to the macro prediction and recall. Particularly it is show that the curve stops near the $0.5$ values which is equal to the macro-R. Moreover, macro-precision is high yet drops significantly due to the $0.60$. The PRC is giving the same evaluation performance with the table's \ref{chap:eval_methods:tbl:macro_vs_micro} scores per class and macro-scores. That is, the algorithm is having really good performance for some classes and really bad for some other.
 
-However, due to the certainty ranking we can see more insight related to the algorithms performance. Particularly, we can see some irregular drops in the curves (both macro and micro) also the slope of the first recall level to the second and third is very small and then drops from the near perfect predictions to the $0.73$ precision etc. Also, the curve it stops at $0.5$ recall level.
+However, due to the certainty ranking we can see more insight related to the algorithms performance. Particularly, we can see some irregular drops in the micro-PRC. Also the slope of the macor-PRC first recall level to the second is very small and then drops from the near perfect predictions to the $0.87$ precision etc. Also, the curve it stops at $0.5$ recall level.
 
-These, PRC 'irregular' properties are only meet at the open-set algorithms because of the rejection factor. In table \ref{chap:eval_methods:tbl:prc} the algorithms of the precision in rows 10 and 13, seems to have $0.60$ certainty factor which is almost as high as its correct predictions. These predictions are casing high fluctuations in the PRC which are regularized because the 11-recall level average normalization is applied on top. 
+These, Micro-PRC (and some time in Macro-PRC) 'irregular' properties are only meet at the open-set algorithms because of the rejection factor. In table \ref{chap:eval_methods:tbl:prc} the algorithms of the precision in rows 10 and 13, seems to have $0.60$ certainty factor which is almost as high as its correct predictions. These predictions are casing high fluctuations in the PRC which are regularized because the 11-recall level average normalization is applied on top. 
 
 The 11-Recall level average normalization is a standardized evaluation in the text mining domain and it is also used in this thesis. the Precision-Recall curve is calculated in 11-standard recall levels $[0,0.1,...,1.0]$. Precision values are interpolated based on the following formula of equation \ref{chap:eval_methods:eq:11recall_level}.
 
@@ -232,11 +232,25 @@ where $P(r_j)$ is the precision at $r_j$ standard recall level.
 
 \section{Area Under the Curve (AUC)}\label{chap:eval_methods:sec:closed_set_classification} 
 
-F1 0.570
-AUC 0.448
+In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Under the Curve (AUC)} and F1 are presented. The AUC is a common values is used when several PRC's needs to be compared. As an example, to find parameter settings that obtain optimal evaluation performances for the open-set algorithms, the AUC for the PRC's of figure \ref{chap:eval_methods:fig:prc_macro} can be calculated. 
 
-To find parameter settings that obtain optimal evaluation performances we use 2 scalar measures, the Area Under the Precision-Recall Curve (AUC)and $F_{1}$. We will show that the appropriate selection of the optimization measure is highly significant in the presence of noise.
 
+\begin{table}[H]
+	\center
+	\caption{Macro and Micro calculation for AUC and F1 of the Confusion matrix (Table \ref{chap:eval_methods:tbl:multi_confusion})}\label{chap:eval_methods:tbl:AUC_F1}
+	\begin{tabular}{c|c|c|}
+		\cline{2-3}
+		& AUC & F1 \\
+		\hline
+		\multicolumn{1}{|c|}{Macro} & 0.448 & 0.570 \\
+		\multicolumn{1}{|c|}{Micro} & 0.866 & 0.588 \\	
+		\hline
+	\end{tabular}
+\end{table}
+
+It is very important to note that the Micro-AUC is highly misleading, as expected from the PRC diagram \ref{chap:eval_methods:fig:prc_macro}. On the contrary the F1 is not so different, although, as explained, is overestimating the performance o the algorithm by overestimating the precision score. 
+
+The effect of a this potential misleading choice, selecting the \textit{micro-scores} instead of the \textit{macro-scores}, is a bad choice of the  hyper-parameters required for the proper tuning of the classification algorithm. In the experiments (chapter \ref{chap:noise}) of this thesis, it will pointed out whenever this danger is occurring.
 
 \section{Re-defining the Open Space Risk}\label{chap:eval_methods:sec:open_space_risk} 
 
@@ -249,7 +263,7 @@ The open space risk in \parencite{scheirer2013toward} is originally defined as i
 \noindent
 where $R_{o}(.)$ is the open-space risk function and $f_{y}(x)  \in \{0, 1\}$ is the classification function of class $y$, where $1$ is for recognizing its class and $0$ when not. $S_{o}$ is the large hyper-sphere where all the positive training data points and the \textit{positive open space area} $O$. 
 
-The original formulation of the eq. \ref{chap:eval_methods:eq:the_original_open_space_risk} $O$ area cannot be constrained by any means. The only information we are getting is the farther form the training date we go the risk of miss-classification is increasing One method to constrain the problem is by using the center of the positively labeled training data and defining a radios $r_{o}$ where it will reduce the open space area based on the positively labeled empirically observations. Then the $O$ is defined by the equation eq. \ref{chap:eval_methods:eq:openspace_spherical_constrained}
+The original formulation of the eq. \ref{chap:eval_methods:eq:the_original_open_space_risk} $O$ area cannot be constrained by any means. The only information we are getting is the farther form the training date we go the risk of miss-classification is increasing. One method to constrain the problem is by using the center of the positively labeled training data and defining a radios $r_{o}$ where it will reduce the open space area based on the positively labeled empirically observations. Then the $O$ is defined by the equation eq. \ref{chap:eval_methods:eq:openspace_spherical_constrained}
 
 \begin{equation}\label{chap:eval_methods:eq:openspace_spherical_constrained}
 	O = S_{o} - B_{r_{y}}(C_{y})
@@ -268,25 +282,35 @@ In \parencite{scheirer2013toward} work in image processing, the \textit{openness
 
 When openness is $0.0$, it is essentially a closed-set task, that is the training and testing classes are the same or there is no noise. When openness reaches $1.0$ this means that the known classes are far less than the unknown classes, that is the amount of noise is especially high. Therefore, by varying the openness level we can study the performance of WGI models in different conditions.
 
-Note that the openness measure can only be applied to corpora where all available documents have been labeled with genre information. In other words, we have to know the genre labels of the pages that form the noise (i.e. structured noise). Thus, it cannot be applied to SANTINIS corpus where the web pages taken from the SPIRIT collection are unclassified (i.e., unstructured noise). On the other hand, the SANTINIS corpus provides the opportunity to examine WGI performance when all documents not belonging to the known labels are grouped into one single (highly heterogeneous) class.
+Note that the openness measure can only be applied to corpora where all available documents have been labeled with genre information. In other words, we have to know the genre labels of the pages that form the noise (i.e. structured noise).
+
+\begin{figure}[t]
+	\begin{center}
+    	\includegraphics[scale=0.50]{Figures/openness_example.eps}
+		\caption{Openness test for the data set of the confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}. The openness levels are calculated for 6/7 up to 1/7 for training (known) / testing (known + unknown) class tags. At the 1.7 the the openness score is maximized for this open-set problem. The formula \ref{chap:eval_methods:eq:openness} is used for the openness levels calculations}
+		\label{chap:eval_methods:fig:openness}
+	\end{center}
+\end{figure}
+
+In figure \ref{chap:eval_methods:fig:openness} the precision scores on different openness levels, are presented for evaluating three arbitrary open-set algorithms, on the corpus which it is forming the confusion matrix \ref{chap:eval_methods:tbl:multi_confusion}. Note, that the begging and the end of the curve are pointing at about the same level of precision. In particular, at the maximized openness level the performance of these algorithms is even higher than the one at the lowest openness level. However, at the begging the problem is still remaining a multi-class problem where 6 known classed have been given to the algorithms for training and 7 for testing where only 1 is unknown. However, at the highest openness level the problem is becoming a binary problem as in 1-vs-Rest. That is, the algorithms are trained at 1 class and tested at 7 classes with 6 of them as unknown. Given, that these algorithms are all variations based on SVM algorithms the results are short of expected. However, this is not always the case as it will be shown in chapter \ref{chap:noise}.
 
 
 \section{Domain Transfer Measure}\label{chap:eval_methods:sec:domain_transfer_measure}
 
-A practical methodology for evaluating a classification/identification ML model in a text-categorization task is the \textit{Domain Transfer Evaluation}. The goal of this evaluation methodology is to measure the generalization of the model when training corpus is rather small and to evaluate how the model would perform in an unknown domain for the same task. 
+\textit{Domain Transfer Evaluation (DTE)} is a practical methodology for evaluating the classification performance of an text-mining algorithm. The goal of this evaluation methodology is to measure the generalization of the algorithm's induced model when the training corpus is rather small. Thus, with the domain transfer evaluation the algorithm's performance is tested in an unknown domain, for the same text-mining task. 
 
-Particularly for the AGI/WGI with this measure we can evaluate a ML algorithm when for example the model has been trained to identify \textit{News} and \textit{Wiki} genres, however, the available corpus would be only from \textit{Technology products Topics}. Then by testing it on {Sports Topics} we could evaluate the model in such a case when very small corpus is available for training. In addition using this methodology we can evaluate the models behavior depending on the \textit{Features} have been selected for the training, e.g. BOW, POS, Term N-grams etc. 
+Particularly for the WGI, with this measure we can evaluate an algorithm that has been trained to identify \textit{News} or \textit{Wiki} genres. Then by testing it on \textit{Blog}, we could evaluate the model in such a case when very small corpus is available for training. Also, DTE can be applied for evaluating the model's behavior upon changes of the type of \textit{features} have been selected, e.g. BOW, POS, Term N-grams etc. 
 
-One can measure the performance, say Accuracy, F1-statistic, Precision-Recall Curve,  Receiver Operating Characteristic (ROC) Curve etc, and then compare the two measures pairwise for every domain combination (e.g. $\{Mobile Phones, Football\}$, etc). However, it would be easier to have measure for all possible combinations training/testing of different domain combinations. 
+The performance it can be measured using Accuracy, F1-statistic, Precision-Recall Curve, Receiver Operating Characteristic (ROC) Curve etc, and then compare the two measures pairwise for every domain combination (e.g. $\{News, Sports\}$, etc).
 
-The measure proposed from \parencite{finn2006learning} and shown in equation \ref{eq:gnr_dom_transit_general} in its generalized form. Originally, this measure was designed for Accuracy measure in mind. However, it can be used for any measure say $F_{1}$-statistic in order to fit in open-set framework and not respected to the closed-set also (Να ελέγξω αν το Accuracy μπορεί να χρησιμοποιηθεί για Open-set). 
+The measure proposed from \parencite{finn2006learning} where equation \ref{chap:eval_methods:eq:office_doc_ensemble} is its generalized form. Originally, this measure was designed for \textit{Accuracy} in mind. However, it can be used for any score such as F1. In order to fit in the open-set framework.
 
 \begin{equation} \label{chap:eval_methods:eq:office_doc_ensemble}
 	T^{C,F} = \frac{1}{N(N-1)} \sum_{A=1}^{N} \sum_{B, \forall B \neq A}^{N} \left(  \frac{M^{C,F}_{A,B}}{M^{C,F}_{A,A}} \right)
-	\end{equation}
+\end{equation}
 
-	\noindent	
-where T is the \textit{Transfer Measure Score}, M is the measure of choice (Accuracy, $F_1$, Precision, Recall, etc), F is the \textit{Feature Set}, and C is the \textit{Genre Class}. 
+\noindent	
+where T is the \textit{Transfer Measure Score}, M is the measure of choice (Accuracy, F1, Precision, Recall, etc), F is the \textit{Feature Set}, and C is the \textit{Genre Class}. 
 
 
 
