@@ -71,15 +71,19 @@
 \contentsline {subsection}{\numberline {5.4.1}Corpora}{73}{subsection.257}
 \contentsline {section}{\numberline {5.5}Experiments}{74}{section.261}
 \contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{74}{subsection.262}
-\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{76}{subsection.268}
-\contentsline {section}{\numberline {5.6}Conclusions}{77}{section.273}
-\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{79}{chapter.274}
-\contentsline {section}{\numberline {6.1}Introduction}{79}{section.275}
-\contentsline {section}{\numberline {6.2}Neural Language Models}{79}{section.276}
-\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{79}{subsection.277}
-\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{84}{subsection.288}
-\contentsline {section}{\numberline {6.3}Experiments}{86}{section.294}
-\contentsline {subsection}{\numberline {6.3.1}Corpus}{86}{subsection.295}
-\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{86}{subsection.296}
-\contentsline {chapter}{\numberline {7}Conclusions}{89}{chapter.297}
-\contentsline {chapter}{Bibliography}{91}{chapter*.298}
+\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{77}{subsection.268}
+\contentsline {section}{\numberline {5.6}Conclusions}{79}{section.273}
+\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{81}{chapter.274}
+\contentsline {section}{\numberline {6.1}Introduction}{81}{section.275}
+\contentsline {section}{\numberline {6.2}Neural Language Models}{81}{section.276}
+\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{81}{subsection.277}
+\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{86}{subsection.288}
+\contentsline {section}{\numberline {6.3}Experiments}{88}{section.294}
+\contentsline {subsection}{\numberline {6.3.1}Corpus}{88}{subsection.295}
+\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{88}{subsection.296}
+\contentsline {section}{\numberline {6.4}Results}{89}{section.297}
+\contentsline {subsection}{\numberline {6.4.1}Paragraph-Vectors vs. N-Gram-Vectors(TF): Improving Low Performance Learners}{89}{subsection.298}
+\contentsline {subsection}{\numberline {6.4.2}Nearest Neighbours Distance Ration with Paragraph-Vectors}{91}{subsection.302}
+\contentsline {section}{\numberline {6.5}Conclusions}{93}{section.305}
+\contentsline {chapter}{\numberline {7}Conclusions}{95}{chapter.306}
+\contentsline {chapter}{Bibliography}{97}{chapter*.307}

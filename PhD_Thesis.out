@@ -61,5 +61,9 @@
 \BOOKMARK [1][-]{section.294}{Experiments}{chapter.274}% 61
 \BOOKMARK [2][-]{subsection.295}{Corpus}{section.294}% 62
 \BOOKMARK [2][-]{subsection.296}{Open-set\040Models\040Parameters\040Setup}{section.294}% 63
-\BOOKMARK [0][-]{chapter.297}{Conclusions}{}% 64
-\BOOKMARK [0][-]{chapter*.298}{Bibliography}{}% 65
+\BOOKMARK [1][-]{section.297}{Results}{chapter.274}% 64
+\BOOKMARK [2][-]{subsection.298}{Paragraph-Vectors\040vs.\040N-Gram-Vectors\(TF\):\040Improving\040Low\040Performance\040Learners}{section.297}% 65
+\BOOKMARK [2][-]{subsection.302}{Nearest\040Neighbours\040Distance\040Ration\040with\040Paragraph-Vectors}{section.297}% 66
+\BOOKMARK [1][-]{section.305}{Conclusions}{chapter.274}% 67
+\BOOKMARK [0][-]{chapter.306}{Conclusions}{}% 68
+\BOOKMARK [0][-]{chapter*.307}{Bibliography}{}% 69
