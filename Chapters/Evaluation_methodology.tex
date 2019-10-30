@@ -1,7 +1,7 @@
 %!TeX spellcheck = en-US
 
 %\chapter{Evaluation Methodology for WGI and Computational Text Categorization}
-\chapter{Evaluation framework for open-set WGI}
+\chapter{Evaluation Framework for Open-set WGI}
 
 \label{chap:eval_methods}
 
@@ -18,52 +18,44 @@
 
 \section{Introduction}\label{chap:eval_methods:sec:intro}
 
-This chapter is describing the evaluation metrics required for the open-set WGI task. Particularly it is shown with simple examples the effect of the a measurement methods to the evaluation results and the misleading conclusions on can have when the wrong measurement method is adopted. Moreover some evaluation measures are presented specialized for the open-set framework where recently have been discover and adopted for several domains inside and outside the \textit{text mining} domain.
+This chapter describes a framework suitable for the open-set WGI task. Particularly, using simple examples we demonstrate the properties of evaluation measures usually adopted in closed-set classification tasks and the misleading conclusions that can be drawn in case they are also used in open-set conditions. To avoid this problem, we propose specific evaluation measures specialized for the open-set WGI task.
 
-The standard evaluation approach is to use a previously well tested evaluation methodology and measures. However, the closed-set measures is later shown that they are not proper for the open-set framework in their standard form. 
+The main difference in open-set WGI with respect to closed-set WGI is the presence of \emph{noise}. As already explained, noise can be unstructured (when the labels of web-pages not belonging to any of the known genres are not given) or structured (when the labels of web-pages not belonging to any of the known genres are given). Traditional evaluation measures do not make any distinction between known genres and the unknown class (noise). Moreover, in case of structured noise, we need a way to indicate the difficulty of the task taking into account the amount of known and unknown genres. For example, the case where we have 10 known genres and 3 unknown genres is far more difficult than the case where we have 3 known genres and 10 unknown genres. We propose a measure that specifically quantifies this relation and can be used to thoroughly study the performance of WGI methods.
 
-To reason it in few words the problem is that these measures are based on the \textit{Confusion Matrix} which can capture only two condition per variable. However, in the case of open-set framework there is one say "global" condition where all the variables of the table drops. This condition is occurring when the \textit{rejection condition} of the open-set algorithm is triggered. That is when an open-set algorithm responds "I don't know" for an arbitrary sample. 
+In the rest of this chapter, we first describe the properties of well-known evaluation measures usually adopted in supervised learning tasks and discuss their suitability for open-set classification tasks. Then, the \emph{openness} measure is introduced in WGI as a means to quantify the open-space risk in the case of structured noise. Finally, we summarize the proposed evaluation framework.
 
-As explained in chapter \ref{chap:openset} there are some efforts to crate open-set algorithms than could model the \textit{unknown} or \textit{unstructured noise} samples. In this case it could be possible the out-of-the-box closed-set evaluation methods be sufficient,however, in most ML algorithms where a rejection criterion is considered this is nearly impossible as it will be presented later.
+\section{Evaluation Measures}
+\label{chap:eval_methods:sec:measures} 
 
-\section{Closed-set vs Open-set Measures}\label{chap:eval_methods:sec:measures} 
+\subsection{Precision, Recall, and $F$-Score}
+\label{chap:eval_methods:sec:prf_micro}
 
-In this section it is presented how the text mining evaluation measures are affected by the type of the by the type of the task's approach scenario. That is, whether i
-t is an open-set of closed-set classification framework.
+In machine learning, specifically in supervised learning, a \textit{confusion matrix} is a table that depicts the performance of an algorithm. It is a special case of a \textit{contingency table}, with two dimensions (i.e., actual and predicted). In the binary classification case, such as depicted in table \ref{chap:eval_methods:tbl:bin_confusion}, there are two classes (i.e., A and \not A ) and four types of results: True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN). TP and TN correspond to correct predictions while FP and FN are the two types of errors (they are also called Type I and Type II errors).
 
-Starting with the \textit{Confusion matrix} where the basic closed-set evaluation measures are based it is shown the difference in measure of the Precision and Macro-Precision difference (also for Recall) in the open-set framework. Moreover, it is shown how these measures are affected by he openness score which is the score for evaluating the difficulty level of an open-set problem.
-
-Finally, the \textit{Open Space Risk} is presented which is the measure helping an open-set algorithm to regulate the potentially error in the presence of \textit{noise} in the testing or/and \textit{outages} in the training phase.
-
-
-\subsection{Confusion Matrix and $F$ Score}\label{chap:eval_methods:sec:prf_micro}
-
-In Machine Learning (and Statistical) Classification, a \textit{Confusion Matrix} is a table that depicts the performance of an algorithm. It is a special case of a \textit{Contingency Table}, with two dimensions, actual and predicted classes. Thus, in the a binary case such as in the table \ref{chap:eval_methods:tbl:bin_confusion}, there are for cases occurring. True Positive (TP), True Negative (TN), False Positive (FP), False Negative (FN).
-
-In the case of binary classification the samples under the class distribution A are desired, i.e. positive, and all the other samples outside the distribution are considered negative, classified in say class B. Then TP and TN are the counts of samples predicted correctly under the a class A (positive) or class B (negative). Therefore, the FP and FN are the samples a binary algorithm misleaded and predicted the wrong class. 
-
-\begin{table}[H]
+\begin{table}[t]
 	\center
-	\caption{Confusion matric of binary classification}\label{chap:eval_methods:tbl:bin_confusion}
+	\caption{The confusion matrix of a binary classification task}\label{chap:eval_methods:tbl:bin_confusion}
 	\begin{tabular}{c c c c c}
 		& & \multicolumn{2}{c}{Actual} & \\
 		\cline{3-4}
-		\multirow{3}{*}{\rotatebox[origin=r]{90}{Predicted}} & & \multicolumn{1}{|c}{A} & \multicolumn{1}{c|}{B} & \\
+		\multirow{3}{*}{\rotatebox[origin=r]{90}{Predicted}} & & \multicolumn{1}{|c}{A} & \multicolumn{1}{c|}{\neg A} &  \\
 		\cline{2-4}
-		& \multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{\textbf{50}} & \multicolumn{1}{c|}{30} & 80 \\
-		& \multicolumn{1}{|c}{B} & \multicolumn{1}{|c}{25} & \multicolumn{1}{c|}{\textbf{35}} & 60 \\
+		& \multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{\textbf{TP}} & \multicolumn{1}{c|}{FP} & \\
+		& \multicolumn{1}{|c}{\neg A} & \multicolumn{1}{|c}{FN} &  \multicolumn{1}{c|}{\textbf{TN}} \\
 		\cline{2-4}
-		&  & 70 & 70 & \textbf{85}\\
+		\\
 	\end{tabular}
 \end{table}
 
-In order to measure the performance a binary classification algorithm the \tetxit{Accuracy} is a common measure which is actually the ration of all the correct prediction overall the predictions (which is equivalent to the number of the samples of the whole data set). Formally, it is shown in the equation \ref{chap:eval_methods:eq:accuracy} and for the example of the table \ref{chap:eval_methods:tbl:bin_confusion} its value is $A = 85/140 = 0.607$
+In order to compare the performance of binary classification algorithms, the \tetxit{Accuracy} measure can be used. This is actually the ratio of correct predictions over all available predictions (which is equivalent to the number of the samples of the whole evaluation dataset). Formally, it is defined as follows:
 
 \begin{equation}\label{chap:eval_methods:eq:accuracy}
 A = \frac {TP + TN} {TP +  TN + FP + FN}
 \end{equation}
 
-However, one can get a better insight when it is measured the algorithms ability distinguishing the samples which they are under the distribution it has been trained for. Moreover, to be measured its ability of recognizing the samples of this distribution. The former is called \textit{Precision} and the second it is called \textit{Recall} and their formal expressions are in equation \ref{chap:eval_methods:eq:precision} and \ref{chap:eval_methods:eq:recall} respectively. 
+Accuracy is heavily influenced by uneven class distribution. Moreover, it gives equal weight to the two types of errors and it cannot handle cases where one of them is more important than the other. In such cases, this evaluation measure can provide misleading conclusions. 
+
+Alternative evaluation measures that can compensate these weaknesses are \textit{Precision} and \textit{Recall}. Precision, also known as \textit{Positive Predictive Value} indicates the fraction of correct predictions for class A over all predictions while recall, also known as \textit{Sensitivity, Hit Rate and True Positive Rate} indicates the fraction of correct predictions for class A over all available instances of this class. These evaluation measures are defined as follows: 
 
 \begin{equation}\label{chap:eval_methods:eq:precision}
 	P = \frac {TP} {TP + FP}
@@ -73,25 +65,50 @@ However, one can get a better insight when it is measured the algorithms ability
 	R = \frac {TP} {TP + FN}
 \end{equation}
 
-\textit{Precision} is also known as \textit{Positive Predictive Value (PPV)}. \textit{Recall} is also known as \textit{Sensitivity, Hit Rate and True Positive Rate (TPR)}. Again based on table \ref{chap:eval_methods:tbl:bin_confusion} the precision is the ration its first cell value and the sum of its first row (prediction) which is equal to $p = 50 / 80 = 0.625$. Similarly, recall is equal to the ration of first cell value over the first column, i.e. $r = 50 / 70 = 0.714$
+There is well-known trade-off between precision and recall \parentcite{Weiss2010}. Usually when one attempts to optimize one of them the other drops significantly. A popular metric that combines these two measures is called \textit{F-Score} and it is actually the harmonic mean of precision and recall which is increased when both precision and recall take high values and is reduced when at least one of them takes low values. This is defined in the following equation:
 
-So far one-class closed-set classification was considered where the class A was the positive outcome and the Class B the negative. In the multi-class closed-set classification scenario, an algorithm is trained for both A and B class distribution. Thus, the positive and negative samples are now counted from both classes.
+\begin{equation}\label{chap:eval_methods:eq:recall}
+	F_{\beta} = (1 + \beta^{2}) \frac {P R} {\beta^{2} P + R}
+\end{equation}
 
-In the same table \ref{chap:eval_methods:tbl:bin_confusion} the \textit{precision} and \textit{recall} is now calculated by the ration of the diagonal sums of all positive and all expected respectively. That is $p = 85 / (80 + 60) = 0.607$ and $r = 85 / (70 + 70) = 0.607$. 
+\noindent
+where $\beta$ can be used to regulate the weighting bias towards precision or recall. Usually $F_{1}$, i.e. $\beta = 1$, is used for equally weighted precision and recall significance. If $\beta > 1$ then recall is more significant than precision and if $\beta < 1$ then precision is more important. This can be useful in specific applications where more emphasis is put on one of these two measures. Note that precision is influenced by FPs while recall is affected by FNs. For example, in email spam detection, precision is usually regarded more important than recall. It is far more important to avoid to miss-classify as spam all legal messages (FPs) than leaving some spam messages to appear in the inbox (FNs).
 
-If one would like to consider the performance on class A separately to the performance on class B then the respective calculations are for precision and recall. The ration of the A correct predictions over the whole positive prediction of row A and similarly for B. Thus, $p_{A} = 0.625$ and $p_{B} = 35 / 60 = 0.583$. Moreover, the recall are $r_{A} = 0.714$ and $r_{B} = 35 / 70 = 0.500$.
+It is also important to note that precision and recall as well as F-score are calculated for a particular class. So far, taking into account Table \ref{chap:eval_methods:tbl:bin_confusion}, we considered A as the reference class. In general, especially when we have to deal with multi-class classification tasks, precision and recall can be calculated for each class separately. Then, we can combine these measures by taking their arithmetic mean. This provides the \textit{macro-averaged precision} and \textit{macro-averaged recall}. Let \mathcal{C} be the set of classes in a multi-class classification task (e.g., in WGI this corresponds to the known genre palette) while $P_c$ and $R_c$ are the precision and recall scores of class $c \in \mathcal{C}$, respectively. Then macro-Precision (macroP) and macro-Recall (macroR) are defined as follows:
 
-\subsection{Macro-Precision and Macro-Recall}\label{chap:eval_methods:sec:prf_macro}
+\begin{equation}\label{chap:eval_methods:eq:macro-precision}
+	macroP = \frac{1}{|\mathcal{C}|} \sum_{c \in \mathcal{C}}{P_c}
+\end{equation}
 
-The calculation where the positive and negative predictions of both classes are calculated together are called micro-Precision and micro-Recall. In the case where per class calculation of the precision and recall are averaged these scores are called macro-Precision and macro-Recall. 
+\begin{equation}\label{chap:eval_methods:eq:macro-recall}
+	macroR = \frac{1}{|\mathcal{C}|} \sum_{c \in \mathcal{C}}{R_c}
+\end{equation}
 
-The macro-P and macro-R for table \ref{chap:eval_methods:tbl:bin_confusion}, are $p_{macro} = 0.604$ and $r_{macro} = 0.607$. There is a slight difference only in micro and macro precision. However, the problem is significantly amplified when the multi-class classification is becoming open-set and also with more classes.
+\noindent where $|\mathcal{C}|$ is the number of known classes. Accordingly, the \textit{macro F-score} can be calculated: 
+
+\begin{equation}\label{chap:eval_methods:eq:macro-F}
+	macroF = \frac{1}{|\mathcal{C}|} \sum_{c \in \mathcal{C}}{F_c}
+\end{equation}
+
+\noindent where $F_i$ is the F-score for the class $c \in \mathcal{C}$. Alternatively, one can also calculate \textit{micro-averaged precision}, \textit{micro-averaged recall}, and \textit{micro-averaged F-score}. In that case, all data samples are taken together and a single precision and recall value is calculated for all classes cumulatively. TPs correspond to correct predictions, i.e., the diagonal values in the confusion matrix.  All other cells of the confusion matrix are considered as both FPs and FNs (i.e., when a sample of class X is miss-classified to class Y this is a FN for X and a FP for Y). Thus, micro-Precision will be equal to micro-Recall and their harmonic mean  ($F_1$) will also be the same. Actually, micro-averaged $F_1$ is also equal to the accuracy measure. Consequently, micro-F is strongly dependent on the distribution of samples over the classes. On the other hand, macro-F gives equal weight to all classes.
+
+\subsection{Open-set Variants of Evaluation Measures}
+
+In an open-set classification task, we are given a set of known classes $\mathcal{C}$ and training samples for each $c \in \mathcal{C}$. However, in the evaluation phase the dataset may consist of both samples belonging to members of $\mathcal{C}$ and samples of classes excluded from $\mathcal{C}$. The latter (noise) can be composed of several classes. Especially in WGI, it is expected that the number of web-pages not belonging to any of the known genres would be very high. 
+
+If one adopts the evaluation measures described in the previous section for an open-set classification task, then all samples not belonging to any $c \in \mathcal{C}$ could be considered as a single \textit{unknown} class. Then, precision, recall, and $F_1$ values can be obtained for this unknown class that would be considered equally important to the corresponding ones of known classes (members of $\mathcal{C}$) when calculating macro-Precision, macro-Recall, and macro-$F_1$. However, this implies that TPs for the unknown class is equally important with TPs for a known class. As demonstrated in \parentcite{mendesjunior2016}, since there are no training samples for the unknown class and it is actually a merging of several classes, it does not make sense to consider it a single class and the evaluation measures should focus on the correct recognition of known classes.
+
+An open-set variant of macro-Precision, macro-Recall, and macro-$F_1$ can be obtained by ignoring the unknown class and calculate the arithmetic mean of only the known classes \parentcite{mendesjunior2016}. Equations \ref{chap:eval_methods:eq:macro-precision}, \ref{chap:eval_methods:eq:macro-recall}, and \ref{chap:eval_methods:eq:macro-F} can still be used. However, it should be underlined that in the open-set scenario the confusion matrix has $|\mathcal{C}|+1$ rows/columns. This means that one class (the unknown class) is ignored when calculating the macro-averaged scores. On the other hand, the samples of the unknown class that are miss-classified to the known classes (false knowns) and the samples of the known classes miss-classified as unknown (false unknowns) still affect the precision and recall of known classes, respectively. 
+
+Similar to open-set macro-averaged scores, open-set micro-averaged precision, recall, and $F_1$ can be obtained. Note that in this case, micro-precision is not necessarily equal to micro-recall since the former is affected by the presence of false knowns and the latter is affected by false unknowns. Again, the TPs of the unknown class are ignored. 
+
+We provide an illustrating example that demonstrates the difference between traditional evaluation measures and their open-set variance. Table \ref{chap:eval_methods:tbl:multi_confusion} shows an example of a confusion matrix for an open-set classification task with four known classes ($\mathcal{C}=\{A,B,C,D\}$). In WGI, this could correspond to a genre palette of four known genres (e.g. blogs, e-shop, home pages, discussion) for which training samples are available. As can be seen, there are 20 evaluation samples for each known class and 200 samples of the unknown class ($\emptyset$). This is realistic since in practice noise is expected to outnumber any given known genre. Correct predictions (TPs) are in boldface. Table \ref{chap:eval_methods:tbl:prec_rec_f1_example} shows the precision, recall, and $F_1$ scores for all, both known and unknown, classes. In addition, Table \ref{chap:eval_methods:tbl:closed_vs_open} demonstrates the traditional macro-averaged and micro-averaged precision, recall, and $F_1$ as well as their corresponding open-set variant. Note that in the former the set $\mathcal{C} \cup \emptyset$ is used while in the latter is based on $\mathcal{C}$. 
 
 The table \ref{chap:eval_methods:tbl:bin_confusion} has $140$ total samples which is equal either the the row-sums or the column-sums are summed up. In the case of open-set classification some of the samples are remaining as non-classification or as \textit{unknown} where there is no class trained for them. 
 
 In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample distributed in a seven (7) classes and also with 42 of them remaining as unclassified. Given these cases, the respective per class, macro and micro recall for this confusion matrix are calculated and shown in table \ref{chap:eval_methods:tbl:bin_macro_vs_micro}.
 
-\begin{table}[H]
+\begin{table}[t]
 	\center
 	\caption{Confusion metric of binary classification}\label{chap:eval_methods:tbl:multi_confusion}
 	\begin{tabular}{c c c c c c c c c c c}
@@ -115,7 +132,7 @@ In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample 
 \end{table}
 
 
-\begin{table}[H]
+\begin{table}[H][t]
 	\center
 	\caption{Macro and Micro calculation for the Confusion matrix (Table \ref{chap:eval_methods:tbl:multi_confusion}) of multi-class classification}\label{chap:eval_methods:tbl:macro_vs_micro}
 	\begin{tabular}{l l l}
@@ -151,28 +168,29 @@ In the table \ref{chap:eval_methods:tbl:multi_confusion} the micro recall show t
 
 However, the precision is much more accurate in the case of macro compare to the micro because the micro precision is bias for the algorithms positive performance since the rejected samples (characterized as unknown) are not calculate in the precision performance or their are not causing any kind of penalty to the precision score. In addition the proper calculation of recall (micro and macro) as explained above will not differ in the extend of regulating the F-score.
 
-The F-Score is the \textit{Harmonic Mean} of two other scores, i.e. the difference between the to score is creating a kind of penalty to the final value. The general calculation function of F-Score is the shown equation \ref{chap:eval_methods:eq:f_score}
-
-\begin{equation}\label{chap:eval_methods:eq:recall}
-	F_{\beta} = (1 + \beta^{2}) \frac {P R} {\beta^{2} P + R}
-\end{equation}
-
-\noindent
-where $\beta$ in $F_{\beta}$ regulates the weighting bias towards the Precision or Recall score. Usually the $F_{1}$, i.e. with $\beta = 1$, is the used for equally weighted precision and recall significance. Calculating the F-scores for macro and micro scores of the table \ref{chap:eval_methods:tbl:bin_macro_vs_micro} we have $F1_{micro} = 0.588$ and $F1_{macro} = 0.559$.
-
 The macro scores are then less biased for the the open-set framework evaluation. Moreover, in the highly imbalanced corpora also the macro scoring is reported to be more realistic and less biased. Due to the above reasoning the macro-P, macro-R, and Macro-F1 will mainly be the evaluation measure is used in this thesis.
 
 In the next chapter the Precision Recall Curves will be presented where it is more vivid the effect of the micro and macro measurement. That is there it is clear the bias over the precision in the algorithm's performance because of the open-set algorithm criterion.
 
 
-\subsection{Precision Recall Curves}\label{chap:eval_methods:sec:roc_prc}
+\subsection{Precision-Recall Curves}\label{chap:eval_methods:sec:roc_prc}
 
-The \textit{Precision Recall Curves (PRC)} is a standardized method for evaluating the Information Retrieval algorithms. Usually is an out-of-the-box choice for ranking systems. They also can be used for classification as long as there is available the probability or any certainty score for the classification. Thus, it can be applied in "soft" classification, while in "hard" classification is possible when the decision scores are available. 
+So far, the evaluation measures consider classification algorithms that provide crisp predictions (i.e., \textit{hard classifiers}). The discussed evaluation measures are only available to show particular aspects of the performance of classifiers. To obtain a deeper look we need richer evaluation methods that can depict the performance of classifiers in a variety of conditions. One such method is the \textit{Precision-Recall Curves (PRC)}, a standard method for evaluating information retrieval systems and ranking systems. They can only be applied to \textit{soft classifiers} that are able to explicitly estimate class conditional probabilities. Fortunately, the vast majority of hard classifiers can be adopted to also provide some form of score that can be regarded as class conditional probability.
 
-The calculation of the PRC requires the \textit{algorithm's certainty scores} in order to rank the prediction in a descending order. In the case of Micro-PRC it is also required the truth table as shown in table \ref{chap:eval_methods:tbl:prc}, last column. In the case of Macro-PRC the precision and recall for every prediction is should be calculated in every step of the calculation of the curve. Particularly, in macro-PRC for every prediction new confusion matrix should be calculated, such as the one of table \ref{chap:eval_methods:tbl:multi_confusion}, and the macro-prediction and macro-recall is calculated in each step.
+The calculation of a PRC requires the ranking of estimated probabilities in descending order. In each step, the next prediction is considered and a new precision and recall point is calculated. Both macro-PRC and micro-PRC can be calculated.
+
+In order to facilitate the comparison of PRCs corresponding to the performance of different systems on the same evaluation dataset, the 11-recall level normalization is typically used. The initial points of PRC are reduced to 11 that correspond to standard recall levels $[0,0.1,...,1.0]$. For example, in case Recall$=0.1$, we measure precision when 10\% of the samples have been seen. Precision values are interpolated based on the following formula:
+
+\begin{equation}\label{chap:eval_methods:eq:11recall_level}
+	P(r_j)=max_{r_j \leqslant r \leqslant r_{j+1}}(P(r))
+\end{equation}
+
+\noindent
+where $P(r_j)$ is the precision at $r_j$ standard recall level ($r_j=\{0,0.1,0.2,...,1.0\}$).
 
 
-\begin{table}[H]
+
+\begin{table}[t]
 	\center
 	\caption{Macro and Micro calculation for the Confusion matrix (Table \ref{chap:eval_methods:tbl:multi_confusion}) of binary classification}\label{chap:eval_methods:tbl:prc}
 	\begin{tabular}{|c|c|c|c|}
@@ -220,22 +238,13 @@ However, due to the certainty ranking we can see more insight related to the alg
 
 These, Micro-PRC (and some time in Macro-PRC) 'irregular' properties are only meet at the open-set algorithms because of the rejection factor. In table \ref{chap:eval_methods:tbl:prc} the algorithms of the precision in rows 10 and 13, seems to have $0.60$ certainty factor which is almost as high as its correct predictions. These predictions are casing high fluctuations in the PRC which are regularized because the 11-recall level average normalization is applied on top. 
 
-The 11-Recall level average normalization is a standardized evaluation in the text mining domain and it is also used in this thesis. the Precision-Recall curve is calculated in 11-standard recall levels $[0,0.1,...,1.0]$. Precision values are interpolated based on the following formula of equation \ref{chap:eval_methods:eq:11recall_level}.
-
-\begin{equation}\label{chap:eval_methods:eq:11recall_level}
-	P(r_j)=max_{r_j \leqslant r \leqslant r_{j+1}}(P(r))
-\end{equation}
-
-\noindent
-where $P(r_j)$ is the precision at $r_j$ standard recall level.
-
 
 \section{Area Under the Curve (AUC)}\label{chap:eval_methods:sec:closed_set_classification} 
 
 In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Under the Curve (AUC)} and F1 are presented. The AUC is a common values is used when several PRC's needs to be compared. As an example, to find parameter settings that obtain optimal evaluation performances for the open-set algorithms, the AUC for the PRC's of figure \ref{chap:eval_methods:fig:prc_macro} can be calculated. 
 
 
-\begin{table}[H]
+\begin{table}[t]
 	\center
 	\caption{Macro and Micro calculation for AUC and F1 of the Confusion matrix (Table \ref{chap:eval_methods:tbl:multi_confusion})}\label{chap:eval_methods:tbl:AUC_F1}
 	\begin{tabular}{c|c|c|}
@@ -252,42 +261,46 @@ It is very important to note that the Micro-AUC is highly misleading, as expecte
 
 The effect of a this potential misleading choice, selecting the \textit{micro-scores} instead of the \textit{macro-scores}, is a bad choice of the  hyper-parameters required for the proper tuning of the classification algorithm. In the experiments (chapter \ref{chap:noise}) of this thesis, it will pointed out whenever this danger is occurring.
 
-\section{Re-defining the Open Space Risk}\label{chap:eval_methods:sec:open_space_risk} 
+%\section{Re-defining the Open Space Risk}\label{chap:eval_methods:sec:open_space_risk} 
 
-The open space risk in \parencite{scheirer2013toward} is originally defined as in eq. \ref{chap:eval_methods:eq:the_original_open_space_risk}
+%The open space risk in \parencite{scheirer2013toward} is originally defined as in eq. \ref{chap:eval_methods:eq:the_original_open_space_risk}
 
-\begin{equation}\label{chap:eval_methods:eq:the_original_open_space_risk}
-	R_{o}(f) = \frac{\int_{o} f_{y}(x) dx}{\int{S_{o}}  f_{y}(x) dx}
-\end{equation}
+%\begin{equation}\label{chap:eval_methods:eq:the_original_open_space_risk}
+%	R_{o}(f) = \frac{\int_{o} f_{y}(x) dx}{\int{S_{o}}  f_{y}(x) dx}
+%\end{equation}
 
-\noindent
-where $R_{o}(.)$ is the open-space risk function and $f_{y}(x)  \in \{0, 1\}$ is the classification function of class $y$, where $1$ is for recognizing its class and $0$ when not. $S_{o}$ is the large hyper-sphere where all the positive training data points and the \textit{positive open space area} $O$. 
+%\noindent
+%where $R_{o}(.)$ is the open-space risk function and $f_{y}(x)  \in \{0, 1\}$ is the classification function of class $y$, where $1$ is for recognizing its class and $0$ when not. $S_{o}$ is the large hyper-sphere where all the positive training data points and the \textit{positive open space area} $O$. 
 
-The original formulation of the eq. \ref{chap:eval_methods:eq:the_original_open_space_risk} $O$ area cannot be constrained by any means. The only information we are getting is the farther form the training date we go the risk of miss-classification is increasing. One method to constrain the problem is by using the center of the positively labeled training data and defining a radios $r_{o}$ where it will reduce the open space area based on the positively labeled empirically observations. Then the $O$ is defined by the equation eq. \ref{chap:eval_methods:eq:openspace_spherical_constrained}
+%The original formulation of the eq. \ref{chap:eval_methods:eq:the_original_open_space_risk} $O$ area cannot be constrained by any means. The only information we are getting is the farther form the training date we go the risk of miss-classification is increasing. One method to constrain the problem is by using the center of the positively labeled training data and defining a radios $r_{o}$ where it will reduce the open space area based on the positively labeled empirically observations. Then the $O$ is defined by the equation eq. \ref{chap:eval_methods:eq:openspace_spherical_constrained}
 
-\begin{equation}\label{chap:eval_methods:eq:openspace_spherical_constrained}
-	O = S_{o} - B_{r_{y}}(C_{y})
-\end{equation}
+%\begin{equation}\label{chap:eval_methods:eq:openspace_spherical_constrained}
+%	O = S_{o} - B_{r_{y}}(C_{y})
+%\end{equation}
 
-\noindent
-where $B_{r_{y}}(.)$ is the function which defines the area of radius $r_{y}$ of the $C_{y}$ class defined by its training data \parencite{fei2016breaking}.
+%\noindent
+%where $B_{r_{y}}(.)$ is the function which defines the area of radius $r_{y}$ of the $C_{y}$ class defined by its training data \parencite{fei2016breaking}.
 
-\section{Openness test}\label{chap:eval_methods:sec:openness}
+\section{The Openness Test}\label{chap:eval_methods:sec:openness}
 
-In \parencite{scheirer2013toward} work in image processing, the \textit{openness measure} is introduced, as shown in eq. \ref{chap:eval_methods:eq:openness}. The openness measure indicates properties of an open-set classification task by taking into account the number of \textit{training classes}, i.e. the known labels used in the training phase and the number of \textit{testing classes}, i.e., the labels, both known and unknown, used in the testing phase.
+The open-set evaluation measures defined in this chapter can be used in both unstructured and structured noise. However, in the latter case, we need a more detailed analysis of the performance to indicate the ability of the open-set classifier to handle low/high number of training/unknown classes. It is especially important to study the relation of the number of training classes with respect to the number of unknown classes. 
+
+In \parencite{scheirer2013toward}, the \textit{openness measure} is introduced to directly measure this relation. The openness measure indicates the difficulty of an open-set classification task by taking into account the number of \textit{training classes} (i.e. the known classes used in the training phase) and the number of \textit{testing classes} (i.e., both known and unknown classes used in the testing phase) \parentcite{mendesjunior2016}:
 
 \begin{equation}\label{chap:eval_methods:eq:openness}
 	openness=1-\sqrt{\frac{ | Training Classes | }{ |Testing Classes | }}
 \end{equation}
 
-When openness is $0.0$, it is essentially a closed-set task, that is the training and testing classes are the same or there is no noise. When openness reaches $1.0$ this means that the known classes are far less than the unknown classes, that is the amount of noise is especially high. Therefore, by varying the openness level we can study the performance of WGI models in different conditions.
+When openness is $0.0$, it is essentially a closed-set task, that is the training and testing classes are exactly the same. This actually means that there is no noise. At the other extreme, when openness reaches $1.0$ this means that the known classes are far less than the unknown classes or that the amount of noise is especially high and heterogeneous. Therefore, by varying the openness level we can study the performance of WGI models in different conditions.
 
-Note that the openness measure can only be applied to corpora where all available documents have been labeled with genre information. In other words, we have to know the genre labels of the pages that form the noise (i.e. structured noise).
+Note that the openness measure can only be applied to datasets where all available samples have been labeled with class information. In the case of WGI, we have to know the genre labels of the pages that form the noise (i.e. structured noise). This information is only used to quantify the homogeneity of the noise.
+
+The study of open-set classifiers can be significantly extended by measuring their performance (e.g., $macro F_1$) for varying values of the openness score. Given that $\mathcal{U}$ is the set of unknown classes (structured noise) it is possible to vary the training classes from 1 to $|\mathcal{c}|$ while the testing classes can vary from $|\mathcal{C}|$ to $|\mathcal{C}|+|\mathcal{U}|$. 
 
 \begin{figure}[t]
 	\begin{center}
     	\includegraphics[scale=0.50]{Figures/openness_example.eps}
-		\caption{Openness test for the data set of the confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}. The openness levels are calculated for 6/7 up to 1/7 for training (known) / testing (known + unknown) class tags. At the 1.7 the the openness score is maximized for this open-set problem. The formula \ref{chap:eval_methods:eq:openness} is used for the openness levels calculations}
+		\caption{An example of using the openness test. The smallest openness level corresponds to 6 training classes and 7 testing classes. The maximum openness level refers to 1 training class and 7 testing classes. At the 1.7 the the openness score is maximized for this open-set problem.}
 		\label{chap:eval_methods:fig:openness}
 	\end{center}
 \end{figure}
@@ -295,7 +308,7 @@ Note that the openness measure can only be applied to corpora where all availabl
 In figure \ref{chap:eval_methods:fig:openness} the precision scores on different openness levels, are presented for evaluating three arbitrary open-set algorithms, on the corpus which it is forming the confusion matrix \ref{chap:eval_methods:tbl:multi_confusion}. Note, that the begging and the end of the curve are pointing at about the same level of precision. In particular, at the maximized openness level the performance of these algorithms is even higher than the one at the lowest openness level. However, at the begging the problem is still remaining a multi-class problem where 6 known classed have been given to the algorithms for training and 7 for testing where only 1 is unknown. However, at the highest openness level the problem is becoming a binary problem as in 1-vs-Rest. That is, the algorithms are trained at 1 class and tested at 7 classes with 6 of them as unknown. Given, that these algorithms are all variations based on SVM algorithms the results are short of expected. However, this is not always the case as it will be shown in chapter \ref{chap:noise}.
 
 
-\section{Domain Transfer Measure}\label{chap:eval_methods:sec:domain_transfer_measure}
+\subsection{Domain Transfer Measure}\label{chap:eval_methods:sec:domain_transfer_measure}
 
 \textit{Domain Transfer Evaluation (DTE)} is a practical methodology for evaluating the classification performance of an text-mining algorithm. The goal of this evaluation methodology is to measure the generalization of the algorithm's induced model when the training corpus is rather small. Thus, with the domain transfer evaluation the algorithm's performance is tested in an unknown domain, for the same text-mining task. 
 
@@ -313,25 +326,10 @@ The measure proposed from \parencite{finn2006learning} where equation \ref{chap:
 where T is the \textit{Transfer Measure Score}, M is the measure of choice (Accuracy, F1, Precision, Recall, etc), F is the \textit{Feature Set}, and C is the \textit{Genre Class}. 
 
 
+\section{Conclusions}
 
+In this chapter we discussed evaluation measures that can be used for open-set classifiers. We demonstrated that traditional precision, recall, and $F_1$ measures are misleading since they take into account the unknown class (noise) as a single regular class. However, since this is an heterogeneous class should not be treated equally with the training classes. For that reason, modifications of these evaluation measures, the open-set precision, recall, and $F_1$ are more appropriate since the TPs of the unknown class are ignored. For open-set WGI, where the noise is usually not only highly heterogeneous but also significantly outnumbers the known classes, the use of the open-set variants of the measures is considered very important.
 
+Another main direction is the use of graphical evaluation methods that better depict the performance of open-set classifiers in various conditions. We suggest the use of two such measures, the precision-recall curves on 11-standard recall levels and the openness test. The latter provides a direct control of the difficulty of the task in structured noise and can demonstrate the performance of the classifiers in varying conditions, from cases very similar to the closed-set scenario to ones where the structured noise is highly heterogeneous.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+In the next chapters we will adopt the evaluation principles described here to evaluate the open-set WGI algorithms introduced in this thesis.
