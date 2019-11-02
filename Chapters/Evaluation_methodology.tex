@@ -258,26 +258,6 @@ It is very important to note that the Micro-AUC is highly misleading, as expecte
 
 The effect of a this potential misleading choice, selecting the \textit{micro-scores} instead of the \textit{macro-scores}, is a bad choice of the  hyper-parameters required for the proper tuning of the classification algorithm. In the experiments (chapter \ref{chap:noise}) of this thesis, it will pointed out whenever this danger is occurring.
 
-%\section{Re-defining the Open Space Risk}\label{chap:eval_methods:sec:open_space_risk} 
-
-%The open space risk in \parencite{scheirer2013toward} is originally defined as in eq. \ref{chap:eval_methods:eq:the_original_open_space_risk}
-
-%\begin{equation}\label{chap:eval_methods:eq:the_original_open_space_risk}
-%	R_{o}(f) = \frac{\int_{o} f_{y}(x) dx}{\int{S_{o}}  f_{y}(x) dx}
-%\end{equation}
-
-%\noindent
-%where $R_{o}(.)$ is the open-space risk function and $f_{y}(x)  \in \{0, 1\}$ is the classification function of class $y$, where $1$ is for recognizing its class and $0$ when not. $S_{o}$ is the large hyper-sphere where all the positive training data points and the \textit{positive open space area} $O$. 
-
-%The original formulation of the eq. \ref{chap:eval_methods:eq:the_original_open_space_risk} $O$ area cannot be constrained by any means. The only information we are getting is the farther form the training date we go the risk of miss-classification is increasing. One method to constrain the problem is by using the center of the positively labeled training data and defining a radios $r_{o}$ where it will reduce the open space area based on the positively labeled empirically observations. Then the $O$ is defined by the equation eq. \ref{chap:eval_methods:eq:openspace_spherical_constrained}
-
-%\begin{equation}\label{chap:eval_methods:eq:openspace_spherical_constrained}
-%	O = S_{o} - B_{r_{y}}(C_{y})
-%\end{equation}
-
-%\noindent
-%where $B_{r_{y}}(.)$ is the function which defines the area of radius $r_{y}$ of the $C_{y}$ class defined by its training data \parencite{fei2016breaking}.
-
 \section{The Openness Test}\label{chap:eval_methods:sec:openness}
 
 The open-set evaluation measures defined in this chapter can be used in both unstructured and structured noise. However, in the latter case, we need a more detailed analysis of the performance to indicate the ability of the open-set classifier to handle low/high number of training/unknown classes. It is especially important to study the relation of the number of training classes with respect to the number of unknown classes. 
@@ -327,6 +307,6 @@ where T is the \textit{Transfer Measure Score}, M is the measure of choice (Accu
 
 In this chapter we discussed evaluation measures that can be used for open-set classifiers. We demonstrated that traditional precision, recall, and $F_{1}$ measures are misleading since they take into account the unknown class (noise) as a single regular class. However, since this is an heterogeneous class should not be treated equally with the training classes. For that reason, modifications of these evaluation measures, the open-set precision, recall, and $F_{1}$ are more appropriate since the TPs of the unknown class are ignored. For open-set WGI, where the noise is usually not only highly heterogeneous but also significantly outnumbers the known classes, the use of the open-set variants of the measures is considered very important.
 
-Another main direction is the use of graphical evaluation methods that better depict the performance of open-set classifiers in various conditions. We suggest the use of two such measures, the precision-recall curves on 11-standard recall levels and the openness test. The latter provides a direct control of the difficulty of the task in structured noise and can demonstrate the performance of the classifiers in varying conditions, from cases very similar to the closed-set scenario to ones where the structured noise is highly heterogeneous.
+Another main direction is the use of graphical evaluation methods that better depict the performance of open-set classifiers in various conditions. We suggest the use of two such measures, the precision-recall curves on 11-standard recall levels and the openness test. The former provides a detailed view of the performance of an open-set WGI system that suits any given application (e.g., in ranking applications, precision at low recall levels is of paramount important). The latter provides a direct control of the difficulty of the task in structured noise and can demonstrate the performance of the classifiers in varying conditions, from cases very similar to the closed-set scenario where noise is homogeneous to ones where the structured noise is highly heterogeneous.
 
 In the next chapters we will adopt the evaluation principles described here to evaluate the open-set WGI algorithms introduced in this thesis.
