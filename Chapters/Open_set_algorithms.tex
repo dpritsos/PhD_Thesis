@@ -18,142 +18,109 @@
 
 \section{Introduction}\label{chap:openset:sec:intro}
 
+WGI is a task that can be approached either as a closed-set or an open-set classification problem. The former case assumes that there is a well-defined genre palette that covers all possible genres that can be found in our domain. In addition, for each such genre there are representative instances of web-pages to be used as training data. These assumptions are far from realistic in most WGI applications. As already explained in previous chapters, it is not feasible to define a complete genre palette for the Web since there is no consensus over genre labels and new genres are emerging or existing genres evolve through time. On the other hand, it is possible to determine certain web genres where there is general agreement about their characteristics (e.g., blogs, e-shops). For such web genres it is relatively easy to find representative training data. 
 
-In this chapter three open-set algorithms are described in detailed where they have been developed for the WGI task. These algorithms is an algorithmic extension of the most popular closed-set algorithms and basic approaches one can follow. Although, their base algorithms are trivial their open-set extension are covering some sophisticated issues of the \textit{Automated Genre Identification} and specifically the WGI. 
+Open-set classification is, therefore, a more realistic option to model the WGI task. In this setup, a genre palette covering very specific web genres is given and all other genres are considered as \textit{noise} (i.e., instances of noise should not be assigned to any of the known genres). An effective open-set WGI approach can suit any type of relevant application since it provides the ability to recognize the known web genres without being confused by the presence of noise. It should be underlined that it is expected for noise to outnumber the training instances of the known genres. Web is chaotic and of huge scale and known genres only cover a small part of it.
 
-Particularly, the \textit{One Class SVM Ensemble (OCSVME)} has been developed which is an extension of the One Class SVM (OCSVM) where the later is also an extension of the $\nu$-SVM. Note that SVM is design for closed-set classification scenario and also the $\nu$-SVM. The OCSVM is a form of binary classifier with the special case where only positive samples are available for the training phase. Also, only the center of the vector space and few of the positive examples (called outliers), are considered as negative examples. The OCSVME is an open-set and multi-class classification form of the SVM which fits the WGI task. 
+Open-set classifiers have to deal with an important difficulty: the \textit{Open Space Risk} (OSR). This corresponds to the instance space that lies away from the instances of known genres and can be occupied by samples of an unknown genre. The open-set classifier should be able to set the boundaries of known genres so that to avoid the risk of including an area where an unknown genre is found. This is especially challenging when the dimensionality of the representation is high. This is exactly the case with most of the popular text representation schemes that are composed of hundreds or thousands of features (e.g., character n-grams, word n-grams). It is therefore necessary to perform some kind of feature selection or to use low-dimensional feature space (e.g., word/document embeddings). 
 
-The \textit{Random Feature Subpacing Ensemble} is an other algorithm developed for this thesis, for fitting the open-set scenario of the WGI task. This is a distance based algorithm where a random set of features is selected for comparing the distance of the class and an arbitrary document. Several distance measures can be used such as the \textit{Cosine, Min-Max, Euclidean, Mahalanobis, etc}. The distance based algorithms seem to work very efficiently for WGI as in several text mining problems with high dimensional space.
+In this chapter, we introduce and describe in detail three open-set WGI methods. The first method is based on one-class classification where only positive examples are considered for each known genre. This does not mean that it is not possible to find negative examples. However, the negative class is too huge and heterogeneous that is quite challenging to extract representative negative samples. The second approach considers training samples for all available known genres and attempts to reduce the effect of high dimensionality of representation by performing repetitive subspacing. The main idea is to build an ensemble of classifiers, each one using a subset of the initial features. The third approach is an extension of the nearest-neighbor classification algorithm and attempts to directly regularize the effect of OSR.
 
-The \textit{Nearest Neighbors Distance Ratio (NNDR)} is the final algorithm developed in this thesis specially for WGI task. It is based on the same NNDR developed for \parencite{} which also is special case of the \textit{Nearest Neighbor (NN)} for fitting the open set scenario. 
+%Finally, all three algorithms have been developed with Noise handling and Outages tolerance in mind. Specifically, all three algorithm can be tuned to regulate their Noise filtering ability with an explicit or implicit threshold. The Noise as explained earlier can be structured or unstructured, i.e. when the noise samples are balanced or not in respect of the genre tags. Note that the noise-filtering regularization threshold is automatically defined for NNDR while training using the OSR as a measure.
 
-As explained in chapter \ref{chap:relevant_work} there are several issues relate to the WGI. Every of the above algorithms has been developed for tackling the major ones in respect of the Machine Learning bound issues perspective. 
+In the rest of this chapter, we first describe the main properties of open-class classification and discuss main existing approaches. Then, each one of the three proposed methods is analytically presented. 
 
-Considering the experimental set-up in the WGI there are two issues. Firstly, the Genre domain is practically infinite due to the constantly emerging new genre and their temporal manner where they are reformed through time. Secondly, due to the great scale of the Web it is impossible to collect a characteristic statistically correct negative set of examples. Although, there is a plethora of positive examples for a genre. The OCSVME has been developed in this issues in mind. Since, it can work with only positive examples and also can work in a open-set framework of experiments.
+\section{Open-set Classification}
 
-The second issue is the great dimensionality where is a general text mining issues. However, for WGI the constrains of the very small scaled corpora available for the very high scale problem considering the Web. Moreover, in section \ref{chap:relevant_work:sec:features} it is discussed that the main research focus was around the problem of the proper feature selection for the WGI. Having this in mind the RFSE is a competent algorithm for selecting the proper features implicitly based on the majority statistics. It can also work in the open-set framework.
+An open-class classification task is a tuple $(\mathcal{C},\mathcal{K},\mathcal{U})$, where $\mathcal{C}$ is a set of predefined known classes, $\mathcal{K}$ is a set of training samples for the known classes (i.e., for each $c \in \mathcal{C}$ there is a set of training samples $K_c \subset \mathcal{K}$), and $\mathcal{U}$ is a set of unknown samples to be assigned to classes. Each $u \in \mathcal{U}$ may belong to either one $c \in \mathcal{C}$ or none of them. Furthermore, the subset of $\mathcal{U}$ not belonging to any of the known classes is called noise $\mathcal{N}$.  
 
-The open-set classification itself is opening an other difficulty which is called the \textit{Open Space Risk (OSR)}. That is, the risk of placing the decision boundaries too far or close due to the presences of Outages the luck of \textit{Negative samples} and the \textit{(structured or unstructured) Noise}. The NNDR has originally developed having the regularization of the OSR in mind and in this thesis it has been specially developed of the WGI task. The formal definition for the OSR can be found in section \ref{chap:eval_mentods:sec:open_space_risk}.
+\subsection{Noise in Open-set Recognition}
+\label{chap:openset:sec:Noise_definition}
 
-Finally, all three algorithms have been developed with Noise handling and Outages tolerance in mind. Specifically, all three algorithm can be tuned to regulate their Noise filtering ability with an explicit or implicit threshold. The Noise as explained earlier can be structured or unstructured, i.e. when the noise samples are balanced or not in respect of the genre tags. Note that the noise-filtering regularization threshold is automatically defined for NNDR while training using the OSR as a measure.
-
-In the rest of this chapter a section is dedicated for one of every algorithm starting with the OCSVM as prerequisite for explaining the open-set flowing algorithms.
-
-
-\section{One-class Closed-set Classification Methods}\label{chap:openset:sec:One_Class_Classification}
-
-The main difference of the One Class Classification problem (OCC) with respect to the conventional multi-class or binary classification problem is that in OCC there are only available positive examples of a class and none or very few negative examples. There are several approaches towards the solution of this problem. A compact survey on OCC is provided by Khan et al.\parencite{khan2010survey}. 
-
-To begin with there are several references to the well known \parencite{scholkopf1999estimating} which actually presents an alternative solution to the problem of \textit{the overlapping samples distributions}, known as $\nu$-SVM \parencite{bishop2006}. The nature of $\nu$-SVM is allowing us to use it effortless in binary classification problems as long as to OCC problems. The parameter $\nu$ is both controlling the fraction of SVs and the \textit{margin errors}, i.e. point out the positive sample considered as outliers. 
-
-In the case of OCSVM the optimization process begins with considering, as the only negative example, \textit{the origin} of the vector space defined from the \textit{data space}. More details for OCSVM are given into the section \ref{chap:openset:sec:OCSVM_description}.
-
-Outlier-SVM is an OCSVM the algorithm of \parencite{manevitz2002one,khan2010survey}. In their algorithm the \textit{Hamming distance} has been used. Their model was competitive but not top performer when comparing their model to other OCSVM algorithms such as One Class Neural Networks, One Class Naive Bayes Classifier, One Class Nearest Neighbor, and Rocchio Prototype. In addition their algorithm is sensitive to the term weigting schema, i.e. \textit{Binary, TF, TF-IDF, etc.}, and vector dimensionality. 
-
-The \textit{Rocchio's algorithm} is the simplest one class classification algorithm where it has been used for IR problems because of its simplicity and consistency \parencite{joachims1997probabilistic}. The learning process is just the summation of all the sample vector of a class, i.e the \textit{prototype vector}. An arbitrary vector is classified as positive or negative using the angular distance from the prototype vector.
-
-Datta (cited in \parencite{manevitz2002one}) proposed Naive Bayes Classifier modification for OCC problems and use only positive samples in the learning process. A \textit{probability density function} of a class $E$ is induced as prediction model. Classifying the a document $d$ involves calculating the probability of the document $p(d|E)$ which is equal to the product of its features $w_{n}$ probabilities $p(w|E)$, where $n$ is the number of document's feature vector. To decide weather the document is classified as positive its required a threshold. 
-
-There are, also, some OCC methods exploiting the availability of \textit{unlabeled data} as the following cases. 
-
-\parencite{yu2005single} proposed two OCC algorithms that use positive and \textit{unlabeled data} for building a classification model that describes the \textit{single class boundary}. The \textit{Mapping Convergence}(MC) algorithm is incrementally labeling negative data from an \textit{unlabeled data set} using the margin maximization property of SVM. The \textit{Support Vector Mapping Convergence} (SVMC) optimizes the MC algorithm for fast training. Both algorithms had been compared into a real world text classification, letter recognition, and diagnosis of breast cancer with higher performance that other similar algorithms. These similar algorithms are \textit{Spy Expectation Maximization (S-EM), SVM-NN (i.e. C-SVM using unlabeled data point as negative ones) and Naive Bayes Classifier with noise sampels} \parencite{liu2002partially, li2003learning}.
-
-To conclude, the one class classification is facilitating the problem of only positive available samples either for the one-vs-rest case \parencite{khan2010survey,manevitz2002one,yu2005single,scholkopf1999estimating,li2003learning}. In the next chapter \ref{chap:openset:sec:Openset_Class_Classification} the open-set classification problem is discussed and the three algorithm developed for this thesis are presented in detail.
-
-
-
-\section{Open-set Classification}\label{chap:openset:sec:Openset_Class_Classification}
-
-In this chapter three open-set algorithms developed for this thesis are discussed in detail where their evaluation experiments will be presented in chapter \ref{chap:noise}. 
-
-
-The open-set classification in this thesis primarily employed to handle the \textit{structure and unstructured Noise}. However, there are several motivations for employing the open-set approach and several directions respectively to the task. In order to explain the algorithms of this thesis, the open-set frame set is described briefly in the next few paragraphs.
-
-The open-set approach in ML has a long, yet sparse, history with the following ML method bases \parencite{geng2018recent}:
+The previous definition of open-set classification task only considers two kinds of classes, known and unknown. A more detailed analysis is provided in \parencite{geng2018recent}:
 
 \begin{itemize}
-    \item Traditional ML methods.
-    \item Deep Neural Networks.
-    \item Adversarial Learning.
-    \item Extreme Value Theory.
-    \item Dirichlet Process.
-    \item "Open World Recognition".
+    \item \textit{Known-known classes} are the classes for which positive samples are available. This is directly comparable to $\mathcal{C}$.
+    \item \textit{Known-unknown classes} consist of negative samples that can be merged into one big artificial class, like background classes \parentcite{Dhamija:2018}.
+    \item \textit{Unknown-known classes} are classes that can be described using some kind of side-information (e.g., a semantic description). However, there is lack of positive training examples for these classes. The recognition of such classes can be performed by \tetit{zero-shot learning} \parentcite{Palatucci:2009}.
+    \item \textit{Unknown-unknown classes} are classes without any positive training examples and without any side-information. This directly corresponds to $\mathcal{N}$. 
 \end{itemize}
 
-The traditional based methods is actually the adoption of the well known closed-set algorithms to the open-set framework. Starting with the infamous SVM and the open-set form of \parencite{manevitz2002one} (mentioned in section \ref{chap:openset:sec:One_Class_Classification}) and the algorithm of \parencite{scheirer2013toward}. The later called \textit{1-vs-Set SVM} is the algorithm introduced the \textit{Open Space Risk} term and first approach of handling the space of the unknown samples where in this chapter is called \textit{unstructured noise}. 
+In this thesis we distinguish noise into unstructured and structured forms:
 
-The \textit{1-vs-Set SVM} is the first attempt to regulate the open space that is the area between the space occupied by the incomplete negative samples and the space of the well defined positive samples. Thus, it is assumed One-class classification scenario and not multi-class. Moreover, it is reported that even thought its somehow the problem is regulated still there is some open space undefined. Probably because the implementation is only possible to work on linear space (by the other of this thesis coding experience). There are also several more efforts on the evolution of this SVM based approach found in \parencite{geng2018recent}, such as the W-SVM, POS-SVM (POS = probabilistic open set), etc.
+\begin{itemize}
+    \item \textit{Unstructured Noise} corresponds to the case there is not distinction between the unknown classes. In other words, all unknown classes are merged into a single super-class. This is very realistic in WGI applications where it is quite unclear how to define the genre of a large number of web-pages.
+    \item \textit{Structured Noise} is composed of distinct unknown classes,  that is we consider that each $n \in \mathcal{N}$ belongs to a class $c \notin \mathcal{C}$. Certainly, this information is not given to the open-set classifier but it is only used to estimate its performance. This is also realistic in certain WGI applications where we are interested about the recognition of specific genres and it is also known that several other genres exist.
+\end{itemize}
+
+\subsection{The Open-Space Risk}
+\label{chap:openset:sec:open_space_risk}
+
+One possibility to build classifiers that can leave some (test) instances unclassified is to introduce a reject option to closed-set classification algorithms. First, a regular closed-set classifier is trained using $\mathcal{K}$. Then, a reject criterion is determined, usually associated with the confidence of the predictions, and each test instance that does not satisfy this criterion is not classified to any of the classes in $\mathcal{C}$ \parentcite{onan2018ensemble}. For example, the reject criterion could relate to the difference of probabilities assigned to the two most likely classes in $\mathcal{C}$. If this difference is large, then it is an indication that the instance in question really belongs to the most likely class (the confidence of prediction is high). If, on the other hand, the difference is small (i.e., the confidence of the prediction is low), then this means that the instance most probably does not belong to these classes. 
+
+One big problem of this approach is that it provides strong predictions for the entire instance space. Actually, closed-set classifiers segment the instance space so that instances belonging to the known classes to be well separated. However, this also means that if an unknown class lies in the space that is far away from the known classes, it cannot be easily distinguished anymore. Figure XXX depicts the case where a closed-set classifier is trained to recognize two known classes. Note that the decision boundary affects the entire instance space. There is also an unknown class that lies away from the known classes, almost equally away from both of them, and also near the decision boundary. This scenario can be handled by a rejection option since all members of the unknown class will be equally likely to belong to either of the known classes and, therefore, can be rejected. Figure XXX shows a similar case with two known classes and one unknown class. However, this time the unknown class lies deep in the space that belongs to one of the known classes. The member of unknown class are still far away from both known classes but now the rejection option will not work since it seems that one of the known classes is far more likely than the other. 
+
+A pure open-set classifier attempts to determine the space that surely belongs to the positive examples of each known class. An example is demonstrated in Figure XXX where, similar to the previous case, there are two known classes and one unknown class. However, this time the relative position of the space occupied by the unknown class with respect to the position of the known classes is not important anymore. Note that the most important issue about an open-set classifier seems to be the appropriate definition of the known class boundaries. If the classifier is too conservative, then the space allocated to the known class will be too small and it is possible to exclude some of its members. On the other hand, if the classifier is optimistic, then the area allocated to the known class will be large including neighbouring areas of the known class training instances. This is demonstrated in Figure XXX. The more optimistic an open-set classifier is the more likely to suffer by the open space risk.
+
+Let $f_y$ be a recognition function for a known class $y$, $f_y(x)=1$ corresponds to the case $x$ is assigned to class $y$ while $f_y(x)=0$ means that $x$ is not recognized to belong to $y$. Then, the open space risk is formally defined as follows \parencite{scheirer2013toward}:
+
+\begin{equation}\label{chap:eval_methods:eq:the_original_open_space_risk}
+	R_{o}(f_y) = \frac{\int_{o} f_y(x) dx}{\int_{S_{o}}  f(x_y) dx}
+\end{equation}
+
+\noindent
+where $O$ corresponds to the positively labeled open space and $S_O$ is the overall positively labeled space including the space of training samples of the known class. The larger the open space risk, the more optimistic the classifier, and the larger area is assigned to the known class.  
+
+An alternative way to define open space is provided in  \parencite{fei2016breaking}. Let $S_O$ be a large sphere of radius $r_O$ including all positive instances of a known class and the positively labeled open space and $B_{r_y}$ be a sphere of radius $r_y$ that ideally includes all positive training examples of known class $y$. Both $S_O$ and $B_{r_y}$ have the same center $cen_y$, the center of positive training instances of class $y$. Then, of to method to constrain the problem is by using the center of the positively labeled training data and defining a radios $r_{o}$ where it will reduce the open space area based on the positively labeled empirically observations. Then the open space $O$ is defined as follows:
+
+\begin{equation}\label{chap:eval_methods:eq:openspace_spherical_constrained}
+	O = S_{o} - B_{r_{y}}(cen_{y})
+\end{equation}
+
+Given this formulation, where the open space is considered as a bounded spherical area, the main issue in open-set recognition is to appropriately define radius $r_O$ for each known class.
+
+A more formal definition of open-set classification directly involves the open space risk. Let $R_{O}$ be the open space risk and $R_{\epsilon}$ the empirical risk (i.e., the loss function in the training set). Then the objective of open-set classification is to find a function $f$ which minimizes the following \textit{open-set risk}: 
+
+\begin{equation}
+\argminA_{f} \{R_{O}(f ) + \lambda R_{\epsilon}(f (\mathcal{K}))\}
+\end{equation}
+
+\noindent where $f (x) > 0$ implies correct recognition and $\lambda$ is a regularization constant. Thus, open-set risk balances the empirical risk and the open space risk \parencite{geng2018recent}. 
+
+\section{Open-set Classification Paradigms}
+\label{chap:openset:sec:Open_Set_Classification_Paradigms}
+
+One way to approach open-set classification is to apply \textit{One-Class classification} (OCC) methods. An OCC method is based on only positive samples of a given class. It is assumed that negative samples are either difficult to obtain or the negative class is so heterogeneous that it not easy to sample it. There are several approaches towards the solution of this problem. A compact survey on OCC is provided in \parencite{khan2010survey}. 
+
+The \textit{Rocchio's algorithm} is the simplest one-class classification algorithm where it has been used for information retrieval tasks because of its simplicity and consistency \parencite{joachims1997probabilistic}. The learning process is just the summation of all the sample vectors of a given class, i.e the \textit{prototype vector}. Then, an arbitrary vector is classified as positive or negative using the angular distance from the prototype vector.
+
+Datta (cited in \parencite{manevitz2002one}) proposed a Naive Bayes Classifier modification for OCC problems and use only positive samples in the learning process. A probability density function of a class $E$ is induced as prediction model. Classifying the a document $d$ involves calculating the probability of the document $p(d|E)$ which is equal to the product of its features $w_{n}$ probabilities $p(w|E)$, where $n$ is the number of document's feature vector. To decide weather the document is classified as positive, a threshold is required to be defined. 
+
+Perhaps the most popular OCC approach is described in \parencite{scholkopf1999estimating}. It is actually a modification of the well-known SVM algorithm to the problem of the overlapping samples distributions, known as $\nu$-SVM \parencite{bishop2006}. The nature of $\nu$-SVM allows to use it in binary classification problems as long as to OCC problems. The parameter $\nu$ is both controlling the fraction of support vectors and the margin errors, i.e. positive samples considered as outliers. The optimization process begins with considering the origin as the only negative example. More details this approach are given in the section \ref{chap:openset:sec:OCSVM_description}.
+
+Outlier-SVM is another SVM-based algorithm introduced in \parencite{manevitz2002one,khan2010survey}. The performance of this model was competitive but not top performer when compared with methods such as One Class Neural Networks, One Class Naive Bayes Classifier, One Class Nearest Neighbor, and Rocchio Prototype. In addition this algorithm is sensitive to the term weighting schema, i.e. \textit{Binary, TF, TF-IDF, etc.}, and vector dimensionality. 
+
+There are, also, some OCC methods exploiting the availability of unlabeled data. \parencite{yu2005single} proposed two OCC algorithms that use positive and unlabeled data for building a classification model that describes the single class boundary. The \textit{Mapping Convergence}(MC) algorithm is incrementally labeling negative data from the unlabeled data set using the margin maximization property of SVM. The \textit{Support Vector Mapping Convergence} (SVMC) optimizes the MC algorithm for fast training. Both algorithms had been compared into real world  classification tasks, letter recognition, and diagnosis of breast cancer with higher performance than \textit{Spy Expectation Maximization} (S-EM), SVM-NN (i.e. C-SVM using unlabeled data point as negative ones) and Naive Bayes Classifier with noise samples \parencite{liu2002partially, li2003learning}.
+
+In contrast to OCC, the majority of the approaches to open-set recognition are able to handle samples from multiple known classes. Several variations of well-known classification algorithms have been proposed so far. The \textit{1-vs-Set SVM} algorithm introduced in \parencite{scheirer2013toward} was the first attempt to regulate the open space. Thus, it is assumed One-class classification scenario and not multi-class. Moreover, it is reported that even thought its somehow the problem is regulated still there is some open space undefined. Probably because the implementation is only possible to work on linear space (by the other of this thesis coding experience). There are also several more efforts on the evolution of this SVM based approach, such as the W-SVM and probabilistic open set-SVM.
 
 The \textit{Distance Based} algorithms can be adopted in the open-set framework by bounding the true positive samples by the outliers. Nearest Non-Outlier (NNO) algorithms is a center based method where the OSR regularization is their method for keeping the outliers bounded. There are several center based algorithms one of them is the RFSE algorithm developed for this thesis and described in \ref{chap:openset:sec:RFSE_Description}. 
 
-\begin{definition}{\textit{Open-set Identification}}
-describes a scenario where samples of unseen, in training phase, classes appear in testing phase. Then the classifiers classify accurately the the \textit{known classes} and also effectively deal with the unknown ones. Therefore, the classifiers need to have a \textit{rejection option} when an arbitrary sample is from an unknown class \parencite{geng2018recent}.
-\end{definition}
-    
-Although, the rejection option is emphasized in the definition of the open-set identification, the algorithms with rejection option are not open-set by default. Particularly there are several scenarios such as in \parencite{onan2018ensemble} where this option is used for rejecting the outages for improving the precision score. However, the framework remains as closed-set.
-    
-The open-set classification framework is closely related to the \textit{Novelty Detection} and the \textit{One-class Classification} where it is assumed that only positive examples are available for the surprised model induction methods. These methods then have been adapted to this problem and there are several examples such as One-Class SVM, One-Class Neural Networks etc.
+%The Nearest Neighbor algorithm which is also distance based has been adopted to the open-set framework named \textit{Nearest Neighbor Distance Ration (NNDR}). However, this algorithm it is a multi-class classification algorithm and there is no need for an adaption for this as in the above class identification cases.
 
-The Nearest Neighbor algorithm which is also distance based has been adopted to the open-set framework named \textit{Nearest Neighbor Distance Ration (NNDR}). However, this algorithm it is a multi-class classification algorithm and there is no need for an adaption for this as in the above class identification cases.
+%The NNDR is using he distance ration in order to regulate both the outlier bound and the OSR. Details for the NNDR are described in section \ref{chap:openset:sec:NNDR_Description} and particularly a special version of it for the WGI task developed for this thesis. It should be noted that due to its decision process where two candidate samples are selected in each step this algorithm is sensitive to outlier, however, it seems that the dimensionality of the feature space can radically change its performance as shown in chapter \ref{chap:word_embeddings}.
 
-The NNDR is using he distance ration in order to regulate both the outlier bound and the OSR. Details for the NNDR are described in section \ref{chap:openset:sec:NNDR_Description} and particularly a special version of it for the WGI task developed for this thesis. It should be noted that due to its decision process where two candidate samples are selected in each step this algorithm is sensitive to outlier, however, it seems that the dimensionality of the feature space can radically change its performance as shown in chapter \ref{chap:word_embeddings}.
+%The NNDR is also designed to regulate the OSR and this is part of its learning process where it divided the training data in to segments for regulating this problem in advanced. 
 
-The NNDR is also designed to regulate the OSR and this is part of its learning process where it divided the training data in to segments for regulating this problem in advanced. 
-
-The {Open-Space Risk} is a definition form the domain of pen-Set classification research to describe the weakness of the current closed-set ML algorithms usually are used out-of-the-box to regulate low Recall performance of the models due to the luck of negative samples. In order to measure the performance of such algorithms the \textit{Openness} test have very recently introduced. 
-
-A more formal definition of the Open-set classification is the one where the open space risk is considered.
-
-%\theoremstyle{definition}
-\begin{definition}{\textit{Open-set Multi-class Classification}}
-
-Let $C$ be the training data, and let $R_{O}$ open space risk and $R_{ε}$ the empirical risk. Then the objective of open-set classification is to find a function $f \in L$ which is minimizing the following \textit{Open-Set Risk}. 
-
-Mathematically described as $arg_{min} \{R_{O(f )} + \lambda R_{ε (f (V ))}\}$, where $f (x) > 0$ implies correct recognition and $\lambda$ is a regularization constant.
-
-Thus \textit{open-set risk} balances the \textit{empirical risk} and the \textit{open space risk} over the space of allowable recognition functions \parencite{geng2018recent}.
-
-\end{definition}
-
-In practice the \textit{empirical risk} is the weighted loss function of the open-set multi-class classification model. The \textit{open space risk} is in practice the ratio of the open vector space to the full vector space, where the full vector space is the concatenation of the space defined by the known data samples and the unconstrained unknown space.
-
-The \textit{Deep Neural Networks} are usually developed with a \textit{SoftMax} function forcing the whole modeling setup to induce a closed-set model. However, there have been several efforts where most of them are based on a \textit{OpenMax}. These efforts seemed fruitful and more details on this subject can be found in \parencite{geng2018recent}. Moreover, the Deep Neural Networks have also been used with great success in Language neural modeling where details can be found in chapter \ref{chap:word_embeddings}. These, models can also be used as an input on open-set algorithms an as it is shown in this thesis this approach can drastically change their performance, especially for the WGI task.
+The \textit{Deep Neural Networks} are usually developed with a \textit{SoftMax} function forcing the whole modeling setup to induce a closed-set model. However, there have been several efforts where most of them are based on a \textit{OpenMax}. These efforts seemed fruitful and more details on this subject can be found in \parencite{geng2018recent}. 
 
 The \textit{Adversarial Learning (AL)} is a technique where \textit{generative models (i.e. sampling models)} are used for creating a set of artificial samples augmenting the real samples for training \textit{discriminative models}. This technique can be adopted for the open-set framework by modeling the positive samples. Some attempted to create adversarial models of negative samples, based on the positive ones. Generative OpenMax Model or G-OpenMax is one of the open-set adversarial models \parencite{geng2018recent}.
 
 The \textit{Extreme Value Theory (EVT)} and \textit{Sparse Representation based} approached is an other group of ML algorithms adopted for the open-set scenario. EVT is a statistical method where the tails of the \textit{distance distributions} can be modeled using the \textit{asymptotic theory}. Thus, the distribution of the \textit{margin distance of each sample to each class} can be approximated. Then this distribution is the boundary for discarding the outlier and the rest of the unknown space (and ultimately the the open space).
 
-In all the open-set algorithms discussed so far and implemented of this thesis, the goal is the discovery of the threshold implicitly or explicitly, as a rejection criterion in the classification process. Thus the threshold plays a key role. Introducing threshold inevitably the OSR is introduced. An other approach for tackling this problem is the \textit{Dirichlet Process} for the open-set scenario \parencite{geng2018recent}.
+%In all the open-set algorithms discussed so far and implemented of this thesis, the goal is the discovery of the threshold implicitly or explicitly, as a rejection criterion in the classification process. Thus the threshold plays a key role. Introducing threshold inevitably the OSR is introduced. An other approach for tackling this problem is the \textit{Dirichlet Process} for the open-set scenario \parencite{geng2018recent}.
 
 The \textit{Dirichlet Process} is considering a distribution over distributions and thus the induced model is not totally depended on the training samples. The Hierarchical Dirichlet Process (HDP) has been used for the open-set classification where \textit{co-clustering} is used in the training phase and \textit{Gaussian Mixture Modeling (GMM)}is used in the texting phase. The ideal is that the negative class will be also modeled, although incomplete. Thus there is no need for some threshold. The Collective Decision Open Set Recognition (CDOSR) is such an algorithm which as reported by the authors, the it is just as a conceptual proof and there are still many limitations \parencite{geng2018collective} [cited in \parencite{geng2018recent}].
-
-
-\subsection{Noise defined in the open-set classification}\label{chap:openset:sec:Noise_definition}
-
-In this thesis \textit{Noise} is the main subject in the context of open-set multi-class classification for the WGI task. The open-set framework is making things more complicated and in this paragraph are clarified and defined. 
-
-In the open-set scenario, i.e. the real world or production conditions, we have the sow called known-known, known-unknown, unknown-known, unknown-unknown classed and the outliers  which are defined as follows \parencite{geng2018recent}:
-
-\begin{itemize}
-    \item \textit{known-known} are the positive samples also, with all the side information available, such as the connections, if any, of the sample sets.
-    \item \textit{known-unknown} the negative samples with or without the side information available. Thus, partly or totally can be the rest of the positive samples in the 1-vs-rest training.
-    \item \textit{unknown-known} the positive samples can be created by a sampling of a positive model, based on the known positive samples and the side information.
-    \item \textit{unknown-unknown} samples with no information related to them, neither if they are positive, negative or both. Moreover, there is no side information about them and no model to be sampled can be available. 
-    \item \textit{Outliers} a set of positive samples that are selected to remain out of the learned model in order for the improve its prediction performance. This set of samples can be considered in closed-set and open-set scenarios. In the open-set scenario, discarding outliers can also reduce the OSR.
-\end{itemize}
-
-
-In this thesis the noise is separated in \textit{the Structured and Unstructured Noise} they are defined as follows:
-
-\begin{itemize}
-    \item \textit{Structured Noise} is the the negative samples with or without the side information available and the Outliers. These, samples are used in the evaluation phase of the experiments and also can be used for further algorithm evaluation in different openness test levels.
-    \item \textit{Unstructured Noise} samples with no information related to them (positive, negative or both) and they only considered in the evaluation phase of the experiments or the production phase of a running open-set algorithm. That is when the algorithm is exposed to the real world scenario.
-\end{itemize}
-
-Therefore, the unstructured noise is equivalent to the unknown-unknown samples and the structured with the known-unknown samples. In addition, noise in both case is considered only in the testing-evaluation phase of the experiments and for the NNDR, also, at the validation phase.
-
-In the next section the three open-set algorithms are described in detail, developed especially for this thesis and particularly for treating the WGI task. 
-
 
 \section{One-Class SVM Ensemble}\label{chap:openset:sec:OCSVM_description}
 
