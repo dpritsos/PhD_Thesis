@@ -82,6 +82,7 @@ Given this formulation, where the open space is considered as a bounded spherica
 A more formal definition of open-set classification directly involves the open space risk. Let $R_{O}$ be the open space risk and $R_{\epsilon}$ the empirical risk (i.e., the loss function in the training set). Then the objective of open-set classification is to find a function $f$ which minimizes the following \textit{open-set risk}: 
 
 \begin{equation}
+\label{eq:open_space_risk}
 \argminA_{f} \{R_{O}(f ) + \lambda R_{\epsilon}(f (\mathcal{K}))\}
 \end{equation}
 
@@ -89,6 +90,15 @@ A more formal definition of open-set classification directly involves the open s
 
 \section{Open-set Classification Paradigms}
 \label{chap:openset:sec:Open_Set_Classification_Paradigms}
+
+In the relevant literature, a variety of approaches to open-set recognition can be found. A thorough recent review is provided in \parentcite{geng2018recent}. In general, the following main paradigms are usually followed:
+
+\begin{itemize}
+    \item One-class classification methods
+    \item Modification of traditional ML methods
+    \item Deep learning methods
+    \item Generative models
+\end{itemize}
 
 One way to approach open-set classification is to apply \textit{One-Class classification} (OCC) methods. An OCC method is based on only positive samples of a given class. It is assumed that negative samples are either difficult to obtain or the negative class is so heterogeneous that it not easy to sample it. There are several approaches towards the solution of this problem. A compact survey on OCC is provided in \parencite{khan2010survey}. 
 
@@ -102,7 +112,7 @@ Outlier-SVM is another SVM-based algorithm introduced in \parencite{manevitz2002
 
 There are, also, some OCC methods exploiting the availability of unlabeled data. \parencite{yu2005single} proposed two OCC algorithms that use positive and unlabeled data for building a classification model that describes the single class boundary. The \textit{Mapping Convergence}(MC) algorithm is incrementally labeling negative data from the unlabeled data set using the margin maximization property of SVM. The \textit{Support Vector Mapping Convergence} (SVMC) optimizes the MC algorithm for fast training. Both algorithms had been compared into real world  classification tasks, letter recognition, and diagnosis of breast cancer with higher performance than \textit{Spy Expectation Maximization} (S-EM), SVM-NN (i.e. C-SVM using unlabeled data point as negative ones) and Naive Bayes Classifier with noise samples \parencite{liu2002partially, li2003learning}.
 
-In contrast to OCC, the majority of the approaches to open-set recognition are able to handle samples from multiple known classes. Several variations of well-known classification algorithms have been proposed so far. The \textit{1-vs-Set SVM} algorithm introduced in \parencite{scheirer2013toward} was the first attempt to regulate the open space. Thus, it is assumed One-class classification scenario and not multi-class. Moreover, it is reported that even thought its somehow the problem is regulated still there is some open space undefined. Probably because the implementation is only possible to work on linear space (by the other of this thesis coding experience). There are also several more efforts on the evolution of this SVM based approach, such as the W-SVM and probabilistic open set-SVM.
+In contrast to OCC, the majority of the approaches to open-set recognition are able to handle poth positive and negative samples of a given class. Several variations of well-known classification algorithms have been proposed so far. The \textit{1-vs-Set SVM} algorithm introduced in \parencite{scheirer2013toward} was the first attempt to regulate the open space based on formula \ref{eq:open_space_risk} using a second hyperplane parallel to the separating hyperplane. However, the space corresponding to each known class remains unbounded. This means that the open space risk still remains. Another SVM-based approach (W-SVM) consists of two models, a one-class SVM and a binary SVM using a Wibull cumulative distribution function \parentcite{Scheirer:2014}. Yet another idea used in the POS-SVM method \parentcite{Scheirreik:2016} models open space risk and empirical risk probabilistically. 
 
 The \textit{Distance Based} algorithms can be adopted in the open-set framework by bounding the true positive samples by the outliers. Nearest Non-Outlier (NNO) algorithms is a center based method where the OSR regularization is their method for keeping the outliers bounded. There are several center based algorithms one of them is the RFSE algorithm developed for this thesis and described in \ref{chap:openset:sec:RFSE_Description}. 
 
@@ -112,21 +122,22 @@ The \textit{Distance Based} algorithms can be adopted in the open-set framework 
 
 %The NNDR is also designed to regulate the OSR and this is part of its learning process where it divided the training data in to segments for regulating this problem in advanced. 
 
-The \textit{Deep Neural Networks} are usually developed with a \textit{SoftMax} function forcing the whole modeling setup to induce a closed-set model. However, there have been several efforts where most of them are based on a \textit{OpenMax}. These efforts seemed fruitful and more details on this subject can be found in \parencite{geng2018recent}. 
+Deep Neural Networks are usually developed with a \textit{SoftMax} function forcing the whole modeling setup to follow a closed-set assumption. However, there have been several efforts where to modify deep learning models for open-set classification, notably using \textit{OpenMax} \parentcite{Bendale:2016,Cardoso:2017}. First, a normal SoftMax model is trained. Then, the layers of the network are modified to be able to recognize (pseudo) unknown classes. Another approach is to follow the adversarial learning setup where it is attempted to generate the unknown classes. One such method, the Generative OpenMax algorithm \parentcite{ge:2017} estimates the decision boundary between known classes and the generated unknown ones.
 
-The \textit{Adversarial Learning (AL)} is a technique where \textit{generative models (i.e. sampling models)} are used for creating a set of artificial samples augmenting the real samples for training \textit{discriminative models}. This technique can be adopted for the open-set framework by modeling the positive samples. Some attempted to create adversarial models of negative samples, based on the positive ones. Generative OpenMax Model or G-OpenMax is one of the open-set adversarial models \parencite{geng2018recent}.
-
-The \textit{Extreme Value Theory (EVT)} and \textit{Sparse Representation based} approached is an other group of ML algorithms adopted for the open-set scenario. EVT is a statistical method where the tails of the \textit{distance distributions} can be modeled using the \textit{asymptotic theory}. Thus, the distribution of the \textit{margin distance of each sample to each class} can be approximated. Then this distribution is the boundary for discarding the outlier and the rest of the unknown space (and ultimately the the open space).
+%The \textit{Extreme Value Theory (EVT)} and \textit{Sparse Representation based} approached is an other group of ML algorithms adopted for the open-set scenario. EVT is a statistical method where the tails of the \textit{distance distributions} can be modeled using the \textit{asymptotic theory}. Thus, the distribution of the \textit{margin distance of each sample to each class} can be approximated. Then this distribution is the boundary for discarding the outlier and the rest of the unknown space (and ultimately the the open space).
 
 %In all the open-set algorithms discussed so far and implemented of this thesis, the goal is the discovery of the threshold implicitly or explicitly, as a rejection criterion in the classification process. Thus the threshold plays a key role. Introducing threshold inevitably the OSR is introduced. An other approach for tackling this problem is the \textit{Dirichlet Process} for the open-set scenario \parencite{geng2018recent}.
 
-The \textit{Dirichlet Process} is considering a distribution over distributions and thus the induced model is not totally depended on the training samples. The Hierarchical Dirichlet Process (HDP) has been used for the open-set classification where \textit{co-clustering} is used in the training phase and \textit{Gaussian Mixture Modeling (GMM)}is used in the texting phase. The ideal is that the negative class will be also modeled, although incomplete. Thus there is no need for some threshold. The Collective Decision Open Set Recognition (CDOSR) is such an algorithm which as reported by the authors, the it is just as a conceptual proof and there are still many limitations \parencite{geng2018collective} [cited in \parencite{geng2018recent}].
+Another generative approach is based on the \textit{Dirichlet Process}, a distribution over distributions. This model is not overly depended on the training samples and can adapt to changes in data distribution. The collective decision-based OSR (CD-OSR) method applies co-clustering to model each known class \parentcite{geng2018collective}. Each known class can be represented by several of the obtained clusters while some clusters are not associated with any of the known classes. In the testing phase, each instance that falls into these unassociated clusters is assigned to the unknown classes. The main advantage of this generative approach over discriminative-based ones is that it does not need any threshold definition.
 
-\section{One-Class SVM Ensemble}\label{chap:openset:sec:OCSVM_description}
+\section{Open-set Classifiers for WGI}
+\label{chap:openset:sec:Open_set_classifiers_for_WGI}
 
-One-class SVM is actually an $\nu$-SVM for the case we want to find the contour which is prescribing the positive samples of the training set given for a single class, while there are \textit{no negative samples}. $\nu$-SVM is providing an alternative \textit{trade-off control method of misclassification}, proposed from Scholkopf et al. \parencite{scholkopf1999estimating}. In $\nu$-SVM the eq.\ref{chap:openset:sec:eq:3} is minimized with the constraints of eq.\ref{chap:openset:sec:eq:4}, eq.\ref{chap:openset:sec:eq:5}.
+\subsection{One-Class SVM}\label{chap:openset:sec:OCSVM_description}
 
-Following the logic from the conventional SVM, thoroughly analyzed in \parencite{bishop2006}, the Lagrange multipliers for solving the optimization problem of eq.\ref{chap:openset:sec:eq:3} under eq.\ref{chap:openset:sec:eq:4}, eq.\ref{chap:openset:sec:eq:5} constraints are used. Equation \ref{chap:openset:sec:eq:12} is then derived, i.e. a Lagrangian function to be maximized as subject to the constraints eq.\ref{chap:openset:sec:eq:4}, eq.\ref{chap:openset:sec:eq:5}.
+The first open-set WGI method introduced in this thesis follows the OCC paradigm. Basically, the main idea is to build a one-class SVM classifier for each class $c \in \mathcal{C}$ using only the positive instances of that class. Ideally, the members of unknonwn classes will not be recognized by any of these one-class classifiers.
+
+One-class SVM attempts to find the contour prescribing the positive samples of the target class. A modification of the traditional SVM algorithm, $\nu$-SVM was introduced in \parencite{scholkopf1999estimating}. Following the logic from the conventional SVM, thoroughly analyzed in \parencite{bishop2006}, the Lagrange multipliers are acquired for solving the optimization problem of formula \ref{chap:openset:sec:eq:3} under constraints described in formulas \ref{chap:openset:sec:eq:4} and \ref{chap:openset:sec:eq:5}. The solution derived is described in formula \ref{chap:openset:sec:eq:12}, i.e. a Lagrangian function that can be used to recognize members of the target class.
 
 \begin{equation}\label{chap:openset:sec:eq:3}
 	arg\min_{w,b}\left\{ \frac{1}{\nu\lambda}\sum_{n=1}^{N}(\xi_{n}-\rho)+\frac{1}{2}\|w\|^{2}\right\}
@@ -144,17 +155,15 @@ Following the logic from the conventional SVM, thoroughly analyzed in \parencite
 	\widetilde{L}(a)=-\frac{1}{2}\sum_{n=1}^{N}\sum_{m=1}^{M}a_{n}a_{m}t_{n}t_{m}k(x_{n,}x_{m})
 \end{equation}
 
-\newpage
+\nointend where $N$ is the size of the positive samples of the target class and $\nu$ a hyper-parameter. The latter has the following properties:
 
-
-It should be noted that $\nu$ in $\nu$-SVM has the flowing properties:
 \begin{itemize}
-	\item $\nu$ is an upper bound on the fraction of \textit{Outliers}.
-	\item $\nu$ is a lower bound on the fraction of \textit{Support Vectors}.
-	\item $\nu$ values cannot exceed 1 (see eq.\ref{chap:openset:sec:eq:4}).
+	\item $\nu$ is an upper bound on the fraction of outliers.
+	\item $\nu$ is a lower bound on the fraction of support vectors.
+	\item $\nu$ values cannot exceed 1.
 \end{itemize}
 
-In practice different values of $\nu$ are defining different proportion of the training sample as outliers. For example in \parencite{scholkopf1999estimating} is showed that in their experiments when using $\nu=0.05$, 1.4\% of the training set has been classified as outliers while using $\nu=0.5$, 47.4\% is classified as outliers and 51.2\% is kept as SVs.
+In practice, different values of $\nu$ are defining different proportion of the training sample as outliers. For example in \parencite{scholkopf1999estimating} is showed that in their experiments when using $\nu=0.05$, 1.4\% of the training set has been classified as outliers while using $\nu=0.5$, 47.4\% is classified as outliers and 51.2\% is kept as SVs.
 
 In the prediction phase in order for an OCSVM model to decide whether a document is belonging to the target genre-class (or not) a \textit{decision function} is used. The decision function indicates the distance of the document, positive or negative, to the hyperplane separating the classes. In the case of OCSVM we are usually only interested whether the decision function is positive or negative for deciding if an arbitrary document belonging or not to the target class.
 
@@ -162,7 +171,7 @@ In this thesis the Ensemble form of the OCSVM is used and first proposed in \par
 
 \hfill
 
-\begin{algorithm}[H]
+\begin{algorithm}[H][t]
 \caption{The \textit{OCSVM} algorithm.}\label{chap:openset:sec:alg:OCSVM_Ensemble}
 \KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
 		 $w$ an unknown webpage of the $W_{a}$ arbitrary webpages set,
@@ -192,13 +201,13 @@ $score[:, :]$=0, the score 2D matrix where rows are for genre's class tags and c
 In training phase of the ensemble one OCSVM is built for each known genre label. The hyper-parameter $\nu$ has the same value for all OCSVM models. In the prediction phase, the document is assigned to the class with the highest positive distance from the hyperplane (or the contour for OCSVM). If all OCSVMs return a negative distance (i.e. the web-page does not belong to this genre) the document remains unclassified, that is the final answer corresponds to "I Don't Know".
 
 
-\section{Random Feature Subpacing Ensemble}\label{chap:openset:sec:RFSE_Description}
+\subsection{Random Feature Subpacing Ensemble}\label{chap:openset:sec:RFSE_Description}
 
 The RFSE algorithm is a variation of the method presented by Koppel et al. \parencite{koppel2011authorship} for the task of \textit{Author Identification}. In the original approach, there is only one training example for each author and a number of simple classifiers is learned based on random feature subspacing. Each classifier uses the \textit{Cosine (or other) distance} to estimate the most likely author. It is more likely for the true author to be selected by the majority of the classifiers since the used subset of features will still be able to reveal that high similarity. That is, the style of the author is captured by many different features so a subset of them will also contain enough stylistic information. Since WGI is also a style-based text categorization task, this idea should also work for it.
 
 \hfill
 
-\begin{algorithm}[H]
+\begin{algorithm}[H][t]
 \caption{The \textit{RFSE} algorithm.}\label{chap:openset:sec:alg:RFS-Ensemble}
 \KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
 		 $w$ an arbitrary web-page of the $W_{a}$ arbitrary webpages set,
@@ -238,7 +247,7 @@ The class centroids are all formed for a given feature type. Then, an evaluation
 
 With respect to the similarity function, we examine cosine similarity (similar to \parencite{pritsos2013open}) and MinMax similarity (inspired by \parencite{koppel2014determining}). Moreover, measure that combines these two similarity functions, can be used. Then the most confident measure can be used in each iteration. More specifically, since Cosine and MinMax may have different mean and standard deviation for the set of all evaluation samples and all iterations per sample. Note that their values should first be normalized. Then, for each evaluation sample and each iteration we select the one with maximum normalized value. We call this similarity measure \textit{Combo}.
 
-\section{Nearest Neighbors Distance Ratio}\label{chap:openset:sec:NNRD_Description}
+\subsection{Nearest Neighbors Distance Ratio}\label{chap:openset:sec:NNRD_Description}
 
 The \textit{Nearest Neighbors Distance Ratio} (NNRD\footnote{The implementation of the NNRD algorithm can be found at \url{https://github.com/dpritsos/OpenNNDR}, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.}) algorithm has been proposed as open-set algorithm by \parencite{mendesjunior2016}. In this thesis a specialized version has been implemented for the WGI task. In the original approach euclidean distance has been used because of the variation of data set on which the algorithm has been evaluated. In this thesis cosine distance is used, because in text classification is being confirmed to be the proper choice in hundreds of publications. Moreover, the cosine distance is comparable to the results of the \textit{Random Feature Sub-spacing Ensemble} algorithm found in \parencite{pritsos2018open} and also is tested in the open-set experiments of this thesis found in chapter \ref{chap:noise}.
 
@@ -265,7 +274,7 @@ Therefore, the fitting function of the NN algorithm, described in pseudo-code \r
 
 \hfill
 
-\begin{algorithm}[H]
+\begin{algorithm}[H][t]
 \caption{\textit{Nearest Neighbor Distance Ratio} training data fitting function}\label{chap:openset:alg:NNDR_fitting}
 \KwData{$G$ the set of genre class tags $\{1,2,...,N\}$,
         $p$ the hyper-parameter regulates the percentage of $G$ tags will be marked as unknown,
@@ -339,7 +348,7 @@ In prediction phase the DRT is passed to the NNDR prediction function together w
 
 \hfill
 
-\begin{algorithm}[H]
+\begin{algorithm}[H][t]
 \caption{\textit{Nearest Neighbor Distance Ratio} prediction function}\label{alg:NNDR_prediction}
 \KwData{ $W$ the vector set of the random web-page to be classified,
          $C[g]$ the matrix of class vector sets one for every genre class tag $g \in G$,
