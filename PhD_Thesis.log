@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  2 NOV 2019 20:46
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  3 NOV 2019 22:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2012,6 +2012,9 @@ LaTeX Warning: Label `chap:relevant_work:sec:intro' multiply defined.
 
 LaTeX Warning: Label `chap:relevant_work:sec:intro' multiply defined.
 
+
+LaTeX Warning: Label `chap:relevant_work:sec:intro' multiply defined.
+
 ) (./Chapters/Open_set_algorithms.aux
 
 LaTeX Warning: Label `eq:DR' multiply defined.
@@ -2804,23 +2807,41 @@ LaTeX Warning: Reference `chap:relevan_work:sec:features' on page 48 undefined o
 
 LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 49 undefined on input line 973.
 
-)
-Runaway argument?
-{melissourgou2017genre,asheghi2014semi (Ashegi,2018_Book_HistoryFeatu\ETC.
-/home/dimitrios/Documents/MyPublications_Journals-Conferences/PhD_Thesis/PhD_Thesis.tex:173: File ended while scanning use of \blx@citeargs@iii.
+./Chapters/Relevant_Work.tex:973: Missing $ inserted.
 <inserted text> 
-                \par 
-l.173 \include{Chapters/Relevant_Work}
-                                      
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+                $
+l.973 ...u2017genre,asheghi2014semi} (Ashegi,2018_
+                                                  Book_HistoryFeaturesAndTyp...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Chapters/Relevant_Work.tex:974: Missing $ inserted.
+<inserted text> 
+                $
+l.974 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (17.90363pt too wide) in paragraph at lines 973--974
+\T1/ptm/m/n/10.95 Sharoff, [][]2014[][]) (Ashegi,2018$[]\OML/ztmcm/m/it/10.95 ook[]istoryFeaturesAndTypologyOfLa[]EB[]EXT[]ORPUS\OT1/ztmcm/m/n/10.95 .\OML/ztmcm/m/it/10.95 pdf\OT1/zplm/m/n/10.95 )\OT1/ztmcm/m/n/10.95 .$ 
+ []
+
+
+LaTeX Warning: Reference `' on page 49 undefined on input line 977.
 
 [49]
+
+LaTeX Warning: Reference `chap:relevant_work:sec:heuristics' on page 50 undefined on input line 985.
+
+
+LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 50 undefined on input line 985.
+
+[50]) [51]
 \openout2 = `Chapters/Open_set_algorithms.aux'.
 
- (./Chapters/Open_set_algorithms.tex [50
+ (./Chapters/Open_set_algorithms.tex [52
 
 
 
@@ -2896,38 +2917,83 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-
-LaTeX Warning: Reference `chap:eval_mentods:sec:open_space_risk' on page 51 undefined on input line 36.
-
 1: section
-[51] [52] [53]
+[53]
 
-LaTeX Warning: Reference `chap:openset:sec:NNDR_Description' on page 54 undefined on input line 99.
+LaTeX Warning: Citation 'Dhamija:2018' on page 54 undefined on input line 44.
 
-Missing character: There is no ε in font zptmcm7m!
-Missing character: There is no ε in font zptmcm7m!
-[54] [55] [56]
+./Chapters/Open_set_algorithms.tex:45: Undefined control sequence.
+l.45 ...of such classes can be performed by \tetit
+                                                  {zero-shot learning} \pare...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[54]
+File: Figures/closed-set_classification_schema.eps Graphic file (type eps)
+<Figures/closed-set_classification_schema.eps>
+
+Overfull \hbox (2.78902pt too wide) in paragraph at lines 65--66
+ [] 
+ []
+
+File: Figures/open-set_classification_schema.eps Graphic file (type eps)
+<Figures/open-set_classification_schema.eps>
+
+Overfull \hbox (1.38376pt too wide) in paragraph at lines 74--75
+ [] 
+ []
+
+File: Figures/open_space_risk_schema.eps Graphic file (type eps)
+<Figures/open_space_risk_schema.eps>
+
+Overfull \hbox (1.38376pt too wide) in paragraph at lines 84--85
+ [] 
+ []
+
+[55] [56] [57]
+Overfull \hbox (1.11073pt too wide) in paragraph at lines 137--138
+[]\T1/ptm/m/n/10.95 Outlier-SVM is an-other SVM-based al-go-rithm in-tro-duced in ([]Manevitz and Yousef, [][]2002[][];
+ []
+
+[58]
+./Chapters/Open_set_algorithms.tex:184: Undefined control sequence.
+l.184 \nointend
+                where $N$ is the size of the positive samples of the target ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[59]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 206.
- [57] [58]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 276.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 200.
+ [60] [61]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 278.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-./Chapters/Open_set_algorithms.tex:311: Double subscript.
-l.311 $K^{G}_i, K^{G}_{validation}_
+./Chapters/Open_set_algorithms.tex:313: Double subscript.
+l.313 $K^{G}_i, K^{G}_{validation}_
                                    i, U^{G}_{validation}_i, I^{G} = Split(G,...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-./Chapters/Open_set_algorithms.tex:311: Double subscript.
-l.311 ...K^{G}_{validation}_i, U^{G}_{validation}_
+./Chapters/Open_set_algorithms.tex:313: Double subscript.
+l.313 ...K^{G}_{validation}_i, U^{G}_{validation}_
                                                   i, I^{G} = Split(G,p,k)$ s...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-[59] [60] [61]) [62]
+[62] [63] [64]) [65]
 \openout2 = `Chapters/Evaluation_methodology.aux'.
 
- (./Chapters/Evaluation_methodology.tex
+ (./Chapters/Evaluation_methodology.tex [66
+
+
+
+]
 Chapter 4.
 
 ./Chapters/Evaluation_methodology.tex:11: LaTeX Error: Command \keyword already defined.
@@ -3061,18 +3127,14 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 1: section
-[63
+[67] [68]
+
+LaTeX Warning: Reference `chap:eval_methods:tbl:prec_rec_f1_example' on page 69 undefined on input line 105.
 
 
+LaTeX Warning: Reference `chap:eval_methods:tbl:closed_vs_open' on page 69 undefined on input line 105.
 
-] [64]
-
-LaTeX Warning: Reference `chap:eval_methods:tbl:prec_rec_f1_example' on page 65 undefined on input line 105.
-
-
-LaTeX Warning: Reference `chap:eval_methods:tbl:closed_vs_open' on page 65 undefined on input line 105.
-
-[65]
+[69]
 ./Chapters/Evaluation_methodology.tex:115: Extra alignment tab has been changed to \cr.
 <template> \endtemplate 
                         
@@ -3139,19 +3201,19 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[66]
-./Chapters/Evaluation_methodology.tex:206: Missing $ inserted.
+[70]
+./Chapters/Evaluation_methodology.tex:204: Missing $ inserted.
 <inserted text> 
                 $
-l.206 ^^I^^I0.64 & \emptyset
+l.204 ^^I^^I0.64 & \emptyset
                              & 6 & 0 \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Evaluation_methodology.tex:206: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:204: Missing $ inserted.
 <inserted text> 
                 $
-l.206 ^^I^^I0.64 & \emptyset &
+l.204 ^^I^^I0.64 & \emptyset &
                                6 & 0 \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3159,18 +3221,18 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./Chapters/Evaluation_methodology.tex:209: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:207: Missing $ inserted.
 <inserted text> 
                 $
-l.209 ^^I^^I0.60 & \emptyset
+l.207 ^^I^^I0.60 & \emptyset
                              & 4 & 0 \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Evaluation_methodology.tex:209: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:207: Missing $ inserted.
 <inserted text> 
                 $
-l.209 ^^I^^I0.60 & \emptyset &
+l.207 ^^I^^I0.60 & \emptyset &
                                4 & 0 \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3178,12 +3240,12 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[67]
+[71]
 File: Figures/pr_macro_micro_example.eps Graphic file (type eps)
 <Figures/pr_macro_micro_example.eps>
- [68] [69]
-./Chapters/Evaluation_methodology.tex:285: Undefined control sequence.
-l.285 ...es used in the testing phase) \parentcite
+ [72] [73]
+./Chapters/Evaluation_methodology.tex:263: Undefined control sequence.
+l.263 ...es used in the testing phase) \parentcite
                                                   {mendesjunior2016}:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3193,12 +3255,12 @@ and I'll forget about whatever was undefined.
 
 File: Figures/openness_example.eps Graphic file (type eps)
 <Figures/openness_example.eps>
-[70]
-Overfull \hbox (0.64015pt too wide) in paragraph at lines 314--315
+[74]
+Overfull \hbox (0.64015pt too wide) in paragraph at lines 292--293
 []\T1/ptm/m/n/10.95 The per-for-mance it can be mea-sured us-ing Ac-cu-racy, F1-statistic, Precision-Recall Curve,
  []
 
-[71]) [72]
+[75]) [76]
 \openout2 = `Chapters/Experiments_noise.aux'.
 
  (./Chapters/Experiments_noise.tex
@@ -3274,7 +3336,7 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 1: section
-[73
+[77
 
 
 
@@ -3285,10 +3347,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
 File: Figures/OCSME_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/OCSME_Best_per_DocRep.eps>
-[74]
+[78]
 File: Figures/RFSE_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/RFSE_Best_per_DocRep.eps>
- [75]
+ [79]
 File: Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps Graphic file (type eps)
 <Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps>
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
@@ -3302,21 +3364,21 @@ Overfull \hbox (70.60387pt too wide) in paragraph at lines 186--187
  [][] 
  []
 
-[76]
+[80]
 File: Figures/OCSVME_openness_test_graph.eps Graphic file (type eps)
 <Figures/OCSVME_openness_test_graph.eps>
- [77]
+ [81]
 File: Figures/RFSE_MIX_openness_test_graph.eps Graphic file (type eps)
 <Figures/RFSE_MIX_openness_test_graph.eps>
 File: Figures/RFSE_Precision_Focus_openness_test_graph.eps Graphic file (type eps)
 <Figures/RFSE_Precision_Focus_openness_test_graph.eps>
- [78]
+ [82]
 File: Figures/RFSE_vs_OCSVME_W1G.eps Graphic file (type eps)
 <Figures/RFSE_vs_OCSVME_W1G.eps>
- [79]) [80] [81]
+ [83]) [84] [85]
 \openout2 = `Chapters/Word_embedding.aux'.
 
- (./Chapters/Word_embedding.tex [82
+ (./Chapters/Word_embedding.tex [86
 
 
 
@@ -3393,37 +3455,37 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 1: section
-[83]
+[87]
 LaTeX Font Info:    Try loading font information for U+fplmbb on input line 53.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-) [84]
+) [88]
 File: Figures/CBOW_diagram.eps Graphic file (type eps)
 <Figures/CBOW_diagram.eps>
 
 
-LaTeX Warning: Reference `chap:word_embeddingss:nlm_generic' on page 85 undefined on input line 69.
+LaTeX Warning: Reference `chap:word_embeddingss:nlm_generic' on page 89 undefined on input line 69.
 
-[85]
+[89]
 
-LaTeX Warning: Reference `' on page 86 undefined on input line 87.
+LaTeX Warning: Reference `' on page 90 undefined on input line 87.
 
 File: Figures/skip_gram.eps Graphic file (type eps)
 <Figures/skip_gram.eps>
 
-LaTeX Warning: Reference `chap:words_embedding:eq:nnet_constraint' on page 86 undefined on input line 129.
+LaTeX Warning: Reference `chap:words_embedding:eq:nnet_constraint' on page 90 undefined on input line 129.
 
-[86] [87]
+[90] [91]
 File: Figures/pvbow.eps Graphic file (type eps)
 <Figures/pvbow.eps>
 
 
-LaTeX Warning: Citation 'posadas2017application' on page 88 undefined on input line 163.
+LaTeX Warning: Citation 'posadas2017application' on page 92 undefined on input line 163.
 
-[88]
+[92]
 Missing character: There is no “ in font ptmr8t!
 Missing character: There is no ” in font ptmr8t!
- [89]
+ [93]
 ./Chapters/Word_embedding.tex:181: Undefined control sequence.
 l.181 ...nal document vectors derived from \tetxit
                                                   {Distributional Feature Mo...
@@ -3434,12 +3496,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `' on page 90 undefined on input line 188.
+LaTeX Warning: Reference `' on page 94 undefined on input line 188.
 
 
-LaTeX Warning: Reference `' on page 90 undefined on input line 195.
+LaTeX Warning: Reference `' on page 94 undefined on input line 195.
 
-[90]
+[94]
 ./Chapters/Word_embedding.tex:202: Undefined control sequence.
 l.202 ...uation framework is followed with \tetxit
                                                   {unstructured noise} intro...
@@ -3450,7 +3512,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `' on page 91 undefined on input line 202.
+LaTeX Warning: Reference `' on page 95 undefined on input line 202.
 
 ./Chapters/Word_embedding.tex:202: Undefined control sequence.
 l.202 ... each fold, the full set of 1,000 \tetxit
@@ -3462,44 +3524,44 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `' on page 91 undefined on input line 206.
+LaTeX Warning: Reference `' on page 95 undefined on input line 206.
 
 
-LaTeX Warning: Reference `' on page 91 undefined on input line 208.
+LaTeX Warning: Reference `' on page 95 undefined on input line 208.
 
 
-LaTeX Warning: Reference `' on page 91 undefined on input line 215.
+LaTeX Warning: Reference `' on page 95 undefined on input line 215.
 
 
-LaTeX Warning: Reference `' on page 91 undefined on input line 217.
+LaTeX Warning: Reference `' on page 95 undefined on input line 217.
 
 
-LaTeX Warning: Reference `' on page 91 undefined on input line 219.
+LaTeX Warning: Reference `' on page 95 undefined on input line 219.
 
 
-LaTeX Warning: Reference `' on page 91 undefined on input line 219.
+LaTeX Warning: Reference `' on page 95 undefined on input line 219.
 
 
-LaTeX Warning: Reference `' on page 91 undefined on input line 219.
+LaTeX Warning: Reference `' on page 95 undefined on input line 219.
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 249.
 
-LaTeX Warning: Reference `tbl:NNDR_TF' on page 91 undefined on input line 249.
+LaTeX Warning: Reference `tbl:NNDR_TF' on page 95 undefined on input line 249.
 
 
-LaTeX Warning: Reference `tbl:NNDR_TF' on page 91 undefined on input line 249.
+LaTeX Warning: Reference `tbl:NNDR_TF' on page 95 undefined on input line 249.
 
-[91]
+[95]
 File: Figures/NNDR_W3G.eps Graphic file (type eps)
 <Figures/NNDR_W3G.eps>
- [92]
+ [96]
 Missing character: There is no Μ in font zptmcm7m!
 
 
-LaTeX Warning: Reference `' on page 93 undefined on input line 273.
+LaTeX Warning: Reference `' on page 97 undefined on input line 273.
 
-[93] [94]
+[97] [98]
 ./Chapters/Word_embedding.tex:322: Undefined control sequence.
 l.322 ...ecause it is left unclassified as \tetxit
                                                   {unknown class}.
@@ -3535,7 +3597,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[95]) [96]
+[99]) [100]
 \openout2 = `Chapters/Conclusions.aux'.
 
  (./Chapters/Conclusions.tex
@@ -3612,18 +3674,18 @@ or  <return>  to continue without it.
 
 )
 1: section
-[97
+[101
 
 
 
-] [98
+] [102
 
 
 ]
 Missing character: There is no ’ in font ptmr8t!
 
 1: section
-[99]
+[103]
 Overfull \hbox (13.75073pt too wide) in paragraph at lines 184--184
 [][]\T1/ptm/m/n/10.95 Hardy, Jack A and Eric Frig-i-nal (2016). ^^P  Genre vari-a-tion in stu-dent writ-ing: A multi-dimensional
  []
@@ -3633,7 +3695,7 @@ Overfull \hbox (0.83423pt too wide) in paragraph at lines 184--184
 [][]\T1/ptm/m/n/10.95 Jebari, Chaker (2014). ^^P  A Pure URL-Based Genre Clas-si-fi-ca-tion of Web Pages^^Q. In: \T1/ptm/m/it/10.95 Database
  []
 
-[100]
+[104]
 Overfull \hbox (5.67198pt too wide) in paragraph at lines 184--184
 [][]\T1/ptm/m/n/10.95 Lieungnapar, Angvar-rah, Richard Wat-son Todd, and Wan-napa Trakulka-sem-suk (2017). ^^P  Genre
  []
@@ -3643,7 +3705,7 @@ Overfull \hbox (17.95299pt too wide) in paragraph at lines 184--184
 \T1/ptm/m/n/10.95 si-fi-ca-tion^^Q. In: \T1/ptm/m/it/10.95 In-tel-li-gent Data En-gi-neer-ing and Au-to-mated Learning--IDEAL 2015\T1/ptm/m/n/10.95 . Springer,
  []
 
-[101]
+[105]
 Overfull \hbox (18.27432pt too wide) in paragraph at lines 184--184
 [][][]\T1/ptm/m/n/10.95 (2009c). ^^P  Clas-si-fy-ing Web Pages by Genre: An n-Gram Ap-proach^^Q. In: \T1/ptm/m/it/10.95 2009 IEEE/WIC/ACM
  []
@@ -3655,8 +3717,9 @@ Overfull \hbox (15.46317pt too wide) in paragraph at lines 184--184
 
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 184.
+[106]
 Missing character: There is no ’ in font ptmr8t!
-[102] [103] [104]
+ [107] [108]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 187.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 187.
  (./PhD_Thesis.aux (./Chapters/Introduction.aux) (./Chapters/Relevant_Work.aux) (./Chapters/Open_set_algorithms.aux) (./Chapters/Evaluation_methodology.aux) (./Chapters/Experiments_noise.aux) (./Chapters/Word_embedding.aux) (./Chapters/Conclusions.aux))
@@ -3680,12 +3743,12 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 57854 strings out of 493007
- 1324206 string characters out of 6136720
- 1743652 words of memory out of 5000000
- 61015 multiletter control sequences out of 15000+600000
- 636633 words of font info for 167 fonts, out of 8000000 for 9000
+ 57894 strings out of 493007
+ 1325623 string characters out of 6136720
+ 1749100 words of memory out of 5000000
+ 61052 multiletter control sequences out of 15000+600000
+ 638345 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,21n,128p,10452b,6114s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,21n,128p,10452b,6108s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on PhD_Thesis.pdf (110 pages).
+Output written on PhD_Thesis.pdf (114 pages).

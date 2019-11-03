@@ -44,46 +44,49 @@
 \contentsline {section}{\numberline {2.10}Focused Crawlers for Genres}{47}{section.122}
 \contentsline {section}{\numberline {2.11}Genres Utility}{48}{section.123}
 \contentsline {section}{\numberline {2.12}Web Genre Corpora: An unfinished work in progress}{49}{section.124}
-\contentsline {chapter}{\numberline {3}Open-set WGI algorithms}{51}{chapter.125}
-\contentsline {section}{\numberline {3.1}Introduction}{51}{section.126}
-\contentsline {section}{\numberline {3.2}One-class Closed-set Classification Methods}{52}{section.127}
-\contentsline {section}{\numberline {3.3}Open-set Classification}{53}{section.128}
-\contentsline {subsection}{\numberline {3.3.1}Noise defined in the open-set classification}{55}{subsection.131}
-\contentsline {section}{\numberline {3.4}One-Class SVM Ensemble}{56}{section.132}
-\contentsline {section}{\numberline {3.5}Random Feature Subpacing Ensemble}{58}{section.153}
-\contentsline {section}{\numberline {3.6}Nearest Neighbors Distance Ratio}{59}{section.175}
-\contentsline {section}{\numberline {3.7}Summary}{62}{section.224}
-\contentsline {chapter}{\numberline {4}Evaluation Framework for Open-set WGI}{63}{chapter.225}
-\contentsline {section}{\numberline {4.1}Introduction}{63}{section.226}
-\contentsline {section}{\numberline {4.2}Evaluation Measures}{63}{section.227}
-\contentsline {subsection}{\numberline {4.2.1}Precision, Recall, and $F$-Score}{63}{subsection.228}
-\contentsline {subsection}{\numberline {4.2.2}Open-set Variants of Evaluation Measures}{65}{subsection.237}
-\contentsline {subsection}{\numberline {4.2.3}Precision-Recall Curves}{67}{subsection.241}
-\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{69}{section.245}
-\contentsline {section}{\numberline {4.4}The Openness Test}{70}{section.247}
-\contentsline {subsection}{\numberline {4.4.1}Domain Transfer Measure}{70}{subsection.250}
-\contentsline {section}{\numberline {4.5}Conclusions}{71}{section.252}
-\contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{73}{chapter.253}
-\contentsline {section}{\numberline {5.1}Introduction}{73}{section.254}
-\contentsline {section}{\numberline {5.2}Noise vs Outages on Open-set Classification}{73}{section.255}
-\contentsline {section}{\numberline {5.3}Open-set Framework Evaluation on Noise}{73}{section.256}
-\contentsline {section}{\numberline {5.4}Experimental Setup}{73}{section.257}
-\contentsline {subsection}{\numberline {5.4.1}Corpora}{73}{subsection.258}
-\contentsline {section}{\numberline {5.5}Experiments}{74}{section.262}
-\contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{74}{subsection.263}
-\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{77}{subsection.269}
-\contentsline {section}{\numberline {5.6}Conclusions}{80}{section.274}
-\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{83}{chapter.275}
-\contentsline {section}{\numberline {6.1}Introduction}{83}{section.276}
-\contentsline {section}{\numberline {6.2}Neural Language Models}{83}{section.277}
-\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{83}{subsection.278}
-\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{88}{subsection.289}
-\contentsline {section}{\numberline {6.3}Experiments}{90}{section.295}
-\contentsline {subsection}{\numberline {6.3.1}Corpus}{90}{subsection.296}
-\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{90}{subsection.297}
-\contentsline {section}{\numberline {6.4}Results}{91}{section.298}
-\contentsline {subsection}{\numberline {6.4.1}Paragraph-Vectors vs. N-Gram-Vectors(TF): Improving Low Performance Learners}{91}{subsection.299}
-\contentsline {subsection}{\numberline {6.4.2}Nearest Neighbours Distance Ration with Paragraph-Vectors}{93}{subsection.303}
-\contentsline {section}{\numberline {6.5}Conclusions}{95}{section.306}
-\contentsline {chapter}{\numberline {7}Conclusions}{97}{chapter.307}
-\contentsline {chapter}{Bibliography}{99}{chapter*.308}
+\contentsline {section}{\numberline {2.13}Discussion and Future Work Suggestions}{50}{section.126}
+\contentsline {chapter}{\numberline {3}Open-set WGI algorithms}{53}{chapter.127}
+\contentsline {section}{\numberline {3.1}Introduction}{53}{section.128}
+\contentsline {section}{\numberline {3.2}Open-set Classification}{54}{section.129}
+\contentsline {subsection}{\numberline {3.2.1}Noise in Open-set Recognition}{54}{subsection.130}
+\contentsline {subsection}{\numberline {3.2.2}The Open-Space Risk}{54}{subsection.131}
+\contentsline {section}{\numberline {3.3}Open-set Classification Paradigms}{57}{section.138}
+\contentsline {section}{\numberline {3.4}Open-set Classifiers for WGI}{59}{section.139}
+\contentsline {subsection}{\numberline {3.4.1}One-Class SVM}{59}{subsection.140}
+\contentsline {subsection}{\numberline {3.4.2}Random Feature Subpacing Ensemble}{60}{subsection.162}
+\contentsline {subsection}{\numberline {3.4.3}Nearest Neighbors Distance Ratio}{62}{subsection.185}
+\contentsline {section}{\numberline {3.5}Summary}{65}{section.236}
+\contentsline {chapter}{\numberline {4}Evaluation Framework for Open-set WGI}{67}{chapter.237}
+\contentsline {section}{\numberline {4.1}Introduction}{67}{section.238}
+\contentsline {section}{\numberline {4.2}Evaluation Measures}{67}{section.239}
+\contentsline {subsection}{\numberline {4.2.1}Precision, Recall, and $F$-Score}{67}{subsection.240}
+\contentsline {subsection}{\numberline {4.2.2}Open-set Variants of Evaluation Measures}{69}{subsection.249}
+\contentsline {subsection}{\numberline {4.2.3}Precision-Recall Curves}{71}{subsection.253}
+\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{73}{section.257}
+\contentsline {section}{\numberline {4.4}The Openness Test}{74}{section.259}
+\contentsline {subsection}{\numberline {4.4.1}Domain Transfer Measure}{74}{subsection.262}
+\contentsline {section}{\numberline {4.5}Conclusions}{75}{section.264}
+\contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{77}{chapter.265}
+\contentsline {section}{\numberline {5.1}Introduction}{77}{section.266}
+\contentsline {section}{\numberline {5.2}Noise vs Outages on Open-set Classification}{77}{section.267}
+\contentsline {section}{\numberline {5.3}Open-set Framework Evaluation on Noise}{77}{section.268}
+\contentsline {section}{\numberline {5.4}Experimental Setup}{77}{section.269}
+\contentsline {subsection}{\numberline {5.4.1}Corpora}{77}{subsection.270}
+\contentsline {section}{\numberline {5.5}Experiments}{78}{section.274}
+\contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{78}{subsection.275}
+\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{81}{subsection.281}
+\contentsline {section}{\numberline {5.6}Conclusions}{84}{section.286}
+\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{87}{chapter.287}
+\contentsline {section}{\numberline {6.1}Introduction}{87}{section.288}
+\contentsline {section}{\numberline {6.2}Neural Language Models}{87}{section.289}
+\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{87}{subsection.290}
+\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{92}{subsection.301}
+\contentsline {section}{\numberline {6.3}Experiments}{94}{section.307}
+\contentsline {subsection}{\numberline {6.3.1}Corpus}{94}{subsection.308}
+\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{94}{subsection.309}
+\contentsline {section}{\numberline {6.4}Results}{95}{section.310}
+\contentsline {subsection}{\numberline {6.4.1}Paragraph-Vectors vs. N-Gram-Vectors(TF): Improving Low Performance Learners}{95}{subsection.311}
+\contentsline {subsection}{\numberline {6.4.2}Nearest Neighbours Distance Ration with Paragraph-Vectors}{97}{subsection.315}
+\contentsline {section}{\numberline {6.5}Conclusions}{99}{section.318}
+\contentsline {chapter}{\numberline {7}Conclusions}{101}{chapter.319}
+\contentsline {chapter}{Bibliography}{103}{chapter*.320}

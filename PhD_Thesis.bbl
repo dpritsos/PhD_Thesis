@@ -164,6 +164,36 @@
     \field{year}{2014}
   \endentry
 
+  \entry{bendale2016towards}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=BA}{%
+         family={Bendale},
+         familyi={B\bibinitperiod},
+         given={Abhijit},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BTE}{%
+         family={Boult},
+         familyi={B\bibinitperiod},
+         given={Terrance\bibnamedelima E},
+         giveni={T\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BABTE1}
+    \strng{fullhash}{BABTE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{year}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Proceedings of the IEEE conference on computer vision and
+  pattern recognition}
+    \field{pages}{1563\bibrangedash 1572}
+    \field{title}{Towards open set deep networks}
+    \field{year}{2016}
+  \endentry
+
   \entry{bengio2003neural}{article}{}
     \name{author}{4}{}{%
       {{hash=BY}{%
@@ -342,6 +372,46 @@
     \field{title}{Genre (less) and purpose (less): Online news galleries}
     \field{volume}{20}
     \field{journaltitle}{Discourse, context \& media}
+    \field{year}{2017}
+  \endentry
+
+  \entry{cardoso2017weightless}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CDO}{%
+         family={Cardoso},
+         familyi={C\bibinitperiod},
+         given={Douglas\bibnamedelima O},
+         giveni={D\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+      {{hash=GJ}{%
+         family={Gama},
+         familyi={G\bibinitperiod},
+         given={Jo{\~a}o},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FFM}{%
+         family={Fran{\c{c}}a},
+         familyi={F\bibinitperiod},
+         given={Felipe\bibnamedelima MG},
+         giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CDOGJFFM1}
+    \strng{fullhash}{CDOGJFFM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{year}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{9-10}
+    \field{pages}{1547\bibrangedash 1567}
+    \field{title}{Weightless neural networks for open set recognition}
+    \field{volume}{106}
+    \field{journaltitle}{Machine Learning}
     \field{year}{2017}
   \endentry
 
@@ -984,6 +1054,46 @@
     \field{journaltitle}{Journal of the American Society for Information
   Science and Technology}
     \field{year}{2006}
+  \endentry
+
+  \entry{ge2017generative}{article}{}
+    \name{author}{4}{}{%
+      {{hash=GZ}{%
+         family={Ge},
+         familyi={G\bibinitperiod},
+         given={ZongYuan},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=DS}{%
+         family={Demyanov},
+         familyi={D\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CZ}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Zetao},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Garnavi},
+         familyi={G\bibinitperiod},
+         given={Rahil},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GZ+1}
+    \strng{fullhash}{GZDSCZGR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{year}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Generative openmax for multi-class open set classification}
+    \field{journaltitle}{arXiv preprint arXiv:1707.07418}
+    \field{year}{2017}
   \endentry
 
   \entry{geng2018collective}{article}{}
@@ -2569,6 +2679,47 @@
     \field{year}{2018}
   \endentry
 
+  \entry{palatucci2009zero}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=PM}{%
+         family={Palatucci},
+         familyi={P\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Pomerleau},
+         familyi={P\bibinitperiod},
+         given={Dean},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=HGE}{%
+         family={Hinton},
+         familyi={H\bibinitperiod},
+         given={Geoffrey\bibnamedelima E},
+         giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=MTM}{%
+         family={Mitchell},
+         familyi={M\bibinitperiod},
+         given={Tom\bibnamedelima M},
+         giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PM+1}
+    \strng{fullhash}{PMPDHGEMTM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2009}
+    \field{labeldatesource}{year}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{Advances in neural information processing systems}
+    \field{pages}{1410\bibrangedash 1418}
+    \field{title}{Zero-shot learning with semantic output codes}
+    \field{year}{2009}
+  \endentry
+
   \entry{petrenz2011stable}{article}{}
     \name{author}{2}{}{%
       {{hash=PP}{%
@@ -3078,6 +3229,47 @@
     \field{year}{2011}
   \endentry
 
+  \entry{scheirer2014probability}{article}{}
+    \name{author}{3}{}{%
+      {{hash=SWJ}{%
+         family={Scheirer},
+         familyi={S\bibinitperiod},
+         given={Walter\bibnamedelima J},
+         giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=JLP}{%
+         family={Jain},
+         familyi={J\bibinitperiod},
+         given={Lalit\bibnamedelima P},
+         giveni={L\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=BTE}{%
+         family={Boult},
+         familyi={B\bibinitperiod},
+         given={Terrance\bibnamedelima E},
+         giveni={T\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{SWJJLPBTE1}
+    \strng{fullhash}{SWJJLPBTE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{year}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{11}
+    \field{pages}{2317\bibrangedash 2324}
+    \field{title}{Probability models for open set recognition}
+    \field{volume}{36}
+    \field{journaltitle}{IEEE transactions on pattern analysis and machine
+  intelligence}
+    \field{year}{2014}
+  \endentry
+
   \entry{scheirer2013toward}{article}{}
     \name{author}{4}{}{%
       {{hash=SWJ}{%
@@ -3125,6 +3317,41 @@
     \field{journaltitle}{IEEE transactions on pattern analysis and machine
   intelligence}
     \field{year}{2013}
+  \endentry
+
+  \entry{scherreik2016open}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SMD}{%
+         family={Scherreik},
+         familyi={S\bibinitperiod},
+         given={Matthew\bibnamedelima D},
+         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=RBD}{%
+         family={Rigling},
+         familyi={R\bibinitperiod},
+         given={Brian\bibnamedelima D},
+         giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{SMDRBD1}
+    \strng{fullhash}{SMDRBD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{year}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{2}
+    \field{pages}{632\bibrangedash 642}
+    \field{title}{Open set recognition for automatic target classification with
+  rejection}
+    \field{volume}{52}
+    \field{journaltitle}{IEEE Transactions on Aerospace and Electronic Systems}
+    \field{year}{2016}
   \endentry
 
   \entry{scholkopf1999estimating}{article}{}
