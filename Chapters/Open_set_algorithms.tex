@@ -22,13 +22,13 @@ WGI is a task that can be approached either as a closed-set or an open-set class
 
 Open-set classification is, therefore, a more realistic option to model the WGI task. In this setup, a genre palette covering very specific web genres is given and all other genres are considered as \textit{noise} (i.e., instances of noise should not be assigned to any of the known genres). An effective open-set WGI approach can suit any type of relevant application since it provides the ability to recognize the known web genres without being confused by the presence of noise. It should be underlined that it is expected for noise to outnumber the training instances of the known genres. Web is chaotic and of huge scale and known genres only cover a small part of it.
 
-Open-set classifiers have to deal with an important difficulty: the \textit{Open Space Risk} (OSR). This corresponds to the instance space that lies away from the instances of known genres and can be occupied by samples of an unknown genre. The open-set classifier should be able to set the boundaries of known genres so that to avoid the risk of including an area where an unknown genre is found. This is especially challenging when the dimensionality of the representation is high. This is exactly the case with most of the popular text representation schemes that are composed of hundreds or thousands of features (e.g., character n-grams, word n-grams). It is therefore necessary to perform some kind of feature selection or to use low-dimensional feature space (e.g., word/document embeddings). 
+Open-set classifiers have to deal with an important difficulty: the \textit{Open Space Risk} (OSR). This corresponds to the instance space that lies away from the instances of known genres and can be occupied by samples of an unknown genre. An open-set classifier should be able to set the boundaries of known genres so that to avoid the risk of including an area where an unknown genre is found. This is especially challenging when the dimensionality of the representation is high. This is exactly the case with most of the popular text representation schemes that are composed of hundreds or thousands of features (e.g., character n-grams, word n-grams). It is therefore necessary to perform some kind of feature selection or to use low-dimensional feature space (e.g., word/document embeddings) when using open-set classification algorithms in WGI. 
 
-In this chapter, it is introduced and described in detail three open-set WGI methods. The first method is based on one-class classification where only positive examples are considered for each known genre. This does not mean that it is not possible to find negative examples. However, the negative class is too huge and heterogeneous that is quite challenging to extract representative negative samples. The second approach considers training samples for all available known genres and attempts to reduce the effect of high dimensionality of representation by performing repetitive subspacing. The main idea is to build an ensemble of classifiers, each one using a subset of the initial features. The third approach is an extension of the nearest-neighbor classification algorithm and attempts to directly regularize the effect of OSR.
+In this chapter, three open-set WGI methods are described in detail. The first method is based on one-class classification where only positive examples are considered for each known genre. This does not mean that it is not possible to find negative examples. However, the negative class is too huge and heterogeneous that is quite challenging to extract representative negative samples. The second approach considers training samples for all available known genres and attempts to reduce the effect of high dimensionality of representation by performing repetitive subspacing. The main idea is to build an ensemble of classifiers, each one using a subset of the initial features. The third approach is an extension of the nearest-neighbor classification algorithm and attempts to directly regularize the effect of OSR.
 
 %Finally, all three algorithms have been developed with Noise handling and Outages tolerance in mind. Specifically, all three algorithm can be tuned to regulate their Noise filtering ability with an explicit or implicit threshold. The Noise as explained earlier can be structured or unstructured, i.e. when the noise samples are balanced or not in respect of the genre tags. Note that the noise-filtering regularization threshold is automatically defined for NNDR while training using the OSR as a measure.
 
-In the rest of this chapter, firstly it is described the main properties of open-class classification and discuss main existing approaches. Then, each one of the three proposed methods is analytically presented. 
+The rest of this chapter, first describes the main properties of open-class classification and discuss the main existing paradigms. Then, each one of the three proposed methods for WGI tasks is analytically presented. 
 
 \section{Open-set Classification}
 
@@ -56,14 +56,14 @@ In this thesis we distinguish noise into unstructured and structured forms:
 \subsection{The Open-Space Risk}
 \label{chap:openset:sec:open_space_risk}
 
-One possibility to build classifiers that can leave some (test) instances unclassified is to introduce a reject option to closed-set classification algorithms. First, a regular closed-set classifier is trained using $\mathcal{K}$. Then, a reject criterion is determined, usually associated with the confidence of the predictions, and each test instance that does not satisfy this criterion is not classified to any of the classes in $\mathcal{C}$ \parencite{onan2018ensemble}. For example, the reject criterion could relate to the difference of probabilities assigned to the two most likely classes in $\mathcal{C}$. If this difference is large, then it is an indication that the instance in question really belongs to the most likely class (the confidence of prediction is high). If, on the other hand, the difference is small (i.e., the confidence of the prediction is low), then this means that the instance most probably does not belong to these classes. 
+One possibility to build classifiers that can leave some (test) instances unclassified is to introduce a reject option to closed-set classification algorithms. First, a regular closed-set classifier is trained using $\mathcal{K}$. Then, a reject criterion is determined, usually associated with the confidence of the predictions, and each test instance that does not satisfy this criterion is not classified to any of the classes in $\mathcal{C}$ \parencite{onan2018ensemble}. For example, the reject criterion could relate to the difference of probabilities assigned to the two most likely classes in $\mathcal{C}$. If this difference is large, then it is an indication that the instance in question really belongs to the most likely class (i.e., the confidence of prediction is high). If, on the other hand, the difference is small (i.e., the confidence of the prediction is low), then this means that the instance most probably does not belong to these classes. 
 
-One big problem of this approach is that it provides strong predictions for the entire instance space. Actually, closed-set classifiers segment the instance space so that instances belonging to the known classes to be well separated. However, this also means that if an unknown class lies in the space that is far away from the known classes, it cannot be easily distinguished anymore. Figure \ref{chap:openset:fig:closed_set_classification}(a) depicts the case where a closed-set classifier is trained to recognize two known classes. Note that the decision boundary affects the entire instance space. There is also an unknown class that lies away from the known classes, almost equally away from both of them, and also near the decision boundary. This scenario can be handled by a rejection option since all members of the unknown class will be equally likely to belong to either of the known classes and, therefore, can be rejected. Figure \ref{chap:openset:fig:open_set_classification}(b) shows a similar case with two known classes and one unknown class. However, this time the unknown class lies deep in the space that belongs to one of the known classes. The member of unknown class are still far away from both known classes but now the rejection option will not work since it seems that one of the known classes is far more likely than the other. 
+One big problem of this approach is that it provides strong predictions for the entire instance space. Actually, closed-set classifiers segment the instance space so that instances belonging to the known classes to be well separated. However, this also means that if an unknown class lies in the space that is far away from the known classes, it cannot be easily distinguished anymore. Figure \ref{chap:openset:fig:closed_set_classification}(a) depicts the case where a closed-set classifier is trained to recognize two known classes. Note that the decision boundary affects the entire instance space. There is also an unknown class that lies away from the known classes, almost equally away from both of them, and also near the decision boundary. This scenario can be handled by a rejection option since all members of the unknown class will be equally likely to belong to either of the known classes and, therefore, can be rejected. Figure \ref{chap:openset:fig:open_set_classification}(b) shows a similar case with two known classes and one unknown class. However, this time the unknown class lies deep in the space that seems to belong to one of the known classes. The member of unknown class are still far away from both known classes but now the rejection option will not work since it seems that one of the known classes is far more likely than the other. 
 
 \begin{figure}[t]
 	\begin{center}
     	\includegraphics[scale=0.70]{Figures/closed-set_classification_schema.eps}
-		\caption{Closed-set classification paradigm. The 'o' samples random unknown for the classification algorithm. The (a) is showing a case where the unknown samples are affecting both prediction for, classes '+' and '-'. The (b) is showing a case where only the '-' prediction is affected}
+		\caption{An example of closed-set classification with a reject option. Known classes '+' and '-' are separated by a decision boundary. In (a) an unknown class 'o' lies away from both known classes and near the decision boundary. In (b) the unknown class lies deep in the part of one of the known classes.}
 		\label{chap:openset:fig:closed_set_classification}
 	\end{center}
 \end{figure}
@@ -72,17 +72,19 @@ One big problem of this approach is that it provides strong predictions for the 
 \begin{figure}[t]
 	\begin{center}
     	\includegraphics[scale=0.70]{Figures/open-set_classification_schema.eps}
-		\caption{Open-set classification paradigm. The 'o' samples random unknown for the classification algorithm. The (a) and (b) are equal to the ones of figure's \ref{chap:openset:fig:closed_set_classification} where in both cases the unknown samples are not affecting the classification performance. However, the model is very conservative. The white area in both cased is the open space, on the contrary to the closed-set classification where the total space is considered part of the red or blue class.}
+		\caption{An example of open-set classification. Decision boundaries for known classes '+' and '-' include all positive results. In (a) an unknown class 'o' lies away from both known classes. In (b) the unknown class lies near one of the known classes.}
 		\label{chap:openset:fig:open_set_classification}
 	\end{center}
 \end{figure}
 
-A pure open-set classifier attempts to determine the space that surely belongs to the positive examples of each known class. An example is demonstrated in Figure \ref{chap:openset:fig:open_set_classification} where, similar to the previous case, there are two known classes and one unknown class. However, this time the relative position of the space occupied by the unknown class with respect to the position of the known classes is not important anymore. Note that the most important issue about an open-set classifier seems to be the appropriate definition of the known class boundaries. If the classifier is too conservative, then the space allocated to the known class will be too small and it is possible to exclude some of its members. On the other hand, if the classifier is optimistic, then the area allocated to the known class will be large including neighboring areas of the known class training instances. This is demonstrated in Figure \ref{chap:openset:fig:open_space_risk_schema}. The more optimistic an open-set classifier is the more likely to suffer by the open space risk.
+A pure open-set classifier attempts to determine the space that surely belongs to the positive examples of each known class. An example is demonstrated in Figure \ref{chap:openset:fig:open_set_classification} where, similar to the previous case, there are two known classes and one unknown class. However, this time the relative position of the space occupied by the unknown class with respect to the position of the known classes is not that crucial anymore. In both Figure \ref{chap:openset:fig:open_set_classification}(a) and \ref{chap:openset:fig:open_set_classification}(b) the decision boundaries of known classes avoid to include samples of the unknown class.
+
+Note that the most important issue about an open-set classifier seems to be the appropriate definition of the known class boundaries. If the classifier is too conservative, then the space allocated to the known class will be too small and it is possible to exclude some of its members. On the other hand, if the classifier is optimistic, then the area allocated to the known class will be large including neighboring areas of the known class training instances increasing the risk of including samples of unknown classes. This is demonstrated in Figure \ref{chap:openset:fig:open_space_risk_schema}. The more optimistic an open-set classifier is the more likely to suffer by the open space risk.
 
 \begin{figure}[t]
 	\begin{center}
     	\includegraphics[scale=0.70]{Figures/open_space_risk_schema.eps}
-		\caption{Open-set classification paradigm with different \textit{Open Space Risk}. Similarity case of figure \ref{chap:openset:fig:open_set_classification}. The red algorithm in (a) which is \textit{conservative} can be replaced with the green \textit{optimistic} algorithm in (b). However, the optimistic algorithm (b) is more sensitive to the open space risk.}
+		\caption{Open-set classification paradigm with different \textit{Open Space Risk}. Similarity case of figure \ref{chap:openset:fig:open_set_classification}. In (a) a conservative open-set algorithm is used and avoids the open space risk. In (b) an optimistic open-set algorithm is used that is more sensitive to the open space risk.}
 		\label{chap:openset:fig:open_space_risk_schema}
 	\end{center}
 \end{figure}
@@ -97,7 +99,7 @@ Let $f_y$ be a recognition function for a known class $y$, $f_y(x)=1$ correspond
 \noindent
 where $O$ corresponds to the positively labeled open space and $S_O$ is the overall positively labeled space including the space of training samples of the known class. The larger the open space risk, the more optimistic the classifier, and the larger area is assigned to the known class.  
 
-An alternative way to define open space is provided in  \parencite{fei2016breaking}. Let $S_O$ be a large sphere of radius $r_O$ including all positive instances of a known class and the positively labeled open space and $B_{r_y}$ be a sphere of radius $r_y$ that ideally includes all positive training examples of known class $y$. Both $S_O$ and $B_{r_y}$ have the same center $cen_y$, the center of positive training instances of class $y$. Then, of to method to constrain the problem is by using the center of the positively labeled training data and defining a radios $r_{o}$ where it will reduce the open space area based on the positively labeled empirically observations. Then the open space $O$ is defined as follows:
+An alternative way to define open space is provided in  \parencite{fei2016breaking}. Let $S_O$ be a large sphere of radius $r_O$ including all positive instances of a known class and the positively labeled open space and $B_{r_y}$ be a sphere of radius $r_y$ that ideally includes all positive training examples of known class $y$. Both $S_O$ and $B_{r_y}$ have the same center $cen_y$, the center of positive training instances of class $y$. Then the open space $O$ is defined as follows:
 
 \begin{equation}\label{chap:eval_methods:eq:openspace_spherical_constrained}
 	O = S_{o} - B_{r_{y}}(cen_{y})
@@ -140,7 +142,7 @@ There are, also, some OCC methods exploiting the availability of unlabeled data.
 
 In contrast to OCC, the majority of the approaches to open-set recognition are able to handle poth positive and negative samples of a given class. Several variations of well-known classification algorithms have been proposed so far. The \textit{1-vs-Set SVM} algorithm introduced in \parencite{scheirer2013toward} was the first attempt to regulate the open space based on formula \ref{eq:open_space_risk} using a second hyperplane parallel to the separating hyperplane. However, the space corresponding to each known class remains unbounded. This means that the open space risk still remains. Another SVM-based approach (W-SVM) consists of two models, a one-class SVM and a binary SVM using a Wibull cumulative distribution function \parencite{scheirer2014probability}. Yet another idea used in the POS-SVM method \parencite{scherreik2016open} models open space risk and empirical risk probabilistically. 
 
-The \textit{Distance Based} algorithms can be adopted in the open-set framework by bounding the true positive samples by the outliers. Nearest Non-Outlier (NNO) algorithms is a center based method where the OSR regularization is their method for keeping the outliers bounded. There are several center based algorithms one of them is the RFSE algorithm developed for this thesis and described in \ref{chap:openset:sec:RFSE_Description}. 
+The \textit{Distance Based} algorithms can be adopted in the open-set framework by bounding the true positive samples by the outliers. Nearest Non-Outlier (NNO) algorithm is a center-based method that uses OSR regularization for keeping the outliers bounded. There are several center based algorithms one of them is the RFSE algorithm developed for this thesis and described in \ref{chap:openset:sec:RFSE_Description}. 
 
 %The Nearest Neighbor algorithm which is also distance based has been adopted to the open-set framework named \textit{Nearest Neighbor Distance Ration (NNDR}). However, this algorithm it is a multi-class classification algorithm and there is no need for an adaption for this as in the above class identification cases.
 
@@ -148,7 +150,7 @@ The \textit{Distance Based} algorithms can be adopted in the open-set framework 
 
 %The NNDR is also designed to regulate the OSR and this is part of its learning process where it divided the training data in to segments for regulating this problem in advanced. 
 
-Deep Neural Networks are usually developed with a \textit{SoftMax} function forcing the whole modeling setup to follow a closed-set assumption. However, there have been several efforts where to modify deep learning models for open-set classification, notably using \textit{OpenMax} \parencite{bendale2016towards,cardoso2017weightless}. First, a normal SoftMax model is trained. Then, the layers of the network are modified to be able to recognize (pseudo) unknown classes. Another approach is to follow the adversarial learning setup where it is attempted to generate the unknown classes. One such method, the Generative OpenMax algorithm \parencite{ge2017generative} estimates the decision boundary between known classes and the generated unknown ones.
+Deep Neural Networks are usually developed with a \textit{SoftMax} function forcing the whole modeling setup to follow a closed-set assumption. However, there have been several efforts to modify deep learning models for open-set classification, notably using \textit{OpenMax} \parencite{bendale2016towards,cardoso2017weightless}. First, a normal SoftMax model is trained. Then, the layers of the network are modified to be able to recognize (pseudo) unknown classes. Another approach is to follow the adversarial learning setup where it is attempted to generate the unknown classes. One such method, the Generative OpenMax algorithm \parencite{ge2017generative} estimates the decision boundary between known classes and the generated unknown ones.
 
 %The \textit{Extreme Value Theory (EVT)} and \textit{Sparse Representation based} approached is an other group of ML algorithms adopted for the open-set scenario. EVT is a statistical method where the tails of the \textit{distance distributions} can be modeled using the \textit{asymptotic theory}. Thus, the distribution of the \textit{margin distance of each sample to each class} can be approximated. Then this distribution is the boundary for discarding the outlier and the rest of the unknown space (and ultimately the the open space).
 
@@ -163,25 +165,42 @@ Another generative approach is based on the \textit{Dirichlet Process}, a distri
 
 The first open-set WGI method introduced in this thesis follows the OCC paradigm. Basically, the main idea is to build a one-class SVM classifier for each class $c \in \mathcal{C}$ using only the positive instances of that class. Ideally, the members of unknonwn classes will not be recognized by any of these one-class classifiers.
 
-One-class SVM attempts to find the contour prescribing the positive samples of the target class. A modification of the traditional SVM algorithm, $\nu$-SVM was introduced in \parencite{scholkopf1999estimating}. Following the logic from the conventional SVM, thoroughly analyzed in \parencite{bishop2006}, the Lagrange multipliers are acquired for solving the optimization problem of formula \ref{chap:openset:sec:eq:3} under constraints described in formulas \ref{chap:openset:sec:eq:4} and \ref{chap:openset:sec:eq:5}. The solution derived is described in formula \ref{chap:openset:sec:eq:12}, i.e. a Lagrangian function that can be used to recognize members of the target class.
+One-class SVM attempts to find the contour including the positive samples of the target class. Following the logic from the traditional SVM algorithm, a one-class modification, called $\nu$-SVM, was introduced in \parencite{scholkopf1999estimating}. Let $x_1, x_2,..., x_l$ be a set of positive samples of the target class and $\phi$ a feature map. $\nu$-SVM considers the origin (in feature space $\phi$) as the only negative sample and attempts to separate the positive samples from the origin and maximize the distance of the decision hyperplance from the origin. The latter is called \textit{margin} ($\rho$). More formally, the algorithm solves the following optimization problem:
 
 \begin{equation}\label{chap:openset:sec:eq:3}
-	arg\min_{w,b}\left\{ \frac{1}{\nu\lambda}\sum_{n=1}^{N}(\xi_{n}-\rho)+\frac{1}{2}\|w\|^{2}\right\}
+	arg\min_{w,\rho}\left\{ \frac{1}{\nu l} \sum_{i=1}^{l}(\xi_{i}-\rho)+\frac{1}{2}\|w\|^{2}\right\}
 \end{equation}
 
+\nointend subject to:
+
+\begin{equation}
+    (w \cdot \phi(x)) \geq \rho - \xi_i, \xi_i \geq 0
+\end{equation}
+
+\noindent where $\xi$ corresponds to slack variables allowing the model to handle outliers and $\nu$ a hyper-parameter in $(0,1)$. Similar to the traditional SVM, the solution involves the construction of a \textit{dual problem} where a Lagrange multiplier ($\alpha_i$) is associated with every constraint of the primary problem. Thus, the following optimization problem is solved:
+
+\begin{equation}\label{chap:openset:sec:eq:12}
+	arg\min_{\alpha}\frac{1}{2}\sum_{i,j}a_{i}a_{j}k(x_{i},x_{j})
+\end{equation}
+
+\nointent subject to:
+
 \begin{equation}\label{chap:openset:sec:eq:4}
-	0\leqslant a_{n}\leqslant1/N,\qquad n=1,...,N
+	0\leqslant a_{i}\leqslant \frac{1}{\nu l} %,\qquad i=1,...,l
 \end{equation}
 
 \begin{equation}\label{chap:openset:sec:eq:5}
-	\nu\leqslant\sum_{n=1}^{N}a_{n}, \qquad \sum_{n=1}^{N}a_{n}t_{n}=0
+%	\nu\leqslant\sum_{i=1}^{l}a_{i}, 
+	\qquad \sum_{i=1}^{l}a_{i}=1
 \end{equation}
 
-\begin{equation}\label{chap:openset:sec:eq:12}
-	\widetilde{L}(a)=-\frac{1}{2}\sum_{n=1}^{N}\sum_{m=1}^{M}a_{n}a_{m}t_{n}t_{m}k(x_{n,}x_{m})
+\nointend where $k(x,y)$ is a kernel function. Non-zero $\alpha_i$ are the support vectors and only them contribute to the decision function:
+
+\begin{equation}
+    f(x) = sgn(\sum_i \alpha_i k(x_i,x) - \rho)
 \end{equation}
 
-\nointend where $N$ is the size of the positive samples of the target class and $\nu$ a hyper-parameter. The latter has the following properties:
+Note that the offset $\rho$ can be derived by any support vector whose $\alpha_i$ is not at the upper or lower bound. The hyper-parameter $\nu$ has the following properties:
 
 \begin{itemize}
 	\item $\nu$ is an upper bound on the fraction of outliers.
@@ -189,15 +208,13 @@ One-class SVM attempts to find the contour prescribing the positive samples of t
 	\item $\nu$ values cannot exceed 1.
 \end{itemize}
 
-In practice, different values of $\nu$ are defining different proportion of the training sample as outliers. For example in \parencite{scholkopf1999estimating} is showed that in their experiments when using $\nu=0.05$, 1.4\% of the training set has been classified as outliers while using $\nu=0.5$, 47.4\% is classified as outliers and 51.2\% is kept as SVs.
+This hyper-parameter determines the smoothness of the algorithm. For small values of $\nu$, errors get penalized severely and only a few outliers are permitted. This also increases the open space risk. On the other hand, large values of $\nu$ correspond to very conservative models where a large part of  positive examples are outliers. For example in \parencite{scholkopf1999estimating} is showed that in their experiments when using $\nu=0.05$, 1.4\% of the training set has been classified as outliers while using $\nu=0.5$, 47.4\% is classified as outliers and 51.2\% is kept as support vectors.
 
-In the prediction phase in order for an OCSVM model to decide whether a document is belonging to the target genre-class (or not) a \textit{decision function} is used. The decision function indicates the distance of the document, positive or negative, to the hyperplane separating the classes. In the case of OCSVM we are usually only interested whether the decision function is positive or negative for deciding if an arbitrary document belonging or not to the target class.
+In WGI we usually have multi-class classification problems. For each known class, a separate OCSVM model is extracted. Then, in the application phase, for each unknown sample, each OCSVM model decides whether the sample belongs to its class. In addition to a crisp decision, we also take into account the distance of the sample from the hyperplane as an indication of the confidence of this prediction. Finally, the unknown sample is assigned to the class with maximal confidence or left unclassified in case all OCSVM models reject it. 
 
-In this thesis the Ensemble form of the OCSVM is used and first proposed in \parencite{pritsos2013open}. The \textit{OCSVM Ensemble} (OCSVME\footnote{The OCSVM ensemble was implemented in Python using the \textit{scikit-learn} package found in http://scikit-learn.org}) is as analytically described in algorithm \ref{chap:openset:sec:alg:OCSVM_Ensemble}. In the case of the OCSVME, we are interested in the positive and negative decision of each ensemble's classifier, and the decision scores.
+This OCSVM approach to WGI was first introduced in \parencite{pritsos2013open} and it is analytically described in algorithm \ref{chap:openset:sec:alg:OCSVM_Ensemble} \footnote{The implementation of OCSVM in Python uses the \textit{scikit-learn} package.}.
 
-\hfill
-
-\begin{algorithm}[H][t]
+\begin{algorithm}[t]
 \caption{The \textit{OCSVM} algorithm.}\label{chap:openset:sec:alg:OCSVM_Ensemble}
 \KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
 		 $w$ an unknown webpage of the $W_{a}$ arbitrary webpages set,
@@ -224,16 +241,19 @@ $score[:, :]$=0, the score 2D matrix where rows are for genre's class tags and c
 
 \hfill
 
-In training phase of the ensemble one OCSVM is built for each known genre label. The hyper-parameter $\nu$ has the same value for all OCSVM models. In the prediction phase, the document is assigned to the class with the highest positive distance from the hyperplane (or the contour for OCSVM). If all OCSVMs return a negative distance (i.e. the web-page does not belong to this genre) the document remains unclassified, that is the final answer corresponds to "I Don't Know".
+Note that the same hyper-parameter $\nu$ value is used for all known genres. This value should be determined empirically. OCSVM is affected by the \textit{curse of dimensionality} which causes the generalization error to increase with the number of irrelevant and redundant features \parentcite{Erfani:2016}. The following open-set classification method attempts to avoid this problem.
 
+\subsection{Random Feature Subspacing Ensemble}\label{chap:openset:sec:RFSE_Description}
 
-\subsection{Random Feature Subpacing Ensemble}\label{chap:openset:sec:RFSE_Description}
+WGI tasks are usually associated with high dimensional data. In addition, the kind of features involved in text representation schemes are highly redundant and irrelevant. It is therefore crucial for an open-set classification method to handle the curse of dimensionality appropriately.
 
-The RFSE algorithm is a variation of the method presented by Koppel et al. \parencite{koppel2011authorship} for the task of \textit{Author Identification}. In the original approach, there is only one training example for each author and a number of simple classifiers is learned based on random feature subspacing. Each classifier uses the \textit{Cosine (or other) distance} to estimate the most likely author. It is more likely for the true author to be selected by the majority of the classifiers since the used subset of features will still be able to reveal that high similarity. That is, the style of the author is captured by many different features so a subset of them will also contain enough stylistic information. Since WGI is also a style-based text categorization task, this idea should also work for it.
+A distance-based open-set classification method has been introduced in \parencite{koppel2011authorship} aiming to handle the task of \textit{Author Identification} where similar types of problems exist with respect to WGI. In the original approach, there is only one training example for each known class and a number of simple classifiers is repetitively learned based on random feature subspacing (i.e., a randomly-selected number of features is used). Each classifier uses a similarity measure to estimate the most likely class for a given new sample. The main idea is that it is more likely for the true class to be selected by the majority of the classifiers since the used subset of features will still be able to reveal the high similarity. If, on the other hand, there is no prevailing class, then the new sample is not assigned to any of the known classes. Note that in author identification we are mainly interested about stylistic similarities. The style of the author (of genre) can be captured by many different features so a subset of them will also contain enough stylistic information (redundant features). Since WGI is also a style-based text categorization task, this idea should also work for it.
 
-\hfill
+In this thesis, we adopt this method for open-set WGI tasks \parencite{pritsos2013open}. In WGI there are multiple trainig samples for each known genre. To maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed for every known class by averaging all the representation vectors of the training examples of web pages belonging to the same genre.
 
-\begin{algorithm}[H][t]
+The class centroids are all formed for a given feature type. Then, an evaluation sample is compared against every centroid and this process is repeated $I$ times. Every time a different randomly-selected feature subset is used. Then, the scores are ranked from highest to lowest and we measure the number of times the sample is top-matched with every class. The sample is assigned to the genre with maximum number of matches given that this score exceed a predefined $\sigma$ threshold. In the opposite case, the sample remains unclassified, the RFSE responds "I Don't Know". The RFSE method is analytically described in Algorithm \ref{chap:openset:sec:alg:RFS-Ensemble}. 
+
+\begin{algorithm}[t]
 \caption{The \textit{RFSE} algorithm.}\label{chap:openset:sec:alg:RFS-Ensemble}
 \KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
 		 $w$ an arbitrary web-page of the $W_{a}$ arbitrary webpages set,
@@ -265,154 +285,78 @@ The RFSE algorithm is a variation of the method presented by Koppel et al. \pare
 }
 \end{algorithm}
 
-\hfill
+The number of iterations and the decision threshold should be derived empirically. With respect to the similarity function used by the algorithm, there are several choices. In this thesis, we examine three options. First, the \textit{cosine similarity}, a typical selection in text mining tasks since it can easily handle high-dimensional and sparse vectors. Then, the \textit{MinMax similarity}, inspired by the excellent results reported by \parencite{koppel2014determining} in another style-based text categorization task. These two similarity measures for vectors of dimensionality $n$ are defined as follows:
 
-In this thesis the RFSE method is adopted, as introduced in \parencite{pritsos2013open} and shown in \textit{Algorithm \ref{chap:openset:sec:alg:RFS-Ensemble}}. There are multiple training examples for each available class. To maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors of the training examples of web pages for each genre.
+\begin{equation}
+\label{eq:cosine}
+cosine(\vec{x},\vec{y})= \frac{\displaystyle \sum_{i=1}^{n} x_i,y_i}{(\displaystyle \sum_{i=1}^{n} x_i^2)^\frac{1}{2}×(\displaystyle \sum_{i=1}^{n} y_i^2)^\frac{1}{2}}
+\end{equation}
 
-The class centroids are all formed for a given feature type. Then, an evaluation sample is compared against every centroid and this process is repeated $I$ times. Every time a different feature sub-set is used. Then, the scores are ranked from highest to lowest and we measure the number of times the sample is top-matched with every class. The sample is assigned to the genre with maximum number of matches given that this score exceed a predefined $\sigma$ threshold. In the opposite case, the sample remains unclassified, the RFSE responds "I Don't Know".
+\begin{equation}
+\label{eq:minmax}
+minmax(\vec{x},\vec{y})=\frac{\displaystyle \sum_{i=1}^{n}(min(x_i,y_i))}{\displaystyle \sum_{i=1}^{n} (max(x_i,y_i))}	\end{equation}
 
-With respect to the similarity function, we examine cosine similarity (similar to \parencite{pritsos2013open}) and MinMax similarity (inspired by \parencite{koppel2014determining}). Moreover, measure that combines these two similarity functions, can be used. Then the most confident measure can be used in each iteration. More specifically, since Cosine and MinMax may have different mean and standard deviation for the set of all evaluation samples and all iterations per sample. Note that their values should first be normalized. Then, for each evaluation sample and each iteration we select the one with maximum normalized value. We call this similarity measure \textit{Combo}.
+Finally, we introduce an approach that combines these two similarity functions. The idea is that the most confident measure can be used in each iteration. More specifically, since cosine and MinMax may have different mean and standard deviation for the set of all evaluation samples and all iterations per sample, their values should first be normalized. Then, for each evaluation sample and each iteration we select the one with maximum normalized value. We call this \textit{Combo} similarity measure.
 
 \subsection{Nearest Neighbors Distance Ratio}\label{chap:openset:sec:NNRD_Description}
 
-The \textit{Nearest Neighbors Distance Ratio} (NNRD\footnote{The implementation of the NNRD algorithm can be found at \url{https://github.com/dpritsos/OpenNNDR}, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.}) algorithm has been proposed as open-set algorithm by \parencite{mendesjunior2016}. In this thesis a specialized version has been implemented for the WGI task. In the original approach euclidean distance has been used because of the variation of data set on which the algorithm has been evaluated. In this thesis cosine distance is used, because in text classification is being confirmed to be the proper choice in hundreds of publications. Moreover, the cosine distance is comparable to the results of the \textit{Random Feature Sub-spacing Ensemble} algorithm found in \parencite{pritsos2018open} and also is tested in the open-set experiments of this thesis found in chapter \ref{chap:noise}.
+The approaches we consider so far use the positive training instances for the available known classes and do not attempt to estimate the open space risk. However, the distribution of known classes could be used as an indication about the existence of other unknown classes. The next algorithm attempts to follow this direction.
 
-The NNRD algorithm is an extension of the simple \textit{Nearest Neighbors} NN algorithm where additionally to the sets of training vectors (one set for each class) a threshold is selected by maximizing the \textit{Normalized Accuracy} (NA) as shown in equation\ref{chap:openset:sec:eq:NA}) on the \textit{Known} and the \textit{Marked as Unknown samples}.
+The Nearest Neighbors Distance Ratio (NNRD) algorithm is an open-set classification algorithm introduced in \parentcite{mendesjunior2016}, which in turn, is an extension upon the \textit{Nearest Neighbors} (NN) algorithm. The main idea is that if the new sample lies close to the training samples of a known class and far away from the closest samples of other known classes, then it most likely belongs to that class. If, on the other hand, the new sample is more or less equally distanced from the closest classes, then it should not be assigned to none of them. More formally, let $d(x,y)$ be the distance between two samples $x$ and $y$. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. Then, if the ratio: 
 
-\begin{equation} \label{chap:openset:sec:eq:NA}
-    NA = \lambda A_{KS} + (1 - \lambda) A_{MUS}
+\begin{equation}
+    \frac{d(s,t)}{d(s,u)}
 \end{equation}
 
-\noindent
-where $A_{KS}$ is the \textit{Known Samples Accuracy} and $A_{MUS}$ is the \textit{Marked as Unknown Samples Accuracy}. The balance parameters $\lambda$ regulates the mistakes trade-off on the known and marked-unknown samples prediction.
+\nointend is higher than a predefined threshold, the new sample is classified to the class of $s$. Otherwise, it is left unclassified. An analytical description of this approach is presented in Algorithm \ref{alg:NNDR_algorithm} \footnote{The implementation of the NNRD algorithm can be found at \url{https://github.com/dpritsos/OpenNNDR}, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.}. 
 
-The optimally selected threshold is the the \textit{Distance Ratio Threshold} (DRT) where NA is maximized. Equation \ref{eq:DR} is used for calculating the Distance Ratio (DR) of the two nearest class samples, say $s_{c_{a}}$ and $u_{c_{b}}$, to a random sample $r_{x}$ under the constrain $c_{a} \neq c_{b}$, where $c_{g}$ is the sample's class.
-
-It is very important to note that the $c_{g}$ is trained in an open-set framework, therefore, the samples pairs selected for comparison might either be from the known of the marked as unknown samples. Thus $g \in {1,2,...,N}$ and $g = \emptyset$ when samples is marked as unknown.
-
-\begin{equation} \label{eq:DR}
-    DR = \frac{D(r_{x}, s_{c_{a}})}{D(r_{x}, s_{c_{b}})}
-\end{equation}
-\noindent
-where $D(x,y)$ is the distance between the samples where in this study is the \textit{Cosine Distance}.
-
-Therefore, the fitting function of the NN algorithm, described in pseudo-code \ref{chap:openset:alg:NNDR_fitting}, is the optimization procedure to find the DRT values for classes respective sets of training samples where NA is maximized.
-
-\hfill
-
-\begin{algorithm}[H][t]
-\caption{\textit{Nearest Neighbor Distance Ratio} training data fitting function}\label{chap:openset:alg:NNDR_fitting}
-\KwData{$G$ the set of genre class tags $\{1,2,...,N\}$,
-        $p$ the hyper-parameter regulates the percentage of $G$ tags will be marked as unknown,
-        $k$ the hyper-parameter regulates the percentage of known $G$ tags that will be keept for validation only,
-        $T$ the \textit{Distance Ratio} thresholds set than will test for finding the one which is minimizing the \textit{Normalized Accuracy},
-        $\lambda$ regulates the mistakes trade-off on the known and marked-unknown samples prediction (see eq.\ref{eq:DR}),
-        $C[g]$ the matrix of class vector sets one for every genre class tag $g \in G$}
-\KwResult{$DRT$ the \textit{Distance Ration Threshold} calculated by the NNRD algorithm's fitting function, $C[g]$}
-
-$K^{G}_i, K^{G}_{validation}_i, U^{G}_{validation}_i, I^{G} = Split(G,p,k)$ splitting the $G$ tags in to known/unknown samples combinations using the $p$ and $k$ hyper-parameters. The amount of split combinations is calculated by the equations \ref{eq:splt_percent} and \ref{eq:splt}.\;
-
-$V^{G} = U^{G}_{validation} \cup K^{G}_{validation}$ the validation set is the union of the $I$ splits of the known-validation and the marked-as-unknown sets, of the whole training set\;
-
-\For{each $i \in I$}{
-    $D^{cos}_{VK}[i] = COS_{D}(V^{G}_i, K^{G}_i)$ calculating all the Cosine Distances between the web-page of $K^{G}$ and $V^{G}$ sets for \textit{every $I$ split combination};
-}
-
-$Ci^{min}_{A} = argmin(D^{cos}_{VK})$ getting the indices of the closest classes from $V$\;
-$Ci^{min}_{B} = argmin(D^{cos}_{VK})$ getting the indices of the \textit{second closest} classes from $V$\;
-
-$R_{V} = D^{cos}_{VK}[Di^{min}_{A}] / D^{cos}_{VK}[Di^{min}_{B}]$ calculating the Distance Rations $R$ for all the vectors in $V$
-
-$NA^{max} \gets 0$ initializing \textit{Maximized Normalized Accuracy} with $0$ value.
-$DRT \gets 0$ initializing \textit{Distance Ratio Threshold} with $0$ value.
-
-\For{each $drt \in T$}{
-
-    \For{each $r, i \in \{R_{V}, count(R_{V})\}$}{
-
-        \eIf{$r < drt$}{
-            $vi = Ci^{min}_{A}[i]$ keep the respective index\;
-            $Y[i] = G[vi]$ setting the genre's class tag as prediction for this random vector of set $V$\;
-        }
-        {
-            $Y[i] = \emptyset$ setting as none of the known genres or "I don't know"\;
-        }
-
-    }
-
-    $NA_{V} = NormalizedAccuracy(Y, R_{V})$ calculating the Normalized Accuracy as shown in equation \ref{eq:NA} for tested threshold $drt$\;
-
-    \eIf{$NA_{V} > NA^{max}$}{
-        $NA^{max} \gets NA_{V}$ keeping the maximum $NA$ until the outer for-loop finishes\;
-        $DRT \gets drt$ keeping the \textit{Distance Ratio Threshold} maximizes the \textit{Normalized Accuracy}\;
-    }
-
-}
-
-\end{algorithm}
-
-\hfill
-
-In the optimization procedure the training samples are split based on their class tags $c_{x}$. Then some class tags are \textit{marked as unknown} and some are left being known. Therefore, all the samples of the marked as unknown are used only in the validation subset while the known class tags samples are farther split into the classes sets (one for each class) and into the known validation set. Then, samples of the validation sets, both then known and then marked as unknown, are used seamlessly for calculating the set of Distance Rations (one for each class). Afterwards, a set of DRT values are tested given a range of values $R \in {t_{1}, t_{2}, t_{n}}$ beforehand where the $t_{x}$ is selected which is maximizing the NA of the validation set.
-
-The splitting procedure the of the training set is regulated by a hyper-parameter $p$ which defines the percentage of the class tags set $g \in {1,2,...,N}$ where they will be marked as unknown. Then the total number of all possible splitting combination are calculated and these split-sets are used for finding the DRT. The combination are found using equations \ref{eq:splt_percent} and \ref{eq:splt}, where eq.\ref{eq:splt} is the \textit{Binomial Coefficient}.
-
-\begin{equation} \label{eq:splt_percent}
-    U_{num} = int(N * p)
-\end{equation}
-
-\noindent
-where $N$ is the size of the class tags set ${1,2,...,N}$ and $p$ is the percentage regulation parameter for keeping the number of tags to be marked as unknown.
-
-\begin{equation} \label{eq:splt}
-    S_{num} = \frac{N!}{U_{num}!(N-U_{num})!}
-\end{equation}
-
-The NNDR is a open-set classification algorithm, therefore, every random sample will be classified to one of the classes the NNRD has been fitted or to the unknown when its DR is greater then DRT. While training as explained above the DRT values are tested incrementally until the optimal data fitting for the training function.
-
-In prediction phase the DRT is passed to the NNDR prediction function together with the random samples and the training samples as shown in pseudo-code \ref{alg:NNDR_prediction}.
-
-\hfill
-
-\begin{algorithm}[H][t]
-\caption{\textit{Nearest Neighbor Distance Ratio} prediction function}\label{alg:NNDR_prediction}
-\KwData{ $W$ the vector set of the random web-page to be classified,
-         $C[g]$ the matrix of class vector sets one for every genre class tag $g \in G$,
-		 $DRT$ the \textit{Distance Ration Threshold} calculated by the NNRD algorithms fitting function}
-\KwResult{ $Y \in \{G,\,\emptyset\}$,
-           $R$ the Distance Ratio scores vector, one score for every input vector of the random set $W$}
+\begin{algorithm}[t]
+\caption{The \textit{NNDR} algorithm}
+\label{alg:NNDR_algorithm}
+\KwData{ $G$ a genre palette and $W_{g}$ a set of known web-pages for each $g \in G$,
+		 $w$ an arbitrary web-page of the $W_{a}$ arbitrary web-pages set,
+		 $DRT$ the distance ratio threshold}
+\KwResult{ $r \in \{G,\,\emptyset\}$ }
 
 \For{each $g \in G$}{
-    $D^{cos}_{C_{g}X} = COS_{D}(C[g], X)$ calculating all the Cosine Distances between the random web-page vectors and the class vectors of class $g$\;
-}
-
-$Ci^{min}_{A} = argmin(D^{cos}_{C_{g}W})$ getting the indices of the closest classes from $W$\;
-$Ci^{min}_{B} = argmin(D^{cos}_{C_{g}W})$ getting the indices of the \textit{second closest} classes from $W$\;
-
-$R_{W} = D^{cos}_{C_{g}W}[Di^{min}_{A}] / D^{cos}_{C_{g}W}[Di^{min}_{B}]$ calculating the Distance Rations $R$ for each vector $w \in W$
-
-\For{each $r, i \in \{R_{W}, count(R_{W})\}$}{
-
-    \eIf{$r < DRT$}{
-        $i_{g} = Ci^{min}_{A}[i]$ keep the respective index\;
-        $w_{i} = G[i_{g}]$ setting the genre's class tag as prediction for this web-page $w_{i} \in W$\;
-    }
-    {
-        $w_{i} = \emptyset$ setting as \textit{unknown} (or "I don't know") the class tag of this web-page \;
-    }
-
-}
+    \For{each $x \in W_g$}{
+        $D[x] = distance(x,w)$, calculate the distance between the new web-page and the known class samples\;}
+    $M[g] = minimum(D[:])$, find the minimum distance per known class\;}
+$nearestNeighbor = minimum(M[:])$, find the nearest neighbor\;
+$nearestClass = index(nearest_neighbor, M[:]$, find the nearest class\;
+$remove(M[nearestClass],M[:])$, remove nearest class\;
+$secondNearest = minimum(M[:])$, find the second nearest neighbor of another class\;
+\eIf{$\frac{nearestNeighbor}{secondNearest} < DRT$}{
+    $r = nearestClass$, assign $w$ to the nearest class\;}
+    {$r = \emptyset$, leave $w$ unclassified\;}
 
 \end{algorithm}
 
-\hfill
+The original approach uses the Euclidean distance to find the closest neighbors. In this thesis, we use the cosine distance (i.e., 1 - cosine similarity) to better suit the properties of high dimensional and sparse data usually found in WGI tasks. 
 
-\section{Summary}\label{chap:openset:sec:NNRD_Description}
+NNDR needs a way to estimate the threshold that is appropriate for a given dataset. While traditional NN approaches in the training phase are practically idle, NNDR attempts to determine an appropriate threshold. It is remarkable that, in contrast to other open-set classifiers, training of NNDR requires both known samples (belonging to classes known during training) and unknown examples (belonging to other/unknown classes) of interest. In more detail, the \textit{Distance Ratio Threshold} (DRT) used to classify new samples is adjusted by maximizing the \textit{Normalized Accuracy} (NA):
 
-In this section the three implementation of open-set algorithms are presented which they are specialized for the WGI task, however, they can work also in different open-set domains. The definition of the open-set framework in the identification and the multi-class classification, forms.
+\begin{equation}
+\label{eq:normalized_accuracy}
+NA = \lambda A_{KS} + (1 - \lambda) A_{US}
+\end{equation}
 
-In the context of the open-set framework and multi-class classification the \textit{Structured and Unstructured Noise} is defined for the first time. These definition are standing on the definition of the four special sample cased in the open-set framework. These definitions are expanding the \textit{Positive} and \textit{negative} categories of the samples found on the closed set scenarios with the \textit{Known} and \textit{Unknown} cases. 
+\nointend where $A_{KS}$ is the accuracy on known samples and $A_{US}$ is the accuracy on unknown samples. The parameter $\lambda$ regulates the mistakes trade-off on the known and unknown samples prediction. Since usually in training phase only samples of known classes are available, Mendes et al. proposed an approach to repeatedly split available training classes into two sets (i.e., known and "simulated" unknown) \parentcite{mendesjunior2016}. 
 
-The difference of the One-Class classification (and Novelty Detection) with the Open-set Classification is clarified and defined. Also, the \textit{Openness} of the problem is initially discussed which is indicating the level of difficulty of an open-set problem, where its score measurement method is discussed farther in chapter \ref{chap:eval_methods}.
+In this thesis we adapt the threshold estimation process to work as follows. During the training phase the known classes are split into two sets $\mathcal{C}_K$ and $\mathcal{C}_{U}$ according to a predefined ratio $p_1$. The latter is used as the simulated unknown classes. In addition, the samples $K_c$ of each class $c \in \mathcal{C}_K$ are split into two parts $K_c^F$ and $K_c^V$ according to another predefined ratio $p_2$. The former is used as the fitting set and the latter is used as the validation set of known classes. Thus, the original training set is split into two parts the fitting set (containing the $p_2$ of the positive instances of each $c \in \mathcal{C}_K$) and the validation set (including the $(1-p_2)$ of the positive instances of each $c \in \mathcal{C}_K$ and all positive instances of each $c \in \mathcal{C}_U$). 
 
-Finally, the three major issues are captured using these three algorithms developed in this thesis; the luck of negative samples with the OCSVME, the noise tolerance with the RFSE, and the regularization of the open space risk with the NNDR. Although, the last is requiring the \textit{Distributional Features (an Neural Language Modeling)} input, discussed in chapter \ref{chap:word_embeddings}, for satisfying the its requirements of the WGI task.
+Then, a given range of DTR values is examined. The NNDR algorithm is called for each DTR value and the fitting set to estimate the class of each member of the validation set. That way, it is possible to calculate the $A_{KS}$ and $A_{US}$ in formula \ref{eq:normalized_accuracy} and the DTR value that maximizes normalized accuracy can be estimated. This process is repeated for all possible splits of the known classes set. In particular, given that $n = |\mathcal{C}|$ is the amount of known classes the number of splits is taken by the binomial coefficient:
+
+\begin{equation} \label{eq:splt}
+    splits(n,p_1) = \frac{n!}{\floor*{p_1n}!\floor*{(1-p_1)n}!}
+\end{equation}
+
+For example, in case we have 8 known genres and a splitting ratio $p_1=0.25$, the number of possible splits is 56. Finally the DTR value that optimizes the normalized accuracy over all splits is extracted. Note that by considering a subset of known classes as noise, the NNDR algorithm attempts to directly model the open space risk. This comes with a considerable increase in training time of the algorithm. 
+
+\section{Conclusions}\label{chap:openset:sec:NNRD_Description}
+
+In this Chapter, we described three open-set classification algorithms that can be used to WGI tasks. The first method (OCSVM) follows the OCC paradigm and constructs a separate model for each known class by only considering positive instances of that class. This is a general approach that can also be used in any type of open-set classification task. In addition, this approach is expected to suffer from the curse of dimensionality, a common feature of representation schemes usually adopted in WGI. Our goal is to use this general-purpose approach as baseline for other more sophisticated methods that better suit the WGI properties.
+
+Another proposed method (RFSE) attempts to avoid to take advantage of the curse of dimensionality focusing on random subsets of features and construct an ensemble of classifiers. Given that in style-based text categorization tasks, the representation vectors are composed by large amounts of redundant and irrelevant features, it is likely that a random subset of features will still contain enough distinguishing stylistic characteristics. The consistency of indicating a certain known genre as the most likely in the majority of such feature subsets is a strong indication of class membership. This method seems very suitable for WGI tasks. 
+
+The last proposed method (NNDR) attempts to directly model the open space risk examining the distribution of known classes and defining simulated unknown classes. This also decreases the training phase efficiency of the method. However, given that the original NN method has zero training phase requirements, the introduced cost is not unbearable in comparison to the training time cost of other alternative classifiers. As a descendant of NN, this method also inherits its well-known problems, most crucially the difficulty to handle high-dimensional representation schemes with irrelevant features. It seems that NNDR can be effective for WGI given that an appropriate feature set is provided.
