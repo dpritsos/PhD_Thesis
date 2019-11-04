@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  3 NOV 2019 22:06
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  4 NOV 2019 15:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3127,14 +3127,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 1: section
-[67] [68]
-
-LaTeX Warning: Reference `chap:eval_methods:tbl:prec_rec_f1_example' on page 69 undefined on input line 105.
-
-
-LaTeX Warning: Reference `chap:eval_methods:tbl:closed_vs_open' on page 69 undefined on input line 105.
-
-[69]
+[67] [68] [69]
 ./Chapters/Evaluation_methodology.tex:115: Extra alignment tab has been changed to \cr.
 <template> \endtemplate 
                         
@@ -3743,10 +3736,10 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 57894 strings out of 493007
- 1325623 string characters out of 6136720
+ 57892 strings out of 493007
+ 1325542 string characters out of 6136720
  1749100 words of memory out of 5000000
- 61052 multiletter control sequences out of 15000+600000
+ 61050 multiletter control sequences out of 15000+600000
  638345 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  82i,21n,128p,10452b,6108s stack positions out of 5000i,500n,10000p,200000b,80000s
