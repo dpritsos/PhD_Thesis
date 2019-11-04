@@ -84,13 +84,15 @@ It is also important to note that precision and recall as well as F-score are ca
 	R_{macro} = \frac{1}{|\mathcal{C}|} \sum_{c \in \mathcal{C}}{R_c}
 \end{equation}
 
-\noindent where $|\mathcal{C}|$ is the number of known classes. Accordingly, the \textit{macro F-score} can be calculated: 
+\noindent 
+where $|\mathcal{C}|$ is the number of known classes. Accordingly, the \textit{macro F-score} can be calculated: 
 
 \begin{equation}\label{chap:eval_methods:eq:macro-F}
 	F_{macro} = \frac{1}{|\mathcal{C}|} \sum_{c \in \mathcal{C}}{F_c}
 \end{equation}
 
-\noindent where $F_c$ is the F-score for the class $c \in \mathcal{C}$. Alternatively, one can also calculate \textit{micro-averaged precision}, \textit{micro-averaged recall}, and \textit{micro-averaged F-score}. In that case, all data samples are taken together and a single precision and recall value is calculated for all classes cumulatively. TPs correspond to correct predictions, i.e., the diagonal values in the confusion matrix.  All other cells of the confusion matrix are considered as both FPs and FNs (i.e., when a sample of class X is miss-classified to class Y this is a FN for X and a FP for Y). Thus, micro-Precision will be equal to micro-Recall and their harmonic mean  ($F_{1}$) will also be the same. Actually, micro-averaged $F_{1}$ is also equal to the accuracy measure. Consequently, F_{micro} is strongly dependent on the distribution of samples over the classes. On the other hand, F_{macro} gives equal weight to all classes.
+\noindent 
+where $F_c$ is the F-score for the class $c \in \mathcal{C}$. Alternatively, one can also calculate \textit{micro-averaged precision}, \textit{micro-averaged recall}, and \textit{micro-averaged F-score}. In that case, all data samples are taken together and a single precision and recall value is calculated for all classes cumulatively. TPs correspond to correct predictions, i.e., the diagonal values in the confusion matrix.  All other cells of the confusion matrix are considered as both FPs and FNs (i.e., when a sample of class X is miss-classified to class Y this is a FN for X and a FP for Y). Thus, micro-Precision will be equal to micro-Recall and their harmonic mean  ($F_{1}$) will also be the same. Actually, micro-averaged $F_{1}$ is also equal to the accuracy measure. Consequently, $F_{micro}$ is strongly dependent on the distribution of samples over the classes. On the other hand, F_{macro} gives equal weight to all classes.
 
 \subsection{Open-set Variants of Evaluation Measures}
 
@@ -104,9 +106,9 @@ Similar to open-set macro-averaged scores, open-set micro-averaged precision, re
 
 We provide an illustrating example that demonstrates the difference between traditional evaluation measures and their open-set variance. Table \ref{chap:eval_methods:tbl:multi_confusion} shows an example of a confusion matrix for an open-set classification task with four known classes ($\mathcal{C}=\{A,B,C,D\}$). In WGI, this could correspond to a genre palette of four known genres (e.g. blogs, e-shop, home pages, discussion) for which training samples are available. As can be seen, there are 20 evaluation samples for each known class and 200 samples of the unknown class ($\emptyset$). This is realistic since in practice noise is expected to outnumber any given known genre. Correct predictions (TPs) are in boldface. Table \ref{chap:eval_methods:tbl:macro_vs_micro} shows the precision, recall, and $F_{1}$ scores for all, both known and unknown, classes. In addition, Table \ref{chap:eval_methods:tbl:macro_vs_micro} demonstrates the traditional macro-averaged and micro-averaged precision, recall, and $F_{1}$ as well as their corresponding open-set variant. Note that in the former the set $\mathcal{C} \cup \emptyset$ is used while in the latter is based on $\mathcal{C}$. 
 
-The table \ref{chap:eval_methods:tbl:bin_confusion} has $140$ total samples which is equal either the the row-sums or the column-sums are summed up. In the case of open-set classification some of the samples are remaining as non-classification or as \textit{unknown} where there is no class trained for them. 
+The table \ref{chap:eval_methods:tbl:bin_confusion} has $280$. In the case of open-set classification some of the samples from the known classes are remaining as non-classification, i.e as \textit{unknown}. Their total number is $24$ (the same of the last row without the 180 noise samples). The total number of the $200$ noise/unknown samples are either left (correctly) unclassified (as unknown) or are mixed as one of the known classes. In this case $20$ of them, where is the some of the last column without the $180$ noise pages.
 
-In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample distributed in a seven (7) classes and also with 42 of them remaining as unclassified. Given these cases, the respective per class, macro and micro recall for this confusion matrix are calculated and shown in table \ref{chap:eval_methods:tbl:macro_vs_micro}.
+% In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample distributed in a seven (7) classes and also with 42 of them remaining as unclassified. Given these cases, the respective per class, macro and micro recall for this confusion matrix are calculated and shown in table \ref{chap:eval_methods:tbl:macro_vs_micro}.
 
 \begin{table}[t]
 	\center
@@ -132,26 +134,26 @@ In table \ref{chap:eval_methods:tbl:multi_confusion} there are still 140 sample 
 \begin{table}[H][t]
 	\center
 	\caption{Macro and Micro calculation for the Confusion matrix (Table \ref{chap:eval_methods:tbl:multi_confusion}) of multi-class classification}\label{chap:eval_methods:tbl:macro_vs_micro}
-	\begin{tabular}{l l l}
-		\cline{2-3}
-		& \multicolumn{1}{|c}{Precision} & \multicolumn{1}{c|}{Recall}\\
-		\cline{1-3}
-		\multicolumn{1}{|c}{A} & \multicolumn{1}{|c}{0.866} & \multicolumn{1}{c|}{0.650}\\
-		\multicolumn{1}{|c}{B} & \multicolumn{1}{|c}{0.476} & \multicolumn{1}{c|}{0.500}\\
-		\multicolumn{1}{|c}{C} & \multicolumn{1}{|c}{1.000} & \multicolumn{1}{c|}{0.400}\\
-		\multicolumn{1}{|c}{D} & \multicolumn{1}{|c}{0.625} & \multicolumn{1}{c|}{1.000}\\
-		\multicolumn{1}{|c}{\emptyset} & \multicolumn{1}{|c}{0.882} & \multicolumn{1}{c|}{0.900}\\
-		\cline{1-3}
-		\multicolumn{1}{|c}{Macro ($\mathcal{C}$)} & \multicolumn{1}{|c}{0.741} & \multicolumn{1}{c|}{0.638}\\
-		\multicolumn{1}{|c}{Macro ($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.770} & \multicolumn{1}{c|}{0.690}\\
-		\multicolumn{1}{|c}{Micro ($\mathcal{C}$)} & \multicolumn{1}{|c}{0.632} & \multicolumn{1}{c|}{0.600}\\
-		\multicolumn{1}{|c}{Micro ($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.825} & \multicolumn{1}{c|}{0.825}\\
-		\cline{1-3}
+	\begin{tabular}{c c c c}
+		\cline{2-4}
+		& \multicolumn{1}{|c}{Precision} & \multicolumn{1}{c}{Recall} & \multicolumn{1}{c|}{$F_{1}$}\\
+		\cline{1-4}
+		\multicolumn{1}{|l}{Class A} & \multicolumn{1}{|c}{0.866} & \multicolumn{1}{c}{0.650} & \multicolumn{1}{c|}{0.743}\\
+		\multicolumn{1}{|l}{Class B} & \multicolumn{1}{|c}{0.476} & \multicolumn{1}{c}{0.500} & \multicolumn{1}{c|}{0.488}\\
+		\multicolumn{1}{|l}{Class C} & \multicolumn{1}{|c}{1.000} & \multicolumn{1}{c}{0.400} & \multicolumn{1}{c|}{0.571}\\
+		\multicolumn{1}{|l}{Class D} & \multicolumn{1}{|c}{0.625} & \multicolumn{1}{c}{1.000} & \multicolumn{1}{c|}{0.769}\\
+		\multicolumn{1}{|l}{\textbf{Noise $\emptyset$}} & \multicolumn{1}{|c}{0.882} & \multicolumn{1}{c}{0.900} & \multicolumn{1}{c|}{0.891}\\
+		\cline{1-4}
+		\multicolumn{1}{|l}{Macro ($\mathcal{C}$)} & \multicolumn{1}{|c}{0.741} & \multicolumn{1}{c}{0.638} & \multicolumn{1}{c|}{0.686}\\
+		\multicolumn{1}{|l}{Macro ($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.770} & \multicolumn{1}{c}{0.690} & \multicolumn{1}{c|}{0.727}\\
+		\multicolumn{1}{|l}{Micro ($\mathcal{C}$)} & \multicolumn{1}{|c}{0.632} & \multicolumn{1}{c}{0.600} & \multicolumn{1}{c|}{0.616}\\
+		\multicolumn{1}{|l}{Micro ($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.825} & \multicolumn{1}{c}{0.825} & \multicolumn{1}{c|}{0.825}\\
+		\cline{1-4}
 	\end{tabular}
 \end{table}
 
 
-Clearly the is a significant difference in the macro-P compare to the micro-P and for this case, micro and macro recalls are have both $0.500$ score. It should be noted that due to the 42 samples of the 140 that haven't been classified at all there is bias over precision score when its micro score is calculated. Moreover, there is problem in calculation of the recall based in the equation form \ref{chap:eval_methods:eq:recall} because in the closed set classification the denominator is equal to the total number pf samples that we know they are under the distribution of the class we are evaluating for. 
+Clearly the is a significant difference between the $P_{macro}$ and $P_{micro}$, also for $R_{macro}$ and $R_{micro}$. Moreover, there is problem in calculation of the recall based in the equation form \ref{chap:eval_methods:eq:recall} because in the closed set classification the denominator is equal to the total number corpus samples, under the distribution of the class we are evaluating for. 
 
 The recall calculation issue is cased because of the open-set framework and the sample are renaming out of the classification processing because of the rejection criterion of an open-set algorithm. In order to calculate the recall we are following the theoretical definition of the this score which is formally expressed in equation \ref{chap:eval_methods:eq:recall_theory}.
 
@@ -159,9 +161,11 @@ The recall calculation issue is cased because of the open-set framework and the 
 	R = \frac {\text{The sum of correctly classified samples}} {\text{The total number of distribution's testing samples}}
 \end{equation}
 
-Thus in the case of \textit{micro-R} is the denominator is equal to the total number of all samples of the data-set. In the \textit{macro-R} case, is the number of the class-samples for every class separately and then the average score recall score of all classes.
+Thus in the case of $R_{micro}$ is the denominator is equal to the total number of all samples of the data-set. In the $R_{macro}$ case, is the number of the class-samples for every class separately and then the average score recall score of all classes.
 
-In the table \ref{chap:eval_methods:tbl:multi_confusion} the micro recall show that only the $50\%$ of the total samples have been correctly classified and the $98/140 = 70\%$ of the total samples have been classified while the rest has been remained as \textit{unknown}. The macro recall is also $0.500$ based on the separated evaluation for every different class.
+In the table \ref{chap:eval_methods:tbl:multi_confusion} the $R_{micro}$ show that only the $60\%$ have been correctly classified from the total samples. This is the case, when calculated in the open-set special evaluation case (ie. $\mathcal{C}$). On the other hand when, the noise/unknown samples are included there is a great difference and the $83\%$ shown to be correctly classified. The same applies to the $P_{micro}$ scores.
+
+On the contrary, the $P_{macro}$ and $R_{macro}$ are more stable in either case, i.e. whether or not the calculation includes the unknown/noise samples.
 
 However, the precision is much more accurate in the case of macro compare to the micro because the micro precision is bias for the algorithms positive performance since the rejected samples (characterized as unknown) are not calculate in the precision performance or their are not causing any kind of penalty to the precision score. In addition the proper calculation of recall (micro and macro) as explained above will not differ in the extend of regulating the F-score.
 
