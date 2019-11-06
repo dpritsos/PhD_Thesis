@@ -167,11 +167,11 @@ In the table \ref{chap:eval_methods:tbl:multi_confusion} the $R_{micro}$ show th
 
 On the contrary, the $P_{macro}$ and $R_{macro}$ are more stable in either case, i.e. whether or not the calculation includes the unknown/noise samples.
 
-However, the precision is much more accurate in the case of macro compare to the micro because the micro precision is bias for the algorithms positive performance since the rejected samples (characterized as unknown) are not calculate in the precision performance or their are not causing any kind of penalty to the precision score. In addition the proper calculation of recall (micro and macro) as explained above will not differ in the extend of regulating the F-score.
+In respect of $F1_{macro}$ without the unknown/noise compare to the respective micro score, there is a realistic performance presentation for the performance of an algorithms. At least the what one can understand using only one number. In any case, The macro scores are then less biased for the the open-set framework evaluation.  
 
-The macro scores are then less biased for the the open-set framework evaluation. Moreover, in the highly imbalanced corpora also the macro scoring is reported to be more realistic and less biased. Due to the above reasoning the macro-P, macro-R, and Macro-F1 will mainly be the evaluation measure is used in this thesis.
+The $P_{macro}$, $P_{macro}$, $P_{macro}$, are the evaluation measures is used in this thesis. However, a single number is not enough for evaluating an algorithm especially in the case of the open-set framework. The main reason is the sensitivity (of micro scores) in the imbalanced samples distributions. Moreover, the bias of the mean values, in case the performance on the unknown/noise data is included or excluded and the $F_{1}$ score itself where it has been shown to be merely biased for the Precision (there is a citation for this). 
 
-In the next chapter the Precision Recall Curves will be presented where it is more vivid the effect of the micro and macro measurement. That is there it is clear the bias over the precision in the algorithm's performance because of the open-set algorithm criterion.
+A more effective evaluation methodology is the the Precision Recall Curves, which they will be presented in the next section. There, the micro and macro bias will be shown more vividly.
 
 
 \subsection{Precision-Recall Curves}\label{chap:eval_methods:sec:roc_prc}
@@ -223,7 +223,7 @@ In table \ref{chap:eval_methods:tbl:prc} it is shown an sequence of calculation 
 	\end{center}
 \end{figure}
 
-The two curves yielding from this calculations, micro and macro PRC are shown in figure \ref{chap:eval_methods:fig:prc_macro}. Clearly, the micro-PRC is misleading compare to the macro-PRC and the results of table \ref{chap:eval_methods:tbl:macro_vs_micro}. 
+The two curves yielding from this calculations, micro and macro PRC are shown in figure \ref{chap:eval_methods:fig:prc_macro}. Clearly, the micro-PRC is misleading compare to the macro-PRC and the results of table \ref{chap:eval_methods:tbl:macro_vs_micro}.
 
 The macro-P is measures (in table \ref{chap:eval_methods:tbl:macro_vs_micro}) are leading to the conclusion of a low performance algorithm, especially for the recall score. On the contrary the micro-P is leading to the conclusion of a high performance algorithm, which we know that it is not true, form the confusion matrix of \ref{chap:eval_methods:tbl:multi_confusion}.
 
@@ -240,8 +240,7 @@ These, Micro-PRC (and some time in Macro-PRC) 'irregular' properties are only me
 
 \section{Area Under the Curve (AUC)}\label{chap:eval_methods:sec:closed_set_classification} 
 
-In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Under the Curve (AUC)} and F1 are presented. The AUC is a common values is used when several PRC's needs to be compared. As an example, to find parameter settings that obtain optimal evaluation performances for the open-set algorithms, the AUC for the PRC's of figure \ref{chap:eval_methods:fig:prc_macro} can be calculated. 
-
+In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Under the Curve (AUC)} and F1 are presented. The AUC is a common values is used when several PRC's needs to be compared. As an example, to find parameter settings that obtain optimal evaluation performances for the open-set algorithms, the AUC for the PRC's of figure \ref{chap:eval_methods:fig:prc_macro} can be calculated.
 
 \begin{table}[t]
 	\center
