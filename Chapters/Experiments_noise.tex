@@ -1,7 +1,7 @@
 %!TeX spellcheck = en-US
 
 %\chapter{Handling the Noise of the Web-Genres}
-\chapter{Experimental Open-set Framework Effectiveness Evaluation on Noise}
+\chapter{Experimental Analysis of Open-set WGI Methods}
 
 \label{chap:noise}
 
@@ -18,16 +18,19 @@
 
 \section{Introduction}\label{chap:noise:sec:intro}
 
-\section{Noise vs Outages on Open-set Classification}\label{chap:noise:sec:noise_vs_outages}
+Based on the evaluation framework described in the previous chapter, it is now possible to evaluate the open-set WGI algorithms presented in chapter \ref{chap:openset}. Certainly, any kind of empirical evaluation depends on the dataset that is used for estimating the performance of the examined models. Each dataset has its weakneesses and this might lead to an over-estimation or under-estimation of performance of the examined methods in more realistic conditions. However, what we want to study here is the comparison of performance of different approaches on exactly the same datasets and experimental setup to extract conclusions about the relative improvement in performance of one method with respect to the other methods.
 
-\section{Open-set Framework Evaluation on Noise}\label{chap:noise:sec:openset_evaluation}
+In this thesis, we focus on the effect of noise in open-set WGI approaches. In particular, we want to examine the performance of WGI methods when either unstructured or structured noise is available. The former is a realistic scenario in most WGI applications where it is difficult, if not impossible, to define the genre of a large part of the web. In such cases, it is better to assume that the unknown class comprises any kind of web-pages that do not belong to the known genres. On the other hand, this makes the definition of noise chaotic and extremely heterogeneous. 
 
-%\section{Open-set Ensembles for WGI with Noise}\label{chap:noise:sec:openset_ensembles}
+The case of structured noise offers the opportunity to study the performance of open-set WGI methods when the heterogeneity of noise can be controlled. The assumption that information about the unknown classes is available (although the classifier has no training examples for these classes) is not unrealistic. For example, an open-set WGI system that aims to recognize news articles should not be distracted by blogs. That is, we know that blogs exist and perhaps comprise the majority of noise in that system but we do not provide training examples for that class.
 
+The estimation of performance of WGI methods also depends on the applications they are going to be used. Some applications require high precision (e.g., ranking genre-based search results). On the other hand, it is rather unusual to aim for high recall with the cost of reducing precision in WGI-related applications. The experimental analysis should also reflect these facts.
 
-\section{Experimental Setup}\label{chap:noise:sec:experimental_setup}
+Another crucial issue is the representation of web-pages. As already explained in chapter \ref{chap:openset} the dimensionality of representation, the existence of irrelevant and redundant features can severely harm the performance of certain open-set WGI methods. Therefore, it is important to study how different text representation schemes, especially the ones that were found to be the more reliable ones in previous WGI studies, affect the performance of the examined methods. 
 
-\subsection{Corpora}\label{chap:noise:sec:corpora}
+In the remaining of this chapter, we first describe the datasets used in this study and the experimental setup. Then, we present the experimetntal results in open-set WGI when either unstructured noise or structured noise is available. Finally, we summarize the drawn conclusions.
+
+\section{Corpora}\label{chap:noise:sec:corpora}
 In this paper we study the performance of the open-set classification models on the WGI task. In particular, the two open-set algorithms described above are analytically tested on benchmark corpora. In particular, our experiments are based on the following corpora already used in previous work in WGI \parencite{meyer2004genre,santini2007automatic,kanaris2009learning}:
 
 \begin{enumerate}
@@ -36,11 +39,31 @@ In this paper we study the performance of the open-set classification models on 
 \end{enumerate}
 
 
-Our text representation features are based exclusively on textual information from web pages excluding any structural information, URLs, etc. Based on the good results reported in \parencite{sharoff2010web,pritsos2013open,Asheghi2015} as well as some preliminary experiments, the following document representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G). We use the Term-Frequency (TF) weighting scheme and the feature space is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only.
+\section{Experimental Setup}\label{chap:noise:sec:experimental_setup}
 
-As concerns OCSVM model, two parameters have to be tuned: the number of features $F$ and $\nu$. For the former, we used $F=$\textit{\{1k, 5k, 10k, 50k, 90k\}}, of most frequent terms of the vocabulary. Following the reports of previous studies \parencite{scholkopf1999estimating} and some preliminary experiments, we examined $\nu$\textit{=\{0.05, 0.07, 0.1, 0.15, 0.17, 0.3, 0.5, 0.7, 0.9\}}. In comparison to \parencite{pritsos2013open}, this set of parameter values is more extended. With respect to RFSE, four parameters should be set: the vocabulary size $F$, the number of features used in each iteration $fs$, the number of iterations \textit{I}, and the threshold $\sigma$. We examined $F$\textit{=\{5k, 10k, 50k, 100k\}}, $fs$=\textit{\{1k, 5k, 10k, 50k, 90k\}}, \textit{I}=\textit{\{10, 50, 100\}} (following the suggestion in \parencite{koppel2011authorship} that more than 100 iterations does not improve significantly the results) and $\sigma$\textit{=\{0.5, 0.7, 0.9\}} (based on some preliminary tests). Additionally, in this work we are testing three document similarity measures: cosine similarity, MinMax similarity,  and combined cosine similarity and MinMax. Finally, to extract the best possible parameter settings for each classification method we apply grid-search over the space of all parameter value combinations.
+The text representation features used in this thesis are based exclusively on textual information from web pages excluding any structural information, URLs, etc. This does not mean that we consider other kinds of information (e.g., HTML-based features, URL-based features etc.) as less important in WGI. However, information coming from the text itself is less likely to be affected by technology-related choices that can be easily altered through time. By focusing on the text of the web pages we ensure that the drawn conclusions are more reliable and long lasting.
 
-\begin{table}
+Based on the good results reported in \parencite{sharoff2010web,kanaris2009learning,Asheghi2015} as well as some preliminary experiments, the following document representation schemes are examined: 
+
+\begin{itemize}
+    \item Character 4-grams (C4G), 
+    \item Word unigrams (W1G)
+    \item Word 3-grams (W3G)
+\end{itemize}
+
+We use the Term-Frequency (TF) weighting scheme and the feature space is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only. There is no pre-processing of textual data (e.g., stop word removal, stemming etc.) since in style-based text categorization tasks these processes remove significant stylistic information \parentcite{stamatatos2009survey}.
+
+Each open-set WGI method has some hyper-parameters to be tuned. In order to extract the best possible parameter settings for each classification method we apply grid-search over the space of all parameter value combinations. This is not the most sophisticated approach but ensures that the extracted parameter values will fine-tune the model for the specific dataset.
+
+As concerns OCSVM method, two parameters have to be tuned: the number of features $F$ and $\nu$. For the former, we used $F=$\{1k, 5k, 10k, 50k, 90k\}, of most frequent terms of the vocabulary. Following the reports of previous studies \parencite{scholkopf1999estimating} and some preliminary experiments, we examined $\nu$=\{0.05, 0.07, 0.1, 0.15, 0.17, 0.3, 0.5, 0.7, 0.9\}. In comparison to \parencite{pritsos2013open}, this set of parameter values is more extended. 
+
+With respect to RFSE, four parameters should be set: the vocabulary size $F$, the number of features used in each iteration $fs$, the number of iterations \textit{I}, and the threshold $\sigma$. We examined $F$=\{5k, 10k, 50k, 100k\}, $fs$=\{1k, 5k, 10k, 50k, 90k\}, \textit{I}=\{10, 50, 100\} (following the suggestion in \parencite{koppel2011authorship} that more than 100 iterations does not improve significantly the results) and $\sigma$\textit{=\{0.5, 0.7, 0.9\}} (based on some preliminary tests). Additionally, in this thesis we test three document similarity measures used in RFSE approach: cosine similarity, MinMax similarity, and Combo (as defined in Section \ref{chap:openset:sec:RFSE_Description}). 
+
+Finally, for the NNDR approach, there are two parameters to be tuned: $lambda$ and DRT. The considered values are: $\lambda =\{0.2, 0.5, 0.7\}$, $DRT=\{0.4, 0.6, 0.8, 0.9\}$. 
+
+\textcolor{red}{WHAT ABOUT $P_1$ and $P_2$ (in the estimation of DRT)}
+
+\begin{table}[t]
 \center
 \begin{tabular}{|l|l|l|l|}
 \hline
@@ -67,9 +90,7 @@ As concerns OCSVM model, two parameters have to be tuned: the number of features
 \end{table}
 
 
-\section{Experiments}\label{chap:noise:sec:Experiments_Results}
-
-\subsection{WGI with Unstructured Noise}\label{chap:noise:sec:WGI_noise}
+\section{WGI with Unstructured Noise}\label{chap:noise:sec:WGI_noise}
 
 The two open-set algorithms RFSE and OCSVME, describe in sections \ref{chap:openset:sec:alg:OCSVM_Ensemble} and \ref{chap:openset:sec:alg:RFS-Ensemble}, are initially tested on SANTINIS corpus which as explained above is an Unstructured Noise, samples corpus.   
 
@@ -82,7 +103,7 @@ In all cases, RFSE outperforms OCSVM. Moreover, for both methods, W3G seems to b
 \hfill \break
 
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\begin{center}
     \includegraphics[scale=0.45]{Figures/OCSME_Best_per_DocRep.eps}
 	\caption{Precision-Recall Curves of OCSVM models on SANTINIS corpus using W1G, W3G, and C4G features.}
@@ -90,7 +111,7 @@ In all cases, RFSE outperforms OCSVM. Moreover, for both methods, W3G seems to b
 	\end{center}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\begin{center}
     \includegraphics[scale=0.45]{Figures/RFSE_Best_per_DocRep.eps}
 	\caption{Precision-Recall Curves of RFSE models on SANTINIS corpus using W1G, W3G, and C4G features.}
@@ -104,7 +125,7 @@ In the tables \ref{chap:noise:tbl:OCSVME_SANTINIS} and \ref{chap:noise:tbl:RFSE_
 
 In addition, in almost all cases, RFSE models are far more effective than OCSVM. Another important conclusion is that the optimization criterion plays a crucial role for the properties of the model especially for RFSE. When AUC is maximized, recall is favored. On the other hand, while $F_{1}$ is maximized, precision is substantially increased. Fig. \ref{chap:noise:fig:MacroPRC_RFSE_OCSVME_SANTINIS} shows the performance of OCSVM and RFSE models when AUC and $F_{1}$ criteria are used to select parameter settings. As can be seen, the RFSE model based on $F_{1}$ maximization avoids to make wrong decisions and leaves a large number of web pages unclassified. On the other hand, the model optimized by AUC prefers to make a lot of errors in order to recognize more web pages of known genres. OCSVM models seem not significantly affected. Note that choosing between WGI models that prefers precision over recall and vice versa is an application-specific task.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \begin{center}
     \includegraphics[scale=0.45]{Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps}
 	\caption{Precision-Recall Curves of OCSVM and RFSE models on SANTINIS corpus optimized either by AUC or $F_{1}$.}
@@ -114,7 +135,7 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 
 % 7Genres
 %
-\begin{table}[H]
+\begin{table}[t]
 \centering
 
 \pgfplotstableset{
@@ -149,7 +170,7 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 \label{chap:noise:tbl:OCSVME_SANTINIS}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[t]
 \centering
 
 \pgfplotstableset{
@@ -189,7 +210,7 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 \end{table}
 
 
-\subsection{WGI with Structured Noise}
+\section{WGI with Structured Noise}
 \label{chap:noise:sec:openness_evaluation}
 
 In this section the RFSE and OCSVME algorithms we describe experiments using a corpus with structured noise. The KI-04 corpus has been used for this set of experiments. 
@@ -204,7 +225,7 @@ Figures \ref{chap:noise:fig:OCSVME_openness_test} and \ref{chap:noise:fig:RFSE_o
 
 RFSE models based on C4G and W1G gradually get worse while openness increasing while W3G models seems to be relatively stable. Surprisingly, the performance of OCSVM seems to improve by increasing openness and this pattern is consistent in all three feature types while C4G seem to be the most effective type. Although, in the maximum openness level the problem is equivalent to the closed-set binary (i.e. 1-vs-rest) classification problem.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \begin{center}
     \includegraphics[scale=0.45]{Figures/OCSVME_openness_test_graph.eps}
 	\caption{OCSVM performance in varying openness level.}
@@ -212,7 +233,7 @@ RFSE models based on C4G and W1G gradually get worse while openness increasing w
 \end{center}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 \begin{center}
     \includegraphics[scale=0.45]{Figures/RFSE_MIX_openness_test_graph.eps}
 	\caption{RFSE performance in varying openness level.}
@@ -223,7 +244,7 @@ RFSE models based on C4G and W1G gradually get worse while openness increasing w
 
 As it was highlighted in the previous section, according to the properties of the application in which WGI is involved, precision may be more important than recall or vice-versa. In figure \ref{chap:noise:fig:RFSE_precision_focus_openness_test} the macro-precision of RFSE is depicted for W3G, W1G and C4G features. MinMax similarity is used since it increases significantly the performance of RFSE in respect with precision. As concerns text representation, W1G is the best choice when precision is at more importance than recall. On the other hand, W3G features seem to be more stable because the standard error is lower than that of the other features and also the W3G model is not affected too much when openness surpasses $0.5$ (actually it improves).
 
-\begin{figure}[H]
+\begin{figure}[t]
 \begin{center}
     \includegraphics[scale=0.45]{Figures/RFSE_Precision_Focus_openness_test_graph.eps}
 	\caption{RFSE precision in varying openness level.}
@@ -237,7 +258,7 @@ In the case of C4G and W1G where the openness level is $0.646$ the standard erro
 
 Despite OCSVM's improvement when structured noise is used, it can only be competitive to RFSE on a high openness level, where all genre labels but one are considered unknown. This can be better viewed in figure \ref{chap:noise:fig:RFSE_vs_OCSVME_W1G_openness_test} where OCSVM is compared with RFSE models based on MinMax and Combo similarity measures for a varying openness level. These curves correspond to W1G features, so they are not the optimal models. However, they provide a fair comparison between examined methods. As standard error bars indicate, the performance of RFSE models with respect to the $F_{1}$ measure is significantly better than that of OCSVM while openness is less than $0.5$. Beyond that level, OCSVM is significantly better than RFSE models. It should also be noted that Combo measure helps RFSE in while openness is relatively low and MinMax seems to be a better choice when openness increases.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \begin{center}
     \includegraphics[scale=0.45]{Figures/RFSE_vs_OCSVME_W1G.eps}
 	\caption{Comparison of OCSVM and RFSE models based on W1G features in varying Openness levels.}

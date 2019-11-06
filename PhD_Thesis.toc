@@ -45,48 +45,43 @@
 \contentsline {section}{\numberline {2.11}Genres Utility}{48}{section.123}
 \contentsline {section}{\numberline {2.12}Web Genre Corpora: An unfinished work in progress}{49}{section.124}
 \contentsline {section}{\numberline {2.13}Discussion and Future Work Suggestions}{50}{section.126}
-\contentsline {chapter}{\numberline {3}Open-set WGI algorithms}{53}{chapter.127}
+\contentsline {chapter}{\numberline {3}Open-set WGI Algorithms}{53}{chapter.127}
 \contentsline {section}{\numberline {3.1}Introduction}{53}{section.128}
 \contentsline {section}{\numberline {3.2}Open-set Classification}{54}{section.129}
 \contentsline {subsection}{\numberline {3.2.1}Noise in Open-set Recognition}{54}{subsection.130}
 \contentsline {subsection}{\numberline {3.2.2}The Open-Space Risk}{54}{subsection.131}
-\contentsline {section}{\numberline {3.3}Open-set Classification Paradigms}{58}{section.138}
+\contentsline {section}{\numberline {3.3}Paradigms in Open-set Classification}{58}{section.138}
 \contentsline {section}{\numberline {3.4}Open-set Classifiers for WGI}{59}{section.139}
 \contentsline {subsection}{\numberline {3.4.1}One-Class SVM}{59}{subsection.140}
 \contentsline {subsection}{\numberline {3.4.2}Random Feature Subspacing Ensemble}{61}{subsection.164}
 \contentsline {subsection}{\numberline {3.4.3}Nearest Neighbors Distance Ratio}{63}{subsection.189}
 \contentsline {section}{\numberline {3.5}Conclusions}{65}{section.212}
-\contentsline {chapter}{\numberline {4}Evaluation Framework for Open-set WGI}{67}{chapter.213}
+\contentsline {chapter}{\numberline {4}An Evaluation Framework for Open-set WGI}{67}{chapter.213}
 \contentsline {section}{\numberline {4.1}Introduction}{67}{section.214}
 \contentsline {section}{\numberline {4.2}Evaluation Measures}{67}{section.215}
 \contentsline {subsection}{\numberline {4.2.1}Precision, Recall, and $F$-Score}{67}{subsection.216}
 \contentsline {subsection}{\numberline {4.2.2}Open-set Variants of Evaluation Measures}{69}{subsection.225}
-\contentsline {subsection}{\numberline {4.2.3}Precision-Recall Curves}{71}{subsection.229}
-\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{73}{section.233}
+\contentsline {subsection}{\numberline {4.2.3}Precision-Recall Curves}{72}{subsection.229}
+\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{74}{section.233}
 \contentsline {section}{\numberline {4.4}The Openness Test}{74}{section.235}
-\contentsline {subsection}{\numberline {4.4.1}Domain Transfer Measure}{74}{subsection.238}
-\contentsline {section}{\numberline {4.5}Conclusions}{75}{section.240}
-\contentsline {chapter}{\numberline {5}Experimental Open-set Framework Effectiveness Evaluation on Noise}{77}{chapter.241}
+\contentsline {section}{\numberline {4.5}Domain Transfer Measure}{75}{section.238}
+\contentsline {section}{\numberline {4.6}Conclusions}{76}{section.240}
+\contentsline {chapter}{\numberline {5}Experimental Analysis of Open-set WGI Methods}{77}{chapter.241}
 \contentsline {section}{\numberline {5.1}Introduction}{77}{section.242}
-\contentsline {section}{\numberline {5.2}Noise vs Outages on Open-set Classification}{77}{section.243}
-\contentsline {section}{\numberline {5.3}Open-set Framework Evaluation on Noise}{77}{section.244}
-\contentsline {section}{\numberline {5.4}Experimental Setup}{77}{section.245}
-\contentsline {subsection}{\numberline {5.4.1}Corpora}{77}{subsection.246}
-\contentsline {section}{\numberline {5.5}Experiments}{78}{section.250}
-\contentsline {subsection}{\numberline {5.5.1}WGI with Unstructured Noise}{78}{subsection.251}
-\contentsline {subsection}{\numberline {5.5.2}WGI with Structured Noise}{81}{subsection.257}
-\contentsline {section}{\numberline {5.6}Conclusions}{84}{section.262}
-\contentsline {chapter}{\numberline {6}Open-set WGI with Neural Language Modeling}{87}{chapter.263}
-\contentsline {section}{\numberline {6.1}Introduction}{87}{section.264}
-\contentsline {section}{\numberline {6.2}Neural Language Models}{87}{section.265}
-\contentsline {subsection}{\numberline {6.2.1}N-grams, Distributional Features and Word Embeddings}{87}{subsection.266}
-\contentsline {subsection}{\numberline {6.2.2}Paragraph-Vector Bag-of-Words and Document Vectors Projection}{92}{subsection.277}
-\contentsline {section}{\numberline {6.3}Experiments}{94}{section.283}
-\contentsline {subsection}{\numberline {6.3.1}Corpus}{94}{subsection.284}
-\contentsline {subsection}{\numberline {6.3.2}Open-set Models Parameters Setup}{94}{subsection.285}
-\contentsline {section}{\numberline {6.4}Results}{95}{section.286}
-\contentsline {subsection}{\numberline {6.4.1}Paragraph-Vectors vs. N-Gram-Vectors(TF): Improving Low Performance Learners}{95}{subsection.287}
-\contentsline {subsection}{\numberline {6.4.2}Nearest Neighbours Distance Ration with Paragraph-Vectors}{97}{subsection.291}
-\contentsline {section}{\numberline {6.5}Conclusions}{99}{section.294}
-\contentsline {chapter}{\numberline {7}Conclusions}{101}{chapter.295}
-\contentsline {chapter}{Bibliography}{103}{chapter*.296}
+\contentsline {section}{\numberline {5.2}Corpora}{78}{section.243}
+\contentsline {section}{\numberline {5.3}Experimental Setup}{78}{section.246}
+\contentsline {section}{\numberline {5.4}WGI with Unstructured Noise}{79}{section.248}
+\contentsline {section}{\numberline {5.5}WGI with Structured Noise}{83}{section.254}
+\contentsline {section}{\numberline {5.6}Conclusions}{86}{section.259}
+\contentsline {chapter}{\numberline {6}The Usefulness of Distributed Representation in WGI}{87}{chapter.260}
+\contentsline {section}{\numberline {6.1}Introduction}{87}{section.261}
+\contentsline {section}{\numberline {6.2}Obtaining Distributed Representations}{88}{section.262}
+\contentsline {subsection}{\numberline {6.2.1}Word Embeddings}{88}{subsection.263}
+\contentsline {subsection}{\numberline {6.2.2}Document Embeddings}{91}{subsection.272}
+\contentsline {section}{\numberline {6.3}Experimental Setup}{93}{section.279}
+\contentsline {section}{\numberline {6.4}Experimental Results}{94}{section.280}
+\contentsline {subsection}{\numberline {6.4.1}NNDR with DF or TF Features}{94}{subsection.281}
+\contentsline {subsection}{\numberline {6.4.2}Comparison of Open-set WGI Methods}{96}{subsection.285}
+\contentsline {section}{\numberline {6.5}Conclusions}{98}{section.288}
+\contentsline {chapter}{\numberline {7}Conclusions}{101}{chapter.289}
+\contentsline {chapter}{Bibliography}{103}{chapter*.290}
