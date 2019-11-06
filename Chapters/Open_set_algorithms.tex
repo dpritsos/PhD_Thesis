@@ -1,7 +1,7 @@
 %!TeX spellcheck = en-US
 
 %\chapter{Open-set and Closed-Set Classification for WGI}
-\chapter{Open-set WGI algorithms}
+\chapter{Open-set WGI Algorithms}
 
 \label{chap:openset}
 
@@ -116,7 +116,7 @@ A more formal definition of open-set classification directly involves the open s
 
 \noindent where $f (x) > 0$ implies correct recognition and $\lambda$ is a regularization constant. Thus, open-set risk balances the empirical risk and the open space risk \parencite{geng2018recent}. 
 
-\section{Open-set Classification Paradigms}
+\section{Paradigms in Open-set Classification}
 \label{chap:openset:sec:Open_Set_Classification_Paradigms}
 
 In the relevant literature, a variety of approaches to open-set recognition can be found. A thorough recent review is provided in \parencite{geng2018recent}. In general, the following main paradigms are usually followed:
@@ -351,7 +351,7 @@ Then, a given range of DTR values is examined. The NNDR algorithm is called for 
     splits(n,p_1) = \frac{n!}{\floor*{p_1n}!\floor*{(1-p_1)n}!}
 \end{equation}
 
-For example, in case we have 8 known genres and a splitting ratio $p_1=0.25$, the number of possible splits is 56. Finally the DTR value that optimizes the normalized accuracy over all splits is extracted. Note that by considering a subset of known classes as noise, the NNDR algorithm attempts to directly model the open space risk. This comes with a considerable increase in training time of the algorithm. 
+For example, in case we have 8 known genres and a splitting ratio $p_1=0.25$, the number of possible splits is 56. Finally the DTR value that optimizes the normalized accuracy over all splits is extracted. Note that by considering a subset of known classes as noise, the NNDR algorithm attempts to directly model the open space risk. This comes with a considerable increase in training time of the algorithm. In addition, the process of estimating DRT assumes that a big enough set of known classes is available so that a subset of them to be used as (simulated) unknown. This makes the application of this algorithm difficult in cases where there only a few known classes.
 
 \section{Conclusions}\label{chap:openset:sec:NNRD_Description}
 
@@ -359,4 +359,4 @@ In this Chapter, we described three open-set classification algorithms that can 
 
 Another proposed method (RFSE) attempts to avoid to take advantage of the curse of dimensionality focusing on random subsets of features and construct an ensemble of classifiers. Given that in style-based text categorization tasks, the representation vectors are composed by large amounts of redundant and irrelevant features, it is likely that a random subset of features will still contain enough distinguishing stylistic characteristics. The consistency of indicating a certain known genre as the most likely in the majority of such feature subsets is a strong indication of class membership. This method seems very suitable for WGI tasks. 
 
-The last proposed method (NNDR) attempts to directly model the open space risk examining the distribution of known classes and defining simulated unknown classes. This also decreases the training phase efficiency of the method. However, given that the original NN method has zero training phase requirements, the introduced cost is not unbearable in comparison to the training time cost of other alternative classifiers. As a descendant of NN, this method also inherits its well-known problems, most crucially the difficulty to handle high-dimensional representation schemes with irrelevant features. It seems that NNDR can be effective for WGI given that an appropriate feature set is provided.
+The last proposed method (NNDR) attempts to directly model the open space risk examining the distribution of known classes and defining simulated unknown classes. This also decreases the training phase efficiency of the method. However, given that the original NN method has zero training phase requirements, the introduced cost is not unbearable in comparison to the training time cost of other alternative classifiers. The main issue with the direct modeling of open space risk is that it makes the application of NNDR in cases with limited size of the known classes set difficult or even unfeasible (e.g., when only one known class exists). As a descendant of NN, this method also inherits its well-known problems, most crucially the difficulty to handle high-dimensional representation schemes with irrelevant features. It seems that NNDR can be effective for WGI given that an appropriate feature set is provided.

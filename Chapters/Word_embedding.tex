@@ -1,7 +1,7 @@
 
 %!TeX spellcheck = en-US
 %\chapter{Word Embedding and Distributional Features of the web-pages and texts}
-\chapter{Open-set WGI with Neural Language Modeling}
+\chapter{The Usefulness of Distributed Representation in WGI}
 
 \label{chap:word_embeddings}
 
@@ -19,42 +19,47 @@
 
 \section{Introduction}\label{chap:word_embeddings:sec:intro}
  
-\section{Neural Language Models}\label{chap:word_embeddings:sec:NLM}
+The most traditional text representation scheme in text mining tasks is the Bag of Words (BOW) model which is based on individual tokens as features. It is a simplistic approach to quantify information documents assuming independence of the occurrence of individual tokens in documents. The result is a document vector of high dimensionality (i.e., in the order of thousands of features) and sparseness (i.e., only a few non-zero values per document). The BOW model is not able to capture information about the grammar of documents and completely ignores word order. In addition, it is confused by synonym terms since it assumes they are independent. Nevertheless, it provides an easy and quite competitive approach to represent documents (the W1G scheme used in Chapter \ref{chap:noise} is actually based on BOW).
 
-\subsection{N-grams, Distributional Features and Word Embeddings} \label{chap:word_embeddings:sec:ngrans_vs_doc2vec}
+A more elaborate text representation scheme is to consider n-gram of words. This would capture information about word sequences, like phrases. This can improve the ablity of the model to represent syntactic information since the context of words is partially taken into account (e.g., the W3G model used in Chapter \ref{chap:noise}). Nevertheless, the dimensionality of representation is considerably increased when the order of the model ($n$) is high. In addition, the sparseness of the vectors is increased. It is also possible to apply the n-gram approach on the character level or on POS-tag level, as shown in the experiments of Chapter \ref{chap:noise} (i.e., C4G, POS3G). The main assumption that each feature (n-gram) is independent of the other features is still valid in such models.
 
+An alternative approach is to use \textit{distributed representations} that attempt to introduce some kind of dependence of each word (or n-gram) on the other words (or n-grams). For example, the words usually encountered in the context of a specific word are more dependent on that word. In addition, different words found in similar context get a higher share of dependence. Distributed representations can be obtained by applying language modeling methods. Especially, the use of neural network language models and the popular word and document \textit{embeddings} introduced in \parentcite{mikolov2013distributed}. 
 
-The Bag of Terms (BOT) n-grams, a.k.a the Bag of Words (BOW), is the most common text modeling in NLP and other text related research domains. The assumption as in other features from other domain, say image processing, is the \textit{Independent and Identical Distribution (i.i.d)} of the terms, then it is easy to express context of a text into a \textit{fixed vector} sample which is the main requirement of most ML algorithms to work. Moreover, is computationally very easy and in the past the creation of such a fast document representing in respect of time consumption was critical due to the lack of the today's resources.
+One main advantage of distributed representations is that they provide compact (i.e., low-dimensional) and dense vectors to quantify syntactic and semantic information in documents. In comparison to regular BOW or n-gram models, distributed features are much less redundant and irrelevant since each such feature captures a combination of information that cannot be specifically determined. Therefore, it seems that open-set WGI methods that are not able to easily handle high-dimensional, sparse vectors with many irrelevant and redundant features would be highly improved by using distributed representations. As already explained in Chapter \ref{chap:openset}, NNDR is an algorithm that, in theory, is vulnerable when it is not combined with appropriate feature sets. The main goal of this Chapter is to examine how the performance of NNDR in WGI tasks can be improved when distributed features are used. 
 
-The BOT is still a top performance document representation however it comes to a great cost because it is loosing the order of the words and cannot capture their semantics. Therefore, it is impossible to capture similarities in word level such as "power" and "strength", in sentence level such as "Beats me!" and "I don't know", and in writing style such as "My greetings to..." and "Say hello to... for me". 
+The rest of this chapter is organized as follows. First, the main ideas of distributed representation are presented. Then, the specific distributed features used in this thesis are described. Next, we compare the performance of NNDR using traditional sparse representation schemes with the case dense vectors are used. We also compare these versions of NNDR with OCSVM and RFSE methods and discuss the main conclusions of this study.
 
-\textit{Word Embeddings} and \textit{Distributional Feature (DF)}s is the state-of-the-art in language modeling as a result in the advances of the \textit{Statistical Language Modeling} and particularly the \textit{Neural Probabilistic Language} modeling. Ultimately, the \textit{Paragraph Vector Continues Bag of Words (PV-BOW)} DF modeling can be used for complicated classification tasks such as WGI, where the BOT together with its complicated heuristics for additional feature extraction can only perform as good when the task is more tight the corpus. Although, as it will be explained later the DF models and word embeddings is a computationally expensive process is might be comparable to a sequential set of heuristics for extracting a variety of features in the effort of capturing the information missing from the BOT in the first place.  
+\section{Obtaining Distributed Representations}
 
-In this section it is described the PV-BOW modeling in detail, which have been used in combination with the NNDR (the open-set Nearest Neighbors) on the WGI task with promising results. First, it is described the \textit{Neural Language Modeling (NLE)} concept and on the top of it the \textit{Continues Bag of Words  (CBOW)} and  \textit{Skip-Gram (SG)} modeling, which they are special modified \textit{Feedforward} and \textit{Recurrent Neural Network models respectively}.
+%The SLM model is defined as the \textit{joint conditional probability distribution} of the next word given the probabilities of previous ones as shown in equation \ref{chap:word_embeddings:eq:slm}
 
-The goal of \textit{Statistical Language Modeling (SLM) } is to learn \textit{joint probability distribution function} of word sequences, i.e. word n-grams. The main difference to the BOW and particularly to the word n-grams TF (or TF-IDF) model, is the \textit{semantic proximity} of the word's neighbouring in the sentences. Implicitly the WNG-TF models is also capturing some of this information and definitely not explicitly. Additionally, the SLM can always return an estimate value for n-grams never seen before, while for the WNG-TF this is impossible  \parencite{bengio2003neural}
+%\begin{equation} \label{chap:word_embeddings:eq:slm}
+%	P(w = i) = \prod_{i=1}^{|V|} P(w_{i}|w_{i-k}, ... , w_{i+k})
+%\end{equation}
+%\noindent
+%where $w_{i}$ is the i-th word, and $k$ is for the number of words before or/and and after, writing sub-sequence $w_{i} = (w_{i-k}, w_{i-1}, ... ,w_{i+1}, w_{i+k})$. Note that this model returns a singleton value for a word on the condition of previews or/and next word. This model also can be expanded to have few more words in the conditional probability, usually from 2 up to 4. 
 
-The SLM model is defined as the \textit{joint conditional probability distribution} of the next word given the probabilities of previous ones as shown in equation \ref{chap:word_embeddings:eq:slm}
+%With this model it can be captured the semantic proximity but it will return zero in the case a sequence have never been met before in the samples. A solution to this problem is the interpolation or smoothness factor that can be applied such as in the \textit{back-off}  model (Katz, 1980 see in bengio2003neural). 
 
-\begin{equation} \label{chap:word_embeddings:eq:slm}
-	P(w = i) = \prod_{i=1}^{|V|} P(w_{i}|w_{i-k}, ... , w_{i+k})
-\end{equation}
-\noindent
-where $w_{i}$ is the i-th word, and $k$ is for the number of words before or/and and after, writing sub-sequence $w_{i} = (w_{i-k}, w_{i-1}, ... ,w_{i+1}, w_{i+k})$. Note that this model returns a singleton value for a word on the condition of previews or/and next word. This model also can be expanded to have few more words in the conditional probability, usually from 2 up to 4. 
+%The model of equation \ref{chap:word_embeddings:eq:slm} can capture the joint probability of word-sequences in terms of feature vectors, however, it cannot capture the correlation of the words in terms of semantics. Models like LSI or LDA are methodologies also been tested in IR and NLP for capturing the semantics in the context of the n-gram based SLM. 
 
-With this model it can be captured the semantic proximity but it will return zero in the case a sequence have never been met before in the samples. A solution to this problem is the interpolation or smoothness factor that can be applied such as in the \textit{back-off tri-gram model} (Katz, 1980 see in bengio2003neural). 
+One way to obtain a low-dimensional and dense representation of documents is the use of topic modeling. Topic modeling methods attempt to group terms according to their co-occurrence in documents. They provide a new feature space (composed by latent topics) of pre-defined dimensionality. One popular topic modeling approach is \textit{Latent Semantic Analysis}, a linear algebraic method that transforms a high-dimensional and sparse representation to a low-dimensional and dense one applying \textit{singular value decomposition} \parentcite{Kontostathis:2006}. Another popular approach is \textit{Latent Dirichlet Allocation}, a generative probabilistic where each documents is represented as a mixture over a set of latent topics. Each topic is in turn defined as a distribution over words \parentcite{Blei:2003}.
 
-The model of equation \ref{chap:word_embeddings:eq:slm} can capture the joint probability of word-sequences in terms of feature vectors, however, it cannot capture the correlation of the words in terms of semantics. Models like LSI or LDA are methodologies also been tested in IR and NLP for capturing the semantics in the context of the n-gram based SLM. 
+Another main direction that gained huge popularity during the last years is the use of neural probabilistic language models \parencite{bengio2003neural}. We first describe how words can be represented in a coninuous space and then we focus on documents.
 
-The goal of the DF models is to learn simultaneously the \textit{word feature vectors}, a.k.a \textit{Word Embeddings}, and the probability function or word sequences, a.k.a \textit{Distributional Features}. The word embeddings is a \textit{continuous vector space} where the words are positioned in \textit{Vocabulary} context, where the similarity of words can be learned. The word sequences are capturing the proximity of words in the paragraph (or sentence) context.
+\subsection{Word Embeddings}
 
-The DF models then are able to learning the \textit{Continuous Distribution of Words in Sequences} and not only their role in sentences (such as in eq.  \ref{chap:word_embeddings:eq:slm} model) or only their similarity (such as the LSI models). The DF modeling is a NLM procedure where Neural Networks are used for approximating the\textit{ joint probability distribution function of the continuous distributed feature-sequences}, where the probability features are associated to the words of the Vocabulary.
+The main idea is that words can be represented by real vectors (word embeddings) that are learned by a neural network \parentcite{mikolov2013efficient}. This is unsupervised learning since documents need not be labeled. The neural network is trained to recognize words that occur in similar context. Then, each word is represented in continuous vector space and similar words tend to cluster in the same area. In addition, the distance between related words is affected by semantic similarity (e.g., the difference between terms "king" and "man" is close to the difference between "queen" and "woman") \parentcite{mikolov2013efficient}. 
 
-In practice the distributed features is the mapping of the Vocabulary words $V = \{w_{i}, i \in [1, |V|] \}$ to a real vector $\vec{t}(i) \in \mathbb{R}^{m}$. Then the semantic distance can be approximated by a NNet algorithm given the distribution of the words. The words are initially are having a vector 1-of-V representation, a.k.a. \textit{One-hot representation}. Then the probability of the a word $w_{i}$ in equation \ref{chap:word_embeddings:eq:slm} can be replaced by the real continues vector $t{i}$ and the conditional probability $P(.|.)$ to be approximated my a NNet function $\hat{p}(.)$. The $\hat{}$ (hat) is for symbolizing a special condition where the probability is approximated given a sequence with a specific order, say preceding words or succeeding words or both. 
+In practice the distributed features is the mapping of the vocabulary words $V = \{w_{i}, i \in [1, |V|] \}$ to a real vector $\vec{t}_i \in \mathbb{R}^{m}$.
 
-Now the DF neural model can be calculated with several architectures where the $\vec{t}$ and the $\hat{p}$ continues distribution can feed separate layers of joint layers, and also the learning strategy can have variant implementations such as Continues Bag-of-Words, Skip-grams etc. The strategy of learning and the NNet architecture are very close related and the results are \textit{continues probability functions with substantially different meaning}, where they can either encode word similarities, word semantics or even paragraph and documents encoding and similarities. 
+%Then the semantic distance can be approximated by a NNet algorithm given the distribution of the words. The words are initially are having a vector 1-of-V representation, a.k.a. \textit{One-hot representation}. Then the probability of the a word $w_{i}$ in equation \ref{chap:word_embeddings:eq:slm} can be replaced by the real continues vector $t{i}$ and the conditional probability $P(.|.)$ to be approximated my a NNet function $\hat{p}(.)$. The $\hat{}$ (hat) is for symbolizing a special condition where the probability is approximated given a sequence with a specific order, say preceding words or succeeding words or both. 
 
-To begin with, the most general architecture is to use the \textit{Feedforward Neural Network} with a projection layer, a hidden layer and an output layer as shown in figure \ref{chap:word_embeddingss:fig:CBOW_diagram}. This NNet has an input layer where every word in the vocabulary is assigned to an One-hot vector $\hat{t}_{i}$ and all the sequence of the \textit{word vectors} are concatenated and forming the input vector $\hat{w}_{i}$ . The $\hat{w}$ is the input the projection layer $\vec{t} = \hat{w}W_{in}$ as show in the figure. The $W_{in}$ is the weight matrix of the projection layer with same regularization parameters $\theta$.
+%Now the DF neural model can be calculated with several architectures where the $\vec{t}$ and the $\hat{p}$ continues distribution can feed separate layers of joint layers, and also the learning strategy can have variant implementations such as Continues Bag-of-Words, Skip-grams etc. The strategy of learning and the NNet architecture are very close related and the results are \textit{continues probability functions with substantially different meaning}, where they can either encode word similarities, word semantics or even paragraph and documents encoding and similarities. 
+
+One basic architecture is the Continuous Bag-of-Words (CBOW) model which attempts to predict a word given its context. This is a \textit{Feedforward Neural Network} with an input layer, a projection layer, and an output layer as shown in figure \ref{chap:word_embeddingss:fig:CBOW_diagram}. The input layer is composed by the context of a word (i.e., the few words immediately to its right and left). Every word in the vocabulary is assigned to a \textit{one-hot} vector $\hat{t}_{i}$ (i.e., a vector of size $|V|$ with all but one values equal to zero). The sequence of context word vectors are added and form the input vector $\hat{t}_{i*}$. Since the order of words is not important in this setting, the model bears similarities to Bag-of-Words \parencite{mitra2018introduction}.
+
+%W_{in}$ is the weight matrix of the projection layer with regularization parameters $\theta$. Now the $\vec{t}$ is the input to a hidden layer $\vec{h}=\vec{t}H$, which is usually the \textit{hyperbolic tangent hidden layer}, where $H$ is the weights of the hidden layer. Then, the output $\hat{p}=\vec{h}W_{out}$ is the last layer of the NNet.
 
 \begin{figure}[t]
 	\begin{center}
@@ -64,54 +69,51 @@ To begin with, the most general architecture is to use the \textit{Feedforward N
 	\end{center}
 \end{figure}
 
-Now the $\vec{t}$ is the input to a hidden layer $\vec{h}=\vec{t}H$, which is usually the \textit{hyperbolic tangent hidden layer}, where $H$ is the weights of the hidden layer. Then, the output $\hat{p}=\vec{h}W_{out}$ is the last layer of the NNet.
+%The generic architecture of the final output of the NLM described above is the equation \ref{chap:word_embeddingss:nlm_generic}. Note that the output vector $\vec{y}$ has size $|V|$ due to the input $\hat{w}$ and is the inference model of a \textit{continues distribution} of both the proximity of the words in the sentences (captured by the hidden layer) and the distribution over the vocabulary, which is the continues similarity of the words in this vocabulary. The output layer then is as described in equation \ref{chap:word_embeddings:eq:NLM}
 
-The generic architecture of the final output of the NLM described above is the equation \ref{chap:word_embeddingss:nlm_generic}. Note that the output vector $\vec{y}$ has size $|V|$ due to the input $\hat{w}$ and is the inference model of a \textit{continues distribution} of both the proximity of the words in the sentences (captured by the hidden layer) and the distribution over the vocabulary, which is the continues similarity of the words in this vocabulary. The output layer then is as described in equation \ref{chap:word_embeddings:eq:NLM}
+%\begin{equation} \label{chap:word_embeddings:eq:NLM}
+%	\vec{y} = \vec{t} + W_{out}(\vec{t}H + b_{h}) + b_{o}
+%\end{equation}
 
-\begin{equation} \label{chap:word_embeddings:eq:NLM}
-	\vec{y} = \vec{t} + W_{out}(\vec{t}H + b_{h}) + b_{o}
-\end{equation}
+%\noindent
+%where $b_{o}$ and $b_{h}$ are the output and hidden layers biases. Usually the Hidden layer typically has a size of 500 to 1000 neurons while the projection layer might be 500 to 2000. Due to the multiple layers and the feeding of both the projection and the hidden to the output layer there is great complexity and the process is very computationally demanding. 
 
-\noindent
-where $b_{o}$ and $b_{h}$ are the output and hidden layers biases. Usually the Hidden layer typically has a size of 500 to 1000 neurons while the projection layer might be 500 to 2000. Due to the multiple layers and the feeding of both the projection and the hidden to the output layer there is great complexity and the process is very computationally demanding. 
+%A more efficient method is suggested in \parencite{mikolov2013efficient} where the non-linear hidden layer is removed and the projection layer is shared to all words, geometrically this is equivalent to the projection of the words to the same position. Then the algorithm is reformed and the $\hat{w}$ vectors are replaced by the $t^{*}$ which is the sum of the \textit{one-hot word vectors} \parencite{mitra2018introduction}. 
 
-A more efficient method is suggested in \parencite{mikolov2013efficient} where the non-linear hidden layer is removed and the projection layer is shared to all words, geometrically this is equivalent to the projection of the words to the same position. Then the algorithm is reformed and the $\hat{w}$ vectors are replaced by the $t^{*}$ which is the sum of the \textit{one-hot word vectors} \parencite{mitra2018introduction}. 
+%Now the equation \ref{chap:word_embeddings:eq:NLM} is becoming \ref{chap:word_embeddings:eq:CBOW}. Due to the new form of the NNet where the tangent hidden layer is absent, there is no constraint in the presenting sequence of the words order. Moreover, the succeeding words also can also be taken in to account in a given \textit{window} say for $k_{w}$ number of words around the specific one. 
 
-Now the equation \ref{chap:word_embeddings:eq:NLM} is becoming \ref{chap:word_embeddings:eq:CBOW}. Due to the new form of the NNet where the tangent hidden layer is absent, there is no constraint in the presenting sequence of the words order. Moreover, the succeeding words also can also be taken in to account in a given \textit{window} say for $k_{w}$ number of words around the specific one. 
+The weight matrix $W_{in}$ is of size $|V| \times m$ while $W_{out}$ is of size $m \times |V|$, where $m$ is the size of the hidden layer ($m << |V|$) and it also corresponds to the dimensionality of the extracted distributed representation. The size of the output vector is equal to the vocabulary size. 
+%
+%\begin{equation} \label{chap:word_embeddings:eq:CBOW}
+%	\vec{y} = \hat{t}_{i*} \times W_{out} + b_{o}
+%\end{equation}
 
-\begin{equation} \label{chap:word_embeddings:eq:CBOW}
-	\vec{y} = W_{out}(t^{*}W_{in}) + b_{o}
-\end{equation}
-The suggested algorithm is called \textit{Continues Bag-of-Words (CBOW)} because the words of the surrounding sequences is not important but it is still are taken into account for predicting the next word. Moreover the $\vec{y}$ has a size equivalent to the size of the Vocabulary $V$. 
-
-In respect of training the CBOW model, a \textit{multiclass classifier} is set by a \textit{Softmax function} is described in equation \ref{} where the $y$ is the output of the equation \ref{chap:word_embeddings:eq:CBOW}. Note now the $\hat{p}$ continues probability is replaced by the $p$ district probability and because now the order in the words sequences are not important. Additionally, the $\vec{t}$ are replaced by the $t$ because it denotes that the words can be any term; character, words, word n-grams, character n-grams. 
-
-\begin{equation} \label{chap:word_embeddings:eq:CBOW_softmax}
-	p(t_{i}|t_{i-k},...,t_{i+k}) = \frac{e^{y_{t_{i}}}}{\sum^{|V|}_{i}{e^{y_i}}}
-\end{equation}
-
-The objective of the training of the NLM CBOW model is to maximize the conditional log probability in equation \ref{chap:word_embeddings:eq:CBOW_log_likelihood}. 
+During training, CBOW attempts to learn weight matrices $W_{in}$ and $W_{out}$. The loss function of CBOW is the following conditional log probability: 
 
 \begin{equation} \label{chap:word_embeddings:eq:CBOW_log_likelihood}
-	 \mathcal{L}_{CBOW} = \frac{1}{|S|} \sum_{i=1}^{|S|}{\log{p(t_{i}|t_{i-k}, ... ,t_{i+k};\theta)}}
+	 \mathcal{L}_{CBOW} = -\frac{1}{|S|} \sum_{i=1}^{|S|}{\log{p(t_{i}|t_{i-k}, ... ,t_{i+k})}}
 \end{equation}
 
-
 \noindent
-where $S$ is the \textit{set $k$-size of sampling windows} and  $\theta=\{b_{o},W_{in},W_{out}\}$ are the parameters and weights should be optimized in order the CBOW model to converge. \textit{Stochastic Gradient Decent} and \textit{Backpropagation} is used for training the NNet.
+where $k$ is the size of context words, $S$ is the amount of possible context windows. \textit{Stochastic Gradient Decent} and \textit{Backpropagation} are used to train that network. CBOW is actually a encoder-decoder model and applies a \textit{SoftMax} function in its output: 
 
-An other training strategy is the \textit{Skip-Gram} modeling, where the objective is to maximizes the log-likelihood of the equation \ref{chap:word_embeddings:eq:skipgram_log_likelihood}.
+\begin{equation} \label{chap:word_embeddings:eq:CBOW_softmax}
+	p(t_{i}|t_{i-k},...,t_{i+k}) = \frac{e^{y_{t_{i}}}}{\sum^{|V|}_{i}{e^{y_{t_i}}}}
+\end{equation}
+
+\nointdent where $y_{t_i}$ is the output vector for term $t_i$.
+
+Another architecture is the \textit{skip-gram} model, that attempts to predict the context of a word. This is depicted in figure \ref{chap:word_embeddingss:fig:skipgram_diagram}. Again, input and output are one-hot vectors while the hidden layer is of dimensionality $m$ ($<<|V|$). The objective is to learn weight matrices $W_{in}$ and $W_{out}$ and the loss function is as follows:
 
 \begin{equation} \label{chap:word_embeddings:eq:skipgram_log_likelihood}
-	 \mathcal{L}_{SkipGram} = \frac{1}{|S|} \sum_{i=1}^{|S|}{ \sum_{-k \leq j \leq +k}{ \log {p(t_{i+j}|t_{i};\theta)}  } }
+	 \mathcal{L}_{SkipGram} = -\frac{1}{|S|} \sum_{i=1}^{|S|}{ \sum_{-k \leq j \leq +k}{ \log {p(t_{i+j}|t_{i})}  } }
 \end{equation}
-\noindent
-where $S$ is the prediction windows over the training text and $k$ is the number of the words to be predicted surrounding the input word $\theta$ set of parameters to be optimized. The Softmax function of equation \ref{chap:word_embeddings:eq:skipgram_softmax} is applied at the output layer.
+
+\nointend where $k$ is the number of context words to be predicted, $S$ the number of all windows in training set, and $p(t_{i+j}|t_{i})$ is obtained as follows:
 
 \begin{equation} \label{chap:word_embeddings:eq:skipgram_softmax}
-	p(t_{i+k}|t_{i}) = \frac{ e^{(W_{out}  \times  t_{i+j})^{T} (W_{in} \times  t_{i})}}{\sum^{|V|}_{i}{ e^{(W_{out}  \times  t_{k})^{T} (W_{in} \times  t_{i})}}} 
+	p(t_{i+j}|t_{i}) = \frac{ e^{(W_{out}  \times  t_{i+j})^{T} (W_{in} \times  t_{i})}}{\sum^{|V|}_{k=1}{ e^{(W_{out}  \times  t_{k})^{T} (W_{in} \times  t_{i})}}} 
 \end{equation}
-As shown in figure \ref{chap:word_embeddingss:fig:skipgram_diagram} the input and the output are one-hot vectors.
 
 \begin{figure}[t]
 	\begin{center} 
@@ -121,30 +123,27 @@ As shown in figure \ref{chap:word_embeddingss:fig:skipgram_diagram} the input an
 	\end{center}
 \end{figure}
 
-
-Note that the two different weight matrices $W_{in}$ and $W_{out}$ (similarly to the CBOW) constitutes the $\theta$ set of parameters to be optimized of the models. $W_{in}$ gives the "in" embeddings corresponding to the input terms and $W_{out}$ corresponds to the output embeddings for the output terms. $W_{in}$, a.k.a. \textit{Word Embedding}, are used for several IR and NLP classification and regression tasks. The $W_{out}$ are usually discarded. 
-
-A very important difference between the CBPW and Skip-Grams is the NNet architecture usually their implementation is based. Particularly, there are some internal detail occurring because of the objective ot the task. \parencite{boden2002guide}
-
-Finally, all the above neural models, either CBOW or Skip-Grams, since they are approximating the continues distribution probability function of words over the the Vocabulary $V$ they have the constraint described in equation \ref{chap:words_embedding:eq:nnet_constraint}
+Finally, the above neural models, either CBOW or skip-grams, since they are approximating the continuous distribution probability function of words over the the Vocabulary $V$ they also satify the following constraint:
 
 \begin{equation} \label{chap:word_embeddings:eq:nnet_condtraint}
 	\sum_{i=1}^{|V|}{p(t_{i}|t_{i-k}, ... ,t_{i+k})} = 1
 \end{equation}
 
-To summarize, the NLM models such as the CBOW are very effective \textit{Language Modeling} and it has the agility to measure simultaneously several properties form the context. That is, the distribution of the terms in the paragraphs of the texts and in the vocabulary and they are also called \textit{Distributional Features}. The features are set in a continues vector space and the model can return a prediction value $y$ (see equation \ref{chap:word_embeddings:eq:CBOW}) for set of terms given as an input at the test phase of the model and they can be treated as response signals of a text. Particularly a sequence of words.
+Note that in both CBOW and skip-gram models the two weight matrices $W_{in}$ and $W_{out}$ can be used to provide the word embeddings\footnote{An implementation of these methods is provided in https://github.com/tmikolov/word2vec}. Usually $W_{in}$ plays this role and $W_{out}$ is discarded.
 
-The texts also now are considered as signal and the sequence of words now has a temporal property where the proximity and the order are providing important information. In respect of the term frequencies are still considered due to the temporal properties, where now the words with the higher TF are weighting or amplifying the sequential signal input to the network.
+\textcolor{red}{THIS IS NOT CLEAR: A very important difference between the CBOW and skip-grams is the NNet architecture usually their implementation is based. Particularly, there are some internal detail occurring because of the objective of the task. \parencite{boden2002guide}}
 
-Finally, the training of the CBOW and the Skip-gram NLM is very expensive and although they have lower complexity than the more generic Feedforward Neural Networks with the tangent hidden layer explained above. However, there are several engineering solution that are accelerating the training even more such as the \textit{Huffman Binary Tree encoding or the Words} and \textit{Hierarchical soft-max}. The later is a solution where it is enabling us to use multi-processing and the $\theta$ parameters to be updated concurrently. The parallel asynchronous updating of the parameter matrices is not conforming to the mathematical constraints however in practice the negative effect is minor. 
+To summarize, the above models are very effective \textit{Language Modeling} approaches having the ability to quantify simultaneously syntanctic and semantic information of words. They provide a \textit{distributed representation} for words (i.e., each word is represented with a dense vector which is a point in a space of relatively low dimensionality). The sequence of words in texts is now considered and can also be applied in cases input texts are composed of seguences of characters or POS tags.
 
-The\textit{ Huffman Binary Tree} is a a methods for compressing the encoding of the terms where the one with the higher frequency to be accessed faster. In addition to this, \textit{negative sampling}, {sub-sampling}, or \textit{ramdom sampling} is also used where in the range of $k$ window for surrounding words only a few are selected during training with minor effect in  performance and significant acceleration in training. 
+Finally, the training of the CBOW and the skip-gram models can be expensive despite the fact of limiting the number of hidden layers. However, there are several engineering solution that are accelerating the training time, such as \textit{Huffman binary Tree encoding} of words and \textit{hierarchical soft-max}. The latter is a solution that enables us to use multi-processing power and update the weight parameters concurrently. The parallel asynchronous updating of the parameter matrices is not conforming to the mathematical constraints however in practice the negative effect is minor. Huffman binary tree is a method for compressing the encoding of terms where the ones with the higher frequency are accessed faster. In addition to this, \textit{negative sampling}, \textit{sub-sampling}, or \textit{ramdom sampling} are also used where in the range of $k$ window for surrounding words only a few are selected during training with minor effect in  performance and significant acceleration in training \parentcite{mikolov2013efficient,mitra2018introduction}. 
 
-There are several detailed studies for \textit{Neural Language Modeling (NLM)}, Distributional Features and Word Embedding in \parencite{mitra2018introduction,mikolov2013efficient,mikolov2013distributed}. In the next paragraphs is explained thea \textit{Document to Vector (Doc2Vec)} Neural Model, where it is the extension of the above models CBOW and Skip-grams. Particularly, the PV-BOW is explained which has been used in this study on WGI, where a model of  the \textit{Continues Distribution of  Paragraphs} over the corpus context. Then, the web-pages are encoded in this continues distribution and their similarity is measured for the open-set WGI.
+\subsection{Document Embeddings} \label{chap:word_embeddings:sec:PVBOW} 
  
- 
-\subsection{Paragraph-Vector Bag-of-Words and Document Vectors Projection} \label{chap:word_embeddings:sec:PVBOW} 
- 
+There are several approaches to tranform word embeddings to document embeddings \parencite{mitra2018introduction,mikolov2013distributed}. The most simple method produces a vector for a given document by averaging the word embeddings of the words in a document. It is also possible is to modify the network architecture and work on the sentence level. For example, word embeddings per sentence are averaged and the goal is to predict a sentence given its context sentences \parentcite{Kenter:2016}. Another idea, the \textit{Sent2Vec} method, is to compose sentence embeddingsby extending CBOW to include word vectors and word n-gram embeddings \footnote{An implementation of this method can be found in https://github.com/epfml/sent2vec}.
+
+In this thesis, we use the \textit{Doc2Vec} approach introduced in \parentcite{le2014distributed}. that attempts to generalize the word embeddings methods to work with sequences of words. 
+
+
 In this study, the Paragraph Vector Bag-of-Words (PV-BOW) model is used for the WGI task in the open-set framework evaluation. The PV-BOW is a DF modeling of the documents as an extension of the Skip-Grams modeling. The PV-BOW extends the idea of the \textit{Continues Distribution of the Words} over the Vocabulary and the Context defined by a Corpus of documents. A \textit{Continues Distribution of the Paragraphs (CDP} is defined where this method considers the concatenation of the paragraph vector with the word vectors to predict the next word in a text window. 
  
 The CDP can be derived with two methods, one is based on CBOW and the other on Skip-Grams, which is used in this study. The CBOW extension is called Distributed Memory Paragraph Vector (PV-DM) because the Paragraph Vector is given as an input together with the word vectors, and it is considered as memory of the words distribution.
@@ -173,7 +172,7 @@ where $D_{i}$ is the Document Vector or Document ID, $S$ is the prediction windo
 \begin{equation} \label{chap:word_embeddings:eq:pvbow_softmax}
 	p(t_{i+k}|t_{i}) = \frac{ e^{(W_{out}  \times  t_{i+j})^{T} (W_{in} \times  D_{i})}}{\sum^{|V|}_{i}{ e^{(W_{out}  \times  t_{k})^{T} (W_{in} \times  D_{i})}}} 
 \end{equation}
-Paragraph Vectors address some of the key weaknesses of bag-of-words (remember words can be any terms characters, words or POS) models. First, they capture the semantics of the terms. Therefore, words like “strong”  and "powerful" are closer together both and far from "Athens". Secondly, paragraph vectors take into consideration the word order, at least in sentence or paragraph level, in the same way that an Word n-Gram model would do in the size of n-Terms. As we will see experimentally the n-gram model also preserves a lot of information of the paragraph such as the word order. However, even if in some cases like in the experiments below, the n-grams perform equally to the PV-BOW DF models, the DF models can generalize better. They encoding more information with much denser and continuous dimemntionality or at least the information they capture is not sparse and maybe "broken" in the small ranges of n-terms.
+Paragraph Vectors address some of the key weaknesses of bag-of-words (remember words can be any terms characters, words or POS) models. First, they capture the semantics of the terms. Therefore, words like “strong”  and "powerful" are closer together both and far from "Athens". Secondly, paragraph vectors take into consideration the word order, at least in sentence or paragraph level, in the same way that an Word n-Gram model would do in the size of n-Terms. As we will see experimentally the n-gram model also preserves a lot of information of the paragraph such as the word order. However, even if in some cases like in the experiments below, the n-grams perform equally to the PV-BOW DF models, the DF models can generalize better. They encoding more information with much denser and continuous dimemnsionality or at least the information they capture is not sparse and maybe "broken" in the small ranges of n-terms.
 
 In practice a library for HTML reprocessing and and Vector Representation of the web-pages has been created for this work, named  \textit{Html2Vec}\footnote{\url{https://github.com/dpritsos/html2vec}}. There as special module for PV-BOW modeling has been build, where it is based on the the algorithm can be found at \textit{Gensim package} \footnote{\url{https://github.com/RaRe-Technologies/gensim}}. 
 
@@ -181,14 +180,14 @@ In practice a library for HTML reprocessing and and Vector Representation of the
 In this study a PVBOW Distributional Feature model for the whole corpus is trained. The corpus initially is split to a set of paragraphs, as required from PVBOW. To be more specific the paragraphs are sentences split from all the document of the whole corpus. Then several models PVBOW feature models are trained for a variety of parameters and vector dimensions, explained in the experiments section below. After the model has been fitted then one vector for each web-document was inferred from the PVBOW. The final document vectors derived from \tetxit{Distributional Feature Model} are given to the open-set learning model explained below. 
 
 
-\section{Experiments}\label{chap:word_embeddings:sec:experiments_setup}
+\section{Experimental Setup}\label{chap:word_embeddings:sec:experiments_setup}
 
-\subsection{Corpus}\label{chap:word_embeddings:sec:experiments_corpora}
+%\subsection{Corpus}\label{chap:word_embeddings:sec:experiments_corpora}
 
 The experiments of this chapter, are based on \textit{SANTINIS}, a benchmark corpus already used in previous work in WGI \parencite{mehler2010genres_on_web,pritsos2018open,santini2007automatic}. Briefly, this dataset comprises 1,400 English web-pages evenly distributed into seven genres (blog, eshop, FAQ, frontpage, listing, personal home page, search page) as well as 80 BBC web-pages evenly categorized into four additional genres (DIY mini-guide, editorial, features, short-bio). In addition, the dataset comprises a random selection of 1,000 English web-pages taken from the SPIRIT corpus \parencite{joho2004spirit}. The latter can be viewed as \textit{unstructured noise} since genre labels are missing. More details for SATNINIS corpus are discussed in section \ref{}. 
 
 
-\subsection{Open-set Models Parameters Setup}\label{chap:word_embeddings:sec:experiments_params}
+%\subsection{Open-set Models Parameters Setup}\label{chap:word_embeddings:sec:experiments_params}
 
 To represent web-pages again the features are exclusively related to textual information, excluding any structural information, URLs, etc. The following representation schemes are examined: Character 4-grams (C4G), Word unigrams (W1G), and Word 3-grams (W3G). For each of these schemes, we use either Term-Frequency (TF) weights or DF features. The feature space for TF is defined by a vocabulary $V_{TF}$, which is extracted based on the most frequent terms of the training set --- we consider $V_{TF}=\{5k,10k,50k,100k\}$. The DF space is pre-defined in the PV-BOW model --- we consider $DF_{dim}=\{50,100,250,500,1000\}$.
 
@@ -208,9 +207,9 @@ To compensate the unbalanced distribution of web pages over the genres because o
 Finally, for selection parameter settings that obtain optimal evaluation performances the two scalar measures are used where their usage is reasoned in section \ref{}. Firstly, the \textit{Area Under the Precision-Recall Curve} (AUC) to the  standard \textit{11 Recall Levels} and particularly the Macro-AUC (MAUC). Secondly, the $F_{1}$ and specifically the Macro-F1 (MF1) score.
 
 
-\section{Results}\label{chap:word_embeddings:sec:results}
+\section{Experimental Results}\label{chap:word_embeddings:sec:results}
 
-\subsection{Paragraph-Vectors vs. N-Gram-Vectors(TF): Improving Low Performance Learners}\label{chap:word_embeddings:sec:NNDR_PVBOW_vs_BOW}
+\subsection{NNDR with DF or TF Features}\label{chap:word_embeddings:sec:NNDR_PVBOW_vs_BOW}
 
 NNDR, analytically described in \ref{}, is an open-set formation of the NN algorithm. On the contrary to the previously discussed open-set algorithms such as the RFSE, it has the ability to explicitly parameterized for regulating the \textit{open space risk}. In this paragraph the NNRD performance is evaluated in the open-set with \textit{unstructured noise} conditions, using the SANTINIS corpus.
 
@@ -275,7 +274,7 @@ To conclude it seems that NNDR with distributional features is returning a signi
 In the next section the NNDR is compared to the RFSE and OCSVME open-set algorithms both described in \textit{chapter \ref{chap:openset}} and their evaluation experiments presented in \textit{chapter \ref{chap:noise}}.
 
 
-\subsection{Nearest Neighbours Distance Ration with Paragraph-Vectors}\label{chap:word_embeddings:sec:experiments_setup}
+\subsection{Comparison of Open-set WGI Methods}\label{chap:word_embeddings:sec:experiments_setup}
 
 In this section the objective is to find out  how far the improvement of an open-set algorithm can go with the PVBOW neural language model compare to the RFSE and OCSVME as baselines. The baselines and NNDR are applied in the SANTINIS corpus. 
 
