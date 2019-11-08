@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  8 NOV 2019 19:27
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  8 NOV 2019 20:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2399,31 +2399,284 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+1: section
+[11] [12]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 97.
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]|\T1/ptm/m/n/10.95 Special Char-ac-ter Fre-
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 114--114
+[]|\T1/ptm/m/n/10.95 Ratio of long to short
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--115
+[]|\T1/ptm/m/n/10.95 Misspelled words Fre-
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 121--121
+[]|\T1/ptm/m/n/10.95 Words open to in-flec-tion which in-clude
+ []
+
+
+Underfull \hbox (badness 6510) in paragraph at lines 122--122
+[]|\T1/ptm/m/n/10.95 Ratio of func-tional to
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 123--123
+[]|\T1/ptm/m/n/10.95 Frequency of se-quences
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
+[]|\T1/ptm/m/n/10.95 Average Sub-sentence
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
+[]|\T1/ptm/m/n/10.95 Standard De-vi-a-tion of
+ []
+
+
+Overfull \hbox (30.30948pt too wide) in paragraph at lines 106--137
+ [] 
+ []
+
+[13]
+Underfull \hbox (badness 7504) in paragraph at lines 149--149
+[]|\T1/ptm/m/n/10.95 Average char-ac-ters per
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 151--151
+[]|\T1/ptm/m/n/10.95 Average sen-tence length
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+[]|\T1/ptm/m/n/10.95 Descriptive words to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]|\T1/ptm/m/n/10.95 Proportion of ques-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+\T1/ptm/m/n/10.95 ber of end sen-tence
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+[]|\T1/ptm/m/n/10.95 Part-of-speech tag n-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+[]|\T1/ptm/m/n/10.95 Textual/Content
+ []
+
+
+Overfull \hbox (30.30948pt too wide) in paragraph at lines 144--168
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+[]|\T1/ptm/m/n/10.95 Average
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+\T1/ptm/m/n/10.95 para-graph
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
+[]|\T1/ptm/m/n/10.95 Discipline-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
+\T1/ptm/m/n/10.95 specific
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+[]|\T1/ptm/m/n/10.95 Compound
+ []
+
+
+Underfull \hbox (badness 5592) in paragraph at lines 189--189
+[]|\T1/ptm/m/n/10.95 Modal verb
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+[]|\T1/ptm/m/n/10.95 Adjective
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 197--197
+[]|\T1/ptm/m/n/10.95 Lexical rep-
+ []
+
+
+Overfull \hbox (0.888pt too wide) in paragraph at lines 199--199
+[]|\T1/ptm/m/n/10.95 Coordinating
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--199
+\T1/ptm/m/n/10.95 con-ju-ga-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--201
+[]|\T1/ptm/m/n/10.95 Content
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]|\T1/ptm/m/n/10.95 Evaluation
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\T1/ptm/m/n/10.95 move den-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+[]|\T1/ptm/m/n/10.95 Vocabulary
+ []
+
+
+Overfull \hbox (0.88773pt too wide) in paragraph at lines 209--209
+[]|\T1/ptm/m/n/10.95 Prepositional
+ []
+
+
+Underfull \hbox (badness 5189) in paragraph at lines 209--209
+\T1/ptm/m/n/10.95 phrase den-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--211
+[]|\T1/ptm/m/n/10.95 Negation
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--213
+[]|\T1/ptm/m/n/10.95 Pronoun
+ []
+
+
+Overfull \hbox (18.30948pt too wide) in paragraph at lines 175--218
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 43.50606pt on input line 218.
+
+
+Underfull \hbox (badness 2828) in paragraph at lines 229--230
+\T1/ptm/m/n/10.95 ra-tive, Per-sua-sive,
+ []
+
+
+Underfull \hbox (badness 1430) in paragraph at lines 231--231
+[]|\T1/ptm/m/n/10.95 Average para-graph length, Lex-i-cal rep-e-ti-
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 232--233
+[]|\T1/ptm/m/n/10.95 Informative, Elab-
+ []
+
+
+Overfull \hbox (30.30948pt too wide) in paragraph at lines 225--235
+ [] 
+ []
+
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--262
+[]|\T1/ptm/m/n/10.95 Frequency counts
+ []
+
+
+Overfull \hbox (18.70947pt too wide) in paragraph at lines 256--265
+ [] 
+ []
+
+[14]
+
+LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 15 undefined on input line 282.
+
+[15]
+./Chapters/Relevant_Work.tex:300: Undefined control sequence.
+l.300 \paragrpah
+                {Readability Assessment Features} Finally, the \textit{Reada...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[16]
+Overfull \hbox (7.63266pt too wide) in paragraph at lines 314--315
+[]\T1/ptm/m/n/10.95 Lexical: Vo-cab-u-lary Lem-mas for Com-mu-ni-ca-tion, Ev-ery-day use, High fre-quent, Unique. 
+ []
+
+[17] [18] [19] [20] [21] [22]
 File: Figures/Sotlen_diagram.eps Graphic file (type eps)
 <Figures/Sotlen_diagram.eps>
-1: section
-[11] [12] [13] [14]
+ [23
 
-LaTeX Warning: Reference `' on page 15 undefined on input line 96.
+] [24]
 
-[15] [16] [17]
+LaTeX Warning: Reference `chap:relevant_work:sec:features:subsec:heuristics' on page 25 undefined on input line 386.
 
-LaTeX Warning: Reference `chap:relevant_work:sec:intro:subsec:heuristics' on page 18 undefined on input line 164.
+[25] [26] [27]
 
-[18]
-
-LaTeX Warning: Reference `' on page 19 undefined on input line 174.
+LaTeX Warning: Reference `chap:relevant_work:sec:intro:subsec:heuristics' on page 28 undefined on input line 447.
 
 
-LaTeX Warning: Reference `' on page 19 undefined on input line 176.
+LaTeX Warning: Reference `' on page 28 undefined on input line 457.
 
 
-LaTeX Warning: Reference `' on page 19 undefined on input line 188.
+LaTeX Warning: Reference `' on page 28 undefined on input line 459.
 
-./Chapters/Relevant_Work.tex:194: Argument of \textbf  has an extra }.
+[28]
+
+LaTeX Warning: Reference `' on page 29 undefined on input line 471.
+
+./Chapters/Relevant_Work.tex:477: Argument of \textbf  has an extra }.
 <inserted text> 
                 \par 
-l.194 \paragraph\textbf{D
+l.477 \paragraph\textbf{D
                          omain transfer} is the ability to transfer across m...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -2433,36 +2686,36 @@ argument that might be the root of the problem. But if
 your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
-./Chapters/Relevant_Work.tex:194: Paragraph ended before \textbf  was complete.
+./Chapters/Relevant_Work.tex:477: Paragraph ended before \textbf  was complete.
 <to be read again> 
                    \par 
-l.194 \paragraph\textbf{D
+l.477 \paragraph\textbf{D
                          omain transfer} is the ability to transfer across m...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-LaTeX Warning: Reference `' on page 19 undefined on input line 194.
+LaTeX Warning: Reference `' on page 29 undefined on input line 477.
 
 
-Overfull \hbox (1.0445pt too wide) in paragraph at lines 194--195
+Overfull \hbox (1.0445pt too wide) in paragraph at lines 477--478
 [] \T1/ptm/m/n/10.95 Do-main trans-fer is the abil-ity to trans-fer across multiple-topic do-mains the same learner
  []
 
-[19] [20]
+[29] [30]
 
-LaTeX Warning: Reference `corpus_building' on page 21 undefined on input line 223.
-
-
-LaTeX Warning: Reference `noise' on page 21 undefined on input line 223.
+LaTeX Warning: Reference `corpus_building' on page 31 undefined on input line 506.
 
 
-LaTeX Warning: Citation 'Asheghi's relative work' on page 21 undefined on input line 223.
+LaTeX Warning: Reference `noise' on page 31 undefined on input line 506.
 
-[21] [22]
-./Chapters/Relevant_Work.tex:257: Undefined control sequence.
-l.257 ...roposed from Scholkopf et al. \parencitep
+
+LaTeX Warning: Citation 'Asheghi's relative work' on page 31 undefined on input line 506.
+
+[31] [32]
+./Chapters/Relevant_Work.tex:540: Undefined control sequence.
+l.540 ...roposed from Scholkopf et al. \parencitep
                                                   {scholkopf1999estimating}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2470,8 +2723,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Relevant_Work.tex:265: Undefined control sequence.
-l.265 ...r example in Scholkopf et al. \parencitep
+./Chapters/Relevant_Work.tex:548: Undefined control sequence.
+l.548 ...r example in Scholkopf et al. \parencitep
                                                   {scholkopf1999estimating} ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2479,8 +2732,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Relevant_Work.tex:269: Undefined control sequence.
-l.269 ...n this work, and published in \parencitep
+./Chapters/Relevant_Work.tex:552: Undefined control sequence.
+l.552 ...n this work, and published in \parencitep
                                                   {pritsos2013open}, is desc...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2489,11 +2742,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `alg:OCSVM-Ensemble' on page 23 undefined on input line 269.
+LaTeX Warning: Reference `alg:OCSVM-Ensemble' on page 33 undefined on input line 552.
 
-[23]
-./Chapters/Relevant_Work.tex:271: Undefined control sequence.
-l.271 ...on of the method presented in \parencitep
+./Chapters/Relevant_Work.tex:554: Undefined control sequence.
+l.554 ...on of the method presented in \parencitep
                                                   {koppel2011authorship}. In...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2502,376 +2754,122 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `alg:RFS-Ensemble' on page 24 undefined on input line 271.
+LaTeX Warning: Reference `alg:RFS-Ensemble' on page 33 undefined on input line 554.
+
+[33]
+
+LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 34 undefined on input line 572.
 
 
-LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 24 undefined on input line 289.
+LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 34 undefined on input line 574.
 
-
-LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 24 undefined on input line 291.
-
-[24]
-./Chapters/Relevant_Work.tex:300: Missing $ inserted.
+./Chapters/Relevant_Work.tex:583: Missing $ inserted.
 <inserted text> 
                 $
-l.300 ...Accuracy}. The balance parameters \lambda
+l.583 ...Accuracy}. The balance parameters \lambda
                                                    regulates the mistakes tr...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Relevant_Work.tex:301: Missing $ inserted.
+./Chapters/Relevant_Work.tex:584: Missing $ inserted.
 <inserted text> 
                 $
-l.301 
+l.584 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (3.07507pt too wide) in paragraph at lines 299--301
+Overfull \hbox (3.07507pt too wide) in paragraph at lines 582--584
 \T1/ptm/m/it/10.95 cu-racy\T1/ptm/m/n/10.95 . The bal-ance pa-ram-e-ters $\OML/ztmcm/m/it/10.95 ^^Uregulatesthemistakestrade \OMS/ztmcm/m/n/10.95 ^^@ \OML/ztmcm/m/it/10.95 offontheknownandmarked \OMS/ztmcm/m/n/10.95 ^^@
  []
 
+[34]
 
-LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 25 undefined on input line 312.
+LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 35 undefined on input line 595.
 
 
-LaTeX Warning: Reference `chap:openset:alg:NNDR_prediction' on page 25 undefined on input line 316.
+LaTeX Warning: Reference `chap:openset:alg:NNDR_prediction' on page 35 undefined on input line 599.
 
-[25]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 322.
- [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 437--437
-[]|\T1/ptm/m/n/10.95 Special Char-ac-ter Fre-
- []
+[35] [36]
 
+LaTeX Warning: Reference `chap:relevant_work:sec:features:subsec:heuristics' on page 37 undefined on input line 655.
 
-Underfull \hbox (badness 2865) in paragraph at lines 441--441
-[]|\T1/ptm/m/n/10.95 Ratio of long to short
- []
+[37]
 
+LaTeX Warning: Reference `chap:relevant_work:sec:features:subsec:heuristics' on page 38 undefined on input line 680.
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--442
-[]|\T1/ptm/m/n/10.95 Misspelled words Fre-
- []
-
-
-Underfull \hbox (badness 3312) in paragraph at lines 448--448
-[]|\T1/ptm/m/n/10.95 Words open to In-flec-tion which in-clude
- []
-
-
-Underfull \hbox (badness 6510) in paragraph at lines 449--449
-[]|\T1/ptm/m/n/10.95 Ratio of func-tional to
- []
-
-
-Underfull \hbox (badness 1895) in paragraph at lines 450--450
-[]|\T1/ptm/m/n/10.95 Frequency of se-quences
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]|\T1/ptm/m/n/10.95 Average Sub-sentence
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-[]|\T1/ptm/m/n/10.95 Standard De-vi-a-tion of
- []
-
-
-Overfull \hbox (30.30948pt too wide) in paragraph at lines 433--464
- [] 
- []
-
-
-Underfull \hbox (badness 7504) in paragraph at lines 476--476
-[]|\T1/ptm/m/n/10.95 Average char-ac-ters per
- []
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 478--478
-[]|\T1/ptm/m/n/10.95 Average sen-tence length
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
-[]|\T1/ptm/m/n/10.95 Descriptive words to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 489--489
-[]|\T1/ptm/m/n/10.95 Proportion of ques-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 489--489
-\T1/ptm/m/n/10.95 ber of end sen-tence
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 491--491
-[]|\T1/ptm/m/n/10.95 Part-of-speech tag n-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
-[]|\T1/ptm/m/n/10.95 Textual/Content
- []
-
-
-Overfull \hbox (30.30948pt too wide) in paragraph at lines 471--495
- [] 
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 508--508
-[]|\T1/ptm/m/n/10.95 Average
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 508--508
-\T1/ptm/m/n/10.95 para-graph
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--510
-[]|\T1/ptm/m/n/10.95 Discipline-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--510
-\T1/ptm/m/n/10.95 specific
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 514--514
-[]|\T1/ptm/m/n/10.95 Compound
- []
-
-
-Underfull \hbox (badness 5592) in paragraph at lines 516--516
-[]|\T1/ptm/m/n/10.95 Modal verb
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 520--520
-[]|\T1/ptm/m/n/10.95 Adjective
- []
-
-
-Underfull \hbox (badness 1297) in paragraph at lines 524--524
-[]|\T1/ptm/m/n/10.95 Lexical rep-
- []
-
-
-Overfull \hbox (0.888pt too wide) in paragraph at lines 526--526
-[]|\T1/ptm/m/n/10.95 Coordinating
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 526--526
-\T1/ptm/m/n/10.95 con-ju-ga-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 528--528
-[]|\T1/ptm/m/n/10.95 Content
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 530--530
-[]|\T1/ptm/m/n/10.95 Evaluation
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 530--530
-\T1/ptm/m/n/10.95 move den-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 532--532
-[]|\T1/ptm/m/n/10.95 Vocabulary
- []
-
-
-Overfull \hbox (0.88773pt too wide) in paragraph at lines 536--536
-[]|\T1/ptm/m/n/10.95 Prepositional
- []
-
-
-Underfull \hbox (badness 5189) in paragraph at lines 536--536
-\T1/ptm/m/n/10.95 phrase den-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 538--538
-[]|\T1/ptm/m/n/10.95 Negation
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 540--540
-[]|\T1/ptm/m/n/10.95 Pronoun
- []
-
-
-Overfull \hbox (18.30948pt too wide) in paragraph at lines 502--545
- [] 
- []
-
-
-LaTeX Warning: Float too large for page by 55.50606pt on input line 545.
-
-
-Underfull \hbox (badness 2828) in paragraph at lines 556--557
-\T1/ptm/m/n/10.95 ra-tive, Per-sua-sive,
- []
-
-
-Underfull \hbox (badness 1430) in paragraph at lines 558--558
-[]|\T1/ptm/m/n/10.95 Average para-graph length, Lex-i-cal rep-e-ti-
- []
-
-
-Underfull \hbox (badness 1365) in paragraph at lines 559--560
-[]|\T1/ptm/m/n/10.95 Informative, Elab-
- []
-
-
-Overfull \hbox (30.30948pt too wide) in paragraph at lines 552--562
- [] 
- []
-
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-
-Underfull \hbox (badness 10000) in paragraph at lines 589--589
-[]|\T1/ptm/m/n/10.95 Frequency counts
- []
-
-
-Overfull \hbox (18.70947pt too wide) in paragraph at lines 583--592
- [] 
- []
-
-[29]
-
-LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 30 undefined on input line 609.
-
-[30]
-./Chapters/Relevant_Work.tex:627: Undefined control sequence.
-l.627 \paragrpah
-                {Readability Assessment Features} Finally, the \textit{Reada...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[31]
-Overfull \hbox (7.63266pt too wide) in paragraph at lines 641--642
-[]\T1/ptm/m/n/10.95 Lexical: Vo-cab-u-lary Lem-mas for Com-mu-ni-ca-tion, Ev-ery-day use, High fre-quent, Unique. 
- []
-
-[32] [33] [34] [35] [36] [37] [38] [39]
-Overfull \hbox (64.39575pt too wide) detected at line 743
+[38] [39]
+Overfull \hbox (64.39575pt too wide) detected at line 748
 [][] [] \OT1/zplm/m/n/10.95 + [] + [] + [] = \OT1/ztmcm/m/n/10.95 300, 430 \OMS/ztmcm/m/n/10.95 ^^@ f\OML/ztmcm/m/it/10.95 InvalidCombinat\OT1/ztmcm/m/n/10.95 .\OMS/ztmcm/m/n/10.95 g \OT1/zplm/m/n/10.95 = \OT1/ztmcm/m/n/10.95 171, 476
  []
 
-[40
 
-]
-
-LaTeX Warning: Reference `chap:Document_Representation' on page 41 undefined on input line 753.
+LaTeX Warning: Reference `chap:Document_Representation' on page 40 undefined on input line 758.
 
 
-Overfull \hbox (5.89215pt too wide) in paragraph at lines 757--757
-[]\T1/ptm/b/n/14.4 Deep Learn-ing Vo-cab-u-lary of Dis-tri-bu-tional Fea-tures for WGI 
- []
+LaTeX Warning: Reference `chap:relative_work:sec:heuristics' on page 40 undefined on input line 764.
 
 
-LaTeX Warning: Reference `chap:relative_work:sec:heuristics' on page 41 undefined on input line 759.
+LaTeX Warning: Citation 'worsham2018genre' on page 40 undefined on input line 766.
+
+[40]
+
+LaTeX Warning: Citation 'worsham2018genre' on page 41 undefined on input line 770.
 
 
-LaTeX Warning: Citation 'worsham2018genre' on page 41 undefined on input line 761.
+LaTeX Warning: Reference `word_embedding' on page 41 undefined on input line 778.
 
-
-LaTeX Warning: Citation 'worsham2018genre' on page 41 undefined on input line 765.
-
-[41]
-
-LaTeX Warning: Reference `word_embedding' on page 42 undefined on input line 773.
-
-[42]
+[41] [42]
 File: Figures/GenreSim_Draw.eps Graphic file (type eps)
 <Figures/GenreSim_Draw.eps>
- [43] [44] [45] [46]
-Overfull \hbox (1.52534pt too wide) in paragraph at lines 932--933
+ [43] [44] [45]
+Overfull \hbox (1.52534pt too wide) in paragraph at lines 937--938
 []\T1/ptm/m/n/10.95 Multi-class clas-si-fi-ca-tion, hi-er-ar-chi-cal clas-si-fi-ca-tion, and multi-page clas-si-fi-ca-tion is some
  []
 
-[47]
+[46] [47]
 
-LaTeX Warning: Reference `chap:relevan_work:sec:features' on page 48 undefined on input line 961.
+LaTeX Warning: Reference `chap:relevan_work:sec:features' on page 48 undefined on input line 966.
 
 [48]
 
-LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 49 undefined on input line 973.
+LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 49 undefined on input line 978.
 
-./Chapters/Relevant_Work.tex:973: Missing $ inserted.
+./Chapters/Relevant_Work.tex:978: Missing $ inserted.
 <inserted text> 
                 $
-l.973 ...u2017genre,asheghi2014semi} (Ashegi,2018_
+l.978 ...u2017genre,asheghi2014semi} (Ashegi,2018_
                                                   Book_HistoryFeaturesAndTyp...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Relevant_Work.tex:974: Missing $ inserted.
+./Chapters/Relevant_Work.tex:979: Missing $ inserted.
 <inserted text> 
                 $
-l.974 
+l.979 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (17.90363pt too wide) in paragraph at lines 973--974
+Overfull \hbox (17.90363pt too wide) in paragraph at lines 978--979
 \T1/ptm/m/n/10.95 Sharoff, [][]2014[][]) (Ashegi,2018$[]\OML/ztmcm/m/it/10.95 ook[]istoryFeaturesAndTypologyOfLa[]EB[]EXT[]ORPUS\OT1/ztmcm/m/n/10.95 .\OML/ztmcm/m/it/10.95 pdf\OT1/zplm/m/n/10.95 )\OT1/ztmcm/m/n/10.95 .$ 
  []
 
 
-LaTeX Warning: Reference `' on page 49 undefined on input line 977.
-
-[49]
-
-LaTeX Warning: Reference `chap:relevant_work:sec:heuristics' on page 50 undefined on input line 985.
+LaTeX Warning: Reference `' on page 49 undefined on input line 982.
 
 
-LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 50 undefined on input line 985.
+LaTeX Warning: Reference `chap:relevant_work:sec:heuristics' on page 49 undefined on input line 990.
 
-[50]) [51]
+
+LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 49 undefined on input line 990.
+
+[49]) [50]
 \openout2 = `Chapters/Open_set_algorithms.aux'.
 
- (./Chapters/Open_set_algorithms.tex [52
-
-
-
-]
+ (./Chapters/Open_set_algorithms.tex
 Chapter 3.
 
 ./Chapters/Open_set_algorithms.tex:11: LaTeX Error: Command \keyword already defined.
@@ -2944,7 +2942,11 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 1: section
-[53]
+[51
+
+
+
+]
 ./Chapters/Open_set_algorithms.tex:45: Undefined control sequence.
 l.45 ...of such classes can be performed by \tetit
                                                   {zero-shot learning} \pare...
@@ -2954,7 +2956,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[54]
+[52]
 File: Figures/closed-set_classification_schema.eps Graphic file (type eps)
 <Figures/closed-set_classification_schema.eps>
 
@@ -2969,7 +2971,7 @@ Overfull \hbox (1.38376pt too wide) in paragraph at lines 74--75
  [] 
  []
 
-[55]
+[53]
 File: Figures/open_space_risk_schema.eps Graphic file (type eps)
 <Figures/open_space_risk_schema.eps>
 
@@ -2977,12 +2979,12 @@ Overfull \hbox (2.78902pt too wide) in paragraph at lines 86--87
  [] 
  []
 
-[56] [57]
+[54] [55]
 Overfull \hbox (1.11073pt too wide) in paragraph at lines 139--140
 []\T1/ptm/m/n/10.95 Outlier-SVM is an-other SVM-based al-go-rithm in-tro-duced in ([]Manevitz and Yousef, [][]2002[][];
  []
 
-[58]
+[56]
 ./Chapters/Open_set_algorithms.tex:174: Undefined control sequence.
 l.174 \nointend
                 subject to:
@@ -2992,7 +2994,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[59]
+[57]
 ./Chapters/Open_set_algorithms.tex:186: Undefined control sequence.
 l.186 \nointent
                 subject to:
@@ -3022,9 +3024,9 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[60] [61]
+[58] [59]
 Missing character: There is no × in font zptmcm7t!
- [62]
+ [60]
 ./Chapters/Open_set_algorithms.tex:305: Undefined control sequence.
 l.305 ...ation algorithm introduced in \parentcite
                                                   {mendesjunior2016}, which ...
@@ -3065,10 +3067,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[63] [64]) [65]
+[61] [62]) [63]
 \openout2 = `Chapters/Evaluation_methodology.aux'.
 
- (./Chapters/Evaluation_methodology.tex [66
+ (./Chapters/Evaluation_methodology.tex [64
 
 
 
@@ -3206,7 +3208,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 1: section
-[67] [68]
+[65] [66]
 ./Chapters/Evaluation_methodology.tex:95: Missing $ inserted.
 <inserted text> 
                 $
@@ -3223,7 +3225,7 @@ l.96
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-[69]
+[67]
 ./Chapters/Evaluation_methodology.tex:117: Extra alignment tab has been changed to \cr.
 <template> \endtemplate 
                         
@@ -3271,7 +3273,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[70] [71]
+[68] [69]
 File: Figures/prc_macro_micro_count_noise.eps Graphic file (type eps)
 <Figures/prc_macro_micro_count_noise.eps>
 
@@ -3324,11 +3326,11 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[72] [73] [74] [75
+[70] [71] [72] [73
 
 ]
-./Chapters/Evaluation_methodology.tex:290: Undefined control sequence.
-l.290 ...es used in the testing phase) \parentcite
+./Chapters/Evaluation_methodology.tex:281: Undefined control sequence.
+l.281 ...es used in the testing phase) \parentcite
                                                   {mendesjunior2016}:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3338,12 +3340,12 @@ and I'll forget about whatever was undefined.
 
 File: Figures/openness_example.eps Graphic file (type eps)
 <Figures/openness_example.eps>
-[76]
-Overfull \hbox (0.64015pt too wide) in paragraph at lines 319--320
+[74]
+Overfull \hbox (0.64015pt too wide) in paragraph at lines 310--311
 []\T1/ptm/m/n/10.95 The per-for-mance it can be mea-sured us-ing Ac-cu-racy, F1-statistic, Precision-Recall Curve,
  []
 
-[77]) [78]
+[75]) [76]
 \openout2 = `Chapters/Experiments_noise.aux'.
 
  (./Chapters/Experiments_noise.tex
@@ -3419,7 +3421,7 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 1: section
-[79
+[77
 
 
 
@@ -3433,14 +3435,14 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[80]
+[78]
 Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 File: Figures/OCSME_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/OCSME_Best_per_DocRep.eps>
-[81]
+[79]
 File: Figures/RFSE_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/RFSE_Best_per_DocRep.eps>
 File: Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps Graphic file (type eps)
@@ -3456,7 +3458,7 @@ Overfull \hbox (70.60387pt too wide) in paragraph at lines 207--208
  [][] 
  []
 
-[82] [83] [84]
+[80] [81] [82]
 File: Figures/OCSVME_openness_test_graph.eps Graphic file (type eps)
 <Figures/OCSVME_openness_test_graph.eps>
 File: Figures/RFSE_MIX_openness_test_graph.eps Graphic file (type eps)
@@ -3465,9 +3467,9 @@ File: Figures/RFSE_Precision_Focus_openness_test_graph.eps Graphic file (type ep
 <Figures/RFSE_Precision_Focus_openness_test_graph.eps>
 File: Figures/RFSE_vs_OCSVME_W1G.eps Graphic file (type eps)
 <Figures/RFSE_vs_OCSVME_W1G.eps>
- [85
+ [83
 
-] [86] [87]) [88
+] [84] [85]) [86
 
 ]
 \openout2 = `Chapters/Word_embedding.aux'.
@@ -3554,7 +3556,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 1: section
-[89
+[87
 
 
 
@@ -3601,7 +3603,7 @@ File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
 File: Figures/CBOW_diagram.eps Graphic file (type eps)
 <Figures/CBOW_diagram.eps>
- [90]
+ [88]
 ./Chapters/Word_embedding.tex:104: Undefined control sequence.
 l.104 \nointdent
                  where $y_{t_i}$ is the output vector for term $t_i$.
@@ -3620,10 +3622,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[91]
+[89]
 File: Figures/skip_gram.eps Graphic file (type eps)
 <Figures/skip_gram.eps>
- [92]
+ [90]
 ./Chapters/Word_embedding.tex:138: Undefined control sequence.
 l.138 ...cant acceleration in training \parentcite
                                                   {mikolov2013efficient,mitr...
@@ -3673,12 +3675,12 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[93]
+[91]
 File: Figures/pvbow.eps Graphic file (type eps)
 <Figures/pvbow.eps>
 
 
-LaTeX Warning: Citation 'posadas2017application' on page 94 undefined on input line 172.
+LaTeX Warning: Citation 'posadas2017application' on page 92 undefined on input line 172.
 
 ./Chapters/Word_embedding.tex:174: Undefined control sequence.
 l.174 ...ral text classification tasks \parentcite
@@ -3689,7 +3691,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[94]
+[92]
 ./Chapters/Word_embedding.tex:184: Undefined control sequence.
 l.184 ...ed separately as suggested in \parentcite
                                                   {posadas2017application}. ...
@@ -3708,12 +3710,12 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[95]
+[93]
 
-LaTeX Warning: Reference `' on page 96 undefined on input line 206.
+LaTeX Warning: Reference `' on page 94 undefined on input line 206.
 
 
-LaTeX Warning: Reference `' on page 96 undefined on input line 206.
+LaTeX Warning: Reference `' on page 94 undefined on input line 206.
 
 ./Chapters/Word_embedding.tex:212: Missing $ inserted.
 <inserted text> 
@@ -3736,44 +3738,28 @@ my insertion and my current dilemma will both disappear.
 
 File: Figures/NNDR_W3G.eps Graphic file (type eps)
 <Figures/NNDR_W3G.eps>
-[96] [97]
-./Chapters/Word_embedding.tex:294: Undefined control sequence.
-l.294 ...ecause it is left unclassified as \tetxit
-                                                  {unknown class}.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
+[94]
+Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
 File: Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps Graphic file (type eps)
 <Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps>
-[98]
-./Chapters/Word_embedding.tex:310: Undefined control sequence.
-l.310 ... open-set algorithm combined with \tetxit
-                                                  {neural language model}.
+ [95] [96] [97]
+./Chapters/Word_embedding.tex:304: Undefined control sequence.
+l.304 ...sing results in other domains \parentcite
+                                                  {mendesjunior2016}. Our ex...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Word_embedding.tex:312: Undefined control sequence.
-l.312 ...apter \ref{chap:openset}. A \textDistance
-                                                   Ration threshold is calcu...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+) [98
 
-[99]) [100]
+]
 \openout2 = `Chapters/Conclusions.aux'.
 
  (./Chapters/Conclusions.tex
@@ -3850,18 +3836,18 @@ or  <return>  to continue without it.
 
 )
 1: section
-[101
+[99
 
 
 
-] [102
+] [100
 
 
 ]
 Missing character: There is no ’ in font ptmr8t!
 
 1: section
-[103]
+[101]
 Overfull \hbox (13.75073pt too wide) in paragraph at lines 186--186
 [][]\T1/ptm/m/n/10.95 Hardy, Jack A and Eric Frig-i-nal (2016). ^^P  Genre vari-a-tion in stu-dent writ-ing: A multi-dimensional
  []
@@ -3871,7 +3857,7 @@ Overfull \hbox (0.83423pt too wide) in paragraph at lines 186--186
 [][]\T1/ptm/m/n/10.95 Jebari, Chaker (2014). ^^P  A Pure URL-Based Genre Clas-si-fi-ca-tion of Web Pages^^Q. In: \T1/ptm/m/it/10.95 Database
  []
 
-[104]
+[102]
 Overfull \hbox (5.67198pt too wide) in paragraph at lines 186--186
 [][]\T1/ptm/m/n/10.95 Lieungnapar, Angvar-rah, Richard Wat-son Todd, and Wan-napa Trakulka-sem-suk (2017). ^^P  Genre
  []
@@ -3881,7 +3867,7 @@ Overfull \hbox (17.95299pt too wide) in paragraph at lines 186--186
 \T1/ptm/m/n/10.95 si-fi-ca-tion^^Q. In: \T1/ptm/m/it/10.95 In-tel-li-gent Data En-gi-neer-ing and Au-to-mated Learning--IDEAL 2015\T1/ptm/m/n/10.95 . Springer,
  []
 
-[105]
+[103]
 Overfull \hbox (18.27432pt too wide) in paragraph at lines 186--186
 [][][]\T1/ptm/m/n/10.95 (2009c). ^^P  Clas-si-fy-ing Web Pages by Genre: An n-Gram Ap-proach^^Q. In: \T1/ptm/m/it/10.95 2009 IEEE/WIC/ACM
  []
@@ -3893,9 +3879,9 @@ Overfull \hbox (15.46317pt too wide) in paragraph at lines 186--186
 
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
-[106]
+[104]
 Missing character: There is no ’ in font ptmr8t!
- [107] [108]
+ [105] [106]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 189.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 189.
  (./PhD_Thesis.aux (./Chapters/Introduction.aux) (./Chapters/Relevant_Work.aux) (./Chapters/Open_set_algorithms.aux) (./Chapters/Evaluation_methodology.aux) (./Chapters/Experiments_noise.aux) (./Chapters/Word_embedding.aux) (./Chapters/Conclusions.aux))
@@ -3919,12 +3905,12 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 58426 strings out of 493007
- 1335160 string characters out of 6136720
- 1761732 words of memory out of 5000000
- 61573 multiletter control sequences out of 15000+600000
+ 58430 strings out of 493007
+ 1335219 string characters out of 6136720
+ 1760507 words of memory out of 5000000
+ 61577 multiletter control sequences out of 15000+600000
  636649 words of font info for 167 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  82i,21n,128p,10452b,6136s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on PhD_Thesis.pdf (114 pages).
+Output written on PhD_Thesis.pdf (112 pages).

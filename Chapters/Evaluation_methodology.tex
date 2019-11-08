@@ -255,29 +255,20 @@ In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Und
 \begin{table}[t]
 	\center
 	\caption{Macro and Micro calculation for AUC and F1 of the Confusion matrix (Table \ref{chap:eval_methods:tbl:multi_confusion})}\label{chap:eval_methods:tbl:AUC_F1}
-	\begin{tabular}{c|c|c|}
-		\cline{2-3}
-		& AUC & F1 \\
+	\begin{tabular}{c c c c c}
+		\cline{2-5}
+		& \multicolumn{2}{|c|}{Algorithm A} & \multicolumn{2}{c|}{Algorithm B} \\
+		\cline{2-5}
+		& \multicolumn{1}{|c}{AUC} & \multicolumn{1}{c|}{F1} & \multicolumn{1}{c}{AUC} & \multicolumn{1}{c|}{F1} \\
 		\hline
-		\multicolumn{1}{|c|}{Macro} & 0.448 & 0.570 \\
-		\multicolumn{1}{|c|}{Micro} & 0.866 & 0.588 \\	
+		\multicolumn{1}{|c}{Macro($\mathcal{C}$)} & \multicolumn{1}{|c}{0.625} & \multicolumn{1}{c|}{0.XXX} & 0.499 & \multicolumn{1}{c|}{0.XXX}\\
+		\multicolumn{1}{|c}{Micro($\mathcal{C}$)} & \multicolumn{1}{|c}{0.986} & \multicolumn{1}{c|}{0.XXX} & 0.999 & \multicolumn{1}{c|}{0.XXX}\\
+		\hline
+		\multicolumn{1}{|c}{Macro($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.612} & \multicolumn{1}{c|}{0.XXX} & 0.507 & \multicolumn{1}{c|}{0.XXX}\\	
+		\multicolumn{1}{|c}{Micro($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.986} & \multicolumn{1}{c|}{0.XXX} & 0.930 & \multicolumn{1}{c|}{0.XXX}\\
 		\hline
 	\end{tabular}
 \end{table}
-
-No Noise
-Macro AUC Alg1:  0.62449
-Macro AUC Alg2:  0.499195
-Micro AUC Alg1:  0.985636
-Micro AUC Alg2:  0.998795
-
-Noise
-Macro AUC Alg1:  0.611598
-Macro AUC Alg2:  0.506685
-Micro AUC Alg1:  0.986349
-Micro AUC Alg2:  0.930161
-
-
 
 It is very important to note that the Micro-AUC is highly misleading, as expected from the PRC diagram \ref{chap:eval_methods:fig:prc_macro}. On the contrary the F1 is not so different, although, as explained, is overestimating the performance o the algorithm by overestimating the precision score. 
 
