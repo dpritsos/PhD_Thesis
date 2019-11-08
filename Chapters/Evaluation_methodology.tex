@@ -177,6 +177,25 @@ A more effective evaluation methodology is the the Precision Recall Curves, whic
 
 So far, the evaluation measures consider classification algorithms that provide crisp predictions (i.e., \textit{hard classifiers}). The discussed evaluation measures are only available to show particular aspects of the performance of classifiers. To obtain a deeper look we need richer evaluation methods that can depict the performance of classifiers in a variety of conditions. One such method is the \textit{Precision-Recall Curves (PRC)}, a standard method for evaluating information retrieval systems and ranking systems. They can only be applied to \textit{soft classifiers} that are able to explicitly estimate class conditional probabilities. Fortunately, the vast majority of hard classifiers can be adopted to also provide some form of score that can be regarded as class conditional probability.
 
+
+\begin{figure}[b]
+	\begin{center}
+    	\includegraphics[scale=0.38]{Figures/prc_macro_micro_count_noise.eps}
+		\caption{Open-set Macro (Red line) and Micro (grey line) 
+		The Red lines are the Precision Recall Curves of confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}}
+		\label{chap:eval_methods:fig:prc_macro}
+	\end{center}
+\end{figure}
+
+\begin{figure}[b]
+	\begin{center}
+    	\includegraphics[scale=0.38]{Figures/prc_macro_micro.eps}
+		\caption{Open-set Macro (Red line) and Micro (grey line) Precision Recall Curves of confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}}
+		\label{chap:eval_methods:fig:prc_macro}
+	\end{center}
+\end{figure}
+
+
 The calculation of a PRC requires the ranking of estimated probabilities in descending order. In each step, the next prediction is considered and a new precision and recall point is calculated. Both macro-PRC and micro-PRC can be calculated.
 
 In order to facilitate the comparison of PRCs corresponding to the performance of different systems on the same evaluation dataset, the 11-recall level normalization is typically used. The initial points of PRC are reduced to 11 that correspond to standard recall levels $[0,0.1,...,1.0]$. For example, in case Recall$=0.1$, we measure precision when 10\% of the samples have been seen. Precision values are interpolated based on the following formula:
@@ -199,10 +218,10 @@ where $P(r_j)$ is the precision at $r_j$ standard recall level ($r_j=\{0,0.1,0.2
 		0.99 & 2 & 2 & 1 \\
 		0.99 & 4 & 4 & 1 \\
 		... & ... & ... & ... \\
-		0.79 & 2 & 6 & 0 \\
+		0.79 & 2 & 1 & 0 \\
 		0.79 & 4 & 4 & 1 \\
-		0.69 & 7 & 6 & 0 \\
-		0.69 & 4 & 4 & 1 \\
+		0.69 & 1 & 1 & 0 \\
+		0.69 & 2 & 2 & 1 \\
 		... & ... & ... & ... \\
 		0.64 & \emptyset & 6 & 0 \\
 		0.60 & 2 & 2 & 1 \\
@@ -213,14 +232,6 @@ where $P(r_j)$ is the precision at $r_j$ standard recall level ($r_j=\{0,0.1,0.2
 \end{table}
 
 In table \ref{chap:eval_methods:tbl:prc} it is shown a sequence of calculation for the corpus formed the final confusion matrix of table \ref{chap:eval_methods:tbl:multi_confusion}. In this case, an open-set algorithm returned the predictions together with its certainty scores. 
-
-\begin{figure}[t]
-	\begin{center}
-    	\includegraphics[scale=0.45]{Figures/pr_macro_micro_example.eps}
-		\caption{Open-set Macro (Red line) and Micro (grey line) Precision Recall Curves of confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}}
-		\label{chap:eval_methods:fig:prc_macro}
-	\end{center}
-\end{figure}
 
 The two curves yielding from this calculations, micro and macro PRC are shown in figure \ref{chap:eval_methods:fig:prc_macro}. Clearly, the micro-PRC is misleading compare to the macro-PRC and the results of table \ref{chap:eval_methods:tbl:macro_vs_micro}.
 
@@ -253,6 +264,20 @@ In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Und
 		\hline
 	\end{tabular}
 \end{table}
+
+No Noise
+Macro AUC Alg1:  0.62449
+Macro AUC Alg2:  0.499195
+Micro AUC Alg1:  0.985636
+Micro AUC Alg2:  0.998795
+
+Noise
+Macro AUC Alg1:  0.611598
+Macro AUC Alg2:  0.506685
+Micro AUC Alg1:  0.986349
+Micro AUC Alg2:  0.930161
+
+
 
 It is very important to note that the Micro-AUC is highly misleading, as expected from the PRC diagram \ref{chap:eval_methods:fig:prc_macro}. On the contrary the F1 is not so different, although, as explained, is overestimating the performance o the algorithm by overestimating the precision score. 
 

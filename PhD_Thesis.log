@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  6 NOV 2019 20:55
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  8 NOV 2019 19:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2053,6 +2053,9 @@ LaTeX Warning: Label `chap:openset:sec:NNRD_Description' multiply defined.
 
 LaTeX Warning: Label `chap:eval_methods:eq:recall' multiply defined.
 
+
+LaTeX Warning: Label `chap:eval_methods:fig:prc_macro' multiply defined.
+
 ) (./Chapters/Experiments_noise.aux) (./Chapters/Word_embedding.aux
 
 LaTeX Warning: Label `chap:word_embeddings:sec:experiments_setup' multiply defined.
@@ -3269,18 +3272,32 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 [70] [71]
-./Chapters/Evaluation_methodology.tex:207: Missing $ inserted.
+File: Figures/prc_macro_micro_count_noise.eps Graphic file (type eps)
+<Figures/prc_macro_micro_count_noise.eps>
+
+Overfull \hbox (4.86375pt too wide) in paragraph at lines 183--185
+ [] 
+ []
+
+File: Figures/prc_macro_micro.eps Graphic file (type eps)
+<Figures/prc_macro_micro.eps>
+
+Overfull \hbox (4.86375pt too wide) in paragraph at lines 192--193
+ [] 
+ []
+
+./Chapters/Evaluation_methodology.tex:226: Missing $ inserted.
 <inserted text> 
                 $
-l.207 ^^I^^I0.64 & \emptyset
+l.226 ^^I^^I0.64 & \emptyset
                              & 6 & 0 \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Evaluation_methodology.tex:207: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:226: Missing $ inserted.
 <inserted text> 
                 $
-l.207 ^^I^^I0.64 & \emptyset &
+l.226 ^^I^^I0.64 & \emptyset &
                                6 & 0 \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3288,18 +3305,18 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./Chapters/Evaluation_methodology.tex:210: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:229: Missing $ inserted.
 <inserted text> 
                 $
-l.210 ^^I^^I0.60 & \emptyset
+l.229 ^^I^^I0.60 & \emptyset
                              & 4 & 0 \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Evaluation_methodology.tex:210: Missing $ inserted.
+./Chapters/Evaluation_methodology.tex:229: Missing $ inserted.
 <inserted text> 
                 $
-l.210 ^^I^^I0.60 & \emptyset &
+l.229 ^^I^^I0.60 & \emptyset &
                                4 & 0 \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3307,11 +3324,11 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-File: Figures/pr_macro_micro_example.eps Graphic file (type eps)
-<Figures/pr_macro_micro_example.eps>
-[72] [73]
-./Chapters/Evaluation_methodology.tex:265: Undefined control sequence.
-l.265 ...es used in the testing phase) \parentcite
+[72] [73] [74] [75
+
+]
+./Chapters/Evaluation_methodology.tex:290: Undefined control sequence.
+l.290 ...es used in the testing phase) \parentcite
                                                   {mendesjunior2016}:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3321,12 +3338,12 @@ and I'll forget about whatever was undefined.
 
 File: Figures/openness_example.eps Graphic file (type eps)
 <Figures/openness_example.eps>
-[74]
-Overfull \hbox (0.64015pt too wide) in paragraph at lines 294--295
+[76]
+Overfull \hbox (0.64015pt too wide) in paragraph at lines 319--320
 []\T1/ptm/m/n/10.95 The per-for-mance it can be mea-sured us-ing Ac-cu-racy, F1-statistic, Precision-Recall Curve,
  []
 
-[75]) [76]
+[77]) [78]
 \openout2 = `Chapters/Experiments_noise.aux'.
 
  (./Chapters/Experiments_noise.tex
@@ -3402,7 +3419,7 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 1: section
-[77
+[79
 
 
 
@@ -3416,14 +3433,14 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[78]
+[80]
 Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 File: Figures/OCSME_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/OCSME_Best_per_DocRep.eps>
-[79]
+[81]
 File: Figures/RFSE_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/RFSE_Best_per_DocRep.eps>
 File: Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps Graphic file (type eps)
@@ -3439,7 +3456,7 @@ Overfull \hbox (70.60387pt too wide) in paragraph at lines 207--208
  [][] 
  []
 
-[80] [81] [82]
+[82] [83] [84]
 File: Figures/OCSVME_openness_test_graph.eps Graphic file (type eps)
 <Figures/OCSVME_openness_test_graph.eps>
 File: Figures/RFSE_MIX_openness_test_graph.eps Graphic file (type eps)
@@ -3448,9 +3465,9 @@ File: Figures/RFSE_Precision_Focus_openness_test_graph.eps Graphic file (type ep
 <Figures/RFSE_Precision_Focus_openness_test_graph.eps>
 File: Figures/RFSE_vs_OCSVME_W1G.eps Graphic file (type eps)
 <Figures/RFSE_vs_OCSVME_W1G.eps>
- [83
+ [85
 
-] [84] [85]) [86
+] [86] [87]) [88
 
 ]
 \openout2 = `Chapters/Word_embedding.aux'.
@@ -3537,14 +3554,14 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 1: section
-[87
+[89
 
 
 
 ]
 ./Chapters/Word_embedding.tex:46: Undefined control sequence.
 l.46 ...{singular value decomposition} \parentcite
-                                                  {Kontostathis:2006}. Anoth...
+                                                  {kontostathis2006framework...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3553,7 +3570,7 @@ and I'll forget about whatever was undefined.
 
 ./Chapters/Word_embedding.tex:46: Undefined control sequence.
 l.46 ...d as a distribution over words \parentcite
-                                                  {Blei:2003}.
+                                                  {blei2003latent}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3584,7 +3601,7 @@ File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
 File: Figures/CBOW_diagram.eps Graphic file (type eps)
 <Figures/CBOW_diagram.eps>
- [88]
+ [90]
 ./Chapters/Word_embedding.tex:104: Undefined control sequence.
 l.104 \nointdent
                  where $y_{t_i}$ is the output vector for term $t_i$.
@@ -3603,10 +3620,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[89]
+[91]
 File: Figures/skip_gram.eps Graphic file (type eps)
 <Figures/skip_gram.eps>
-
+ [92]
 ./Chapters/Word_embedding.tex:138: Undefined control sequence.
 l.138 ...cant acceleration in training \parentcite
                                                   {mikolov2013efficient,mitr...
@@ -3616,10 +3633,18 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[90]
 ./Chapters/Word_embedding.tex:142: Undefined control sequence.
 l.142 ...e given its context sentences \parentcite
-                                                  {Kenter:2016}. Another ide...
+                                                  {kenter2016}. Another idea...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Word_embedding.tex:142: Undefined control sequence.
+l.142 ...rs and word n-gram embeddings \parentcite
+                                                  {pagliardini-etal-2018-uns...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3627,101 +3652,93 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ./Chapters/Word_embedding.tex:144: Undefined control sequence.
-l.144 ...c2Vec} approach introduced in \parentcite
-                                                  {le2014distributed}. that ...
+l.144 ...2Vec} approach, introduced in \parentcite
+                                                  {le2014distributed}, that ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+
+./Chapters/Word_embedding.tex:146: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 \usepackage
+                 {authblk}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[93]
 File: Figures/pvbow.eps Graphic file (type eps)
 <Figures/pvbow.eps>
 
-LaTeX Warning: Citation 'posadas2017application' on page 91 undefined on input line 162.
 
-[91]
-Missing character: There is no “ in font ptmr8t!
-Missing character: There is no ” in font ptmr8t!
- [92]
-./Chapters/Word_embedding.tex:180: Undefined control sequence.
-l.180 ...nal document vectors derived from \tetxit
-                                                  {Distributional Feature Mo...
+LaTeX Warning: Citation 'posadas2017application' on page 94 undefined on input line 172.
+
+./Chapters/Word_embedding.tex:174: Undefined control sequence.
+l.174 ...ral text classification tasks \parentcite
+                                                  {le2014distributed}. Its m...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Reference `' on page 93 undefined on input line 187.
-
-
-LaTeX Warning: Reference `' on page 93 undefined on input line 194.
-
-[93]
-./Chapters/Word_embedding.tex:201: Undefined control sequence.
-l.201 ...uation framework is followed with \tetxit
-                                                  {unstructured noise} intro...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Reference `' on page 94 undefined on input line 201.
-
-./Chapters/Word_embedding.tex:201: Undefined control sequence.
-l.201 ... each fold, the full set of 1,000 \tetxit
-                                                  {noise pages} was included.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Reference `' on page 94 undefined on input line 205.
-
-
-LaTeX Warning: Reference `' on page 94 undefined on input line 207.
-
-
-LaTeX Warning: Reference `' on page 94 undefined on input line 214.
-
-
-LaTeX Warning: Reference `' on page 94 undefined on input line 216.
-
-
-LaTeX Warning: Reference `' on page 94 undefined on input line 218.
-
-
-LaTeX Warning: Reference `' on page 94 undefined on input line 218.
-
-
-LaTeX Warning: Reference `' on page 94 undefined on input line 218.
-
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 248.
-
-LaTeX Warning: Reference `tbl:NNDR_TF' on page 94 undefined on input line 248.
-
-
-LaTeX Warning: Reference `tbl:NNDR_TF' on page 94 undefined on input line 248.
 
 [94]
+./Chapters/Word_embedding.tex:184: Undefined control sequence.
+l.184 ...ed separately as suggested in \parentcite
+                                                  {posadas2017application}. ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Word_embedding.tex:198: Undefined control sequence.
+l.198 ..., and $F_1$ measures are used \parentcite
+                                                  {mendesjunior2016}. Note a...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[95]
+
+LaTeX Warning: Reference `' on page 96 undefined on input line 206.
+
+
+LaTeX Warning: Reference `' on page 96 undefined on input line 206.
+
+./Chapters/Word_embedding.tex:212: Missing $ inserted.
+<inserted text> 
+                $
+l.212 ...bda$ & Features & Dim. & $P_{macro}$ & R_
+                                                  {macro} & $AUC_{macro}$ & ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Chapters/Word_embedding.tex:212: Missing $ inserted.
+<inserted text> 
+                $
+l.212 ...atures & Dim. & $P_{macro}$ & R_{macro} &
+                                                   $AUC_{macro}$ & $F_1^{mac...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 File: Figures/NNDR_W3G.eps Graphic file (type eps)
 <Figures/NNDR_W3G.eps>
- [95]
-Missing character: There is no Μ in font zptmcm7m!
-
-
-LaTeX Warning: Reference `' on page 96 undefined on input line 272.
-
 [96] [97]
-./Chapters/Word_embedding.tex:321: Undefined control sequence.
-l.321 ...ecause it is left unclassified as \tetxit
+./Chapters/Word_embedding.tex:294: Undefined control sequence.
+l.294 ...ecause it is left unclassified as \tetxit
                                                   {unknown class}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3729,16 +3746,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-Invalid UTF-8 byte or sequence at line 325 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 325 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 325 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 325 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 325 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 325 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 298 replaced by U+FFFD.
 File: Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps Graphic file (type eps)
 <Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps>
-./Chapters/Word_embedding.tex:337: Undefined control sequence.
-l.337 ... open-set algorithm combined with \tetxit
+[98]
+./Chapters/Word_embedding.tex:310: Undefined control sequence.
+l.310 ... open-set algorithm combined with \tetxit
                                                   {neural language model}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3746,8 +3764,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Word_embedding.tex:339: Undefined control sequence.
-l.339 ...apter \ref{chap:openset}. A \textDistance
+./Chapters/Word_embedding.tex:312: Undefined control sequence.
+l.312 ...apter \ref{chap:openset}. A \textDistance
                                                    Ration threshold is calcu...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3755,14 +3773,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[98]) [99]
+[99]) [100]
 \openout2 = `Chapters/Conclusions.aux'.
 
- (./Chapters/Conclusions.tex [100
-
-
-
-]
+ (./Chapters/Conclusions.tex
 Chapter 7.
 
 ./Chapters/Conclusions.tex:10: LaTeX Error: Command \keyword already defined.
@@ -3836,7 +3850,11 @@ or  <return>  to continue without it.
 
 )
 1: section
-[101] [102
+[101
+
+
+
+] [102
 
 
 ]
@@ -3901,11 +3919,11 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 58434 strings out of 493007
- 1335193 string characters out of 6136720
- 1761152 words of memory out of 5000000
- 61582 multiletter control sequences out of 15000+600000
- 638345 words of font info for 168 fonts, out of 8000000 for 9000
+ 58426 strings out of 493007
+ 1335160 string characters out of 6136720
+ 1761732 words of memory out of 5000000
+ 61573 multiletter control sequences out of 15000+600000
+ 636649 words of font info for 167 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  82i,21n,128p,10452b,6136s stack positions out of 5000i,500n,10000p,200000b,80000s
 
