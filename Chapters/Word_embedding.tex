@@ -1,7 +1,7 @@
 
 %!TeX spellcheck = en-US
 %\chapter{Word Embedding and Distributional Features of the web-pages and texts}
-\chapter{The Usefulness of Distributed Representation in WGI}
+\chapter{The Usefulness of Distributed Representations in WGI}
 
 \label{chap:word_embeddings}
 
@@ -253,7 +253,7 @@ A more detailed view of the performance of NNDR when combined with either tradit
 
 \subsection{Comparison of Open-set WGI Methods}\label{chap:word_embeddings:sec:experiments_setup}
 
-In this section, the performance of NNDR is compared to that of OCSVM and RFSE obtained as described in Chapter \ref{chap:noise} for the SANTINIS corpus. The experimental setup for NNDR with either TF or DF schemes is exactly the same therefore the evaluation results for these models are directly comparable. In the framework of this experiment OCSVM and RFSE serve as baseline models to help us see how competitive the NNDR approach can be assisted by DF representation.
+In this section, the performance of NNDR on the SANTINIS corpus is compared to that of OCSVM and RFSE obtained as described in Chapter \ref{chap:noise}. The experimental setup for NNDR with either TF or DF schemes is exactly the same therefore the evaluation results for these models are directly comparable. In the framework of this experiment OCSVM and RFSE serve as baseline models to help us see how competitive the NNDR approach can be assisted by DF representation when unstructured noise is available in WGI.
 
 \begin{table}[t]
 \center
@@ -279,19 +279,15 @@ NNDR & DF-W3G & 100 & 0.827 & 0.615 & 0.564 & \textbf{0.706} \\
 \end{tabular}
 \end{table}
 
-First, NNDR is compared with the baselines using TF features. In this case, NNDR outperforms OCSVM. On the other hand, RFSE performed better than NNDR for macro-averaged $F_1$ and AUC. This is consistent for any kind of features (C4G, W1G, or W3G). There is notable difference in the dimensionality of representation used by the examined approaches though. RFSE relies upon a 50k-D manifold while NNDR and OCSVM are based on much lower dimensional spaces. 
+First, NNDR is compared with the baselines using TF features. In this case, NNDR outperforms OCSVM. On the other hand, RFSE performed NNDR in both macro-averaged $F_1$ and AUC. This is consistent for any kind of features (C4G, W1G, or W3G). The RFSE model is the top overall performer while both OCSVM and NNDR are significantly low in respect of AUC, $F_1$ and precision. Only, NNDR with TF scheme for W3G is competitive. 
 
-The RFSE is the top performer while both OCSVME and NNDR are significantly low in respect of AUC, $F_1$ and precision. Only, NNDR with TF scheme for W3G is competitive.
+There is notable difference in the dimensionality of representation used by the examined approaches though. RFSE relies upon a 50k-D manifold while NNDR and OCSVM are based on much lower dimensional spaces. This demonstrates the ability of RFSE to exploit the existence of redundant feature sets. It has to be noted that RFSE builds an ensemble by iteratively and randomly selecting a subset of the available features. That way, it internally reduces the dimensionality for each constituent base classifier (RFSE is using 1,000 randomly selected features from the 50,000 most frequent features in each repetition). 
 
-Next, NNDR with DF is compared with the same baselines and itself with TF features. As shown in section \ref{chap:word_embeddings:sec:NNDR_PVBOW_vs_BOW} above there is a notable improvement for NNDR with DF features and now is comparable with RFSE baseline. However, still RFSE outperforms NNDR although $F_1$ is comparable for all cases of features, i.e. W3G, W1G, C4G. On the other hand, NNDR returns a notably higher performance from RFSE in respect of precision for C4G and W3G features. It has also to be noted that in all cases the selected value of parameter DRT is 0.8. This indicates that NNDR is a very robust algorithm.
+Next, NNDR with DF is compared with the same baselines. Although there is a notable improvement for NNDR using DF, it is still outperformed by RFSE in terms of both $F_1$ and AUC. On the other hand, NNDR returns a notably higher performance than RFSE with respect to precision for C4G and W3G features. This indicates that NNDR using DF could be more useful than RFSE in WGI applications where precision is more important than recall.
 
-The dimensionality of DF is much lower than TF and this seems to be crucial to improve the performance of NNDR. This is consistent for all three feature types (C4G, W1G, and W3G). It has to be noted that RFSE builds an ensemble by iteratively and \textit{randomly selecting} a subset of the available features. That way, it internally reduces the dimensionality for each constituent base classifier. RFSE is using about 1000 \textit{randomly selected features} from the 50,000 most frequent features. This observations together with the improvement of the NNDR performance with DF is a strong indication where the genre information is pervasive in several features of the texts and the magnitude of the features frequency is not enough. 
+A closer look at  the comparison of the examined methods is provided in Fig. \ref{chap:word_embeddings:fig:NNDR_W3G_Best_RFSE_Baseline}, where macro-averaged precision recall curves are depicted. The NNDR-DF model maintains very high precision scores for low levels of recall. Particularly, for W3G features the difference between NNDR-DF and RFSE at that point is clearer. NNDR-TF is clearly worse than both NNDR-DF and RFSE. In addition, OCSVM is competitive in terms of precision only when W3G features are used but its performance drops abruptly in comparison to that of NNDR-DF. 
 
-Finally, the proposed approach using NNDR and DF outperforms OCSVM but, as said above, it is outperformed by the strong baseline RFSE in both MAUC and MF1. However, when precision is concerned, NNDR is much better. A closer look at  the comparison of the two methods is provided in Fig. \ref{chap:word_embeddings:fig:NNDR_W3G_Best_RFSE_Baseline}, where MPRCs are depicted. 
-
-The NNDR-DF model maintains very high precision scores for low levels of recall. Particularly, for W3G the difference between NNDR-DF and RFSE at that point is clearer. NNDR-TF is clearly worse than both NNDR-DF and RFSE. In addition, OCSVM is competitive in terms of precision only when W3G features are used but its performance drops abruptly in comparison to that of NNDR-DF. 
-
-RFSE with W1G performs significantly better in terms of MP than NNDR (with DF). It also manages to recognize correctly larger part of the corpus, more than $70\%$ either for W3G or for W1G, compare to NNDR-DF that reaches $60\%$ in both left and right diagrams of figure \ref{chap:word_embeddings:fig:NNDR_W3G_Best_RFSE_Baseline}. Note that the point where the curves end indicates the percentage of corpus that is left unclassified because it is left unclassified as \tetxit{unknown class}.
+RFSE with W1G performs significantly better in terms of precision than NNDR (with DF). It also manages to recognize correctly larger part of the corpus, more than $70\%$ either for W3G or for W1G, as compared to NNDR-DF that reaches $60\%$ in both cases. 
 
 \begin{figure}[t]
 \begin{center}
@@ -305,13 +301,9 @@ RFSE with W1G performs significantly better in terms of MP than NNDR (with DF). 
 
 \section{Conclusions}\label{chap:word_embeddings:sec:conclusions}
 
-In this chapter is presented an experimental study focused on WGI and the use of distributional features in combination with an open-set classifier that obtained promising results in other domains. Our experiments are based on a benchmark corpus already used in prior art and a strong baseline. Particularly it is evaluated the possible performance improvement of an open-set algorithm when distributional features are employed, using the SANTINIS corpus (i.e. a corpus with an unstructured noise).
+In this chapter, we presented an experimental study focused on WGI and the use of distributed features in combination with an open-set classifier that obtained promising results in other domains \parentcite{mendesjunior2016}. Our experiments are based on a benchmark corpus with unstructured noise already used in previous work and a strong baseline. 
 
-It seems that distributional features provide a significant enhancement to the NNDR open-set method. The low-dimensionality of DF is crucial to boost the performance of NNDR. Yet, RFSE proves to be a hard-to-beat baseline at the expense of relying upon a much higher representation space (usually in the thousands of features). However, with respect to precision, the NNDR with PVBOW neural model input, is much more conservative and it prefers to leave web-pages unclassified rather than guessing an inaccurate genre label. Depending on the application of WGI, precision can be considered much more important than recall and this is where the proposed approach shines, i.e an open-set algorithm combined with \tetxit{neural language model}.
+It seems that distributional features provide a significant enhancement to the performance of NNDR in WGI tasks. The low-dimensionality and density of DF are crucial to enhance the performance of NNDR which suffers from the presence of irrelevant and redundant features (as any nearest-neighbor method). Yet, RFSE proves to be a hard-to-beat baseline at the expense of relying upon a much higher representation space (usually in the thousands of features). However, with respect to precision, NNDR with PV-DBOW features is much more conservative and it prefers to leave web-pages unclassified rather than predicting an inaccurate genre label. Depending on the application of WGI, precision can be considered much more important than recall and this is where the proposed approach seems more suitable (e.g., web-page ranking applications).
 
-The open-set algorithm NNDR have been evaluated with distributional features which have been described in detail in chapter \ref{chap:openset}. A \textDistance Ration threshold is calculated while the training procedure for maximizing the \textit{Normalized Accuracy} of the known and the unknown classes.
-
-The evaluation methodology previews shown to be proper for evaluation open-set scenarios. The natural focus in an open-set evaluation framework is the macro-precision, because always there is a part of the corpus will be classified as unknown. Either in the case of structured and unstructured or it is considered as outage while training.
-
-Further research could focus on more appropriate distance measures within NNDR specially with recent data-driven features obtained with powerful NLP convolutional and recurrent deep networks. Moreover, alternative types of distributional features could be used (e.g., topic modeling). Finally, a combination of NNDR with RFSE models could be studied as they seem to exploit complementary views of the same problem.
+Further research could focus on more appropriate distance measures within NNDR specially with recent data-driven features obtained with powerful NLP convolutional and recurrent deep networks. Moreover, alternative types of distributed features could be used (e.g., topic modeling or pre-trained language models). Finally, a combination of NNDR with RFSE models could be studied as they seem to exploit complementary views of the same problem.
 
