@@ -94,7 +94,7 @@ where $|\mathcal{C}|$ is the number of known classes. Accordingly, the \textit{m
 \noindent 
 where $F_c$ is the F-score for the class $c \in \mathcal{C}$. Alternatively, one can also calculate \textit{micro-averaged precision}, \textit{micro-averaged recall}, and \textit{micro-averaged F-score}. In that case, all data samples are taken together and a single precision and recall value is calculated for all classes cumulatively. TPs correspond to correct predictions, i.e., the diagonal values in the confusion matrix.  All other cells of the confusion matrix are considered as both FPs and FNs (i.e., when a sample of class X is miss-classified to class Y this is a FN for X and a FP for Y). Thus, micro-Precision will be equal to micro-Recall and their harmonic mean  ($F_{1}$) will also be the same. Actually, micro-averaged $F_{1}$ is also equal to the accuracy measure. Consequently, $F_{micro}$ is strongly dependent on the distribution of samples over the classes. On the other hand, F_{macro} gives equal weight to all classes.
 
-\subsection{Open-set Variants of Evaluation Measures}
+\subsection{Open-set Variants of Evaluation Measures}\label{chap:eval_methods:sec:openset_measures}
 
 In an open-set classification task, we are given a set of known classes $\mathcal{C}$ and training samples for each $c \in \mathcal{C}$. However, in the evaluation phase the dataset may consist of both samples belonging to members of $\mathcal{C}$ and samples of classes excluded from $\mathcal{C}$, that is noise $\mathcal{N}$. The latter can be composed of several classes. Especially in WGI, it is expected that the number of web-pages not belonging to any of the known genres would be very high. 
 
@@ -178,27 +178,25 @@ A more effective evaluation methodology is the the Precision Recall Curves, whic
 So far, the evaluation measures consider classification algorithms that provide crisp predictions (i.e., \textit{hard classifiers}). The discussed evaluation measures are only available to show particular aspects of the performance of classifiers. To obtain a deeper look we need richer evaluation methods that can depict the performance of classifiers in a variety of conditions. One such method is the \textit{Precision-Recall Curves (PRC)}, a standard method for evaluating information retrieval systems and ranking systems. They can only be applied to \textit{soft classifiers} that are able to explicitly estimate class conditional probabilities. Fortunately, the vast majority of hard classifiers can be adopted to also provide some form of score that can be regarded as class conditional probability.
 
 
-\begin{figure}[b]
+\begin{figure}[p]
 	\begin{center}
     	\includegraphics[scale=0.38]{Figures/prc_macro_micro_count_noise.eps}
 		\caption{Open-set Macro (Red line) and Micro (grey line) 
 		The Red lines are the Precision Recall Curves of confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}}
-		\label{chap:eval_methods:fig:prc_macro}
+		\label{chap:eval_methods:fig:prc_noise}
 	\end{center}
-\end{figure}
 
-\begin{figure}[b]
 	\begin{center}
     	\includegraphics[scale=0.38]{Figures/prc_macro_micro.eps}
 		\caption{Open-set Macro (Red line) and Micro (grey line) Precision Recall Curves of confusion matrix in table \ref{chap:eval_methods:tbl:multi_confusion}}
-		\label{chap:eval_methods:fig:prc_macro}
+		\label{chap:eval_methods:fig:prc}
 	\end{center}
 \end{figure}
 
 
 The calculation of a PRC requires the ranking of estimated probabilities in descending order. In each step, the next prediction is considered and a new precision and recall point is calculated. Both macro-PRC and micro-PRC can be calculated.
 
-In order to facilitate the comparison of PRCs corresponding to the performance of different systems on the same evaluation dataset, the 11-recall level normalization is typically used. The initial points of PRC are reduced to 11 that correspond to standard recall levels $[0,0.1,...,1.0]$. For example, in case Recall$=0.1$, we measure precision when 10\% of the samples have been seen. Precision values are interpolated based on the following formula:
+In order to facilitate the comparison of PRCs corresponding to the performance of different algorithms on the same evaluation dataset, the 11-recall level normalization is typically used. The initial points of PRC are reduced to 11 that correspond to standard recall levels $[0,0.1,...,1.0]$. For example, in case Recall$=0.1$, we measure precision when 10\% of the samples have been seen. Precision values are interpolated based on the following formula:
 
 \begin{equation}\label{chap:eval_methods:eq:11recall_level}
 	P(r_j)=max_{r_j \leqslant r \leqslant r_{j+1}}(P(r))
@@ -206,6 +204,23 @@ In order to facilitate the comparison of PRCs corresponding to the performance o
 
 \noindent
 where $P(r_j)$ is the precision at $r_j$ standard recall level ($r_j=\{0,0.1,0.2,...,1.0\}$).
+
+In figures \ref{chap:eval_methods:fig:prc_noise} and \ref{chap:eval_methods:fig:prc} the PR curves of two different algorithms are show for the data set of the confusion matrix \ref{chap:eval_methods:tbl:multi_confusion}. The \textit{Algorithm A} is returning the results of the confusion matrix and the ranking of scores shown in table \ref{chap:eval_methods:tbl:prc}. Also, in both figures the red PR cures are for the algorithm's A performance.
+
+Figures \ref{chap:eval_methods:fig:prc_noise} are the PR cures where the noise/unknown prediction are also included (i.e $\mathcal{C} \cup \emptyset$) in the calculation for the scores while in figure \ref{chap:eval_methods:fig:prc} is not. In both figures at the left are the $PR_{macro}$ cures and at the right are the $PR_{micro}$ cures. 
+
+The $PR_{micro}$ curves are significantly influenced in when the performance of the algorithms in the noise is also included, however in either case the performance high performance shown in the right figures is misleading. Particularly in table \ref{chap:eval_methods:tbl:AUC_F1}, \textit{algorithm B} has a very low $F1_{micro}$ score. Algorithm A is also shown to be overestimated in terms of performance, however, the calculation of the unknown prediction is not changing the estimation of the performance. 
+
+The main weaknesses of the $PR_{micro}$ curves is its dependency on the score of each corpus sample's which leads to false evaluation in highly imbalanced corpora such the ones of the confusion matrix \ref{chap:eval_methods:tbl:multi_confusion}. Particularly, the problem occurs because the the \textit{total precision} in every recall level is remaining high as long as there are not a lot false positives. The side effect of $PR_{micro}$ curves when they are used of optimization is leading to an algorithm which it is preferring to let most of the corpus samples as unknown.
+
+The $PR_{macro}$, on the other hand, are better for evaluation because they are class distributions independent. Moreover, they are able to capture the open-set behavior where some of the sample are consider as noise and left as unknown. The difference between the figures \ref{chap:eval_methods:fig:prc_noise} and \ref{chap:eval_methods:fig:prc} is the case of the red line (algorithms A) where it seems to be estimated a bit worst when its performance on noise (i.e.\emptyset) it is also calculated. 
+
+In table \ref{chap:eval_methods:tbl:prc} the Area Under the Curve (AUC) of both $PR_{macro}$ curves of algorithms A and B are very slightly defer, however, the $F1_{macro}$ scores are significantly different especially for the algorithms B.
+
+In table \ref{chap:eval_methods:tbl:prc}, as mentioned above, it is shown a sequence of calculation for the corpus formed the final confusion matrix of table \ref{chap:eval_methods:tbl:multi_confusion}. In this case, an open-set algorithm returned the predictions together with its certainty scores. 
+
+Lines 9 and 13 are showing a case where the certainty score of the algorithms A is very high for letting these samples as unknown. Such cases is leading the $PR_{macro}$  (and $PR_{micro}$ have fluctuation such the ones occurring in the figure \ref{chap:eval_methods:fig:prc_noise}(left) of algorithms A (and algorithms B figure \ref{chap:eval_methods:fig:prc_noise}(right)).
+
 
 \begin{table}[t]
 	\center
@@ -223,7 +238,7 @@ where $P(r_j)$ is the precision at $r_j$ standard recall level ($r_j=\{0,0.1,0.2
 		0.69 & 1 & 1 & 0 \\
 		0.69 & 2 & 2 & 1 \\
 		... & ... & ... & ... \\
-		0.64 & \emptyset & 6 & 0 \\
+		0.64 & \emptyset & 2 & 0 \\
 		0.60 & 2 & 2 & 1 \\
 		... & ... & ... & ... \\
 		0.60 & \emptyset & 4 & 0 \\
@@ -231,26 +246,13 @@ where $P(r_j)$ is the precision at $r_j$ standard recall level ($r_j=\{0,0.1,0.2
 	\end{tabular}
 \end{table}
 
-In table \ref{chap:eval_methods:tbl:prc} it is shown a sequence of calculation for the corpus formed the final confusion matrix of table \ref{chap:eval_methods:tbl:multi_confusion}. In this case, an open-set algorithm returned the predictions together with its certainty scores. 
-
-The two curves yielding from this calculations, micro and macro PRC are shown in figure \ref{chap:eval_methods:fig:prc_macro}. Clearly, the micro-PRC is misleading compare to the macro-PRC and the results of table \ref{chap:eval_methods:tbl:macro_vs_micro}.
-
-The macro-P is measures (in table \ref{chap:eval_methods:tbl:macro_vs_micro}) are leading to the conclusion of a low performance algorithm, especially for the recall score. On the contrary the micro-P is leading to the conclusion of a high performance algorithm, which we know that it is not true, form the confusion matrix of \ref{chap:eval_methods:tbl:multi_confusion}.
-
-To compensate the potentially unbalanced distribution of web pages over the genres, the macro-averaged precision and recall measures is used. In more detail, in this thesis a modified version of precision and recall is used, for open-set classification tasks proposed by \parencite{mendesjunior2016}. This modification calculates precision and recall only for the known classes (available in the training phase) while the unknown samples (belonging to classes not available during training) affect false positives and false negatives.
-
-The problem of the misleading micro-PRC is cased by the presence of the outages, depicted in the first row, in the confusion matrix \ref{chap:eval_methods:tbl:multi_confusion}. Particularly, as shown in table \ref{chap:eval_methods:tbl:prc} and the rows 10 and 13, the micro-PRC calculation is considering the rejected incorrect predicted and it is including them in the prediction. Thus these predictions are not calculated in the precision equation \ref{chap:eval_methods:eq:precision}. These predictions are just decreasing the micro-R. Consequently, the curve is overestimating the performance of the algorithm.
-
-On the contrary the macro-PRC is closer to the macro prediction and recall. Particularly it is show that the curve stops near the $0.5$ values which is equal to the macro-R. Moreover, macro-precision is high yet drops significantly due to the $0.60$. The PRC is giving the same evaluation performance with the table's \ref{chap:eval_methods:tbl:macro_vs_micro} scores per class and macro-scores. That is, the algorithm is having really good performance for some classes and really bad for some other.
-
-However, due to the certainty ranking we can see more insight related to the algorithms performance. Particularly, we can see some irregular drops in the micro-PRC. Also the slope of the macor-PRC first recall level to the second is very small and then drops from the near perfect predictions to the $0.87$ precision etc. Also, the curve it stops at $0.5$ recall level.
-
-These, Micro-PRC (and some time in Macro-PRC) 'irregular' properties are only meet at the open-set algorithms because of the rejection factor. In table \ref{chap:eval_methods:tbl:prc} the algorithms of the precision in rows 10 and 13, seems to have $0.60$ certainty factor which is almost as high as its correct predictions. These predictions are casing high fluctuations in the PRC which are regularized because the 11-recall level average normalization is applied on top. 
 
 
 \section{Area Under the Curve (AUC)}\label{chap:eval_methods:sec:closed_set_classification} 
 
-In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Under the Curve (AUC)} and F1 are presented. The AUC is a common values is used when several PRC's needs to be compared. As an example, to find parameter settings that obtain optimal evaluation performances for the open-set algorithms, the AUC for the PRC's of figure \ref{chap:eval_methods:fig:prc_macro} can be calculated.
+In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Under the Curve (AUC)} and F1 are presented. The AUC is a common values is used when several $PR$ curves needs to be compared. As an example, to find parameter settings that obtain optimal evaluation performances for the open-set algorithms A and B, the AUC of the $PR$ cures are calculated, shown in figures \ref{chap:eval_methods:fig:prc_noise} and \ref{chap:eval_methods:fig:prc}.
+
+In table \ref{chap:eval_methods:tbl:AUC_F1} all theses AUC calculation are shown together with their respective $F1$ scores. In section \ref{chap:eval_methods:sec:roc_prc} was explained the $PR_{micro}$ side effect and the changes cased in the calculation when the performance of the algorithms on noise is included.
 
 \begin{table}[t]
 	\center
@@ -261,18 +263,15 @@ In table \ref{chap:eval_methods:tbl:AUC_F1} the Micro and Macro \textit{Area Und
 		\cline{2-5}
 		& \multicolumn{1}{|c}{AUC} & \multicolumn{1}{c|}{F1} & \multicolumn{1}{c}{AUC} & \multicolumn{1}{c|}{F1} \\
 		\hline
-		\multicolumn{1}{|c}{Macro($\mathcal{C}$)} & \multicolumn{1}{|c}{0.625} & \multicolumn{1}{c|}{0.XXX} & 0.499 & \multicolumn{1}{c|}{0.XXX}\\
-		\multicolumn{1}{|c}{Micro($\mathcal{C}$)} & \multicolumn{1}{|c}{0.986} & \multicolumn{1}{c|}{0.XXX} & 0.999 & \multicolumn{1}{c|}{0.XXX}\\
+		\multicolumn{1}{|c}{Macro($\mathcal{C}$)} & \multicolumn{1}{|c}{0.625} & \multicolumn{1}{c|}{0.754} & 0.499 & \multicolumn{1}{c|}{0.620}\\
+		\multicolumn{1}{|c}{Micro($\mathcal{C}$)} & \multicolumn{1}{|c}{0.986} & \multicolumn{1}{c|}{0.750} & 0.999 & \multicolumn{1}{c|}{0.625}\\
 		\hline
-		\multicolumn{1}{|c}{Macro($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.612} & \multicolumn{1}{c|}{0.XXX} & 0.507 & \multicolumn{1}{c|}{0.XXX}\\	
-		\multicolumn{1}{|c}{Micro($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.986} & \multicolumn{1}{c|}{0.XXX} & 0.930 & \multicolumn{1}{c|}{0.XXX}\\
+		\multicolumn{1}{|c}{Macro($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.612} & \multicolumn{1}{c|}{0.728} & 0.507 & \multicolumn{1}{c|}{0.524}\\	
+		\multicolumn{1}{|c}{Micro($\mathcal{C} \cup \emptyset$)} & \multicolumn{1}{|c}{0.986} & \multicolumn{1}{c|}{0.825} & 0.930 & \multicolumn{1}{c|}{0.571}\\
 		\hline
 	\end{tabular}
 \end{table}
 
-It is very important to note that the Micro-AUC is highly misleading, as expected from the PRC diagram \ref{chap:eval_methods:fig:prc_macro}. On the contrary the F1 is not so different, although, as explained, is overestimating the performance o the algorithm by overestimating the precision score. 
-
-The effect of a this potential misleading choice, selecting the \textit{micro-scores} instead of the \textit{macro-scores}, is a bad choice of the  hyper-parameters required for the proper tuning of the classification algorithm. In the experiments (chapter \ref{chap:noise}) of this thesis, it will pointed out whenever this danger is occurring.
 
 \section{The Openness Test}\label{chap:eval_methods:sec:openness}
 

@@ -2491,7 +2491,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2013}
-    \field{extradate}{1}
     \field{labeldatesource}{year}
     \field{sortinit}{M}
     \field{sortinithash}{M}
@@ -2499,47 +2498,6 @@
     \field{pages}{3111\bibrangedash 3119}
     \field{title}{Distributed representations of words and phrases and their
   compositionality}
-    \field{year}{2013}
-  \endentry
-
-  \entry{mikolov2013efficient}{article}{}
-    \name{author}{4}{}{%
-      {{hash=MT}{%
-         family={Mikolov},
-         familyi={M\bibinitperiod},
-         given={Tomas},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=CK}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={Kai},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=CG}{%
-         family={Corrado},
-         familyi={C\bibinitperiod},
-         given={Greg},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=DJ}{%
-         family={Dean},
-         familyi={D\bibinitperiod},
-         given={Jeffrey},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{MT+1}
-    \strng{fullhash}{MTCKCGDJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2013}
-    \field{extradate}{2}
-    \field{labeldatesource}{year}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \field{title}{Efficient estimation of word representations in vector space}
-    \field{journaltitle}{arXiv preprint arXiv:1301.3781}
     \field{year}{2013}
   \endentry
 

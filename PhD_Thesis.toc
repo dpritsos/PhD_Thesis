@@ -14,72 +14,74 @@
 \contentsline {section}{\numberline {2.1}Introduction}{11}{section.30}
 \contentsline {section}{\numberline {2.2}The Notion of Genre}{11}{section.31}
 \contentsline {section}{\numberline {2.3}Representation of Genre-related Information}{13}{section.34}
-\contentsline {subsection}{\numberline {2.3.1}Domain-specific Genre Representation}{13}{subsection.36}
-\contentsline {paragraph}{Image processing features for document AGI}{15}{section*.42}
-\contentsline {paragraph}{Graph based features}{16}{section*.43}
-\contentsline {section}{\numberline {2.4}Machine Learning Approaches to Genre Identification}{23}{section.49}
-\contentsline {section}{\numberline {2.5}Applications of Genre Identification}{23}{section.50}
-\contentsline {section}{\numberline {2.6}Corpora for Evaluating WGI Approaches}{23}{section.51}
-\contentsline {section}{\numberline {2.7}Machine-Learning Methodology for Web Genre Identification and Classification}{26}{section.54}
-\contentsline {paragraph}{SVM Based}{26}{section*.55}
-\contentsline {paragraph}{Distance Based}{27}{section*.56}
-\contentsline {paragraph}{Neural Based}{28}{section*.66}
-\contentsline {paragraph}{Ensemble Based}{28}{section*.67}
-\contentsline {paragraph}{\textbf }{29}{section*.69}
-\contentsline {paragraph}{Domain transfer: Cross-Lingual Genre Classification}{29}{section*.70}
-\contentsline {paragraph}{Clustering Based and Hierarchical multi-class classification (HMC)}{30}{section*.75}
-\contentsline {paragraph}{Random Forest}{31}{section*.76}
-\contentsline {paragraph}{Semi-supervised classification (Co-Training}{31}{section*.77}
-\contentsline {section}{\numberline {2.8}Web Genre Noise and the Open-set approach}{32}{section.78}
-\contentsline {subsection}{\numberline {2.8.1}Web Genre Temporal Property}{35}{subsection.82}
-\contentsline {section}{\numberline {2.9}Features Selection and Vector Space Dimensions}{36}{section.88}
-\contentsline {subsection}{\numberline {2.9.1}Feature Selection and Term Weighting Schemes}{37}{subsection.89}
-\contentsline {paragraph}{TF-IGF}{37}{section*.90}
-\contentsline {section}{\numberline {2.10}Dimensionality Reduction}{39}{section.97}
-\contentsline {section}{\numberline {2.11}Deep Learning Vocabulary of Distributional Features for WGI}{40}{section.99}
-\contentsline {section}{\numberline {2.12}The Hyper (URL) links significance}{43}{section.104}
-\contentsline {section}{\numberline {2.13}The Web Genre units: Section, Page, Site and "Stage"}{45}{section.114}
-\contentsline {section}{\numberline {2.14}Focused Crawlers for Genres}{47}{section.120}
-\contentsline {section}{\numberline {2.15}Genres Utility}{48}{section.121}
-\contentsline {section}{\numberline {2.16}Web Genre Corpora: An unfinished work in progress}{48}{section.122}
-\contentsline {section}{\numberline {2.17}Discussion and Future Work Suggestions}{50}{section.124}
-\contentsline {chapter}{\numberline {3}Open-set WGI Algorithms}{51}{chapter.125}
-\contentsline {section}{\numberline {3.1}Introduction}{51}{section.126}
-\contentsline {section}{\numberline {3.2}Open-set Classification}{52}{section.127}
-\contentsline {subsection}{\numberline {3.2.1}Noise in Open-set Recognition}{52}{subsection.128}
-\contentsline {subsection}{\numberline {3.2.2}The Open-Space Risk}{52}{subsection.129}
-\contentsline {section}{\numberline {3.3}Paradigms in Open-set Classification}{56}{section.136}
-\contentsline {section}{\numberline {3.4}Open-set Classifiers for WGI}{57}{section.137}
-\contentsline {subsection}{\numberline {3.4.1}One-Class SVM}{57}{subsection.138}
-\contentsline {subsection}{\numberline {3.4.2}Random Feature Subspacing Ensemble}{59}{subsection.162}
-\contentsline {subsection}{\numberline {3.4.3}Nearest Neighbors Distance Ratio}{61}{subsection.187}
-\contentsline {section}{\numberline {3.5}Conclusions}{63}{section.210}
-\contentsline {chapter}{\numberline {4}An Evaluation Framework for Open-set WGI}{65}{chapter.211}
-\contentsline {section}{\numberline {4.1}Introduction}{65}{section.212}
-\contentsline {section}{\numberline {4.2}Evaluation Measures}{65}{section.213}
-\contentsline {subsection}{\numberline {4.2.1}Precision, Recall, and $F$-Score}{65}{subsection.214}
-\contentsline {subsection}{\numberline {4.2.2}Open-set Variants of Evaluation Measures}{67}{subsection.223}
-\contentsline {subsection}{\numberline {4.2.3}Precision-Recall Curves}{70}{subsection.227}
-\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{73}{section.232}
-\contentsline {section}{\numberline {4.4}The Openness Test}{74}{section.234}
-\contentsline {section}{\numberline {4.5}Domain Transfer Measure}{75}{section.237}
-\contentsline {section}{\numberline {4.6}Conclusions}{76}{section.239}
-\contentsline {chapter}{\numberline {5}Experimental Analysis of Open-set WGI Methods}{77}{chapter.240}
-\contentsline {section}{\numberline {5.1}Introduction}{77}{section.241}
-\contentsline {section}{\numberline {5.2}Corpora}{78}{section.242}
-\contentsline {section}{\numberline {5.3}Experimental Setup}{78}{section.245}
-\contentsline {section}{\numberline {5.4}WGI with Unstructured Noise}{79}{section.247}
-\contentsline {section}{\numberline {5.5}WGI with Structured Noise}{83}{section.253}
-\contentsline {section}{\numberline {5.6}Conclusions}{86}{section.258}
-\contentsline {chapter}{\numberline {6}The Usefulness of Distributed Representations in WGI}{87}{chapter.259}
-\contentsline {section}{\numberline {6.1}Introduction}{87}{section.260}
-\contentsline {section}{\numberline {6.2}Obtaining Distributed Representations}{88}{section.261}
-\contentsline {subsection}{\numberline {6.2.1}Word Embeddings}{88}{subsection.262}
-\contentsline {subsection}{\numberline {6.2.2}Document Embeddings}{91}{subsection.271}
-\contentsline {section}{\numberline {6.3}Experimental Setup}{93}{section.276}
-\contentsline {section}{\numberline {6.4}Experimental Results}{94}{section.279}
-\contentsline {subsection}{\numberline {6.4.1}The Effect of Distributed Representation on NNDR}{94}{subsection.280}
-\contentsline {subsection}{\numberline {6.4.2}Comparison of Open-set WGI Methods}{94}{subsection.284}
-\contentsline {section}{\numberline {6.5}Conclusions}{98}{section.287}
-\contentsline {chapter}{\numberline {7}Conclusions}{99}{chapter.288}
-\contentsline {chapter}{Bibliography}{101}{chapter*.289}
+\contentsline {subsection}{\numberline {2.3.1}Textual Features}{13}{subsection.35}
+\contentsline {subsection}{\numberline {2.3.2}Readability Assessment Features}{14}{subsection.36}
+\contentsline {subsection}{\numberline {2.3.3}Graph-based Features}{15}{subsection.42}
+\contentsline {subsection}{\numberline {2.3.4}Structural Features}{15}{subsection.43}
+\contentsline {subsection}{\numberline {2.3.5}Complexity Features}{16}{subsection.44}
+\contentsline {subsection}{\numberline {2.3.6}Image-related Features}{16}{subsection.46}
+\contentsline {subsection}{\numberline {2.3.7}Domain-specific Genre Representation}{17}{subsection.47}
+\contentsline {subsection}{\numberline {2.3.8}Hyperlinks and URL-based Representation}{18}{subsection.53}
+\contentsline {subsection}{\numberline {2.3.9}Feature Weighting}{20}{subsection.60}
+\contentsline {paragraph}{TF-IGF}{20}{section*.61}
+\contentsline {subsection}{\numberline {2.3.10}Dimensionality Reduction}{22}{subsection.70}
+\contentsline {section}{\numberline {2.4}Machine Learning Approaches to Genre Identification}{29}{section.72}
+\contentsline {section}{\numberline {2.5}Corpora for Evaluating WGI Approaches}{29}{section.73}
+\contentsline {section}{\numberline {2.6}Machine-Learning Methodology for Web Genre Identification and Classification}{32}{section.76}
+\contentsline {paragraph}{SVM Based}{32}{section*.77}
+\contentsline {paragraph}{Distance Based}{32}{section*.78}
+\contentsline {paragraph}{Neural Based}{34}{section*.88}
+\contentsline {paragraph}{Ensemble Based}{34}{section*.89}
+\contentsline {paragraph}{\textbf }{35}{section*.92}
+\contentsline {paragraph}{Domain transfer: Cross-Lingual Genre Classification}{36}{section*.93}
+\contentsline {paragraph}{Clustering Based and Hierarchical multi-class classification (HMC)}{36}{section*.98}
+\contentsline {paragraph}{Random Forest}{37}{section*.99}
+\contentsline {paragraph}{Semi-supervised classification (Co-Training}{37}{section*.100}
+\contentsline {section}{\numberline {2.7}Web Genre Noise and the Open-set approach}{38}{section.101}
+\contentsline {subsection}{\numberline {2.7.1}Web Genre Temporal Property}{42}{subsection.105}
+\contentsline {section}{\numberline {2.8}Deep Learning Vocabulary of Distributional Features for WGI}{43}{section.111}
+\contentsline {section}{\numberline {2.9}The Web Genre units: Section, Page, Site and "Stage"}{45}{section.116}
+\contentsline {section}{\numberline {2.10}Focused Crawlers for Genres}{46}{section.122}
+\contentsline {section}{\numberline {2.11}Genres Utility}{47}{section.123}
+\contentsline {section}{\numberline {2.12}Web Genre Corpora: An unfinished work in progress}{48}{section.124}
+\contentsline {section}{\numberline {2.13}Discussion and Future Work Suggestions}{50}{section.126}
+\contentsline {chapter}{\numberline {3}Open-set WGI Algorithms}{51}{chapter.127}
+\contentsline {section}{\numberline {3.1}Introduction}{51}{section.128}
+\contentsline {section}{\numberline {3.2}Open-set Classification}{52}{section.129}
+\contentsline {subsection}{\numberline {3.2.1}Noise in Open-set Recognition}{52}{subsection.130}
+\contentsline {subsection}{\numberline {3.2.2}The Open-Space Risk}{52}{subsection.131}
+\contentsline {section}{\numberline {3.3}Paradigms in Open-set Classification}{56}{section.138}
+\contentsline {section}{\numberline {3.4}Open-set Classifiers for WGI}{57}{section.139}
+\contentsline {subsection}{\numberline {3.4.1}One-Class SVM}{57}{subsection.140}
+\contentsline {subsection}{\numberline {3.4.2}Random Feature Subspacing Ensemble}{59}{subsection.164}
+\contentsline {subsection}{\numberline {3.4.3}Nearest Neighbors Distance Ratio}{61}{subsection.189}
+\contentsline {section}{\numberline {3.5}Conclusions}{63}{section.212}
+\contentsline {chapter}{\numberline {4}An Evaluation Framework for Open-set WGI}{65}{chapter.213}
+\contentsline {section}{\numberline {4.1}Introduction}{65}{section.214}
+\contentsline {section}{\numberline {4.2}Evaluation Measures}{65}{section.215}
+\contentsline {subsection}{\numberline {4.2.1}Precision, Recall, and $F$-Score}{65}{subsection.216}
+\contentsline {subsection}{\numberline {4.2.2}Open-set Variants of Evaluation Measures}{67}{subsection.225}
+\contentsline {subsection}{\numberline {4.2.3}Precision-Recall Curves}{70}{subsection.229}
+\contentsline {section}{\numberline {4.3}Area Under the Curve (AUC)}{72}{section.233}
+\contentsline {section}{\numberline {4.4}The Openness Test}{73}{section.235}
+\contentsline {section}{\numberline {4.5}Domain Transfer Measure}{74}{section.238}
+\contentsline {section}{\numberline {4.6}Conclusions}{75}{section.240}
+\contentsline {chapter}{\numberline {5}Experimental Analysis of Open-set WGI Methods}{77}{chapter.241}
+\contentsline {section}{\numberline {5.1}Introduction}{77}{section.242}
+\contentsline {section}{\numberline {5.2}Corpora}{78}{section.243}
+\contentsline {section}{\numberline {5.3}Experimental Setup}{78}{section.246}
+\contentsline {section}{\numberline {5.4}WGI with Unstructured Noise}{79}{section.248}
+\contentsline {section}{\numberline {5.5}WGI with Structured Noise}{83}{section.254}
+\contentsline {section}{\numberline {5.6}Conclusions}{86}{section.259}
+\contentsline {chapter}{\numberline {6}The Usefulness of Distributed Representations in WGI}{87}{chapter.260}
+\contentsline {section}{\numberline {6.1}Introduction}{87}{section.261}
+\contentsline {section}{\numberline {6.2}Obtaining Distributed Representations}{88}{section.262}
+\contentsline {subsection}{\numberline {6.2.1}Word Embeddings}{88}{subsection.263}
+\contentsline {subsection}{\numberline {6.2.2}Document Embeddings}{91}{subsection.272}
+\contentsline {section}{\numberline {6.3}Experimental Setup}{93}{section.277}
+\contentsline {section}{\numberline {6.4}Experimental Results}{94}{section.280}
+\contentsline {subsection}{\numberline {6.4.1}The Effect of Distributed Representation on NNDR}{94}{subsection.281}
+\contentsline {subsection}{\numberline {6.4.2}Comparison of Open-set WGI Methods}{94}{subsection.285}
+\contentsline {section}{\numberline {6.5}Conclusions}{98}{section.288}
+\contentsline {chapter}{\numberline {7}Conclusions}{99}{chapter.289}
+\contentsline {chapter}{Bibliography}{101}{chapter*.290}
