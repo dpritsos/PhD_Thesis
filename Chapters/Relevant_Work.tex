@@ -46,6 +46,8 @@ Considering the above discussion, it is clear that the notion of web genre depen
 
 \section{Representation of Genre-related Information}
 
+\subsection{Textual Features}
+
 To begin with, it shown that the \textit{Writing Style Features} and \textit{Key Event Placement (KEP) Features} are improving significantly the performance of the SVM classifier \parencite{dai2018fine}.  The writing style features are extracted as a combination of  other complex features, i.e. the combination of \textit{grammar production rules (GPR} and features from a semantic category of a \textit{Linguistic Inquiry and Word count (LIWC)} dictionary. GPR are the combination of POS and word lexical rules. LIWC is a sophisticated dictionary of occurrences of word from a word category. The KEP is a set of text formatting features, or "landmarks", such as \textit{specific characters, time, location} at specific areas of the text. In practice it is the \textit{words overlapping count} between the \textit{first paragraph} and \textit{the title} of a document. The combination of these structured based features has improved the macro-F1 performance.
 
 As registers are also considered as genres then there is also a set of heuristics have been used for a classification for this taxonomy. Particularly in \parencite{onan2018ensemble} Language Function Analysis (LFA) has been introduced for a classification task on a taxonomy of \textit{Expressive, Appellative,} and \textit{Informative} classes. The LFA is combining features that successfully used for Authorship Attribution (AA), Linguistic Features (LF), Character n-grams (CNG), Part of Speech n-grams (POSNG), and the frequency of the most discriminative words (MDW). 
@@ -57,6 +59,63 @@ As registers are also considered as genres then there is also a set of heuristic
 \item Part of speech n-grams (POSNG) same as CNG but for POS.
 \item The frequency of the most discriminative words (MDW) this is usually task dependent.
 \end{itemize}
+
+The \textit{Textual content} is the most analyzed part of the hypertext which has been used for WGI \parencite{mason2009distance,Sharroff2010}. There are several features than can be extracted used alone or combined to getting the maximum information one can get from the web-paged and feed it for training a prediction ML algorithm. Character n-grams, Word n-grams, Part-of-Speach n-grams and some \textit{special discriminative words} have been commonly used and usually combined with some heuristically extracted features \parencite{kanaris2009learning,kumari2014web,levering2008using,Lim2005,mason2009n,onan2018ensemble,petrenz2011stable,sharoff2010web,Nooralahzadeh2014}.
+
+\subsection{Readability Assessment Features}
+
+Readability Assessment Features (RAF) have also been tested for the WGI/AGI task. Moreover, a primitive attempt also presented related to these features where they have been evaluated (and compared to other features) in their effectiveness on different taxonomies. Particularly they compared on the \textit{Domain-taxonomy} and the \textit{Genre-taxonomy} \parencite{falkenjack2016exploratory}.
+
+Although, there is a ambiguity in the research literature related to the Domain/Genre definition, usually the genre considers to be (as explained in section \ref{chap:relevant_work:sec:definitions}) more abstract and related to \textit{the texts organization, rhetorical structure, length, syntax, morphology} and \textit{vocabulary richness}. Domain is more related to the \textit{General topic of a group of text}. Consequently, \textit{Sports} as category is considered to be a Domain while \textit{Academic papers} are considered Genres.
+
+It has been shown that genre-taxonomy ML classification is benefit by the use of RAF while the domain-taxonomy does not. 
+
+The RAF are very old in because they are studied since 1920 where their main purpose is to help in the evaluation of a text in respect the ease in reading and comperhation by the abilities of the reader. Although, the function includes two (2) variables the research is mainly focusing on the aspect of the evaluation of the text side only. 
+
+The most basic metrics are LIX metric (see eq \ref{chap:relevant_work:eq:LIX}) , OVIX (Word Variation Index) and NR (Nominal ratio) metric. However, since the evolution of ML there are several other text information have been evaluated and also used in combination with the basic metrics \parencite{falkenjack2013features}.
+
+\begin{equation} \label{chap:relevant_work:eq:LIX}
+	LIX = \frac{A}{B} + \frac{C \cdot 100}{A}
+\end{equation}
+\nointend where $A$ is the number of words, $B$ is the number of special characters (i.e., colon, period, capital fist letter), and $C$ is the number of long words (more than 6 letters for the English language). 
+
+RAF other than the basics are including some \textit{Superficial features, Lexical features, Morpho-syntactic features} and \textit{Syntactic features}. Specifically the selected features from every lingustic categories are:
+
+\begin{enumerate}
+\item Superficial: Average Word Lengh (in Characters), Averga Word Length Syllables per word, Average Sentence Length.
+\item Lexical: Vocabulary Lemmas for Communication, Everyday use, High frequent, Unique.
+\item Morpho-syntactic: Unigram-POS, ratio-to-content of nouns, verbs etc.
+\item Syntactic: Average Dependency Distance, ratio of Dependencies, Sentence Depth (in dependency terms), Unigram Dependency Type (based on token terms), Verbal Roots, Average Verbal Arity, Unigram Verbal Arity, Tokens per clause, Average Nominal Pre and Pos Modifiers, Average Number of Prepositional components.
+\end{enumerate}
+
+It should be noted that other than the basic LIX, NR and the Superficial of the RAF, all the other are language dependent such as the OVIX which mainly has been tested on Swedish language.
+
+\subsection{Graph-based Features} 
+
+A text is usually viewed as a sequence of words or characters. However, an alternative idea is to construct a graph from a document and then use graph metrics to represent the properties of documents. Such graph-based features are discussed in \parencite{nabhan2016graph} aiming to enhance AGI effectiveness. An unweighted graph is built from each document based on word bigrams found within sentence boundaries. Each word is a node of the graph and if a bigram is found in the text an edge connects the respective words. The frequency of bigram was not taken into account. 
+
+Then, graph-based measures are extracted to represent documents including node degree, clustering coefficient, average shortest path length, network diameter, number of connected components, average neighborhood connectivity, network centralization and network heterogeneity.  
+
+The average node degree, i.e. the number of neighbor connections, shown  to be an important criterion for discriminating for example scientific to humorous web-pages. A higher average of node degree may indicate a preference to use an established vocabulary.
+
+A high value of clustering coefficient would mean there is tendency for a set of nodes to cohere or stay connected in a sub-network. The Religion, Fiction, and Adventure classes seem to have relatively high value of clustering coefficient as compared to News, Editorial and Hobbies. 
+
+A high number of connected components indicates topic diversity within a genre. News and Hobbies have shown to have higher score, i.e. higher diversity, than Religion and Fiction. In addition, a relatively high score in network Centralization seems to be a good indicator for Fiction and Adnventure genres.
+
+The network heterogeneity was found to be higher in News and Hobbies and this reflects the tendency of the graph to have links between high-degree to low degree-nodes. This can indicate a tendency to use function words in text.
+
+Genre-specific graph characteristics also found in that study \parencite{nabhan2016graph} including high global clustering coefficient found for Learned and Religious text genres. Moreover, average local clustering strongly correlates to the node degree shown to be a good indicator for genres showing concentration to specific concepts.
+
+Finally, the graph-based measures can also be used for discovering the existence of sub-genre within a genre such as in News. It has been shown that there are some areas within the News genre where the bigram graph has high node connection concentration (or high edge concentration).  
+
+\subsection{Structural Features}
+
+As already discussed, genre is mainly associated with form of the presented information. However, it is quite unclear how this information can be quantified appropriately. The easiest way is to focus on HTML tags by counting the HTML tags frequency in the hypertext \parentcite{kanaris2009learning}. Special focus in some cases is given to the image tags and the hyperlink tags \parencite{Lim2005,levering2008using}. These sources of information are useful and usually their combination with textual features enhances the performance of
+WGI model. In addition there are very few cases where the DOM object structure is analyzed for extracting information but usually as part of the whole set of features selected and not as a stand alone choice \parencite{mehler2011integrating}. Another interesting approach is to view a web-page as an image and attempt to extract visual features that describe what components are found and in what position \parentcite{levering2008using}.
+
+\textcolor{red}{There are also other cases where only pure structural information of a web page, i.e. the HTML tags, are exploited {[}Philipp Scholl{]}.} 
+
+\subsection{Complexity Features}
 
 Another notable methodology in respect of the feature selection and document representation is the \textit{Complexity Measures (CM)}. Particularly a sliding window of characters and words is considered over a text. Then using this window several heuristics and superficial metrics are counted and/or calculated. Particularly there are 32 features, depicted in table \ref{chap:relevant_work:tbl:complexity_measures}. These features can be categorized in the following four (4) classes: (1) \textit{Raw Text Features} such as the Mean Sentence Length, (2) \textit{Lexical Features} such as Type Token ratio, (3) \textit{Morpho-Syntactic Features} such as Lexical Density, (4) \textit{Syntactic Features}, such as \textit{Complex Nominals} per term unit \parencite{strobel2018text}.
 
@@ -120,51 +179,6 @@ The image-based features were extracted by splitting the image of the document i
 \end{itemize}
 
 Their reported experiments of that study were conducted to a very special case of  the AGI research and for a very specialized taxonomy of office documents. The corpus included papers in PDF format, photos in JPG format, PowerPoint slides, and tables in documents. This corpus has been collected manually and then also manually annotated. \textit{Fleiss' Kappa} agreement score for the annotators, has been used in order to evaluate the quality of their corpus (the \textit{Kappa} score was from 0.88 to 0.92).
-
-
-\subsection{Graph-based Features} 
-
-Several heuristics, superficial, lexical, grammatical, syntactical and specialized to context information has been explored for WGI/AGI in the context of using the textual information of the text/web-pages. However, there is a effort from \parencite{nabhan2016graph} where they using Graph-based features for \textit{Text Genre Analysis}. This work is no testing these features for identification or classification. However, it seems that the texts-genres are having \textit{Graph Properties Measurements} than can potentially could be used for automated identification.
-
-The graph measures has been analysed related to the text-genre were \textit{Node degree, Clustering Coefficient, Average Shortest Path Length, Network Diameter, Number of Connected Components, Average Neighborhood Connectivity, Network Centralization} and \textit{Network Heterogeneity}. The graph they used was constructed be Word 2-Grams (bigrams). The graph was underweight and no bigram frequency was considered.  
-
-The average node degree, i.e. the number of neighbors connections, shown  to be a discriminating criterion for discriminating for example \textit{scientific} to \textit{humor genres}. Higher average node degree may indicate a preference to use established vocabulary than a random one.
-
-The clustering coefficient with high value would mean there is tendency for a set of nodes to cohere or stay connected in a sub-network. The \textit{Religion, Fiction} and \textit{Adventure} seems to have higher value to their clustering coefficient compare to \textit{News, Editorial} and \textit{Hobbies}. 
-
-The Number of connected components with high number is indicating a \textit{Topic Diversity} within genre. News and Hobbies shown to have higher score, i.e. higher diversity, than Religion and Fiction. Related to this, also high score in Network Centralization seems to be a good indicator for Fiction and Adnventure genres.
-
-The Network Heterogeneity where shown to be higher in News and Hobbies reflects the tendency of the graph to have alto of links between high-degree to low degree-nodes. This can indicate tendency to use functional keywords in text.
-
-\textit{Genre-specific graph characteristics} also found it this study. Such as, \textit{high global clustering coefficient} found for Learned and Religious text genres. Moreover, the \textit{Average Local Clustering} strongly correlated to the node degree shown to be a good indicator for genres showing concentratio to \textit{specific concepts}.
-
-Ultimately, the graph-metric patterns can also be used for discovering the existence of sub-genre within a genre such as in News. It has been shown that there are some areas in the News genre bigram graph with \textit{High Node Connection Concentratio (or High edge Concentratio}.  
-
-\paragrpah{Readability Assessment Features} Finally, the \textit{Readability Assessment Features (RAF)} have also been tested for the WGI/AGI task. Moreover, a primitive attempt also presented related to these features where they have been evaluated (and compared to others features) in their effectiveness on different taxonomies. Particularly they compared on the \textit{Domain-taxonomy} and the \textit{Genre-taxonomy} \parencite{falkenjack2016exploratory}.
-
-Although, there is a ambiguity in the research literature related to the Domain/Genre definition, usually the genre considers to be (as explained in section \ref{chap:relevant_work:sec:definitions}) more abstract and related to \textit{the texts organization, rhetorical structure, length, syntax, morphology} and \textit{vocabulary richness}. Domain is more related to the \textit{General topic of a group of text}. Consequently, \textit{Sports} as category is considered to be a Domain while \textit{Academic papers} are considered Genres.
-
-It has been shown that genre-taxonomy ML classification is benefit by the use of RAF while the domain-taxonomy does not. 
-
-The RAF are very old in because they are studied since 1920 where their main purpose is to help in the evaluation of a text in respect the ease in reading and comperhation by the abilities of the reader. Although, the function includes two (2) variables the research is mainly focusing on the aspect of the evaluation of the text side only. 
-
-The most basic metrics are LIX metric (see eq \ref{chap:relevant_work:eq:LIX}) , OVIX (Word Variation Index) and NR (Nominal ratio) metric. However, since the evolution of ML there are several other text information have been evaluated and also used in combination with the basic metrics \parencite{falkenjack2013features}.
-
-RAF other than the basics are including some \textit{Superficial features, Lexical features, Morpho-syntactic features} and \textit{Syntactic features}. Specifically the selected features from every lingustic categories are:
-
-\begin{enumerate}
-\item Superficial: Average Word Lengh (in Characters), Averga Word Length Syllables per word, Average Sentence Length.
-\item Lexical: Vocabulary Lemmas for Communication, Everyday use, High frequent, Unique.
-\item Morpho-syntactic: Unigram-POS, ratio-to-content of nouns, verbs etc.
-\item Syntactic: Average Dependency Distance, ratio of Dependencies, Sentence Depth (in dependency terms), Unigram Dependency Type (based on token terms), Verbal Roots, Average Verbal Arity, Unigram Verbal Arity, Tokens per clause, Average Nominal Pre and Pos Modifiers, Average Number of Prepositional components.
-\end{enumerate}
-
-It should be noted that other than the basic LIX, NR and the Superficial of the RAF, all the other are language dependent such as the OVIX which mainly has been tested on Swedish language.
-
-\begin{equation} \label{chap:relevant_work:eq:LIX}
-	LIX = \frac{A}{B} + \frac{C \cdot 100}{A}
-\end{equation}
-Where $A$ is the number of words, $B$ is the number of periods (colon, dot, capital fist letter), $C$ is the number of long words, more than 6 letters for the English language. 
 
 \subsection{Domain-specific Genre Representation}
 
@@ -322,8 +336,197 @@ News sub-genres as well as online reviews offer also a subject of great interest
 	\end{tabular}
 \end{table}
 
+\subsection{Hyperlinks and URL-based Representation}
+\label{chap:relevant_work:sec:url}
+
+The web is structured as a directed graph where each web-page is linked with other pages through hyperlinks. Information about incoming and outgoing hyperlinks is important for WGI. In addition, information found in web-pages that are linked with the one in question could also be used.
+
+In addition, each web-page has a unique address, the \textit{Uniform Resource Locator} (URL) that is used to identify it. Usually, important information is encoded in URLs and sometimes this may refer to genre. For example, the string "blog" is quite likely to appear in a the URL of blogs. Several previous studies attempt to exploit this kind of information.
+
+To begin with, a study is based on the web-graph and the implicit genre relation among web pages assuming that neighbouring web pages are more likely to belong to the same genre, a property called \textit{homophily}. Then, the content of neighboring pages are used to enhance the representation of a given web page in a semi-supervised learning framework \parencite{asheghi2014semi} \textcolor{red}{(More details to be written here)}.
+
+\textit{GenreSim} is a link-based graph model which exploits link structure to select relevant neighbouring pages in order to amplify the information required for a page to be classified to a genre taxonomy. This algorithm improves performance of WGI significantly in cases where the textual information is very limited in a web-page such as movie homepages, photography websites etc. On the other hand, the reported experimental results indicate that in regular web-pages, where the textual consists of at least a couple of paragraphs, the advantage of using hyperlink-based graph information is not remarkable \parencite{zhu2011enhance,zhu2016exploiting}.
+
+\begin{figure}[t]
+	\begin{center}
+    	\includegraphics[scale=0.95]{Figures/GenreSim_Draw.eps}
+		\caption{A directed graph of  web-pages \parencite{zhu2016exploiting}.}
+		\label{fig:GenreSim_Draw}
+	\end{center}
+\end{figure}
+
+\textit{GenreSim} is a ranking algorithm based on \textit{PageSim} algorithm, extended to fit in the problem of WGI. Similar to all this kind of algorithms, is based on the assumption that the more web-pages referred to a particular page, the more this page is related to them with respect to topic and/or genre. As concerns genre class, GenreSim focuses on \textit{forward} $F(p)$ and \textit{backwards} $B(p)$ hyperlinks. Moreover, utilizing the entire graph structure, web-pages are characterized as \textit{Hubs} $H(p)$ or \textit{Authorities} $A(p)$. The null hypothesis of the algorithm is that the web pages of the same genre are inter-connected with their hyperlinks. Consequently, a few pages backwards and forwards to a specific web-page compose a small network of the same genre. Using this "genre-network", the textual (and partially the structural) information of neighbouring web-pages can be used to amplify the signals required to classify a new web-page to that genre.
+
+In more detail, hubs are pages with many outgoing hyperlinks, whereas pages with many incoming hyperlinks are called authorities. The number of incoming and outgoing hyperlinks are increasing the respective scores as shown in equation \ref{eq:GenreSim_hub_authortities}. However, web-pages with high score but with few backward hyperlinks are quite likely to be \textit{spam} pages. In order to regulate this, the $\omega(p)$ factor is introduced in equation \ref{eq:GenreSim_omega}, to reduce the score for the web pages with few backward hyperlinks. In addition, this is also useful to normalize the few links issue. That is, the number of the backward links is correlated to the number of links the page itself contains. 
+
+\begin{equation}\label{eq:GenreSim_hub_authortities}
+	\begin{array}{l}
+		H(p) = \sum_{u \in V|p \to u} \omega(p) A(u) \\  
+    	A(p) = \sum_{v \in V|v \to v} \omega(p) H(u) \\
+    \end{array}
+\end{equation}
+\begin{equation}\label{eq:GenreSim_omega}
+	\omega(p) = \frac{N}{|\log N - \log N(p) | + 1} 
+\end{equation}
+
+Therefore, the score for a new web-page in a given $G$ graph of web-pages, is calculated by equation \ref{eq:GenreSim_Score}. In general, the genre-selection recommendation score is propagated to the graph path $P(u,v)$ as indicated by the $Score(u, v)$ function of equation \ref{eq:GenreSim_Path}. Therefore, the score of a recommended web-page is decreasing gradually as this pages lies away (in hops) from the web-page to be classified. The $d$ factor is set to be $0.5$, i.e. the page score is decreasing by half for every hop away from the page under examination (see Figure \ref{fiig:GenreSim_Draw}). 
+
+\begin{equation}\label{eq:GenreSim_Score}
+	Score(p) = H(p) + A(p)
+\end{equation}
+
+\begin{equation}\label{eq:GenreSim_Path}
+	Score(u, v) =
+      \begin{cases}
+      	\sum_{p \in P(u, v)} \frac{d Score(u)}{\prod_{x \in p, x  \neq v} (|F(x)| +|B(x)|)}, & v \neq u \\
+        Score(u), & v = u \\ 
+       \end{cases}
+\end{equation}
+
+Finally, the similarity of the candidate neighbour pages to the one under evaluation is based on the ratio of the min and the max path-score sums of all the possible paths, backwards and forwards, to the page under evaluation. This is defined as follows:
+
+\begin{equation}\label{eq:GenreSim_Selection_Score}
+	Sim(u, v) = \frac{\sum_{i=1}^{n} min(Score(v_{i}, u), Score(v_{i}, v))}{\sum_{i=1}^{n} man(Score(v_{i}, u), Score(v_{i}, v))}
+\end{equation}
+
+Hyperlinks themselves can be exploited by extracting information from the URL string and not from the hyperlink-graph. Particularly, a URL can be segmented to its components, i.e. the domain name, the path after the domain and the anchor text. Special characters such as $\{_ , . , ?, \$ , \%\}$, top-level domains $\{.gr , .uk , .com, etc\}$, and file suffixes such as ".html", ".pdf" are usually discarded and then character n-grams are extracted from the URL counterparts. 
+
+WGI experiments using only the hyperlink information combined (or not) with other web-page information seems to be a promising researching path especially for performance oriented WGI applications such as genre-based focused-crawling where only the URLs are available \parencite{jebari2014pure_URL,jebari2015combination,abramson2012_URL,jebari2014pure_URL,priyatam2013don_URL} 
+\textcolor{red}{(MSc reference on focused-genre-crawling)}
+
+\subsection{Feature Weighting}
+
+The web-page's extracted features were also presented in a variety of  text  representation schemes such as Term Frequency (TF), Term Frequency  Inverted Document Frequency (TF-IDF), Binary Term, and Smoothing Distribution (see LOWBOW ref). The \textit{Superficial Document Characteristics (SDC)} can be considered as features and document representations together where they are the counts of the Words lenghs (in characters) frequency, the Sentencies length (in words) frequency, the Paragraphs length etc. In addition the Max, Min, and Ratios of these SDC were also count such as the \textit{Average to Max size of Words Ratio, the Max Word Length Frequency} etc. In general several facets, i.e. \textit{terms types}, have been tested for WGI cornering the Hypertext \parencite{feldman2009classifying,santini2005linguistic}.
+
+\textit{Term Weighting Schemes} is also an essential issue together with the features selection for the pre-processing of the web-pages and the induction of the ML models for WGI task.
+
+ \paragraph{TF-IGF}  The \textit{term weighting schemes} is an other aspect have been considered merely for WGI. Most of the studies were commonly selecting the  TF-IDF schema. In the study of \parencite{sugiyanto2014term} it is shown that TF-IDF is not the proper schema for the WGI task. On the contrary a TF-IGF schema was proposed and shown to perform better. 
+ 
+TF-IDF is a balancing weighting scheme of the document's terms (Word n-gram, Character n-gram, POS n-gram, etc), in a collection of documents, where it regulates the information value of the very low and very high frequency terms of the collection. That is, it decreases the value of the very high frequency terms, and increases the the very low frequency terms when they are occurring in a high amount of documents in the collection ( and also  low in the document level). The calculation of a terms IDF in a documents collection is shown in equation \ref{chap:relevant_work:eq:idf}
+ 
+ \begin{equation}\label{chap:relevant_work:eq:idf}
+ 	IDF(T) = log \left( \frac{N}{1 - f_{D,T}} \right)
+ \end{equation}
+\noindent
+where $N$ is the number of the collection documents and $f_{d,t}$ is the \textit{frequency of the documents} where term $t$ occurs. Following the same line of thought, and replacing the collection of documents with a \textit{collection of documents on a specific genre} TF-IGF is a weighting schema where the high frequency terms in the genre are smoothed and the low frequency terms are weight higher as long as they occur in a significant amount of documents of this genre. Then in a multi-genre corpus the \textit{Term Frequency - Inverse Genre Frequency (TF-IGF)} is calculated as in equation \ref{chap:relevant_work:eq:tf_igf}
+
+ \begin{equation}\label{chap:relevant_work:eq:tf_igf}
+ 	F^{TF-IDF}(T) = f_{T,G_{i}} \cdot log \left( \frac{N}{1 - f_{G_{i},T}} \right)
+ \end{equation}
+\noindent
+where $f_{T,G_{i}}$ is the frequency of the Term in the genre and $F^{TF-IDF}(T)$  is the TF-IGF. In  \parencite{sugiyanto2014term} they also used the average $Avg(F^{TF-IDF}(T))$ for ranking the terms and they have tested the 100, 500, and 1000 most frequent in average terms. Comparing them with the averaged TF-IDF on their 7-Genre corpus they show clearly that the confusion matrix has great improvement when it used as an input to a \textit{Random Forest Algorithm}. Especially for the 100 features where the $F_{1}$ climbed from $0.091$ to $0.642$ and for 500 to $0.775$ from $0.249$.
+
+Although the improvement was impressive by just changing the weighting schema, especially for  the size of the vector space, one should consider that the experimental set-up was only for the closed-set scenario. Moreover, the TF-IGF similarly to the TF-IDF is tightly related to the collection itself, therefore, the results closely are related to the 7-Genres collection. Given that these collection are old and the nature of the highly temporal idiosyncrasy of the genre-taxonomies, it is high likely this method to have high bias. On the other hand in closed-set cases where the texts collection is constrained considering documents number (i.e. slowly expanding) and genre-taxonomy size (i.e. rarely updated) the TF-IGF seems to be efficient, and with very low computational cost.  
+
+\textbf{Fuzzy extension of TF-IDF} In section \ref{chap:relevant_work:sec:features:subsec:heuristics} a set of heuristics presented where Video content can be categorized on its respective genre taxonomy based on the textual information of the videos such as the subtitles and the small description of the video. In formation from public site like IMDB and Movelens. There it is also possible for the the users to create their own \textit{tags} in addition to the \textit{keywords} mainly created for the data curators of these sites. 
+
+These user created tags can be exploited in a similar manner as the words of the subtitle text for classification of the video to their genre. Particularly there is a work where the \textit{tags}, and the \textit{keywords} are used for multi-class classification task of Movies upon their genre. It has been shown that the user tags is a rich information source and more effective than keywords alone. However, the user tags wouldn't be useful features without the proposed \textit{Fuzzy extension of TF-IDF weighting schema}.  This schema returned $F_{1}$ score up to $0.9$ when user tags alone where used.
+
+Although the above method was aiming for building an effective recommendation system here it is presented briefly for the innovative weighting scheme which is exploiting the meta-data of the tags. Particularly the aforementioned user tags are in fact triplets of  $\{Tag, Movie, User \}$. The idea is to exploit the frequency of the users selecting a tag for a movie and then the frequency of the movies a tag was occurring, similarly to the TF-IDF.
+
+To do so initially the \textit{Appropriateness} of a tag is evaluated by counting the number of time a user is tagging a movie with the same tag when a movie is belonging to a specific genre by using equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq1}
+
+\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq1}
+	tf_(u_{j},g_{i}) = \frac{\sum_{m \in G} tagged(t,u,m) }{ \max_{t \in T} \sum_{m \in G} tagged(t,u,m)}
+\end{equation}
+where $tagged(t,u,m)$ is 1 when a user $u$ tag with t the movie $m$ when it belongs to genre $g$, and $0$ if not. The score of a tag similar to the TF-IDF is called Degree $deg(t,m,g_{i})$and it is the weighted frequency of users as singed this tag by the \textit{Importance Score} $imp(t,g_{i})$ of the tag, as shown in equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq2}
+
+\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq2}
+	deg(t,m,g_{i}) = uf(t,m) \cdot imp(t,g_{i})
+\end{equation}
+Where $uf(t,m)$ is the frequency of the users assigned the this tag to a movie $m$. The $imp()$ is calculated by the \textit{Fussy Linguistic Ordered Weighted Averaging Aggregation Operator (OWA)} of the equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq1} weighted by the \textit{Uniqueness} of the tag. The uniqueness is also the OWA compliment of the term among all the genres of the taxonomy. The $imp()$ is then calculated by the equations \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq4} and \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq4}.
+
+\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq3}
+	t_{most}(g_{i}) = \oint_{j=1}^{U} tf_(u_{j},g_{i})
+\end{equation}
+
+\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq4}
+	imp(t,g_{i}) = \oint_{j=1}^{U} tf_(u_{j},g_{i}) \cdot (1 -  \oint_{i=1}^{G} t_{most}(g_{i}))
+\end{equation}
+
+Where $\oint=OWA$,  $g_{i}$ is a particular genre, $G$ is the number of the genres in the taxonomy and $U$ is the number of users used this tag for this genre.
+
+Finally, for the movie genre categorization a binary vector of the genres list is returned of the \textit{Quantised  $\max_{t \in T} deg()$}. The maximum degree values of the genre tag is set to $1$ when it is above the \textit{mean values of all tag-degrees} and zero otherwise.
+
+Finally several weighing schemes were used such as binary, TF or the one described in equation \ref{eq:jebary_url_weigh_cngrams_1} and \ref{eq:jebary_url_weigh_cngrams_2}. 
+
+\begin{equation}\label{eq:jebary_url_weigh_cngrams_1}
+	W_{s}(C_{i}, U_{j}) = \sum_{s} w(s) TF(C_{i}, U_{j})
+\end{equation}
+\noindent
+where $TF(C_{i}, U_{j}) $ is the n-gram $C_{i}$ frequency in the $s$ segment of the URL $U_{j}$ and $w(s)$ is weight empirically assigned to the segment depending on the type of the segments as shown in eq. \ref{eq:jebary_url_weigh_cngrams_1}. The weights $\{\alpha,\beta,\gamma\}$ should be defined empirically usually upon the corpus. 
+
+\begin{equation}\label{eq:jebary_url_weigh_cngrams_2}
+	w(s) = \left\{
+    	\begin{array}{lll}
+        	\alpha & if & s = Domain\ Name \\
+            \beta & if & s = URL\ path (non\ domain\ part) \\
+            \gamma & if & s = Document\ name (e.g. .html, .pdf, etc) \\
+         \end{array}
+  \right.
+\end{equation}
+
+
+\subsection{Dimensionality Reduction}
+
+In most of the applied research domains where machine learning is the dominant subject of choice the main concern is to extract and select the proper features from the raw data samples of the data set. Therefore, in addition to the process of inverting a machine learning method for inducing prediction models for the problem the process of feature extraction and dimensionality reduction are coming together. The same applies for the WGI where most of the focus where in these two procedures and less in creating new machine learning algorithms. On the contrary, in all studies usually a closed-set and out-of-the-box ML models were tested with the exception of the cases described in sections \ref{chap:relevant_work:sec:machine_learning_methods} and \ref{chap:relevant_work:sec:openset_and_noise}.
+
+In this section are summarized all feature selection and dimentionality reduction successful ideas for WGI and AGI. To begin with the features that can be extracted from a web-pages can be grouped to the \textit{textual}, the \textit{HTML tags} and the \textit{URL links} with or without their \textit{anchor text}. Cornering the URL links it will be discussed in more detail in section \ref{chap:relevant_work:sec:url} where either the URL it self as a character string can be analyzed or the structure of the web-pages connections can be exploited \parencite{abramson2012_URL,asheghi2014semi,jebari2014pure_URL,priyatam2013don_URL,zhu2011enhance}. 
+
+Usually, the combination of features from different sources enhances the robustness of WGI approaches \parencite{levering2008using,kanaris2009learning}. However, features extracted from textual content are more robust since they do not  depend on technology or format used to create a web page and therefore they are more likely to remain constant in time given that the W3C is changing the specification of the HTML regularly, for covering the occurring needs. This is the reason that this work is only focusing on the textual information in the next chapters.
+
+
+Dimentionality reduction and the \textit{selected features encoding in to a multi-dimensional vector} is an important aspect concerns the WGI research. As aforementioned \textit{features selection} implicitly affects the compression of the vector space, however, there are other explicit methods than have been tested for WGI.
+
+BOT and TF-IDF approaches seems to work almost as good as more complex features such as POS, $\chi^{2}$ statisics etc. However, in some cases explained before such as Wikipedia, blogs, news sub-genre the complex features (and heuristics) seems to work better. It seems that is is the result of the implicit dimentionality reduction which enables an ML model to be optimized in a more informative vector space.
+
+Although, the above statement might be a subject of a great research arguments, what we unsuitably know is that in a smaller and more informational dense vector space a ML algorithm will perform much better with great certainty. Thus, a method that could potentially reduce the vector space and manage to encode the maximum of the required information, it would at least improve significantly the speed performance of any ML algorithm. 
+
+In order to make an intuition about the "curse of dimensionality"  and on how the feature selection can encode more information in case dimensionality reduction, a mind experiment is presented bellow. 
+
+Lets assume task where a ML model should be trained in a multi-class classification task for the whole genre-taxonomy of the WWW and assuming that all the genre of the Web where idd and known. In that case the whole Oxford Dictionary would have defining the vector space of the problem. 
+
+The Oxford dictionary English is containing $171,476$ words thus the vector space would have been very sparse. The amount words can be calculated also by using the Combinatorial Calculation using the \textit{binomial coefficient} minus the invalid combinations, of the $26$ English letters (assuming the the whole Web was only written in English language), as shown in equation \ref{chap:relevant_work:eq:en_vocab_size_calc}.
+
+\begin{equation}\label{chap:relevant_work:eq:en_vocab_size_calc}
+	 \left(
+    	\begin{array}{c}
+        	n = 26\\
+            k = 1\\
+         \end{array}
+	\right)
+    +
+    \left(
+    	\begin{array}{c}
+        	n = 26\\
+            k = 2\\
+         \end{array}
+	\right) 
+    +
+     \cdots 
+    +
+   \left(
+    	\begin{array}{c}
+        	n = 26\\
+            k = Max Eng. Word\\
+         \end{array}
+	\right) 
+    = 300,430 - \{Invalid Combinat.\} =  171,476
+\end{equation}
+On the other hand if we are using the Character n-grams of size $3$ (C3G) or $4$ (C4G) then for C3G the vector space is $2600$ \textit{minus the set of invalid combinations} and for C4G becomes $14950$. As we also know from the literature and it will presented later in this study the CNG features are returning the highest score in WGI ML modeling. Moreover, the \textit{character tuples} are capturing stylistic properties of the texts, where it is an information which is lost when it is "hidden" in the words.
+
+To conclude, dimentionality reduction is the main objective in the process of feature selection and as explained so far there are several heuristics than can applied to achieve this. There cases where a terms (word or char, n-gram) is selected only when it can be counted in more than a specific number of web-pages in a corpus. Moreover, there are cases where only the words above a specific threshold are selected, usually the length varies from 2 to 5 characters length. In addition is has been shown that \textit{Stop words} (Stamatatos) and 
+\textit{Surface cues} (Kessler) from the superficial document metrics are important and some time better (and lighter in terms of speed in model training) than the raw BOT. 
+
+All the aforementioned approaches is a implicit method for dimentionality reduction and documents information encoding. However, \textit{Graph based features} is an explicit method for this and usually is applied after them feature selection process.
+
+\textit{Distributional Features/Word Emending} based on the words or/and document encoding is the state-of-the-art in IR and NLP because it a practical solution for automatically modeling the process of feature selection, document representation and dimentionality reduction. This is the case for the AGI/ WGI tasks, and it is the second contribution to the domain together with the open-set approach.
+
+In section \ref{chap:Document_Representation} and it is shown how a week ML algorithm can be trained with 100 times less features than the features given to an better algorithm for the WGI task. Moreover in section \ref{chap:relevant_work:sec:word_embedding} there is a discussion related to the word embedding and the \textit{Features Vocabulary Modeling}.
+
+
 \section{Machine Learning Approaches to Genre Identification}
-\section{Applications of Genre Identification}
+
 \section{Corpora for Evaluating WGI Approaches}
 
 \textbf{NOTE: In this survey section the Genre and Web-Genre is studied mostly thematically than historically. However, wherever there is interesting historical sequence in the research field it is pointed out.}
@@ -444,7 +647,29 @@ The accuracy using this method on shown to have been reached $93\%$ compare to $
 
 Most notably is the used of Recurrent Neural Networks (RNN) where Linguistic Complexity Contours (LCC) where employed as modeling features (LCC details are explained in section \ref{chap:relevant_work:sec:intro:subsec:heuristics}). Their model was based on 32 LLC features where fed to 32 Gated Recurrent Units (GRU)  and the output of each GRU was also fed to the next. Then all the output GRU output was the input of a Dense Layer of the RNN where a Softmax decision function was applied on. Their model was a closed-set framework with very high performance where was reaching over $90\%$  accuracy\parencite{strobel2018text}.
 
-\paragraph{Ensemble Based} There are very few \textit{ensemble based} algorithms employed for the WGI and AGI task, however, they seem to be a very promising path as shown in \parencite{onan2018ensemble,pritsos2015clef,pritsos2013open,pritsos2018open}. Particularly there are three methods, mainly, where an ensemble can be formed, namely, AdaBoost, Bagging and Random Feature (RFS) Subspace ( (i.e. random sub-sampling). In this study we mainly focusing on the RFS, it is one of the algorithms are thoroughly presented in the context of WGI/AGI task.
+\paragraph{Ensemble Based} 
+
+GenreSim is combined with an ML algorithm called MCC (Multiple Classifier Combination). Particularly GenreSim utility is to select a set of web-pages where their content (textual and structural) will be used in combination to the "on-page" content, as an input to the MCC algorithm for classification.
+
+The MCC algorithm is a set of SVM classifiers where each is trained to a particular set of features from the webpage and its neighbours, well selected from the GenreSim, webpages. Then a Decision Template, shown in equation \ref{chap:relevant_work:eq:GenreSim_DP}, is build and used for the classification of a random web-page. Then the Min, Max or Mid values for the classification decision from the matrix are selected for making the final decision for the Genre class of the web-page.
+
+\begin{equation}\label{chap:relevant_work:eq:GenreSim_DP}
+	DP(p) = \left(
+    	\begin{array}{ccc}
+        	d_{11} (p) & \cdots & d_{1|G|} (p) \\
+            d_{21} (p) & \cdots  & d_{2|G|} (p) \\
+            & \vdots & \\
+            d_{N1} (p) & \cdots  & d_{N|G|} (p) \\
+         \end{array}
+\right)
+\end{equation}
+\noindent
+where $|G|$ is the number of genres in a genre taxonomy and the calcification methods is under a closed set setup with $N$ indented (one for each feature set) \textit{SVM multi-class classifier}. 
+
+
+
+
+There are very few \textit{ensemble based} algorithms employed for the WGI and AGI task, however, they seem to be a very promising path as shown in \parencite{onan2018ensemble,pritsos2015clef,pritsos2013open,pritsos2018open}. Particularly there are three methods, mainly, where an ensemble can be formed, namely, AdaBoost, Bagging and Random Feature (RFS) Subspace ( (i.e. random sub-sampling). In this study we mainly focusing on the RFS, it is one of the algorithms are thoroughly presented in the context of WGI/AGI task.
 
 \textit{AdaBoost} is a \textit{Boosting} algorithm where usually a random sampling is performed over the data and s set of classifier are trained over these samples. There is a weighting scheme over the samples which is changing in every training iteratio, where for the samples mostly miss-classified, by most of the learners, their weights are increasing. In this manner the difficult samples repetitively to classification are presented to the weak learner in more iteratios in order the whole systems of learners fit adjust better over these samples.
 
@@ -634,126 +859,6 @@ In the testing phase an arbitrary page is ranked in deciding order to the \texti
 \end{equation}
 The ECC has been \textit{designed to adapt in the evolution of genres in time}, thus, it makes no sense to classify the web pages exclusively on the contrary is returning the similarly-rank $\theta(p)$. Consequently, this algorithm can be considered open-set \textit{because possible for same web-pages the  $\theta(p)$ set might return empty}. On the other hand since the algorithm will adapt some web-pages that are not strictly belonging to the genre it is trained for, i.e. noise pages, will be incorporated to the new centroids and the threshold value.  Consequently, ECC is sensitive to noise as it has been defined in section \ref{chap:relevant_work:sec:openset_and_noise}.
 
-\section{Features Selection and Vector Space Dimensions}\label{chap:relevant_work:sec:features}
-
-In most of the applied research domains where machine learning is the dominant subject of choice the main concern is to extract and select the proper features from the raw data samples of the data set. Therefore, in addition to the process of inverting a machine learning method for inducing prediction models for the problem the process of feature extraction and dimensionality reduction are coming together. The same applies for the WGI where most of the focus where in these two procedures and less in creating new machine learning algorithms. On the contrary, in all studies usually a closed-set and out-of-the-box ML models were tested with the exception of the cases described in sections \ref{chap:relevant_work:sec:machine_learning_methods} and \ref{chap:relevant_work:sec:openset_and_noise}.
-
-In this section are summarized all feature selection and dimentionality reduction successful ideas for WGI and AGI. To begin with the features that can be extracted from a web-pages can be grouped to the \textit{textual}, the \textit{HTML tags} and the \textit{URL links} with or without their \textit{anchor text}. Cornering the URL links it will be discussed in more detail in section \ref{chap:relevant_work:sec:url} where either the URL it self as a character string can be analyzed or the structure of the web-pages connections can be exploited \parencite{abramson2012_URL,asheghi2014semi,jebari2014pure_URL,priyatam2013don_URL,zhu2011enhance}. 
-
-In respect of the HTML tags, the most adaptive approach it the frequency counting of the HTML tags distributed in the hypertext. Special focus in some cases are given to the image tags and the link tags\parencite{Lim2005,levering2008using}.  There are also other cases where only pure structural information of a web page, i.e. the HTML tags, are exploited {[}Philipp Scholl{]}. In addition there are very few cases where the DOM object structure is analyzed for extracting information but usually as part of the whole set of features selected and not as a stand alone choice \parencite{mehler2011integrating}.
-
-The \textit{Textual content} is the most analyzed part of the hypertext which has been used for WGI \parencite{mason2009distance,Sharroff2010}. There are several features than can be extracted used alone or combined to getting the maximum information one can get from the web-paged and feed it for training a prediction ML algorithm. Character n-grams, Word n-grams, Part-of-Speach n-grams and some \textit{special discriminative words} have been commonly used and usually combined with some heuristically extracted features \parencite{kanaris2009learning,kumari2014web,levering2008using,Lim2005,mason2009n,onan2018ensemble,petrenz2011stable,sharoff2010web,Nooralahzadeh2014}.
-
-The web-page's extracted features were also presented in a variety of  text  representation schemes such as Term Frequency (TF), Term Frequency  Inverted Document Frequency (TF-IDF), Binary Term, and Smoothing Distribution (see LOWBOW ref). The \textit{Superficial Document Characteristics (SDC)} can be considered as features and document representations together where they are the counts of the Words lenghs (in characters) frequency, the Sentencies length (in words) frequency, the Paragraphs length etc. In addition the Max, Min, and Ratios of these SDC were also count such as the \textit{Average to Max size of Words Ratio, the Max Word Length Frequency} etc. In general several facets, i.e. \textit{terms types}, have been tested for WGI cornering the Hypertext \parencite{feldman2009classifying,santini2005linguistic}.
-
- Superficial features, such as \textit{colon frequency, document length, sentence mean length and single-sentence paragraph count}, were successfully used as in input to an SVM classifier for a closed-set genre classification task where training and testing has been applied on different languages (cross-lingual genre classification) \parencite{nguyen2019cross}.
-
-Usually, the combination of features from different sources enhances the robustness of WGI approaches \parencite{levering2008using,kanaris2009learning}. However, features extracted from textual content are more robust since they do not  depend on technology or format used to create a web page and therefore they are more likely to remain constant in time given that the W3C is changing the specification of the HTML regularly, for covering the occurring needs. This is the reason that this work is only focusing on the textual information in the next chapters.
-
-Althought the textual information is more robust and constant in time there are a lot of heuristics that where successfully in WGI and AGI experiments. In section \ref{chap:relevant_work:sec:features:subsec:heuristics} the most interesting feature extraction heuristics are summarized.
-
-
-\subsection{Feature Selection and Term Weighting Schemes}
- 
- \textit{Term Weighting Schemes} is also an essential issue together with the features selection for the pre-processing of the web-pages and the induction of the ML models for WGI task.
-
- \paragraph{TF-IGF}  The \textit{term weighting schemes} is an other aspect have been considered merely for WGI. Most of the studies were commonly selecting the  TF-IDF schema. In the study of \parencite{sugiyanto2014term} it is shown that TF-IDF is not the proper schema for the WGI task. On the contrary a TF-IGF schema was proposed and shown to perform better. 
- 
-TF-IDF is a balancing weighting scheme of the document's terms (Word n-gram, Character n-gram, POS n-gram, etc), in a collection of documents, where it regulates the information value of the very low and very high frequency terms of the collection. That is, it decreases the value of the very high frequency terms, and increases the the very low frequency terms when they are occurring in a high amount of documents in the collection ( and also  low in the document level). The calculation of a terms IDF in a documents collection is shown in equation \ref{chap:relevant_work:eq:idf}
- 
- \begin{equation}\label{chap:relevant_work:eq:idf}
- 	IDF(T) = log \left( \frac{N}{1 - f_{D,T}} \right)
- \end{equation}
-\noindent
-where $N$ is the number of the collection documents and $f_{d,t}$ is the \textit{frequency of the documents} where term $t$ occurs. Following the same line of thought, and replacing the collection of documents with a \textit{collection of documents on a specific genre} TF-IGF is a weighting schema where the high frequency terms in the genre are smoothed and the low frequency terms are weight higher as long as they occur in a significant amount of documents of this genre. Then in a multi-genre corpus the \textit{Term Frequency - Inverse Genre Frequency (TF-IGF)} is calculated as in equation \ref{chap:relevant_work:eq:tf_igf}
-
- \begin{equation}\label{chap:relevant_work:eq:tf_igf}
- 	F^{TF-IDF}(T) = f_{T,G_{i}} \cdot log \left( \frac{N}{1 - f_{G_{i},T}} \right)
- \end{equation}
-\noindent
-where $f_{T,G_{i}}$ is the frequency of the Term in the genre and $F^{TF-IDF}(T)$  is the TF-IGF. In  \parencite{sugiyanto2014term} they also used the average $Avg(F^{TF-IDF}(T))$ for ranking the terms and they have tested the 100, 500, and 1000 most frequent in average terms. Comparing them with the averaged TF-IDF on their 7-Genre corpus they show clearly that the confusion matrix has great improvement when it used as an input to a \textit{Random Forest Algorithm}. Especially for the 100 features where the $F_{1}$ climbed from $0.091$ to $0.642$ and for 500 to $0.775$ from $0.249$.
-
-Although the improvement was impressive by just changing the weighting schema, especially for  the size of the vector space, one should consider that the experimental set-up was only for the closed-set scenario. Moreover, the TF-IGF similarly to the TF-IDF is tightly related to the collection itself, therefore, the results closely are related to the 7-Genres collection. Given that these collection are old and the nature of the highly temporal idiosyncrasy of the genre-taxonomies, it is high likely this method to have high bias. On the other hand in closed-set cases where the texts collection is constrained considering documents number (i.e. slowly expanding) and genre-taxonomy size (i.e. rarely updated) the TF-IGF seems to be efficient, and with very low computational cost.  
-
-\textbf{Fuzzy extension of TF-IDF} In section \ref{chap:relevant_work:sec:features:subsec:heuristics} a set of heuristics presented where Video content can be categorized on its respective genre taxonomy based on the textual information of the videos such as the subtitles and the small description of the video. In formation from public site like IMDB and Movelens. There it is also possible for the the users to create their own \textit{tags} in addition to the \textit{keywords} mainly created for the data curators of these sites. 
-
-These user created tags can be exploited in a similar manner as the words of the subtitle text for classification of the video to their genre. Particularly there is a work where the \textit{tags}, and the \textit{keywords} are used for multi-class classification task of Movies upon their genre. It has been shown that the user tags is a rich information source and more effective than keywords alone. However, the user tags wouldn't be useful features without the proposed \textit{Fuzzy extension of TF-IDF weighting schema}.  This schema returned $F_{1}$ score up to $0.9$ when user tags alone where used.
-
-Although the above method was aiming for building an effective recommendation system here it is presented briefly for the innovative weighting scheme which is exploiting the meta-data of the tags. Particularly the aforementioned user tags are in fact triplets of  $\{Tag, Movie, User \}$. The idea is to exploit the frequency of the users selecting a tag for a movie and then the frequency of the movies a tag was occurring, similarly to the TF-IDF.
-
-To do so initially the \textit{Appropriateness} of a tag is evaluated by counting the number of time a user is tagging a movie with the same tag when a movie is belonging to a specific genre by using equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq1}
-
-\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq1}
-	tf_(u_{j},g_{i}) = \frac{\sum_{m \in G} tagged(t,u,m) }{ \max_{t \in T} \sum_{m \in G} tagged(t,u,m)}
-\end{equation}
-where $tagged(t,u,m)$ is 1 when a user $u$ tag with t the movie $m$ when it belongs to genre $g$, and $0$ if not. The score of a tag similar to the TF-IDF is called Degree $deg(t,m,g_{i})$and it is the weighted frequency of users as singed this tag by the \textit{Importance Score} $imp(t,g_{i})$ of the tag, as shown in equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq2}
-
-\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq2}
-	deg(t,m,g_{i}) = uf(t,m) \cdot imp(t,g_{i})
-\end{equation}
-Where $uf(t,m)$ is the frequency of the users assigned the this tag to a movie $m$. The $imp()$ is calculated by the \textit{Fussy Linguistic Ordered Weighted Averaging Aggregation Operator (OWA)} of the equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq1} weighted by the \textit{Uniqueness} of the tag. The uniqueness is also the OWA compliment of the term among all the genres of the taxonomy. The $imp()$ is then calculated by the equations \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq4} and \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq4}.
-
-\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq3}
-	t_{most}(g_{i}) = \oint_{j=1}^{U} tf_(u_{j},g_{i})
-\end{equation}
-
-\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq4}
-	imp(t,g_{i}) = \oint_{j=1}^{U} tf_(u_{j},g_{i}) \cdot (1 -  \oint_{i=1}^{G} t_{most}(g_{i}))
-\end{equation}
-
-Where $\oint=OWA$,  $g_{i}$ is a particular genre, $G$ is the number of the genres in the taxonomy and $U$ is the number of users used this tag for this genre.
-
-Finally, for the movie genre categorization a binary vector of the genres list is returned of the \textit{Quantised  $\max_{t \in T} deg()$}. The maximum degree values of the genre tag is set to $1$ when it is above the \textit{mean values of all tag-degrees} and zero otherwise.
-
-\section{Dimensionality Reduction}
-
-Dimentionality reduction and the \textit{selected features encoding in to a multi-dimensional vector} is an important aspect concerns the WGI research. As aforementioned \textit{features selection} implicitly affects the compression of the vector space, however, there are other explicit methods than have been tested for WGI.
-
-BOT and TF-IDF approaches seems to work almost as good as more complex features such as POS, $\chi^{2}$ statisics etc. However, in some cases explained before such as Wikipedia, blogs, news sub-genre the complex features (and heuristics) seems to work better. It seems that is is the result of the implicit dimentionality reduction which enables an ML model to be optimized in a more informative vector space.
-
-Although, the above statement might be a subject of a great research arguments, what we unsuitably know is that in a smaller and more informational dense vector space a ML algorithm will perform much better with great certainty. Thus, a method that could potentially reduce the vector space and manage to encode the maximum of the required information, it would at least improve significantly the speed performance of any ML algorithm. 
-
-In order to make an intuition about the "curse of dimensionality"  and on how the feature selection can encode more information in case dimensionality reduction, a mind experiment is presented bellow. 
-
-Lets assume task where a ML model should be trained in a multi-class classification task for the whole genre-taxonomy of the WWW and assuming that all the genre of the Web where idd and known. In that case the whole Oxford Dictionary would have defining the vector space of the problem. 
-
-The Oxford dictionary English is containing $171,476$ words thus the vector space would have been very sparse. The amount words can be calculated also by using the Combinatorial Calculation using the \textit{binomial coefficient} minus the invalid combinations, of the $26$ English letters (assuming the the whole Web was only written in English language), as shown in equation \ref{chap:relevant_work:eq:en_vocab_size_calc}.
-
-\begin{equation}\label{chap:relevant_work:eq:en_vocab_size_calc}
-	 \left(
-    	\begin{array}{c}
-        	n = 26\\
-            k = 1\\
-         \end{array}
-	\right)
-    +
-    \left(
-    	\begin{array}{c}
-        	n = 26\\
-            k = 2\\
-         \end{array}
-	\right) 
-    +
-     \cdots 
-    +
-   \left(
-    	\begin{array}{c}
-        	n = 26\\
-            k = Max Eng. Word\\
-         \end{array}
-	\right) 
-    = 300,430 - \{Invalid Combinat.\} =  171,476
-\end{equation}
-On the other hand if we are using the Character n-grams of size $3$ (C3G) or $4$ (C4G) then for C3G the vector space is $2600$ \textit{minus the set of invalid combinations} and for C4G becomes $14950$. As we also know from the literature and it will presented later in this study the CNG features are returning the highest score in WGI ML modeling. Moreover, the \textit{character tuples} are capturing stylistic properties of the texts, where it is an information which is lost when it is "hidden" in the words.
-
-To conclude, dimentionality reduction is the main objective in the process of feature selection and as explained so far there are several heuristics than can applied to achieve this. There cases where a terms (word or char, n-gram) is selected only when it can be counted in more than a specific number of web-pages in a corpus. Moreover, there are cases where only the words above a specific threshold are selected, usually the length varies from 2 to 5 characters length. In addition is has been shown that \textit{Stop words} (Stamatatos) and 
-\textit{Surface cues} (Kessler) from the superficial document metrics are important and some time better (and lighter in terms of speed in model training) than the raw BOT. 
-
-All the aforementioned approaches is a implicit method for dimentionality reduction and documents information encoding. However, \textit{Graph based features} is an explicit method for this and usually is applied after them feature selection process.
-
-\textit{Distributional Features/Word Emending} based on the words or/and document encoding is the state-of-the-art in IR and NLP because it a practical solution for automatically modeling the process of feature selection, document representation and dimentionality reduction. This is the case for the AGI/ WGI tasks, and it is the second contribution to the domain together with the open-set approach.
-
-In section \ref{chap:Document_Representation} and it is shown how a week ML algorithm can be trained with 100 times less features than the features given to an better algorithm for the WGI task. Moreover in section \ref{chap:relevant_work:sec:word_embedding} there is a discussion related to the word embedding and the \textit{Features Vocabulary Modeling}.
 
 %\section{Web-Genres Identification using other than textual information}\label{chap:relevant_work:sec:intro}
 
@@ -814,91 +919,6 @@ Alternative methods and similar the HDR is the \textit{Pointwize Mutual Informat
 Textual feature selection and document representation is the main research focus for WGI, with the NLM being the most promising path to follow for the near future. However, the URL and the Hypertext linking graph are the properties of the web-pages have also been exploited in the WGI research.  Analogous to the surface and structural types of cues for text features, these features can be treated as cues for extending or mining additional information for the classification process. In addition, some time for example in the cases of the very short textual information in a web-page, the URL and the sibling (in graph) pages are necessary for correctly identifying its genre. 
 
 In section \ref{chap:relevant_work:sec:url} the URL and the hypertext graph linking is discussed before the open-set and the NLE modeling, for WGI, will be thoroughly analyzed as the main focus of this work.
-
-\section{The Hyper (URL) links significance}\label{chap:relevant_work:sec:url}
-
-In the IR research, related to the Web-Site/Page search result ranking the URL as a hyperlink and as a string describing the source location is essential element. This is the case also for the WGI task, where both properties of the URL have been tested. In this section all of the effort where the URL have been used substantially and not just as part of the BOW approach are described. 
-
-The URL elements exploitation is out of the scope of this work because this work is focusing on the exploitation on the textual information, its encoding, and the ML algorithms for this purpose. On the contrary the URL is changing the definition of the web-genre unit from the web-page to different variation such as the web-site or the section of a web-page. On the whole, the URL for WGI can be consider an amplifier mechanism for the signal than an ML algorithm is using for fitting a model for WGI.
-
-To begin with, a study is based on the web-graph and the implicit genre relation among web pages assuming that neighbouring web pages are more likely to belong to the same genre, a property called \textit{homophily}. Then, the content of neighboring pages is used to enhance the representation of a given web page in a semi-supervised learning framework \parencite{asheghi2014semi}...(More details to be written here)
-
-\textit{GenreSim} is a link-based graph model which exploits \textit{link structure} to select relevant neighbouring pages in order to amplify the information required for a page to be classified to a genre taxonomy. This algorithm is improving significantly cases where the textual information is very low in a web-page such as a web page such as Movie Homepages, Photography websites etc. Particularly in their experiments GenreSim ((( compare to RFSE was performing significantly grater in their \textit{genre-taxonomy corpus named IV-12} with such idiosyncrasy (i.e. move homepages, photography etc) and less or no improvement on corpora such as 7-Genre or KI-04 \parencite{zhu2011enhance,zhu2016exploiting} ))).
-
-\begin{figure}[t]
-	\begin{center}
-    	\includegraphics[scale=0.95]{Figures/GenreSim_Draw.eps}
-		\caption{GenreSim page selection diagram, found in  \parencite{zhu2016exploiting}.}
-		\label{fiig:GenreSim_Draw}
-	\end{center}
-\end{figure}
-
-\textit{GenreSim} is a ranking algorithm based on \textit{PageSim} algorithm, extended to fit in the problem of genre-taxonomy. Similarly to all this kind of algorithms, is based on the assumption where the more webpages refereed to a particular page, the more this page is related to them in class of topic and/or genre taxonomy. Respectively to the genre-taxonomy the assumption for the GenreSim algorithm, this relation is expended to the level of \textit{forward} $F(p)$ and \textit{backwards} $B(p)$ related URL links. Moreover, the web-pages URL structure is also scored and the pages are characterized as \textit{Hubs} $H(p)$ and \textit{Authorities} $A(p)$. The null hypothesis of the algorithm is that the web pages of the same genre are inter-connected with their URL links. Consequently, a few pages backwards and forwards to a specific web-page consists a "small" network of the same genre. Using this "genre-network", the textual (and partially the structural) information of neighbouring web-pages can be used to amplify the signals required to classify a random page to the proper genre.
-
-\textit{Hubs are pages} with many outgoing URLs, whereas pages with many URLs pointing to, are called authorities. The number of incoming and outgoing URLs are increasing the respective scores as shown in equation \ref{eq:GenreSim_hub_authortities}. However, web-pages with high score but with \textit{few backward URL links} its high likely to be "spam" pages in the context of genre relation. In order to regulate this the $\omega(p)$ factor is intruded of equation \ref{eq:GenreSim_omega}, where is reducing the score for the web pages with few backward links. In addition, it is also normalizing the "few links" issue. That is, the number of the backward links is correlated to the number of links the page itself is containing. 
-
-\begin{equation}\label{eq:GenreSim_hub_authortities}
-	\begin{array}{l}
-		H(p) = \sum_{u \in V|p \to u} \omega(p) A(u) \\  
-    	A(p) = \sum_{v \in V|v \to v} \omega(p) H(u) \\
-    \end{array}
-\end{equation}
-\begin{equation}\label{eq:GenreSim_omega}
-	\omega(p) = \frac{N}{|\log N - \log N(p) | + 1} 
-\end{equation}
-Therefore the score for a random page in the $G$ graph of web-pages, is calculated by equation \ref{eq:GenreSim_Score}. In general the \textit{genre-selection recommendation score} is propagated to the graph path $P(u,v)$ as indicated by the $Score(u, v)$ function of equation \ref{eq:GenreSim_Path}. Therefore, the score of a recommended webpage is decreasing gradually as this pages is farther (in hops) from the web-page to be classified. The $d$ factor is set to be $0.5$, i.e. the page score is decreasing by half for every hop farther from the page under evaluation. 
-
-\begin{equation}\label{eq:GenreSim_Score}
-	Score(p) = H(p) + A(p)
-\end{equation}
-
-\begin{equation}\label{eq:GenreSim_Path}
-	Score(u, v) =
-      \begin{cases}
-      	\sum_{p \in P(u, v)} \frac{d Score(u)}{\prod_{x \in p, x  \neq v} (|F(x)| +|B(x)|)}, & v \neq u \\
-        Score(u), & v = u \\ 
-       \end{cases}
-\end{equation}
-Finally, the similarity of the candidate neighbour pages to the one under evaluation is calculated form equation \ref{eq:GenreSim_Selection_Score}. That is, the ratio of the min and the max paths-score sums of all the possible paths, backwards and forwards, to the page under evaluation.
-
-\begin{equation}\label{eq:GenreSim_Selection_Score}
-	Sim(u, v) = \frac{\sum_{i=1}^{n} min(Score(v_{i}, u), Score(v_{i}, v))}{\sum_{i=1}^{n} man(Score(v_{i}, u), Score(v_{i}, v))}
-\end{equation}
-GenreSim is combined with an ML algorithm called MCC (Multiple Classifier Combination). Particularly GenreSim utility is to select a set of web-pages where their content (textual and structural) will be used in combination to the "on-page" content, as an input to the MCC algorithm for classification.
-
-The MCC algorithm is a set of SVM classifiers where each is trained to a particular set of features from the webpage and its neighbours, well selected from the GenreSim, webpages. Then a Decision Template, shown in equation \ref{chap:relevant_work:eq:GenreSim_DP}, is build and used for the classification of a random web-page. Then the Min, Max or Mid values for the classification decision from the matrix are selected for making the final decision for the Genre class of the web-page.
-
-\begin{equation}\label{chap:relevant_work:eq:GenreSim_DP}
-	DP(p) = \left(
-    	\begin{array}{ccc}
-        	d_{11} (p) & \cdots & d_{1|G|} (p) \\
-            d_{21} (p) & \cdots  & d_{2|G|} (p) \\
-            & \vdots & \\
-            d_{N1} (p) & \cdots  & d_{N|G|} (p) \\
-         \end{array}
-\right)
-\end{equation}
-\noindent
-where $|G|$ is the number of genres in a genre taxonomy and the calcification methods is under a closed set setup with $N$ indented (one for each feature set) \textit{SVM multi-class classifier}. 
-
-Hyperlinks can be exploited by extracting information from the URL string itself and not from the hyper-graph. Particularly, URL can analyzed farther in its components, i.e. \textit{the web-site's domain name, the URI which is the path after the domain and the anchor text}. Special characters such as $\{_ , . , ?, \$ , \%\}$, top-level domains $\{.gr , .uk , .com, etc\}$, and file suffixes such as ".html", ".pdf" are usually discarded and then character n-grams are extracted from the URL counterparts. Finally several weighing schemes were used such as binary, TF or the one described in equation \ref{eq:jebary_url_weigh_cngrams_1} and \ref{eq:jebary_url_weigh_cngrams_2}. WGI experiments using only the hyperlink information combined (or not) with other web-page information seems to be a promising researching path especially for performance oriented WGI applications such as \textit{Genre-Based Focused-Crawling} \parencite{jebari2014pure_URL,jebari2015combination} (MSc reference on focused-genre-crawling)
-
-\begin{equation}\label{eq:jebary_url_weigh_cngrams_1}
-	W_{s}(C_{i}, U_{j}) = \sum_{s} w(s) TF(C_{i}, U_{j})
-\end{equation}
-\noindent
-where $TF(C_{i}, U_{j}) $ is the n-gram $C_{i}$ frequency in the $s$ segment of the URL $U_{j}$ and $w(s)$ is weight empirically assigned to the segment depending on the type of the segments as shown in eq. \ref{eq:jebary_url_weigh_cngrams_1}. The weights $\{\alpha,\beta,\gamma\}$ should be defined empirically usually upon the corpus. 
-\begin{equation}\label{eq:jebary_url_weigh_cngrams_2}
-	w(s) = \left\{
-    	\begin{array}{lll}
-        	\alpha & if & s = Domain\ Name \\
-            \beta & if & s = URL\ path (non\ domain\ part) \\
-            \gamma & if & s = Document\ name (e.g. .html, .pdf, etc) \\
-         \end{array}
-  \right.
-\end{equation}
- Another useful source of information is the URL of web documents are in \parencite{abramson2012_URL,jebari2014pure_URL,priyatam2013don_URL}.
-
 
 \section{The Web Genre units: Section, Page, Site and "Stage"}
 
