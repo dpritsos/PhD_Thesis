@@ -64,6 +64,25 @@ As registers are also considered as genres then there is also a set of heuristic
 
 The \textit{Textual content} is the most analyzed part of the hypertext which has been used for WGI \parencite{mason2009distance,Sharroff2010}. There are several features than can be extracted used alone or combined to getting the maximum information one can get from the web-paged and feed it for training a prediction ML algorithm. Character n-grams, Word n-grams, Part-of-Speach n-grams and some \textit{special discriminative words} have been commonly used and usually combined with some heuristically extracted features \parencite{kanaris2009learning,kumari2014web,levering2008using,Lim2005,mason2009n,onan2018ensemble,petrenz2011stable,sharoff2010web,Nooralahzadeh2014}.
 
+\parencite{waltinger2010feature} The features suggested (but not constrained) for this algorithm and for the WGI task are the following:
+
+\begin{enumerate}
+\item Word n-grams, Character n-grams, Word uni-grams and POS n-grams
+\item Superficial and Structural such as the sentence length and the divisions number, and the paragraph length, concerning of the HTML text formatting.
+\item HTML tag frequency in their logical structure, e.g. the number of <p></p> tags in total by ignoring the special cases of attributes or style sheets than might contain individually.
+\item HTML Attribute Frequency same as in tags case.
+\item First-Last tag frequency the x number of  the first occurring html tags and the y number of the last occurring tags.
+\item Name entities frequency based on an entity recognition heuristic engine.
+\end{enumerate}
+
+In order to take into account all the above features contribution to the WGI task, a \textit{weighted sum all the} $IM^{k}_{mn}$ scores is calculated by the equation \ref{eq:ranking_distance_weighted_sumsum}
+
+\begin{equation}\label{eq:ranking_distance_weighted_sumsum}
+	C_{g} = \sum_{k=1}^{F} \delta_{k} \cdot IM_{mn}^{k}
+\end{equation}
+Where $C_{g}$ is the similarity score for the a genre of the taxonomy, and $\delta_{k}$ is the weight of the $k$ feature set from all $F$ features, where is under the constraint co $\sum_{k=1}^{F} \delta_{k} = 1$.
+
+
 \subsection{Readability Assessment Features}
 
 Readability Assessment Features (RAF) have also been tested for the WGI/AGI task. Moreover, a primitive attempt also presented related to these features where they have been evaluated (and compared to other features) in their effectiveness on different taxonomies. Particularly they compared on the \textit{Domain-taxonomy} and the \textit{Genre-taxonomy} \parencite{falkenjack2016exploratory}.
@@ -539,8 +558,6 @@ Finally, for the movie genre categorization a binary vector of the genres list i
 
 %All the aforementioned approaches is a implicit method for dimentionality reduction and documents information encoding. However, \textit{Graph based features} is an explicit method for this and usually is applied after them feature selection process.
 
-\section{Machine Learning Approaches to Genre Identification}
-
 \section{Corpora for Evaluating WGI Approaches}
 
 \textbf{NOTE: In this survey section the Genre and Web-Genre is studied mostly thematically than historically. However, wherever there is interesting historical sequence in the research field it is pointed out.}
@@ -602,7 +619,7 @@ Blogs is a genre-type has attracted as special interest on its own, in differed 
 
 Most previous work in WGI follows a typical closed-set text categorization approach where, first, features are extracted from documents and, then, a classifier is built to distinguish between classes. Attention is paid to the appropriate definition of features that are able to capture genre characteristics and should not be affected by topic shifts or personal style choices. 
 
-\section{Machine Learning Methodologies}
+\section{Machine Learning Approaches to Genre Identification}
 \label{chap:relevant_work:sec:machine_learning_methods}
 
 Genre identification of documents is generally viewed as a text categorization task. After defining a feature space to represent documents, a classification algorithm can be applied to a training set in order to learn to distinguish between genres. As already pointed out, the majority of previous work studies consider this to be a closed-set classification task. In addition, most of the existing studies consider a flat genre palette where each genre is independent on the other genres. In the remaining of this section, the machine learning algorithms that have been used to learn the properties of genres are discussed according to the adopted setup of the task. 
@@ -613,50 +630,31 @@ The main research volume in this area adopt a closed-set classification framewor
 
 The SVM classifier was tested either in binary or multi-class WGI tasks \parencite{dai2018fine}. It is an algorithm than can easily handle high-dimensional and sparse feature spaces \parencite{joachims1997probabilistic}. In \parentcite{sharoff2010web} analytical experiments using a variety of datasets demonstrated that SVM WGI models could surpass the best reported results in most of the cases combined with character n-gram features. In addition \parencite{virik2017blog} compare SVM models with Naive Bayes and k-Nearest Neighbours models on the recognition of Blog sub-genres. The reported results show that SVM obtained higher accuracy results. Recently, an SVM-based approach was tested on the very challenging case of cross-Lingual genre classification (i.e., when the training documents are in one language and the test documents in another language) and obtained very promising results \parencite{nguyen2019cross}. 
 
-Distance-based approaches in the WGI task include mainly variations of nearest-neighbor classifiers. One particular case is based on ranked Features Distributions Distances} between the class-level features ranking and the document-level feature ranking. The features of the samples of a class are initially counted and their TF or TF-IDF values are ranked in a descending order. One can select the most frequent, but in the case study of \parencite{waltinger2010feature} the whole vocabulary have been used. Then a ranking sequential number is assigned and the frequency information is then discarded.
-
-In order to compare a random web-page to the Class ranking the above procedure is repeated in the document level. Then for every feature present in the document and also present in the class vocabulary their ranking distance is calculated. The total sum or the distances is summed, while the norm value of the distances is assumed. Moreover, when a feature is not present in the document or the vocabulary then a Max value is assigned for this feature. The total ranking distance calculation is shown in equations \ref{eq:ranking_distance} and \ref{eq:ranking_distance_sum}.
+Distance-based approaches in the WGI task include mainly variations of nearest-neighbor classifiers. One particular case is based on ranked feature distributions distances \parencite{waltinger2010feature}. The features of the samples of a class are ranked in descending order according to their TF or TF-IDF values. In order to measure the distance of a new web-page from the classes, the features of the new web-page are also ranked and then the difference in rankings indicate the most similar class. That is the TF or TF-IDF value of features is not important anymore since only the ranking of features is considered. Moreover, when a feature is not present in either the new web-page or a class, then a predefined $Max$ value is assigned. The total \textit{ranking distance} between a web-page $d$ and a class $g$ is calculated as follows:
 
 \begin{equation}\label{eq:ranking_distance}
-	d_{mnt} =
+	d(d,g,t) =
       \begin{cases}
-      	| r_{mt} - r_{nt} |, t \in m \wedge t \in n  \\
-        Max, t \notin m \vee t \notin n \\ 
+      	| r_{d}(t) - r_{g}(t) |, t \in d \wedge t \in g  \\
+        Max, t \notin d \vee t \notin g \\ 
        \end{cases}
 \end{equation}
+
 \begin{equation}\label{eq:ranking_distance_sum}
-	IM_{mn}^{k} = \sum_{i=1}^{t} d_{mni}
+	rd(d,g) = \sum_{t} d(d,g,t)
 \end{equation}
-The smaller the $IM^{k}_{mn}$ total rank distance sums for all the $k$ feature the more is the similarity of the web-page pattern to the Class pattern. The features suggested (but not constrained) for this algorithm and for the WGI task are the following:
 
-\begin{enumerate}
-\item Word n-grams, Character n-grams, Word uni-grams and POS n-grams
-\item Superficial and Structural such as the sentence length and the divisions number, and the paragraph length, concerning of the HTML text formatting.
-\item HTML tag frequency in their logical structure, e.g. the number of <p></p> tags in total by ignoring the special cases of attributes or style sheets than might contain individually.
-\item HTML Attribute Frequency same as in tags case.
-\item First-Last tag frequency the x number of  the first occurring html tags and the y number of the last occurring tags.
-\item Name entities frequency based on an entity recognition heuristic engine.
-\end{enumerate}
+The new web-page is then classified to the nearest class. The accuracy of this method has been reported to surpass that of SVM using the same features \parencite{waltinger2010feature}.
 
-In order to take into account all the above features contribution to the WGI task, a \textit{weighted sum all the} $IM^{k}_{mn}$ scores is calculated by the equation \ref{eq:ranking_distance_weighted_sumsum}
+Following the impressive performance obtained in classification tasks involving natural lanaguage texts, deep learning algorithms have also been tested in WGI tasks \parencite{strobel2018text}. A \textit{recurrent neural network} comprising 200 gated recurrent unit cells in the hidden layer. On top of that, a fully-connected layer assigns documents to classes using a Softmax decision function. Very promising results are reported for this deep learning model in closed-set WGI tasks.
 
-\begin{equation}\label{eq:ranking_distance_weighted_sumsum}
-	C_{g} = \sum_{k=1}^{F} \delta_{k} \cdot IM_{mn}^{k}
-\end{equation}
-Where $C_{g}$ is the similarity score for the a genre of the taxonomy, and $\delta_{k}$ is the weight of the $k$ feature set from all $F$ features, where is under the constraint co $\sum_{k=1}^{F} \delta_{k} = 1$.
+Instead of learning a simple model, ensemble methods attempt to extract several base models and then combine them. One main direction is to use well-known ensemble learning methods such as AdaBoost, Bagging and Random Forests \parencite{sugiyanto2014term,onan2018ensemble}. This approach can easily handle high-dimensional representations and heterogeneous features.
 
-The accuracy using this method on shown to have been reached $93\%$ compare to $89\%$ of the SVM's performance, using the same features.
+\textcolor{red}{Although, the traditional bag-of-words approach had better result with XABoost or other techniques been tested for over a decade on genre identification or/and particularly on WGI, distributional feature models are early showing their advantages over the TF-IDF (or TF alone) models[REF].}
 
+%\paragraph{Random Forest} Several studies among other classification algorithm they have extensively used \textit{Random Forest Classifiers}. Usually they use this algorithm in an out-of-the-box format. Most importantly seem to be one of the high score performance algorithms and most of the time the best solution. Although, most the studies are focusing of features selection/extraction and the term weighting schemes one could reason the high performance of the Random Forests to its internal ability to selecting the internal connection of the  features which \textit{resembles the word embedding} (FIND REF FOR THIS ARGUMENT) \parencite{sugiyanto2014term}
 
-\paragraph{Neural Based} Recently Neural Networks have been used for modeling the WGI task (and other text classification tasks), additionally or independently of the Vocabulary modeling where neural-models have widely used. 
-
-Most notably is the used of Recurrent Neural Networks (RNN) where Linguistic Complexity Contours (LCC) where employed as modeling features (LCC details are explained in section \ref{chap:relevant_work:sec:intro:subsec:heuristics}). Their model was based on 32 LLC features where fed to 32 Gated Recurrent Units (GRU)  and the output of each GRU was also fed to the next. Then all the output GRU output was the input of a Dense Layer of the RNN where a Softmax decision function was applied on. Their model was a closed-set framework with very high performance where was reaching over $90\%$  accuracy\parencite{strobel2018text}.
-
-\paragraph{Ensemble Based} 
-
-GenreSim is combined with an ML algorithm called MCC (Multiple Classifier Combination). Particularly GenreSim utility is to select a set of web-pages where their content (textual and structural) will be used in combination to the "on-page" content, as an input to the MCC algorithm for classification.
-
-The MCC algorithm is a set of SVM classifiers where each is trained to a particular set of features from the webpage and its neighbours, well selected from the GenreSim, webpages. Then a Decision Template, shown in equation \ref{chap:relevant_work:eq:GenreSim_DP}, is build and used for the classification of a random web-page. Then the Min, Max or Mid values for the classification decision from the matrix are selected for making the final decision for the Genre class of the web-page.
+Another idea is to build a separate model for each web-page modality. For example, an ensemble algorithm called \textit{Multiple Classifier Combination} (MCC) is presented in \parentcite{zhu2016exploiting}. Particularly, the main idea is use information from a web-pages to be classified to a given genre palette as well as information from a set of neighbouring web-pages (i.e., that are near the specific web-page in the graph formed by hyperlinks between pages). The MCC algorithm builds a set of SVM classifiers each trained using a particular set of features. Then a decision matrix is formed including all predictions of base SVM classifiers:
 
 \begin{equation}\label{chap:relevant_work:eq:GenreSim_DP}
 	DP(p) = \left(
@@ -668,39 +666,15 @@ The MCC algorithm is a set of SVM classifiers where each is trained to a particu
          \end{array}
 \right)
 \end{equation}
+
 \noindent
-where $|G|$ is the number of genres in a genre taxonomy and the calcification methods is under a closed set setup with $N$ indented (one for each feature set) \textit{SVM multi-class classifier}. 
+where $d_{ij}$ is the membership degree given by classifier $i$ to genre $j$, $N$ is the number of base classifiers, and $|G|$ is the number of genres. Then, the final decision is taken by applying simple methods to combine these predictions, such as the min, max or average rules.
 
+%\textit{AdaBoost} is a \textit{Boosting} algorithm where usually a random sampling is performed over the data and s set of classifier are trained over these samples. There is a weighting scheme over the samples which is changing in every training iteratio, where for the samples mostly miss-classified, by most of the learners, their weights are increasing. In this manner the difficult samples repetitively to classification are presented to the weak learner in more iteratios in order the whole systems of learners fit adjust better over these samples.
 
+%\textit{Bagging/Bootstrap aggregating} is an ensemble learning methods where a set of independent learners are training on different subsets of samples. Sampling with replacement is employed for Bagging, usually random. The performance of the ensemble is significantly influenced by the sampling policy/model. The ensembles decision is obtained either by the majority voting or my the weighted voting for a random sample.
 
-
-There are very few \textit{ensemble based} algorithms employed for the WGI and AGI task, however, they seem to be a very promising path as shown in \parencite{onan2018ensemble,pritsos2015clef,pritsos2013open,pritsos2018open}. Particularly there are three methods, mainly, where an ensemble can be formed, namely, AdaBoost, Bagging and Random Feature (RFS) Subspace ( (i.e. random sub-sampling). In this study we mainly focusing on the RFS, it is one of the algorithms are thoroughly presented in the context of WGI/AGI task.
-
-\textit{AdaBoost} is a \textit{Boosting} algorithm where usually a random sampling is performed over the data and s set of classifier are trained over these samples. There is a weighting scheme over the samples which is changing in every training iteratio, where for the samples mostly miss-classified, by most of the learners, their weights are increasing. In this manner the difficult samples repetitively to classification are presented to the weak learner in more iteratios in order the whole systems of learners fit adjust better over these samples.
-
-\textit{Bagging/Bootstrap aggregating} is an ensemble learning methods where a set of independent learners are training on different subsets of samples. Sampling with replacement is employed for Bagging, usually random. The performance of the ensemble is significantly influenced by the sampling policy/model. The ensembles decision is obtained either by the majority voting or my the weighted voting for a random sample.
-
-Although, the traditional bag-of-words approach had better result with XABoost or other techniques been tested for over a decade on genre identification or/and particularly on WGI, distributional feature models are early showing their advantages over the TF-IDF (or TF alone) models[REF].
-
-\textit{RFS } is mainly similar to Bagging in respect the sampling policy might be used. However, they deffer in the decision method where in RFS there is a \textit{$\kappa$ metric} or a \textit{$\sigma$ threshold} for the agreement of the weak learners for a random sample. This method also can be used for closed-set and open-set multi-class classification methods such as RFSE algorithms will be discussed in section \ref{}.
-
-In \parencite{chen2012genre} an open-set ensemble presented where two multi-class SVM classifiers where trained for all the genres of their special formed genre-taxonomy for \textit{office documents} (details for office documents taxonomy find in \ref{}). Every SVM classifier was trained in a different mutually exclusive training subset, where the other part of the training set was used for tuning and vice-versa. The assumption of this training methods is that part of the support vectors  will be optimized for every SVM preserving the generalization of the two independent models and the combined classification will manage to fit well over the whole corpus. Their ensemble's decision rule as shown in equation \ref{eq:office_doc_ensemble} is a pairwise genre-class operatio for an arbitrary page, where the truth table of this binary rule for all genre-class pairs might end up wilt all $0$ (zero) outcome. Then this page remains as unknown in all other cases at least one genre will return as true. On this combination rule several application can be operated as they have presented.
-
-\begin{equation}\label{eq:office_doc_ensemble}
-	(g^{k}_{1}[i] \vee g^{k}_{2}[i])  \wedge  (g^{m}_{1}[i] \vee g^{m}_{2}[i]) ,   \forall m \neq k
-\end{equation}
-
-where $\{k, m\}$ are the genre classes and $\{g_{1}, g_{2}\}$, are the genre SVM classifiers.
-		
-The above ensemble is an \textit{Early Fusion} category of ensembles where the potential different features and document representation are all combined in a sum-up vector for each document, i.e. a weighted sum or a concatenation of the different feature vectors. Then the summed-up vectors are the input for the learners of the ensemble where Bagging, Boosting, Majority voting or other strategies are used for then training and testing (or production) phases.
-
-In \parencite{finn2006learning} a \textit{Late Fusion} ensemble is proposed for the AGI task which is an other category of ensembles. Late Fusion ensembles are composed from learners of the same model (say SVM, C4.5, NN etc) where every one is trained only on a specific feature set (or/and document representation). In the testing phase the ensemble me majority voting us a common strategy. 
-
-Particularly the in their study they are testing C4.5 decision trees for BOW, POS, and \textit{Text Statistics} in detail explained in  section \ref{} they shown that their \textit{Multi View Ensemble }, i.e. the Late Fusion Ensemble, performs significantly better because every one of these features was a better choice only for a part of the genres in their taxonomy, thus the fusion of the all three increased the performance for all genre in total. In is important to note that in the training phase \textit{Active Learning}, and binary vector representation also were used. 
-
-\textit{Active Learning} in their study was defined as a sample selection strategy while training where an an evaluating process was indicating which sample was better to be used for the specific C4.5 learner, for the specific features set. The Late Fusion ensemble with the active learning strategy shown to be a promising proposal for the Domain Transfer problem for AGI.
-
-Additionally, other methods extending the ensembles methodology like Random Forests have been also became popular (see the following paragraph).
+Another \textit{late fusion} ensemble is proposed in \parencite{finn2006learning}. Again, the idea is to build homogeneous base models each trained only on a specific feature subset. In the testing phase the majority voting us a common strategy. Particularly in their study they learn C4.5 decision trees for different web-page modalities (i.e., BOW, POS, text statistics features) and then build a \textit{Multi View Ensemble} that combines the predictions of the modality-specific models. It is important to note that in the training phase \textit{Active Learning} was used. This is a sample selection strategy where an an evaluating process was indicating which sample was better to be used for the specific C4.5 learner, for a given feature set. The late fusion ensemble with the active learning strategy obtained promising results including the domain transfer scenario.
 
 \paragraph\textbf{Domain transfer} is the ability to transfer across multiple-topic domains the same learner when it has been only trained in one of these domains. As an example, for the genre \textit{News} there might be several topic domains such as Sports, Technology, Science, Health, Politics. An ML model which has been trained for News only on Sports topic and still can perform similarly good for Technology, etc, it considered to perform well in domain transfer cases. This is very important particularly for AGI where usually the positive available sample for a genre are not available in a wide variate topic-domains (see section \ref{} discussing the genre taxonomy corpus building issues).
 
@@ -721,7 +695,9 @@ An aspect is interesting to be mentioned is the set of features have been select
 
 The results in this study were very promising given that with a generic language independent approach manages to exceeds the results of the common solution of \textit{Machine Translation}. That is where the texts of the  source (where the model trained) of the target the language are translated automatically beforehand they are fed to the ML model.
 
-\paragraph{Clustering Based and Hierarchical multi-class classification (HMC)} There a very special case, in \parencite{madjarov2015web}, worth to be motioned for the concept rather than its research value. Particularly is a primitive attempt to test the \textit{Hierarchical Multi-class Classification} on AGI. Although the results are relatively low in preforms and the experiments are not exactly comparable concerning the statistical consistency. However, there are several interesting aspects.
+\subsection{Clustering Based and Hierarchical Genre Palette} 
+
+There a very special case, in \parencite{madjarov2015web}, worth to be motioned for the concept rather than its research value. Particularly is a primitive attempt to test the \textit{Hierarchical Multi-class Classification} on AGI. Although the results are relatively low in preforms and the experiments are not exactly comparable concerning the statistical consistency. However, there are several interesting aspects.
 
 Firstly, they are using two \textit{clustering methods} attempting to develop an \textit{Automated Hierarchical Clustering (AHC)} where a raw multi-class taxonomy could potentially organized in a hierarchical manner. That is, given a set of  \textit{"leaf" class-tags} by using an agglomerative or a balanced k-means algorithm the tried to create a class-tag hierarchy and compare with the one of an expert. Secondly, they show than the Balanced k-means works better for this task on their data set and experimental set-up.
 
@@ -729,9 +705,9 @@ The utility of the Balanced K-means is for pre-defining the size of the clusters
 
 Their method compared with the hierarchical taxonomy created by an expert, seems to work equally or betters for the HMC scenario of AGI. They also show the their result of the AHC can be also used for  a multi-class classification scenario.
 
-\paragraph{Random Forest} Several studies among other classification algorithm they have extensively used \textit{Random Forest Classifiers}. Usually they use this algorithm in an out-of-the-box format. Most importantly seem to be one of the high score performance algorithms and most of the time the best solution. Although, most the studies are focusing of features selection/extraction and the term weighting schemes one could reason the high performance of the Random Forests to its internal ability to selecting the internal connection of the  features which \textit{resembles the word embedding} (FIND REF FOR THIS ARGUMENT) \parencite{sugiyanto2014term}
+\subsection{Semi-supervised Learning} 
 
-\paragraph{Semi-supervised classification (Co-Training} In section \ref{corpus_building} the genre-taxonomy corpus building task is discussed, where it is pointed out the issues of insufficient number of characteristic examples related to the positive samples for the genres of a taxonomy. Moreover, in section \ref{noise} the noise is discussed and the lack of negative samples in the available research corpora. These issues are labor intensive and very hard to be resolved even with the attempt of the cowed sourcing engines (like \textit{Amazon Mechanical Turk}) as presented in \parencite{Asheghi's relative work}. 
+Co-Training In section \ref{corpus_building} the genre-taxonomy corpus building task is discussed, where it is pointed out the issues of insufficient number of characteristic examples related to the positive samples for the genres of a taxonomy. Moreover, in section \ref{noise} the noise is discussed and the lack of negative samples in the available research corpora. These issues are labor intensive and very hard to be resolved even with the attempt of the cowed sourcing engines (like \textit{Amazon Mechanical Turk}) as presented in \parencite{Asheghi's relative work}. 
 
 However, there might be an other path to follow when one would like to focus fore the classification aspect of the WGI, rather than the genre taxonomy itself. One suggested path is the \textit{Semi-supervised classification} in order to exploit the virtually infinite number of \textit{unlabeled}, in respect of genre, web-pages of the Web. Particularly in \parencite{chetry2011web}\textit{ Co-Training} is suggested for SVM and Naive Bayes classifiers with a set of $20000$ unlabeled samples in addition to the 1232 labeled web-pages.
 
@@ -745,7 +721,18 @@ In case of presence of  noise, in a clustering framework described in \parencite
 
 In section \ref{chap:relevant_work:sec:openset_and_noise} the open-set approach for WGI when noise is present, or not.
 
-\section{Web Genre Noise and the Open-set approach}\label{chap:relevant_work:sec:openset_and_noise}
+\subsection{Open-set Classification}
+\label{chap:relevant_work:sec:openset_and_noise}
+
+In \parencite{chen2012genre} an open-set ensemble presented where two multi-class SVM classifiers where trained for all the genres of their special formed genre-taxonomy for \textit{office documents} (details for office documents taxonomy find in \ref{}). Every SVM classifier was trained in a different mutually exclusive training subset, where the other part of the training set was used for tuning and vice-versa. The assumption of this training methods is that part of the support vectors  will be optimized for every SVM preserving the generalization of the two independent models and the combined classification will manage to fit well over the whole corpus. Their ensemble's decision rule as shown in equation \ref{eq:office_doc_ensemble} is a pairwise genre-class operatio for an arbitrary page, where the truth table of this binary rule for all genre-class pairs might end up wilt all $0$ (zero) outcome. Then this page remains as unknown in all other cases at least one genre will return as true. On this combination rule several application can be operated as they have presented.
+
+\begin{equation}\label{eq:office_doc_ensemble}
+	(g^{k}_{1}[i] \vee g^{k}_{2}[i])  \wedge  (g^{m}_{1}[i] \vee g^{m}_{2}[i]) ,   \forall m \neq k
+\end{equation}
+
+where $\{k, m\}$ are the genre classes and $\{g_{1}, g_{2}\}$, are the genre SVM classifiers.
+		
+The above ensemble is an \textit{Early Fusion} category of ensembles where the potential different features and document representation are all combined in a sum-up vector for each document, i.e. a weighted sum or a concatenation of the different feature vectors. Then the summed-up vectors are the input for the learners of the ensemble where Bagging, Boosting, Majority voting or other strategies are used for then training and testing (or production) phases.
 
 The main contribution of this work is the establishment of the novel open-set approach for the WGI and AGI tasks. In addition three previously presented algorithms adapted to the open-set classification and they are also presented briefly in this section together with an only few other similar efforts to towards to this research direction. The algorithms are thoroughly presented and evaluated in the following chapter \ref{chap:openset}, while in chapter \ref{chap:noise} are stressfully tested under the presence of noise.
 
