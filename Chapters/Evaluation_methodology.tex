@@ -213,7 +213,7 @@ The $PR_{micro}$ curves are significantly influenced in when the performance of 
 
 The main weaknesses of the $PR_{micro}$ curves is its dependency on the score of each corpus sample's which leads to false evaluation in highly imbalanced corpora such the ones of the confusion matrix \ref{chap:eval_methods:tbl:multi_confusion}. Particularly, the problem occurs because the the \textit{total precision} in every recall level is remaining high as long as there are not a lot false positives. The side effect of $PR_{micro}$ curves when they are used of optimization is leading to an algorithm which it is preferring to let most of the corpus samples as unknown.
 
-The $PR_{macro}$, on the other hand, are better for evaluation because they are class distributions independent. Moreover, they are able to capture the open-set behavior where some of the sample are consider as noise and left as unknown. The difference between the figures \ref{chap:eval_methods:fig:prc_noise} and \ref{chap:eval_methods:fig:prc} is the case of the red line (algorithms A) where it seems to be estimated a bit worst when its performance on noise (i.e.\emptyset) it is also calculated. 
+The $PR_{macro}$, on the other hand, are better for evaluation because they are class distributions independent. Moreover, they are able to capture the open-set behavior where some of the sample are consider as noise and left as unknown. The difference between the figures \ref{chap:eval_methods:fig:prc_noise} and \ref{chap:eval_methods:fig:prc} is the case of the red line (algorithms A) where it seems to be estimated a bit worst when its performance on noise (i.e.$\emptyset$) it is also calculated.
 
 In table \ref{chap:eval_methods:tbl:prc} the Area Under the Curve (AUC) of both $PR_{macro}$ curves of algorithms A and B are very slightly defer, however, the $F1_{macro}$ scores are significantly different especially for the algorithms B.
 
@@ -229,19 +229,19 @@ Lines 9 and 13 are showing a case where the certainty score of the algorithms A 
 		\cline{1-4}
 		Certainty & Predicted & Expected & Correct\\
 		\cline{1-4}
-		0.99 & 1 & 1 & 1 \\
-		0.99 & 2 & 2 & 1 \\
-		0.99 & 4 & 4 & 1 \\
+		0.99 & A & A & \cmark \\
+		0.99 & B & B & \cmark \\
+		0.99 & D & D & \cmark \\
 		... & ... & ... & ... \\
-		0.79 & 2 & 1 & 0 \\
-		0.79 & 4 & 4 & 1 \\
-		0.69 & 1 & 1 & 0 \\
-		0.69 & 2 & 2 & 1 \\
+		0.79 & B & A & \xmark \\
+		0.79 & D & D & \cmark \\
+		0.69 & A & A & \xmark \\
+		0.69 & B & B & \cmark \\
 		... & ... & ... & ... \\
-		0.64 & \emptyset & 2 & 0 \\
-		0.60 & 2 & 2 & 1 \\
+		0.64 & \emptyset & B & \xmark \\
+		0.60 & B & B & \cmark \\
 		... & ... & ... & ... \\
-		0.60 & \emptyset & 4 & 0 \\
+		0.60 & \emptyset & D & \xmark \\
 		\cline{1-4}
 	\end{tabular}
 \end{table}
@@ -275,9 +275,9 @@ In table \ref{chap:eval_methods:tbl:AUC_F1} all theses AUC calculation are shown
 
 \section{The Openness Test}\label{chap:eval_methods:sec:openness}
 
-The open-set evaluation measures defined in this chapter can be used in both unstructured and structured noise. However, in the latter case, we need a more detailed analysis of the performance to indicate the ability of the open-set classifier to handle low/high number of training/unknown classes. It is especially important to study the relation of the number of training classes with respect to the number of unknown classes. 
+The open-set evaluation measures defined in this chapter can be used in both unstructured and structured noise. However, in the structured noise case, we need a more detailed analysis of the performance. In order to evaluate the ability of the open-set classifier to handle low/high number of training/unknown classes. It is especially important to study the relation of the number of training classes with respect to the number of unknown classes. 
 
-In \parencite{scheirer2013toward}, the \textit{openness measure} is introduced to directly measure this relation. The openness measure indicates the difficulty of an open-set classification task by taking into account the number of \textit{training classes} (i.e. the known classes used in the training phase) and the number of \textit{testing classes} (i.e., both known and unknown classes used in the testing phase) \parentcite{mendesjunior2016}:
+In \parencite{scheirer2013toward}, the \textit{openness measure} is introduced for measuring this relation. The openness measure indicates the difficulty of an open-set classification task by taking into account the number of \textit{training classes} (i.e. the known classes used in the training phase) and the number of \textit{testing classes} (i.e., both known and unknown classes used in the testing phase) \parentcite{mendesjunior2016}:
 
 \begin{equation}\label{chap:eval_methods:eq:openness}
 	openness=1-\sqrt{\frac{ | Training Classes | }{ |Testing Classes | }}
@@ -291,13 +291,16 @@ The study of open-set classifiers can be significantly extended by measuring the
 
 \begin{figure}[t]
 	\begin{center}
-    	\includegraphics[scale=0.50]{Figures/openness_example.eps}
-		\caption{An example of using the openness test. The smallest openness level corresponds to 6 training classes and 7 testing classes. The maximum openness level refers to 1 training class and 7 testing classes. At the 1.7 the the openness score is maximized for this open-set problem.}
+    	\includegraphics[scale=0.50]{Figures/openness_test_for_f1_scores_example.eps}
+		\caption{An example of using the openness test. The smallest openness level corresponds to 4 training classes and 5 testing classes. The maximum openness level refers to 1 training class and 4 testing classes.}
 		\label{chap:eval_methods:fig:openness}
 	\end{center}
 \end{figure}
 
-In figure \ref{chap:eval_methods:fig:openness} the precision scores on different openness levels, are presented for evaluating three arbitrary open-set algorithms, on the corpus which it is forming the confusion matrix \ref{chap:eval_methods:tbl:multi_confusion}. Note, that the begging and the end of the curve are pointing at about the same level of precision. In particular, at the maximized openness level the performance of these algorithms is even higher than the one at the lowest openness level. However, at the begging the problem is still remaining a multi-class problem where 6 known classed have been given to the algorithms for training and 7 for testing where only 1 is unknown. However, at the highest openness level the problem is becoming a binary problem as in 1-vs-Rest. That is, the algorithms are trained at 1 class and tested at 7 classes with 6 of them as unknown. Given, that these algorithms are all variations based on SVM algorithms the results are short of expected. However, this is not always the case as it will be shown in chapter \ref{chap:noise}.
+
+In figure \ref{chap:eval_methods:fig:openness} the $F1_{macro}$ scores on different openness levels, are presented for evaluating the two arbitrary open-set algorithms described in section \ref{chap:eval_methods:sec:roc_prc}. Note, that the begging and the end of the curve are pointing at about the same $F1_{macro}$ score. In particular, at the maximized openness level the performance of algorithms B is even higher than the one at the lowest openness level. 
+
+It should also be noted that, at the begging the problem it is a multi-class problem where 4 known classed have been given to the algorithms A and 5 classes for testing, where one is unknown. On the contrary, at the highest openness level \textit{the problem is becoming a binary problem} as in 1-vs-Rest. That is, the algorithms are trained at one class and tested at 5 classes with 4 of them unknown.
 
 
 \section{Domain Transfer Measure}\label{chap:eval_methods:sec:domain_transfer_measure}

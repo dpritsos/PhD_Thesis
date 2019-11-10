@@ -165,7 +165,15 @@ Another generative approach is based on the \textit{Dirichlet Process}, a distri
 
 The first open-set WGI method introduced in this thesis follows the OCC paradigm. Basically, the main idea is to build a one-class SVM classifier for each class $c \in \mathcal{C}$ using only the positive instances of that class. Ideally, the members of unknonwn classes will not be recognized by any of these one-class classifiers.
 
-One-class SVM attempts to find the contour including the positive samples of the target class. Following the logic from the traditional SVM algorithm, a one-class modification, called $\nu$-SVM, was introduced in \parencite{scholkopf1999estimating}. Let $x_1, x_2,..., x_l$ be a set of positive samples of the target class and $\phi$ a feature map. $\nu$-SVM considers the origin (in feature space $\phi$) as the only negative sample and attempts to separate the positive samples from the origin and maximize the distance of the decision hyperplance from the origin. The latter is called \textit{margin} ($\rho$). More formally, the algorithm solves the following optimization problem:
+\begin{figure}[t]
+	\begin{center}
+    	\includegraphics[scale=0.70]{Figures/OCSVM_diagrams.eps}
+		\caption{One-Class SVM function algorithm. The optimization procedure is aiming to find the contour (at (a)) which is including the single class samples available. To do so, the origin is considered as outlier (at (b)) or the only negative samples for the $\nu$-SVM algorithm at the begin of the optimization process.}
+		\label{chap:openset:fig:ocsvm_single_class}
+	\end{center}
+\end{figure}
+
+One-class SVM attempts to find the contour including the positive samples of the target class, as depicted in figure \ref{chap:openset:fig:ocsvm_single_class}. Following the logic from the traditional SVM algorithm, a one-class modification, called $\nu$-SVM, was introduced in \parencite{scholkopf1999estimating}. Let $x_1, x_2,..., x_l$ be a set of positive samples of the target class and $\phi$ a feature map. $\nu$-SVM considers the origin (in feature space $\phi$) as the only negative sample and attempts to separate the positive samples from the origin and maximize the distance of the decision hyperplance from the origin. The latter is called \textit{margin} ($\rho$). More formally, the algorithm solves the following optimization problem:
 
 \begin{equation}\label{chap:openset:sec:eq:3}
 	arg\min_{w,\rho}\left\{ \frac{1}{\nu l} \sum_{i=1}^{l}(\xi_{i}-\rho)+\frac{1}{2}\|w\|^{2}\right\}
@@ -243,13 +251,22 @@ $score[:, :]$=0, the score 2D matrix where rows are for genre's class tags and c
 
 Note that the same hyper-parameter $\nu$ value is used for all known genres. This value should be determined empirically. OCSVM is affected by the \textit{curse of dimensionality} which causes the generalization error to increase with the number of irrelevant and redundant features \parentcite{Erfani:2016}. The following open-set classification method attempts to avoid this problem.
 
+
 \subsection{Random Feature Subspacing Ensemble}\label{chap:openset:sec:RFSE_Description}
 
 WGI tasks are usually associated with high dimensional data. In addition, the kind of features involved in text representation schemes are highly redundant and irrelevant. It is therefore crucial for an open-set classification method to handle the curse of dimensionality appropriately.
 
-A distance-based open-set classification method has been introduced in \parencite{koppel2011authorship} aiming to handle the task of \textit{Author Identification} where similar types of problems exist with respect to WGI. In the original approach, there is only one training example for each known class and a number of simple classifiers is repetitively learned based on random feature subspacing (i.e., a randomly-selected number of features is used). Each classifier uses a similarity measure to estimate the most likely class for a given new sample. The main idea is that it is more likely for the true class to be selected by the majority of the classifiers since the used subset of features will still be able to reveal the high similarity. If, on the other hand, there is no prevailing class, then the new sample is not assigned to any of the known classes. Note that in author identification we are mainly interested about stylistic similarities. The style of the author (of genre) can be captured by many different features so a subset of them will also contain enough stylistic information (redundant features). Since WGI is also a style-based text categorization task, this idea should also work for it.
+\begin{figure}[t]
+	\begin{center}
+    	\includegraphics[scale=0.70]{Figures/RFSE_diagrams.eps}
+		\caption{RFSE optimization procedure for multi-class classification. Several Random sub-spaces from the original feature space are selected and one distance is measured for this sub-space (or one learner if formed). Then the class where most of the learners are voting for is the one been selected to be assigned to an arbitrary samples. However, if the voting score is lower than the $\sigma$ threshold then the sample is considered as unknown (or outlier)}
+		\label{chap:openset:fig:rfse_single_decision}
+	\end{center}
+\end{figure}
 
-In this thesis, we adopt this method for open-set WGI tasks \parencite{pritsos2013open}. In WGI there are multiple trainig samples for each known genre. To maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed for every known class by averaging all the representation vectors of the training examples of web pages belonging to the same genre.
+A distance-based open-set classification method has been introduced in \parencite{koppel2011authorship} aiming to handle the task of \textit{Author Identification} where similar types of problems exist with respect to WGI. In the original approach, as shown in figure \ref{chap:openset:fig:rfse_single_decision}, there is only one training example for each known class and a number of simple classifiers is repetitively learned based on random feature subspacing (i.e., a randomly-selected number of features is used). Each classifier uses a similarity measure to estimate the most likely class for a given new sample. The main idea is that it is more likely for the true class to be selected by the majority of the classifiers since the used subset of features will still be able to reveal the high similarity. If, on the other hand, there is no prevailing class, then the new sample is not assigned to any of the known classes. Note that in author identification we are mainly interested about stylistic similarities. The style of the author (of genre) can be captured by many different features so a subset of them will also contain enough stylistic information (redundant features). Since WGI is also a style-based text categorization task, this idea should also work for it.
+
+In this thesis, we adopt this method for open-set WGI tasks \parencite{pritsos2013open}. In WGI there are multiple training samples for each known genre. To maintain simplicity of classifiers, we have used a \textit{centroid vector} for each genre. In the training phase, a centroid vector is formed for every known class by averaging all the representation vectors of the training examples of web pages belonging to the same genre.
 
 The class centroids are all formed for a given feature type. Then, an evaluation sample is compared against every centroid and this process is repeated $I$ times. Every time a different randomly-selected feature subset is used. Then, the scores are ranked from highest to lowest and we measure the number of times the sample is top-matched with every class. The sample is assigned to the genre with maximum number of matches given that this score exceed a predefined $\sigma$ threshold. In the opposite case, the sample remains unclassified, the RFSE responds "I Don't Know". The RFSE method is analytically described in Algorithm \ref{chap:openset:sec:alg:RFS-Ensemble}. 
 
@@ -302,7 +319,16 @@ Finally, we introduce an approach that combines these two similarity functions. 
 
 The approaches we consider so far use the positive training instances for the available known classes and do not attempt to estimate the open space risk. However, the distribution of known classes could be used as an indication about the existence of other unknown classes. The next algorithm attempts to follow this direction.
 
-The Nearest Neighbors Distance Ratio (NNRD) algorithm is an open-set classification algorithm introduced in \parentcite{mendesjunior2016}, which in turn, is an extension upon the \textit{Nearest Neighbors} (NN) algorithm. The main idea is that if the new sample lies close to the training samples of a known class and far away from the closest samples of other known classes, then it most likely belongs to that class. If, on the other hand, the new sample is more or less equally distanced from the closest classes, then it should not be assigned to none of them. More formally, let $d(x,y)$ be the distance between two samples $x$ and $y$. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. Then, if the ratio: 
+
+\begin{figure}[t]
+	\begin{center}
+    	\includegraphics[scale=0.70]{Figures/NNDR_diagrams.eps}
+		\caption{NNDR optimization procedure for multi-class classification. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. In (a) the $s$ is clearly closed to the $t$ where in (b) the distance $d(s,t)$ and $d(s,t)$ are almost the same. Also, the $s$ is far and thus the classification decision is difficult and the \textit{open space risk} is high.}
+		\label{chap:openset:fig:NNDR_single_decision}
+	\end{center}
+\end{figure}
+
+The Nearest Neighbors Distance Ratio (NNRD) algorithm is an open-set classification algorithm introduced in \parentcite{mendesjunior2016}, which in turn, is an extension upon the \textit{Nearest Neighbors} (NN) algorithm. The main idea is that if the new sample lies close to the training samples of a known class and far away from the closest samples of other known classes, then it most likely belongs to that class. If, on the other hand, the new sample is more or less equally distanced from the closest classes, then it should not be assigned to none of them. More formally, let $d(x,y)$ be the distance between two samples $x$ and $y$. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$, as shown in figure \ref{chap:openset:fig:NNDR_single_decision}. Then, if the ratio: 
 
 \begin{equation}
     \frac{d(s,t)}{d(s,u)}
