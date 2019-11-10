@@ -558,67 +558,6 @@ Finally, for the movie genre categorization a binary vector of the genres list i
 
 %All the aforementioned approaches is a implicit method for dimentionality reduction and documents information encoding. However, \textit{Graph based features} is an explicit method for this and usually is applied after them feature selection process.
 
-\section{Corpora for Evaluating WGI Approaches}
-
-\textbf{NOTE: In this survey section the Genre and Web-Genre is studied mostly thematically than historically. However, wherever there is interesting historical sequence in the research field it is pointed out.}
-
-This study is focused on the Open-set Machine Learning (ML) computational methods for \textit{Automated Classification} of \textit{the Web-pages} into a \textit{Genre Taxonomy}. In a broader definition is also known as Web-Genre Identification (WGI). Since most of the literature has also worked with corpora including also electronic document other than web-sourced, the WGI also called as Automated Genre Identification (AGI).
-
-The \textit{Genre} taxonomy of \textit{the texts} in linguistics domains is a subject of a theoretical (mostly philosophical) debate respectively to its evolution mechanics. Several computational methodologies has been developed for automating the process based on \textit{Machine Learning (ML)} methods. However, most of the AGI research has focused on the raw text pre-processing and the feature selection methodologies and the \textit{Bag-of-Words (or Bag-of-Terms) BoT }\footnote{In this text Bag-of-Terms (BoT) is equivalent to the Bag-of-Words  (BOW), which has been widely used in the literature of the Information Retrieval and Natural Language Processing domains. Since, BoT is accurately describing the meaning of BOW in most of the cited literature.} text representation. Only recently there is a redirection of the research focus to the \textit{Vocabulary Learning Models (VLM)} where they are used as input to the Identification/Classification ML model, instead of the BoT. 
-
-
-
-
-
-
-\begin{figure}[t]
-	\begin{center}
-    	\includegraphics[scale=0.95]{Figures/Sotlen_diagram.eps}
-		\caption{Stolen Imag.}
-		\label{fiig:Stolen}
-	\end{center}
-\end{figure}
-
-
-
-
-
-
-
-A very recent research on Cross-Lingual Genre Classification showed that it is possible to get very good results when an ML model is trained with a corpus samples of one language and then testing the trained model to an other. However, the evaluation framework was closed-set and the relation of the languages seems to be of a great importance for the accuracy performance of the model. That is, in some cases it was important the language to be of the same group for example the Roman or the Slavic group of languages and for others was not. Some times oddly the performance was dropping when the language was form the same language group \parencite{nguyen2019cross}.
-
-Web Genre Identification (WGI) concerns the association of web pages with labels that correspond to their form, communicative purpose and style rather than their content. The ability to automatically recognize the genre of web documents can enhance modern information retrieval systems by enabling genre-based grouping/filtering of search results or building intuitive hierarchies of web page collections combining topic and genre information \parencite{Braslavski2007,Rosso2008,de2009genre}. For example, a search engine can provide its users with the option to define complex queries (e.g., blogs about machine learning or eshops about sports equipment) as well as the option to navigate through results based on genre labels (e.g. social media pages, web shops, discussion forum, blogs, etc). The recognition of web genre can also enhance the effectiveness of processing the content of web pages in information extraction applications. For example, given that a set of web pages has to be part-of-speech tagged, appropriate models can be applied to each web page according to their genre \parencite{Nooralahzadeh2014}. However, research in WGI is relatively limited due to fundamental difficulties emanating from the genre notion itself.
-
-
-The most significant difficulties in the WGI domain are: (1) There is not a consensus on the exact definition of genre \parencite{crowston2011problems}; (2) There is not a common genre  palette that comprises all available genres and sub-genres \parencite{santini2011cross,mehler2010genres_on_web,mason2009n,sharoff2010web}, moreover, genres are evolving in time since new  genres are born or existing genres are modified \parencite{Boese2005}; (3) It is not clear whether a whole web page should belong to a genre or sections of the same web page can belong to  different genres \parencite{jebari2015combination,madjarov2015web}; (4) Style of documents is affected by both genre-related choices and author-related choices \parencite{petrenz2011stable,Sharroff2010}. As a result, it is hard to accurately distinguish between personal style characteristics and genre properties when style is quantified.
-
-Genre means "genus" in the Greek language and for the text focused studies (either traditional linguistics or computational) mainly means style. The main utility of the genre taxonomy is for speeding up the communication in a broader sense. 
-
-Starting with two cases outside the computer science the genre taxonomy is very useful in English 
-
-One (REF) from the discipline of the \textit{English for Academic Purposes} (EAP) where it was vividly discussed the divergence in the genre taxonomies between the difference academic disciplines and reasoned the utility of the genre taxonomy for enabling the teachers and the students to improve their rhetorical and written language with the purpose of improving the teaching procedure. What is important to note for this study is the conclusion that the same genre-type can be very different for the communication purpose, i.e. as text identity carrier, but it can also contain the same style and other language properties when the purpose is similar, for example the article of new paper and an article form a magazine where one can claim that they are a different genre-type although they governed by the same linguistic properties.
-
-The types of their study genre taxonomy mainly focused on the \textit{purpose} of the students written context and less on the \textit{style}, thus their genre-types where \textit{Creative Writing, Response Paper, Critique/Evaluation, Argumentative Essay, Report, Research Paper and Proposal}. Their study was a manual statistical process, similar to a \textit{Data Mining} process where grammatical features were counted in the texts. Then these features where indicating the score for each of the four (4) dimensions which has been qualitatively predefined. The counting process was using a heuristic computational tagger, named as Biber tagger (see Biber 1988 or ??? *** Genre variations in student .... (paper)).   
-  
-  ***
-Genres, in textual sense, is sometimes defined as group of texts of documents that share a communicative purpose, as determined by the \textit{discourse community} which produces and/or reads them. "In \textbf{structural}terms, genre are social institutions that are produced, reproduced, reproduced or modified when \textit{human agents} draw on genre rules to engage in organizational communication".
-
-"Layout in organizational communities cause people to focus perceptually on key parts of the text and our \textbf{empirical research has previously demonstrated that people use layouts and other related cues to focus on key parts of the text.}"
-***
-
-
-On the other hand and other research lying in the discipline of cognitive computing an health research they found humans are recognizing the genre type of a document or web-page using other cognitive processes relates mostly to the formatting of the text. Particularly they used as well configured apparatus for tracking the eyes movement while the recognition effort, where they fount that the eyes where following specific paths and where stopping to special landmarks on the text. They have concluded that the process of genre recognition was mostly related to the format and not the context, in addition they statistically measured that they previews experience was not related to the recognition process. Although it was the previews knowledge of the text formatting was accelerating the process. However, on the opinion of the authors of this study the genre recognition is a more deep process, thus as one can concluded by reading their study the landmarks they are referring into seems to be the only context combined with the formatting of the text that the human brain is requiring for identifying the genre-type. Given that their study is focused on the e-mail genres where formatting options compare to the web or textbooks is rather limited is advocating the conclusion that the minimum context is required for identifying the genre-type.
-
-They are discussing of tree main perception (psychology) theories, i.e. Gestaltism (or Gestalt psychology), Ecological and Constructivism, which are the theories which can interpret the perception procedures, it this case the eye movement on the texts, to the cognition process for identifying the genre types of the texts. The perception procedure includes some eye movements mainly doing two tasks, \textit{scanning} and \textit{skimming}. Theses two procedures are irrespective of the belief of the supported interpretation theory related to the internal thought process for making a genre taxonomy decision. Scanning is the process where more or less we are trying to locate information of interest where the information has a homogeneous property, such as the a phone number in phone-book list. Skimming is the process where we are trying to locate information of interest where the information is raw or without a specific form, such as names, verbs, or phrases that is related to the abstract related concept in order to decide whether the text is matches and worth farther reading. 
-
-The process of scanning and especially skimming in practice follows some specific eye movements, i.e. Fixation and Saccadic. Saccadic is the process while scanning or skimming that the eye is jumping around to the text, while Fixation is the process where the eye remains focused for a while. One can resemble the process like navigation where the eye is constantly moving while is focused for small fragments of time in landmarks of interest.
-  
-As \textit{Web Search} from an extension of IR because the main subject under investigation \parencite{manning2008introduction}, \textit{Web page Genre Classification } is becoming the main subject of document classification research.
-
-Blogs is a genre-type has attracted as special interest on its own, in differed domains such as in sociology, psychology, linguistics and mostly in computational linguistics and WGI. There are several blogs' properties of interest of the research and  also blogs having their own sub-genre taxonomy. Blog-taxonomy general genres are \textit{Filter, Personal-diary} and \textit{Notebook} and other related to the authors group of styles such as \textit{Reflective, Narrative, Emotional, ratioal} and \textit{Personal , Non-Personal}. The thought research on the blog-types classification has delivered a set of special linguistic and web-page structural properties which are increasing the performance of the closed set classification. Details for this linguistic properties used for specially for blogs sub-taxonomy classification are described in section \ref{chap:relevant_work:sec:features:subsec:heuristics} \parencite{virik2017blog,hoffmann2012cohesive,hoffmann2012cohesive,derczynski2014social,qu2006automated}. 
-
-Most previous work in WGI follows a typical closed-set text categorization approach where, first, features are extracted from documents and, then, a classifier is built to distinguish between classes. Attention is paid to the appropriate definition of features that are able to capture genre characteristics and should not be affected by topic shifts or personal style choices. 
-
 \section{Machine Learning Approaches to Genre Identification}
 \label{chap:relevant_work:sec:machine_learning_methods}
 
@@ -626,7 +565,7 @@ Genre identification of documents is generally viewed as a text categorization t
 
 \subsection{Closed-set Genre Recognition}
 
-The main research volume in this area adopt a closed-set classification framework. Several well-known machine learning algorithms have been used for this task, including SVM, Naive Bayes, Random Forest, Decision Trees, Ensemble-based models. 
+The main research volume in this area adopt a closed-set classification framework. Several well-known machine learning algorithms have been used for this task, including SVM, Naive Bayes, Random Forest, Decision Trees, Ensemble-based models \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2015combination,sharoff2010web}. 
 
 The SVM classifier was tested either in binary or multi-class WGI tasks \parencite{dai2018fine}. It is an algorithm than can easily handle high-dimensional and sparse feature spaces \parencite{joachims1997probabilistic}. In \parentcite{sharoff2010web} analytical experiments using a variety of datasets demonstrated that SVM WGI models could surpass the best reported results in most of the cases combined with character n-gram features. In addition \parencite{virik2017blog} compare SVM models with Naive Bayes and k-Nearest Neighbours models on the recognition of Blog sub-genres. The reported results show that SVM obtained higher accuracy results. Recently, an SVM-based approach was tested on the very challenging case of cross-Lingual genre classification (i.e., when the training documents are in one language and the test documents in another language) and obtained very promising results \parencite{nguyen2019cross}. 
 
@@ -668,7 +607,7 @@ Another idea is to build a separate model for each web-page modality. For exampl
 \end{equation}
 
 \noindent
-where $d_{ij}$ is the membership degree given by classifier $i$ to genre $j$, $N$ is the number of base classifiers, and $|G|$ is the number of genres. Then, the final decision is taken by applying simple methods to combine these predictions, such as the min, max or average rules.
+where $d_{ij}$ is the membership degree given by classifier $i$ to genre $j$, $N$ is the number of base classifiers, and $|G|$ is the number of genres. Then, the final decision is taken by applying simple methods to combine these predictions columnwise, such as the min, max or average rules.
 
 %\textit{AdaBoost} is a \textit{Boosting} algorithm where usually a random sampling is performed over the data and s set of classifier are trained over these samples. There is a weighting scheme over the samples which is changing in every training iteratio, where for the samples mostly miss-classified, by most of the learners, their weights are increasing. In this manner the difficult samples repetitively to classification are presented to the weak learner in more iteratios in order the whole systems of learners fit adjust better over these samples.
 
@@ -676,146 +615,79 @@ where $d_{ij}$ is the membership degree given by classifier $i$ to genre $j$, $N
 
 Another \textit{late fusion} ensemble is proposed in \parencite{finn2006learning}. Again, the idea is to build homogeneous base models each trained only on a specific feature subset. In the testing phase the majority voting us a common strategy. Particularly in their study they learn C4.5 decision trees for different web-page modalities (i.e., BOW, POS, text statistics features) and then build a \textit{Multi View Ensemble} that combines the predictions of the modality-specific models. It is important to note that in the training phase \textit{Active Learning} was used. This is a sample selection strategy where an an evaluating process was indicating which sample was better to be used for the specific C4.5 learner, for a given feature set. The late fusion ensemble with the active learning strategy obtained promising results including the domain transfer scenario.
 
-\paragraph\textbf{Domain transfer} is the ability to transfer across multiple-topic domains the same learner when it has been only trained in one of these domains. As an example, for the genre \textit{News} there might be several topic domains such as Sports, Technology, Science, Health, Politics. An ML model which has been trained for News only on Sports topic and still can perform similarly good for Technology, etc, it considered to perform well in domain transfer cases. This is very important particularly for AGI where usually the positive available sample for a genre are not available in a wide variate topic-domains (see section \ref{} discussing the genre taxonomy corpus building issues).
-
-\paragraph{Domain transfer: Cross-Lingual Genre Classification} Similarly to the WGI domain transfer is the case of \textit{Cross-Lingual AGI} where the task is to train a model for classifying texts in a genre-taxonomy and on a \textit{specific mono-lingual corpus}. Then using the same trained model for classification to an other mono-lingual corpus but \textit{on a different language}, particularly with different linguistic properties such as English to Chinese transfer, and vice versa.
-
-One proposed solution\parencite{petrenz2011stable}, is a combination of language independent features such as character-n-grams or/and superficial text characteristics such as \textit{Type/Token ratio} with an i\textit{iterative strategy of training a ML model}. Such a method is the \textit{Iterative Target Language Adaption (ITLA)}. 
-
-\textit{ITLA} a special case of cross-lingual AGI method where pair-wise inter-language training is possible. That is, one can train a model to one language and then optimize it to an other. This method enabling the potential training of a model on one language and adapted to an other with very small labeled samples set for the required genre-taxonomy, but rich set of unlabeled samples. In \parencite{petrenz2011stable} SVM was the models of choice, The process includes the following steps:
-
-\begin{enumerate}
-\item Initially training an SVM classifier on language $L^{L}_{S}$. Then with the help of unlabeled $L^{U}_{T}$ set for the target language the model is \textit{evaluated for its prediction confidence} on the genre-taxonomy.
-\item Using \textit{a labeled subset} of the \textit{target language set} $L^{L}_{T}$ an other SVM model is trained where the {prediction confidence} of the initial training is used for selecting only the samples of the subset returning the highest confidence score. 
-\item The $L^{L}_{T}$  is clean by the samples with very low score and a new subset is re-sampled.
-\item The process continues between the steps 2 and 3 until no change in the {prediction confidence} occurring or the iteratio number has reached its max limit.
-\end{enumerate}
-
-An aspect is interesting to be mentioned is the set of features have been selected for training the above model. Mostly they are superficial, like Average Sentence Lenght and its STD, Average Paragraph length, Token-Type ratio, Numerical-Token ratio, Topic Average Precision, and a \textit{Single Line Sentence ratio and Distribution}. The Single Line feature refers to the cases where a paragraph of the text is just a single sentence where it seem to be a commonality to Reports, Official Documents and Academic documents.
-
-The results in this study were very promising given that with a generic language independent approach manages to exceeds the results of the common solution of \textit{Machine Translation}. That is where the texts of the  source (where the model trained) of the target the language are translated automatically beforehand they are fed to the ML model.
-
-\subsection{Clustering Based and Hierarchical Genre Palette} 
-
-There a very special case, in \parencite{madjarov2015web}, worth to be motioned for the concept rather than its research value. Particularly is a primitive attempt to test the \textit{Hierarchical Multi-class Classification} on AGI. Although the results are relatively low in preforms and the experiments are not exactly comparable concerning the statistical consistency. However, there are several interesting aspects.
-
-Firstly, they are using two \textit{clustering methods} attempting to develop an \textit{Automated Hierarchical Clustering (AHC)} where a raw multi-class taxonomy could potentially organized in a hierarchical manner. That is, given a set of  \textit{"leaf" class-tags} by using an agglomerative or a balanced k-means algorithm the tried to create a class-tag hierarchy and compare with the one of an expert. Secondly, they show than the Balanced k-means works better for this task on their data set and experimental set-up.
-
-The utility of the Balanced K-means is for pre-defining the size of the clusters assumed to be. Thus, the objective function of the \textit{balanced k-means} is implicitly (or explicitly) optimizes two (contradictory) objectives. Firstly, is to find most dense and well separated clusters and secondly, is to maintain the sizes of the clusters equal. To do so, the \textit{Hungarian algorithm} algorithm is used for the optimization process \parencite{malinen2014balanced}, where it is a combinatorial optimization algorithm that solves the assignment problem in polynomial time.
-
-Their method compared with the hierarchical taxonomy created by an expert, seems to work equally or betters for the HMC scenario of AGI. They also show the their result of the AHC can be also used for  a multi-class classification scenario.
-
-\subsection{Semi-supervised Learning} 
-
-Co-Training In section \ref{corpus_building} the genre-taxonomy corpus building task is discussed, where it is pointed out the issues of insufficient number of characteristic examples related to the positive samples for the genres of a taxonomy. Moreover, in section \ref{noise} the noise is discussed and the lack of negative samples in the available research corpora. These issues are labor intensive and very hard to be resolved even with the attempt of the cowed sourcing engines (like \textit{Amazon Mechanical Turk}) as presented in \parencite{Asheghi's relative work}. 
-
-However, there might be an other path to follow when one would like to focus fore the classification aspect of the WGI, rather than the genre taxonomy itself. One suggested path is the \textit{Semi-supervised classification} in order to exploit the virtually infinite number of \textit{unlabeled}, in respect of genre, web-pages of the Web. Particularly in \parencite{chetry2011web}\textit{ Co-Training} is suggested for SVM and Naive Bayes classifiers with a set of $20000$ unlabeled samples in addition to the 1232 labeled web-pages.
-
-The Co-Training is based on an iterative process where the unlabeled data are classified by the initially trained classifier. In every iteratio the highest ranked unlabeled samples, in terms of classification certainty of the classifier, are fed to the re-training process to the classifier together with the previously labeled samples. The process continues until all unlabeled samples have been used or a specific number of interaction is reached. 
-
-A significant improvement found where the ROC AUC score reached $0.730$ compare the supervised classification with score $0.713$ for SVM. The experiments where set on a closed-set framework with a corpus including the genes of \textit{Spam, Discussion, Educational Research, News Editorial, Commercial, Personal Leisure}.
-
-Concerning the classification models involved in WGI studies, when a given genre taxonomy is utilized and there is no noise, then well-known machine learning models, like SVMs, decision trees, neural networks, naive Bayes, Random Forests, etc. are used \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2015combination,sharoff2010web}. 
-
-In case of presence of  noise, in a clustering framework described in \parencite{kennedy2005automatic} one cluster is built for each predefined class and another cluster is built for the noise. However, the most  common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of  all other predefined categories plus the noise \parencite{kennedy2005automatic,dong2006binary,levering2008using}. Such a combination of binary classifiers can also be seen as a multi-label and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. More concrete open-set  classification models for WGI were presented in \parencite{stubbe2007genre,pritsos2013open}. However, these models were only tested in noise-free corpora \parencite{pritsos2015clef}. More  recently, Asheghi \parencite{Asheghi2015} showed that it is much more challenging to perform WGI in the noisy web in comparison to noise-free corpora.
-
-In section \ref{chap:relevant_work:sec:openset_and_noise} the open-set approach for WGI when noise is present, or not.
-
 \subsection{Open-set Classification}
 \label{chap:relevant_work:sec:openset_and_noise}
 
-In \parencite{chen2012genre} an open-set ensemble presented where two multi-class SVM classifiers where trained for all the genres of their special formed genre-taxonomy for \textit{office documents} (details for office documents taxonomy find in \ref{}). Every SVM classifier was trained in a different mutually exclusive training subset, where the other part of the training set was used for tuning and vice-versa. The assumption of this training methods is that part of the support vectors  will be optimized for every SVM preserving the generalization of the two independent models and the combined classification will manage to fit well over the whole corpus. Their ensemble's decision rule as shown in equation \ref{eq:office_doc_ensemble} is a pairwise genre-class operatio for an arbitrary page, where the truth table of this binary rule for all genre-class pairs might end up wilt all $0$ (zero) outcome. Then this page remains as unknown in all other cases at least one genre will return as true. On this combination rule several application can be operated as they have presented.
+Most previous studies in WGI consider the case where all web pages should belong to a predefined taxonomy of genres \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2014pureURL}. This corresponds to the closed world assumption. However, this naïve assumption is not appropriate for most applications related to WGI since it is not possible to construct a universal genre palette that covers at least a great extend of the Web. Web-pages that do not belong to any of the predefined genres are considered noise and also include web-pages where multiple genres co-exist \parencite{santini2011cross,levering2008using}. 
+
+Noise in WGI can be categorized into structured noise and  unstructured noise. The former assumes that there is no information about the composition of noise (i.e., a random collection of web-pages not belonging to the known genres) \parencite{santini2011cross}. The latter assumes that noise is composed by several unknown genres (i.e., for which there are no training examples). However, it is highly unlikely that such a collection  represents the real distribution of pages on the web.
+
+The effect of noise in WGI  was first studied in \parencite{shepherd2004cybergenre,kennedy2005automatic} where predefined genres were personal, organizational, and corporate home pages while noise consisted of non-home pages. However, the distribution of pages into these four categories was practically balanced, hence it was not realistic. In another study, a clustering framework is used where one cluster is built for each predefined class and another cluster is built for the noise \parencite{kennedy2005automatic}. 
+
+To handle noise in WGI there are two options. First, to adopt the closed-set classification setup having one predefined category devoted to noise. That is training examples for known classes as well as the noise class are provided. Since this category would comprise all web pages not belonging to the known genre labels, it would not be homogeneous. Moreover, this noise class would be much more greater with respect to the other genres causing class imbalance problems. 
+
+A few studies follow this direction. In these cases samples of noise is available in the training phase of the prediction model. In \parencite{Vidulin2007} structured noise samples constitute the negative class of a binary classifier. The most common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of
+all other predefined categories plus the noise \parentcite{kennedy2005automatic}. In \parentcite{dong2006binary}
+noise is used as the majority class in an experiment where 190 instances from personal homepage, FAQ, and e-shop categories were used in combination with 600 noise pages. Similarly, \parentcite{levering2008using} use about 200 instances for the predefined genres of store homepages, product lists, and product descriptions in combination with about 800 other pages (noise). Such a combination of binary classifiers can also be seen as a multi-label and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. From another point of view, \parentcite{jebari2015combination} considers outlier samples of known genre labels as noise and excludes them from computing the centroids that represent genres in mult-label WGI. The centroid of a genre is then adjusted each time a new web page is classified to that genre. 
+
+Another, more realistic option is to adopt the pore open-set classification setting where training examples belong only to known classes and it is possible for some web pages not to be classified into any of the predefined genre categories. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup. A more concrete open-set classification models for WGI is presented in \parencite{stubbe2007genre}. However, this model was only tested in noise-free corpora. Nevertheless it has been shown that it is much more challenging to perform WGI in the noisy web in comparison to noise-free corpora \parencite{Asheghi2015}.
+
+\textcolor{red}{DESCRIBE IN DETAIL SCHEIRER-2013 and ASHEGHI-2015 OPEN SET APPROACHES}
+
+Another open-set classifier is presented in \parencite{chen2012genre}. It is an ensemble approach composed by two base SVM classifiers each trained using a different mutually exclusive training subset. The assumption of this approach is that part of the support vectors will be optimized for every SVM preserving the generalization of the two independent models and the combined classification will manage to fit well over the whole corpus. The combination of the output of the base models is a pairwise genre operation that examines whether the SVM classifiers agreee on their decision about a new web-page:
 
 \begin{equation}\label{eq:office_doc_ensemble}
 	(g^{k}_{1}[i] \vee g^{k}_{2}[i])  \wedge  (g^{m}_{1}[i] \vee g^{m}_{2}[i]) ,   \forall m \neq k
 \end{equation}
 
-where $\{k, m\}$ are the genre classes and $\{g_{1}, g_{2}\}$, are the genre SVM classifiers.
+where $\{k, m\}$ are the genre classes and $\{g_{1}, g_{2}\}$, are the SVM classifiers. For any new web-page, the truth table of this binary rule for all genre pairs might end up full of zero values. Then, this page remains unclassified. In all other cases at least one genre will return as true. 
 		
-The above ensemble is an \textit{Early Fusion} category of ensembles where the potential different features and document representation are all combined in a sum-up vector for each document, i.e. a weighted sum or a concatenation of the different feature vectors. Then the summed-up vectors are the input for the learners of the ensemble where Bagging, Boosting, Majority voting or other strategies are used for then training and testing (or production) phases.
+The above ensemble is an early fusion approach where the different features and document representations are all combined in a concatenated vector for each document. Then the concatenated vectors are the input for the learners of the ensemble.
 
-The main contribution of this work is the establishment of the novel open-set approach for the WGI and AGI tasks. In addition three previously presented algorithms adapted to the open-set classification and they are also presented briefly in this section together with an only few other similar efforts to towards to this research direction. The algorithms are thoroughly presented and evaluated in the following chapter \ref{chap:openset}, while in chapter \ref{chap:noise} are stressfully tested under the presence of noise.
+%Another recent approach related to the open-set classification on the \textit{Text Classification} problem was suggesting the reduction of the \textit{open space risk} using an SVM based methodology. Particularly, they are comparing eight (8) SVM based methods (additionally with an EM Semi-supervised method) in a open-set setup. They have compared their method with an  SVM center-based similarity space learning methods and some other methods, also in a open-set setup. Their method outperformed the others significantly, with some exceptions. 
 
-Most previous studies in WGI consider the case where all web pages should belong to a predefined taxonomy of genres \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2014pureURL}. Putting this setup under the vantage point of machine learning, it is the same as assuming what is known as a closed-set problem definition. However, this naïve assumption is not appropriate for most applications related to WGI as it is not possible to construct a universal genre palette a priori nor force web pages to always fall into any of the predefined genre labels. Such web pages are considered \textit{noise} and include web documents where multiple genres co-exist \parencite{santini2011cross,levering2008using}. 
+%Their main contribution is the transitions of the problem form the \textit{feature space} to the \textit{distance space}. Particularly they are using ten (10) different centroids one for each of the five (5) different distance measures proposed by (Fei and Liu 2015......) and for two (2) different document representations one for uni-grams and one for bi-grams. Their centroids are calculated using  eq \ref{eq:manning_centroids} 
 
-To handle noise in WGI there are two options. First, to adopt the closed-set classification setup having one predefined category devoted to noise. Since this category would comprise all web pages not belonging to the known genre labels, it would not be homogeneous. Moreover, this noise class would be much more greater with respect to the other genres causing class imbalance problems. 
+%\begin{equation}\label{eq:manning_centroids}
+%	c_{j} = \frac{\alpha}{\lvert D_{+} \rvert} \sum_{d_{i} \in D_{+}} \frac{x_{j}^{i}}{\lVert x_{j}^{i} \rVert } - \frac{\beta}{\lvert D - D_{+} \rvert} \sum_{d_{j} \in D - D_{+}} \frac{x_{i}^{j}}{\lVert x_{i}^{j} \rVert}
+%\end{equation}
 
-The second option is to adopt the open-set classification setting where it is possible for some web pages not to be classified into any of the predefined genre categories \parencite{pritsos2013open,pritsos2015clef,pritsos2018open}. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup \parencite{scheirer2013toward} and showed that it is much more challenging to perform WGI \parencite{Asheghi2015}.
+%where $D_{+}$ is the set of documents in the positive class and $\lvert . \rvert$ is the size of function. $\alpha$ and $\beta$ are parameters, which are usually set empirically.
 
-The effect of noise in WGI  was first studied in \parencite{shepherd2004cybergenre,kennedy2005automatic,dong2006binary,levering2008using} where predefined genres were personal, organizational, and corporate home pages \textit{while noise consisted of non-home pages}. However, the distribution of pages into these four categories was practically balanced, hence it was not realistic.
+%The SVM methods under testing where 1-vs-rest multi-class SVM (Platt200...), 1-vs-set Machine SVM \parencite{scheirer2013toward}, W-SVM (Scheirer2014....), $P_{1}$-SVM (Jain2014), $P_{1}$-SVM (Jain2014), Exploratory Seeded K-means (Exploratory EM) (Dalvi2013...). They have also used a kind of \textit{openness testing}, by using $25\%$ to $100\%$ of the classes and their method were mostly outperforming the other methods. The macro-F1 score range of their methods from the most open set-up to the totally closed (i.e. using the $100\%$ of the classes) was from $0.417$ to $0.873$ depending on the corpus and the special class set-up \parencite{fei2016breaking}.
 
-\textit{Noise} in WGI can be categorized into \textit{Structured Noise (s-noise)} and into \textit{Unstructured Noise (u-noise)}, where s-noise defines as the collection of web pages belonging to several (known) genres. However, it is highly unlikely that such a collection  represents the real distribution of pages on the web. On the other hand, u-noise defines a random collection of web-pages \parencite{santini2011cross}.
+%To sum up, as concerns the classification models involved in WGI studies, when a given genre taxonomy is utilized and there is no noise, then well-known machine learning models, like SVMs, decision trees, neural networks, naive Bayes, Random Forests, etc. are used \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2015combination,sharoff2010web}. In case of presence of noise, in a clustering framework described in \parencite{kennedy2005automatic} one cluster is built for each predefined class and another cluster is built for the noise. However, the most common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of all other predefined categories plus the noise \parencite{kennedy2005automatic,dong2006binary,levering2008using}. Such a combination of binary classifiers can also be seen as a multi-label and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. 
 
-There are few studies where they have handled somehow the \textit{structured and unstructured noise} in a closed-set approach. That is either the "noise" was assumed in the training phase of the prediction model where some sample had been left as \textit{outages} \parencite{jebari2015combination}, or s-noise has been used \textit{as a negative class} for training a binary classifier \parencite{Vidulin2007}. Noise also\textit{ used as the majority class} in experiments where one class was the positive sample case and several other genre with combination of some other randomly selected pages where used for fitting prediction models binary or multi-class \parencite{dong2006binary,levering2008using}. 
+\subsection{Semi-supervised Learning} 
 
-Open-set classification models for WGI were first described in \parencite{pritsos2013open,stubbe2007genre}. These models were tested in \textit{noise-free} and \textit{noise-full} corpora \parencite{pritsos2015clef,pritsos2018open,pritsos2019open}. Particularly, these are the models are described in detail in section \ref{chap:openset} and they are the main contribution to the domains of WGI and AGI. Here, are briefly described.
+In WGI, there is lack of large labeled corpora including multiple genres and sufficient training samples per genre. On the other hand, there is plenty of unlabeled examples that can easily be used. One suggested direction in WGI research is the use of \textit{semi-supervised learning} approaches in order to exploit the virtually infinite number of unlabeled data of the Web. 
 
-Recently, \textit{Ensemble Methods} were shown to achieve high effectiveness in open-set WGI setups \parencite{pritsos2013open,pritsos2015clef,pritsos2018open,pritsos2019open}. Two variants are studied in detail in this work, where one is based on the OC-SVM or $\nu$-SVM and the other is based a random features sub-sampling distance comparisons called \textit{RFSE (Random Feature Subspace Ensemble)}. 
+Particularly, in \parencite{chetry2011web} the \textit{Co-Training} algorithm is used. Their model is based on a SVM and a Naive Bayes classifier trained on $1,232$ labeled web-pages as well as a set of $20,000$ unlabeled samples. Co-Training is based on an iterative process where the unlabeled data are classified by the classifiers initially trained using the labeled data. In every iteration the highest ranked unlabeled samples, in terms of classification certainty of the classifiers, are labeled accordingly and the training of classifiers restart using these new samples together with the previously labeled samples. The process continues until all unlabeled samples have been used or a specific number of iterations is reached. The reported results show an improvement in performance over a regular SVM classifier. The experiments were set on a closed-set framework with a corpus including the genres of \textit{Spam, Discussion, Educational Research, News Editorial, Commercial, Personal Leisure}.
 
-One-class SVM is actually an $\nu$-SVM for the case we want to find the contour which is prescribing the positive samples of the training set given for a single class, while there are \textit{no negative samples}. $\nu$-SVM is providing an alternative \textit{trade-off control method of misclassification}, proposed from Scholkopf et al. \parencitep{scholkopf1999estimating}. 
+Domain transfer is the ability to learn a model using training examples from one domain and be robust enough to be applied to another domain. As an example, for the genre News there might be several topic domains such as Sports, Technology, Science, Health, Politics. An ML model which has been trained for News only on Sports topic and still can perform equally well for Technology, etc, it considered robust. This is very important particularly for genre identification tasks where usually the positive available samples for a genre do not cover a wide range of topics. An extreme case of domain transfer is cross-Lingual genre classification where the task is to train a model using documents in one language and then apply the model to documents in another language, particularly with different linguistic properties, such as English to Chinese and vice versa.
 
-It should be noted than $\nu$-SVM has the $\nu$ parameter which is regulating the following properties of the algorithm.
-\begin{itemize}
-\item $\nu$ is an upper bound on the fraction of \textit{Outliers}.
-\item $\nu$ is a lower bound on the fraction of \textit{Support Vectors}.
-\end{itemize}
+One proposed solution to achieve robustness across domains is presented in \parencite{petrenz2011stable}. Their approach focuses on the use of language-independent features such as character-n-grams and surface text characteristics such as type/token ratio with an \textit{iterative strategy of training a ML model}. Such a method is the \textit{Iterative Target Language Adaption (ITLA)}. 
 
-In practice different values of $\nu$ are defining different proportion of the training sample as outliers. For example in Scholkopf et al. \parencitep{scholkopf1999estimating} is showed that in their experiments when using $\nu=0.05$, 1.4\% of the training set has been classified as outliers while using $\nu=0.5$, 47.4\% is classified as outliers and 51.2\% is kept as SVs.
+\textit{ITLA} a special case of cross-lingual AGI method where pair-wise inter-language training is possible. That is, one can train a model to one language and then optimize it to another. This method enables the potential training of a model on one language and adapted to another with few labeled samples set for the required genre taxonomy and a rich set of unlabeled samples. In \parencite{petrenz2011stable} SVM was the model of choice. The process includes the following steps:
 
-In the prediction phase in order for an OCSVM model to decide whether a document is belonging to the target genre-class (or not) a \textit{decision function} is used. The decision function indicates the distance of the document, positive or negative, to the hyperplane separating the classes. In the case of OCSVM we are usually only interested whether the decision function is positive or negative for deciding if an arbitrary document belonging or not to the target class.
+\begin{enumerate}
+\item Initially train an SVM classifier on language $L^{L}_{S}$. Then with the help of unlabeled $L^{U}_{T}$ set for the target language the model is evaluated for its prediction confidence on the genre taxonomy.
+\item Using a labeled subset of the target language set $L^{L}_{T}$, another SVM model is trained where the prediction confidence of the initial training is used for selecting only the samples of the subset returning the highest confidence score. 
+\item The samples with very low score in $L^{L}_{T}$ are filtered out and a new subset is re-sampled.
+\item The process continues between the steps 2 and 3 until no change in the prediction confidence occurs or the iteration number has reached its pre-defined limit.
+\end{enumerate}
 
-The ensemble form of  OCSVM proposed in this work, and published in \parencitep{pritsos2013open}, is described in algorithm \ref{alg:OCSVM-Ensemble}. Specifically, an OCSVM is trained for every web-genre class individually. In the prediction phase, the document is assigned to the class with the highest positive distance from the hyperplane (or the contour for OCSVM). If all OCSVMs return a negative distance (i.e. the web-page does not belong to this genre) the document remains unclassified, that is the final answer corresponds to "I Don't Know". Note than the $\nu$ parameter is the same for all the OCSVM learner. 
+The results in this study were very promising given that with a generic language independent approach manages to exceed the results of the common solution of using machine translation technology (i.e., where the texts of the  source language, used to train the model, are automatically translated to the target language and they are used to train the classification model).
 
-The RFSE algorithm is a variation of the method presented in \parencitep{koppel2011authorship}. In this work the RFSE shown in \textit{Algorithm \ref{alg:RFS-Ensemble}}. There are multiple training examples (documents) for each available genre from which a \textit{centroid vector} is calcualted for each genre. In the training phase, a centroid vector is formed, for every class, by averaging all the Term-Frequency (TF) vectors of the training examples of web pages for each genre.
+\subsection{Hierarchical Classification} 
 
-An random document is compared against every centroid and this process is repeated $I$ times. Every time \textit{a Different Feature Sub-set is used}. Then, the scores are ranked from highest to lowest and the number of times the document is top-matched is measured, with every class. The \textit{document is assigned to the genre with maximum number of matches}. A $\sigma$ threshold is regulating amount of documents remaining unclassified, i.e. the RFSE responds "I Don't Know" for these documents.
+So far, all discussed methods assume that the genre palette consists of independent genres in a flat structure. Another approach is to consider a hierarchical structure of genres where super-genres and sub-genres are defined. Such a hierarchy can be obtained by human-experts.
 
-The similarities function which they have been tested was cosine similarity, MinMax similarity, its combination. The similarities are combined in a way where their confidence scores are compared among all iteratios at the end of the process for every document. Moreover, cosine and MinMax have different mean and standard deviation for the set of all evaluation documents and all iteratios per document, thus the scores are first normalized and then are combined to amplify the confides score towards the dominant prediction.
+An automated approach to build a hierarchy of genres is presented in \parencite{madjarov2015web}. First, they use two clustering methods attempting to develop an automated hierarchical clustering where a flat multi-class taxonomy could potentially be organized in a hierarchical structure. That is, given a set of  leaf class-tags, an agglomerative or a balanced \textit{k-means} algorithm is used to create a class hierarchy. 
 
-An other recent approach related to the open-set classification on the \textit{Text Classification} problem was suggesting the reduction of the \textit{open space risk} using an SVM based methodology. Particularly, they are comparing eight (8) SVM based methods (additionally with an EM Semi-supervised method) in a open-set setup. They have compared their method with an  SVM center-based similarity space learning methods and some other methods, also in a open-set setup. Their method outperformed the others significantly, with some exceptions. 
+The reported results show than balanced k-means works better for this task on their data set and experimental set-up. The success of balanced k-means can be explained by the fact that it needs the size of the clusters to be provided. Thus, the objective function of this method is to optimize two (contradictory) objectives: first, to find the most dense and well separated clusters and second to maintain the sizes of the clusters equal. To do so, the \textit{Hungarian} algorithm is used for the optimization process, a combinatorial optimization algorithm that solves the assignment problem in polynomial time.
 
-Their main contribution is the transitions of the problem form the \textit{feature space} to the \textit{distance space}. Particularly they are using ten (10) different centroids one for each of the five (5) different distance measures proposed by (Fei and Liu 2015......) and for two (2) different document representations one for uni-grams and one for bi-grams. Their centroids are calculated using  eq \ref{eq:manning_centroids} 
-
-\begin{equation}\label{eq:manning_centroids}
-	c_{j} = \frac{\alpha}{\lvert D_{+} \rvert} \sum_{d_{i} \in D_{+}} \frac{x_{j}^{i}}{\lVert x_{j}^{i} \rVert } - \frac{\beta}{\lvert D - D_{+} \rvert} \sum_{d_{j} \in D - D_{+}} \frac{x_{i}^{j}}{\lVert x_{i}^{j} \rVert}
-\end{equation}
-
-where $D_{+}$ is the set of documents in the positive class and $\lvert . \rvert$ is the size of function. $\alpha$ and $\beta$ are parameters, which are usually set empirically.
-
-The SVM methods under testing where 1-vs-rest multi-class SVM (Platt200...), 1-vs-set Machine SVM \parencite{scheirer2013toward}, W-SVM (Scheirer2014....), $P_{1}$-SVM (Jain2014), $P_{1}$-SVM (Jain2014), Exploratory Seeded K-means (Exploratory EM) (Dalvi2013...). They have also used a kind of \textit{openness testing}, by using $25\%$ to $100\%$ of the classes and their method were mostly outperforming the other methods. The macro-F1 score range of their methods from the most open set-up to the totally closed (i.e. using the $100\%$ of the classes) was from $0.417$ to $0.873$ depending on the corpus and the special class set-up \parencite{fei2016breaking}.
-
-In this work it is presented an adapted implantation, for the WGI task, of the \textit{Nearest Neighbours Distance ratio (NNDR)} which it is also handles the open space risk and it is presented in detail in chapter \ref{chap:openset} and described in algorithm \ref{chap:openset:alg:NNDR_fitting}.
-
-NNRD algorithm is our variant implementation of the proposed in \parencite{mendesjunior2016}. In the original approach euclidean distance has been used because of the variation of data set on which the algorithm has been evaluated. in algorithm \ref{chap:openset:alg:NNDR_fitting}, the cosine distance is used, because in text classification is being confirmed to be the proper choice in hundreds of publications. 
-
-The NNRD algorithm is an extension of the \textit{Nearest Neighbors} NN algorithm where additionally to the sets of training vectors (one set for each class) a threshold is selected by maximizing the \textit{Normalized Accuracy} (NA) as shown in equation\ref{eq:NA}) on the \textit{Known} and the \textit{Marked as Unknown samples}.
-
-\begin{equation} \label{eq:NA}
-    NA = \lambda A_{KS} + (1 - \lambda) A_{MUS}
-\end{equation}
-
-\noindent
-where $A_{KS}$ is the \textit{Known Samples Accuracy} and $A_{MUS}$ is the \textit{Marked as Unknown Samples Accuracy}. The balance parameters \lambda regulates the mistakes trade-off on the known and marked-unknown samples prediction.
-
-The optimally selected threshold is the the \textit{Distance Ratio Threshold} (DRT) where NA is maximized. Equation \ref{eq:DR} is used for calculating the Distance Ratio (DR) of the two nearest class samples, say $s_{c_{a}}$ and $u_{c_{b}}$, to a random sample $r_{x}$ under the constrain $c_{a} \neq c_{b}$, where $c_{g}$ is the sample's class.
-
-It is very important to note that the $c_{g}$ is trained in an open-set framework, therefore, the samples pairs selected for comparison might either be from the known of the marked as unknown samples. Thus $g \in {1,2,...,N}$ and $g = \emptyset$ when samples is marked as unknown.
-
-\begin{equation} \label{eq:DR}
-    DR = \frac{D(r_{x}, s_{c_{a}})}{D(r_{x}, s_{c_{b}})}
-\end{equation}
-\noindent
-where $D(x,y)$ is the distance between the samples where in this study is the \textit{Cosine Distance}.
-
-Therefore, the fitting function of the NN algorithm, described in algorithm \ref{chap:openset:alg:NNDR_fitting}, is the optimization procedure to find the DRT values for classes respective sets of training samples where NA is maximized.
-
-The NNDR is a open-set classification algorithm, therefore, a random sample will be classified to one of the classes it has been trained or to the \textit{unknown class} when its DR score is greater than DRT threshold. During training the DRT values are tested incrementally until the optimal data are fitted for the training function.
-
-In prediction phase the DRT is passed to the NNDR prediction function together with the training samples as shown in algorithm. Then for every sample of the testing set a classification decision is returned as shown in algorithm \ref{chap:openset:alg:NNDR_prediction}.
-
-To sum up, as concerns the classification models involved in WGI studies, when a given genre taxonomy is utilized and there is no noise, then well-known machine learning models, like SVMs, decision trees, neural networks, naive Bayes, Random Forests, etc. are used \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2015combination,sharoff2010web}. In case of presence of noise, in a clustering framework described in \parencite{kennedy2005automatic} one cluster is built for each predefined class and another cluster is built for the noise. However, the most common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of all other predefined categories plus the noise \parencite{kennedy2005automatic,dong2006binary,levering2008using}. Such a combination of binary classifiers can also be seen as a multi-label and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. 
-
-More concrete open-set classification models for WGI have been presented here are the RFSE and the NNRD . In the  next chapters these algorithms together with the issues related to the model building for the WGI task in an open-set framework with the presence of Noise is analysed in details. Before that there is one more issue one could pursue in this research domain however it out of the scope of this work and that is way is only preseted here briefly in subsection \ref{chap:relevant_work:sec:temporal_wgi}
+The automatically obtained hierarchy has been compared with the one of built by a human-expert. The former has been found to work equally or even better than the latter. It has also been demonstrated that the obtained hierarchical structure can be used for a multi-class classification scenario \parencite{malinen2014balanced}. 
 
 \subsection{Web Genre Temporal Property}
 \label{chap:relevant_work:sec:temporal_wgi}
@@ -1019,6 +891,28 @@ Finally, an interesting path towards to the process automating the building of g
 \end{itemize}
 
 
+\section{Corpora for Evaluating WGI Approaches}
+
+These issues are labor intensive and very hard to be resolved even with the attempt of the cowed sourcing engines (like \textit{Amazon Mechanical Turk}) as presented in \parencite{Asheghi's relative work}.
+
+\textbf{NOTE: In this survey section the Genre and Web-Genre is studied mostly thematically than historically. However, wherever there is interesting historical sequence in the research field it is pointed out.}
+
+This study is focused on the Open-set Machine Learning (ML) computational methods for \textit{Automated Classification} of \textit{the Web-pages} into a \textit{Genre Taxonomy}. In a broader definition is also known as Web-Genre Identification (WGI). Since most of the literature has also worked with corpora including also electronic document other than web-sourced, the WGI also called as Automated Genre Identification (AGI).
+
+The \textit{Genre} taxonomy of \textit{the texts} in linguistics domains is a subject of a theoretical (mostly philosophical) debate respectively to its evolution mechanics. Several computational methodologies has been developed for automating the process based on \textit{Machine Learning (ML)} methods. However, most of the AGI research has focused on the raw text pre-processing and the feature selection methodologies and the \textit{Bag-of-Words (or Bag-of-Terms) BoT }\footnote{In this text Bag-of-Terms (BoT) is equivalent to the Bag-of-Words  (BOW), which has been widely used in the literature of the Information Retrieval and Natural Language Processing domains. Since, BoT is accurately describing the meaning of BOW in most of the cited literature.} text representation. Only recently there is a redirection of the research focus to the \textit{Vocabulary Learning Models (VLM)} where they are used as input to the Identification/Classification ML model, instead of the BoT. 
+
+
+
+
+
+
+\begin{figure}[t]
+	\begin{center}
+    	\includegraphics[scale=0.95]{Figures/Sotlen_diagram.eps}
+		\caption{Stolen Imag.}
+		\label{fiig:Stolen}
+	\end{center}
+\end{figure}
 
 
 
@@ -1026,19 +920,37 @@ Finally, an interesting path towards to the process automating the building of g
 
 
 
+A very recent research on Cross-Lingual Genre Classification showed that it is possible to get very good results when an ML model is trained with a corpus samples of one language and then testing the trained model to an other. However, the evaluation framework was closed-set and the relation of the languages seems to be of a great importance for the accuracy performance of the model. That is, in some cases it was important the language to be of the same group for example the Roman or the Slavic group of languages and for others was not. Some times oddly the performance was dropping when the language was form the same language group \parencite{nguyen2019cross}.
+
+Web Genre Identification (WGI) concerns the association of web pages with labels that correspond to their form, communicative purpose and style rather than their content. The ability to automatically recognize the genre of web documents can enhance modern information retrieval systems by enabling genre-based grouping/filtering of search results or building intuitive hierarchies of web page collections combining topic and genre information \parencite{Braslavski2007,Rosso2008,de2009genre}. For example, a search engine can provide its users with the option to define complex queries (e.g., blogs about machine learning or eshops about sports equipment) as well as the option to navigate through results based on genre labels (e.g. social media pages, web shops, discussion forum, blogs, etc). The recognition of web genre can also enhance the effectiveness of processing the content of web pages in information extraction applications. For example, given that a set of web pages has to be part-of-speech tagged, appropriate models can be applied to each web page according to their genre \parencite{Nooralahzadeh2014}. However, research in WGI is relatively limited due to fundamental difficulties emanating from the genre notion itself.
 
 
+The most significant difficulties in the WGI domain are: (1) There is not a consensus on the exact definition of genre \parencite{crowston2011problems}; (2) There is not a common genre  palette that comprises all available genres and sub-genres \parencite{santini2011cross,mehler2010genres_on_web,mason2009n,sharoff2010web}, moreover, genres are evolving in time since new  genres are born or existing genres are modified \parencite{Boese2005}; (3) It is not clear whether a whole web page should belong to a genre or sections of the same web page can belong to  different genres \parencite{jebari2015combination,madjarov2015web}; (4) Style of documents is affected by both genre-related choices and author-related choices \parencite{petrenz2011stable,Sharroff2010}. As a result, it is hard to accurately distinguish between personal style characteristics and genre properties when style is quantified.
+
+Genre means "genus" in the Greek language and for the text focused studies (either traditional linguistics or computational) mainly means style. The main utility of the genre taxonomy is for speeding up the communication in a broader sense. 
+
+Starting with two cases outside the computer science the genre taxonomy is very useful in English 
+
+One (REF) from the discipline of the \textit{English for Academic Purposes} (EAP) where it was vividly discussed the divergence in the genre taxonomies between the difference academic disciplines and reasoned the utility of the genre taxonomy for enabling the teachers and the students to improve their rhetorical and written language with the purpose of improving the teaching procedure. What is important to note for this study is the conclusion that the same genre-type can be very different for the communication purpose, i.e. as text identity carrier, but it can also contain the same style and other language properties when the purpose is similar, for example the article of new paper and an article form a magazine where one can claim that they are a different genre-type although they governed by the same linguistic properties.
+
+The types of their study genre taxonomy mainly focused on the \textit{purpose} of the students written context and less on the \textit{style}, thus their genre-types where \textit{Creative Writing, Response Paper, Critique/Evaluation, Argumentative Essay, Report, Research Paper and Proposal}. Their study was a manual statistical process, similar to a \textit{Data Mining} process where grammatical features were counted in the texts. Then these features where indicating the score for each of the four (4) dimensions which has been qualitatively predefined. The counting process was using a heuristic computational tagger, named as Biber tagger (see Biber 1988 or ??? *** Genre variations in student .... (paper)).   
+  
+  ***
+Genres, in textual sense, is sometimes defined as group of texts of documents that share a communicative purpose, as determined by the \textit{discourse community} which produces and/or reads them. "In \textbf{structural}terms, genre are social institutions that are produced, reproduced, reproduced or modified when \textit{human agents} draw on genre rules to engage in organizational communication".
+
+"Layout in organizational communities cause people to focus perceptually on key parts of the text and our \textbf{empirical research has previously demonstrated that people use layouts and other related cues to focus on key parts of the text.}"
+***
 
 
+On the other hand and other research lying in the discipline of cognitive computing an health research they found humans are recognizing the genre type of a document or web-page using other cognitive processes relates mostly to the formatting of the text. Particularly they used as well configured apparatus for tracking the eyes movement while the recognition effort, where they fount that the eyes where following specific paths and where stopping to special landmarks on the text. They have concluded that the process of genre recognition was mostly related to the format and not the context, in addition they statistically measured that they previews experience was not related to the recognition process. Although it was the previews knowledge of the text formatting was accelerating the process. However, on the opinion of the authors of this study the genre recognition is a more deep process, thus as one can concluded by reading their study the landmarks they are referring into seems to be the only context combined with the formatting of the text that the human brain is requiring for identifying the genre-type. Given that their study is focused on the e-mail genres where formatting options compare to the web or textbooks is rather limited is advocating the conclusion that the minimum context is required for identifying the genre-type.
 
+They are discussing of tree main perception (psychology) theories, i.e. Gestaltism (or Gestalt psychology), Ecological and Constructivism, which are the theories which can interpret the perception procedures, it this case the eye movement on the texts, to the cognition process for identifying the genre types of the texts. The perception procedure includes some eye movements mainly doing two tasks, \textit{scanning} and \textit{skimming}. Theses two procedures are irrespective of the belief of the supported interpretation theory related to the internal thought process for making a genre taxonomy decision. Scanning is the process where more or less we are trying to locate information of interest where the information has a homogeneous property, such as the a phone number in phone-book list. Skimming is the process where we are trying to locate information of interest where the information is raw or without a specific form, such as names, verbs, or phrases that is related to the abstract related concept in order to decide whether the text is matches and worth farther reading. 
 
+The process of scanning and especially skimming in practice follows some specific eye movements, i.e. Fixation and Saccadic. Saccadic is the process while scanning or skimming that the eye is jumping around to the text, while Fixation is the process where the eye remains focused for a while. One can resemble the process like navigation where the eye is constantly moving while is focused for small fragments of time in landmarks of interest.
+  
+As \textit{Web Search} from an extension of IR because the main subject under investigation \parencite{manning2008introduction}, \textit{Web page Genre Classification } is becoming the main subject of document classification research.
 
+Blogs is a genre-type has attracted as special interest on its own, in differed domains such as in sociology, psychology, linguistics and mostly in computational linguistics and WGI. There are several blogs' properties of interest of the research and  also blogs having their own sub-genre taxonomy. Blog-taxonomy general genres are \textit{Filter, Personal-diary} and \textit{Notebook} and other related to the authors group of styles such as \textit{Reflective, Narrative, Emotional, ratioal} and \textit{Personal , Non-Personal}. The thought research on the blog-types classification has delivered a set of special linguistic and web-page structural properties which are increasing the performance of the closed set classification. Details for this linguistic properties used for specially for blogs sub-taxonomy classification are described in section \ref{chap:relevant_work:sec:features:subsec:heuristics} \parencite{virik2017blog,hoffmann2012cohesive,hoffmann2012cohesive,derczynski2014social,qu2006automated}. 
 
-
-
-
-
-
-
-
+Most previous work in WGI follows a typical closed-set text categorization approach where, first, features are extracted from documents and, then, a classifier is built to distinguish between classes. Attention is paid to the appropriate definition of features that are able to capture genre characteristics and should not be affected by topic shifts or personal style choices. 
 
