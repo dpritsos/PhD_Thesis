@@ -614,7 +614,7 @@ Instead of learning a simple model, ensemble methods attempt to extract several 
 
 %\paragraph{Random Forest} Several studies among other classification algorithm they have extensively used \textit{Random Forest Classifiers}. Usually they use this algorithm in an out-of-the-box format. Most importantly seem to be one of the high score performance algorithms and most of the time the best solution. Although, most the studies are focusing of features selection/extraction and the term weighting schemes one could reason the high performance of the Random Forests to its internal ability to selecting the internal connection of the  features which \textit{resembles the word embedding} (FIND REF FOR THIS ARGUMENT) \parencite{sugiyanto2014term}
 
-Another idea is to build a separate model for each web-page modality. For example, an ensemble algorithm called \textit{Multiple Classifier Combination} (MCC) is presented in \parencite{zhu2016exploiting}. Particularly, the main idea is use information from a web-pages to be classified to a given genre palette as well as information from a set of neighbouring web-pages (i.e., that are near the specific web-page in the graph formed by hyperlinks between pages). The MCC algorithm builds a set of SVM classifiers each trained using a particular set of features. Then a decision matrix is formed including all predictions of base SVM classifiers:
+Another idea is to build a separate model for each web-page modality. For example, an ensemble algorithm called \textit{Multiple Classifier Combination} (MCC) is presented in \parencite{zhu2016exploiting}. Particularly, the main idea is use information from a web-pages to be classified to a given genre palette as well as information from a set of neighboring web-pages (i.e., that are near the specific web-page in the graph formed by hyperlinks between pages). The MCC algorithm builds a set of SVM classifiers each trained using a particular set of features. Then a decision matrix is formed including all predictions of base SVM classifiers:
 
 \begin{equation}\label{chap:relevant_work:eq:GenreSim_DP}
 	DP(p) = \left(
@@ -654,6 +654,11 @@ noise is used as the majority class in an experiment where 190 instances from pe
 Another, more realistic option is to adopt the pore open-set classification setting where training examples belong only to known classes and it is possible for some web pages not to be classified into any of the predefined genre categories. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup. A more concrete open-set classification models for WGI is presented in \parencite{stubbe2007genre}. However, this model was only tested in noise-free corpora. Nevertheless it has been shown that it is much more challenging to perform WGI in the noisy web in comparison to noise-free corpora \parencite{Asheghi2015}.
 
 \textcolor{red}{DESCRIBE IN DETAIL STUBBE-2007 and ASHEGHI-2015 OPEN SET APPROACHES}
+\textbf{Stubbe2007} \parencite{stubbe2007genre} 
+
+
+\textbf{Asheghi2015} \parencite{Asheghi2015}
+
 
 Another open-set classifier is presented in \parencite{chen2012genre}. It is an ensemble approach composed by two base SVM classifiers each trained using a different mutually exclusive training subset. The assumption of this approach is that part of the support vectors will be optimized for every SVM preserving the generalization of the two independent models and the combined classification will manage to fit well over the whole corpus. The combination of the output of the base models is a pairwise genre operation that examines whether the SVM classifiers agreee on their decision about a new web-page:
 
@@ -847,6 +852,7 @@ Starting form the final step, in \parencite{melissourgou2017genre} firstly is re
 \begin{equation}\label{eq:genre_notion_in_math}
 	G  \subseteq P \uplus F \uplus T \uplus M
 \end{equation}
+
 \noindent
 where $G$ is the genre, $P$ is the communicative purpose and $F, T, M$ are the "register's" components. $F$ is the \textit{field} which answers to the question of \textit{Why?} the text was composed. $T$ is the \textit{tenor} which answers the question of \textit{Who?} or/and to \textit{Whom?} the text was written. $M$ is the \textit{mode} which is the text's form. Note, that G is not exactly equal to their sum of these components of the text, because, some topic counterparts are also genre indicators, although topic is orthogonal to the genre. However, there are several cases where topic indicator are also useful as genre indicators and discussed in section \ref{chap:relevant_work:sec:heuristics}. In addition, we humans recognize the genre by using topic counters parts which it been shown in some cognitive experiments on genre identification in \parencite{clark2014you, lieungnapar2017genre} (briefly explained in section \ref{chap:relevant_work:sec:linguistics_definition}).
 
