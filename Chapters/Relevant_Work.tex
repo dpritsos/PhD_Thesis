@@ -48,9 +48,50 @@ Considering the above discussion, it is clear that the notion of web genre depen
 
 \subsection{Textual Features}
 
-The \textit{Superficial Document Characteristics (SDC)} can be considered as features and document representations together where they are the counts of the Words lenghs (in characters) frequency, the Sentencies length (in words) frequency, the Paragraphs length etc. In addition the Max, Min, and Ratios of these SDC were also count such as the \textit{Average to Max size of Words Ratio, the Max Word Length Frequency} etc. In general several facets, i.e. \textit{terms types}, have been tested for WGI cornering the Hypertext \parencite{feldman2009classifying,santini2005linguistic}.
+The textual content of a document is the most analyzed source of text-related information. Similarly, the textual part of a web-page is considered very important in WGI studies \parencite{mason2009distance,Sharroff2010}. As it has already been explained, style rather than topic is crucial in genre recognition. However, it is not clear how style properties of documents can be captured adequately. In addition, style is affected by both genre and the personal style of the author. Ideally, the extracted measures should only depend on the former. 
+
+There is a great variety of textual features than can be extracted from documents and be used in genre recognition \parencite{kanaris2009learning,kumari2014web,levering2008using,Lim2005,mason2009n,onan2018ensemble,petrenz2011stable,sharoff2010web,Nooralahzadeh2014}. The main categories of such features are described below.
+
+One simple way to represent documents is based on n-grams of either words or characters. This is a language-independent approach and has been demonstrated to be quite effective in WGI studies \parentcite{kanaris2009learning,sharoff2010web,kumari2014web}. In addition, surface features that are considered important to quantify stylistic properties of documents, such as statistics (i.e., count, mean, max, etc.) of word length (in characters), sentence length (in words), paragraph length (in words), capitalized word, lowercase word, punctuation marks, type/token ratio etc. \parencite{feldman2009classifying,santini2005linguistic,onan2018ensemble}. All these features attempt to represent information operating on lexical or character level. 
+
+A more sophisticated type of features concerns the syntactic properties of documents since the grammar of sentences is considered important for stylistic purposes \parentcite{sharoff2010web,petrenz2011stable}. Moreover, this information is less likely to depend on topic of documents in comparison to lexical and character features. The simplest form of capturing syntactic information is the use of part-of-speech (POS) n-grams where the texts are analyzed by a POS tagger that assigns a tag in each word and then sequences of POS tags are counted. Other syntactic features are based on a more elaborate analysis of documents by NLP tools, like full syntactic parsers. Examples of such syntactic features include average dependency distance, ratio of dependencies, sentence depth (in dependency terms), unigram dependency type (based on token terms), average verbal arity, unigram verbal arity, tokens per clause, number of prepositional components, etc \parentcite{falkenjack2013features,falkenjack2016exploratory}. A major weakness of such features is that their usefulness depend on the accuracy of the NLP tools used to extract them from documents \parentcite{stamatatos2009survey}. This is especially crucial in case the documents that have been used for training the NLP tools significantly differ from the documents we want to analyze.
+
+A text is usually viewed as a sequence of words or characters. However, an alternative idea is to construct a graph from a document and then use graph metrics to represent the properties of documents. Such graph-based features are discussed in \parencite{nabhan2016graph} aiming to enhance effectiveness in genre recognition. An unweighted graph is built from each document based on word bigrams found within sentence boundaries. Each word is a node of the graph and if a bigram is found in the text an edge connects the respective words. The frequency of bigram was not taken into account. 
+
+Then, graph-based measures are extracted to represent documents including node degree, clustering coefficient, average shortest path length, network diameter, number of connected components, average neighborhood connectivity, network centralization and network heterogeneity.  The average node degree, i.e. the number of neighbor connections, shown  to be an important criterion for discriminating for example scientific to humorous web-pages. A higher average of node degree may indicate a preference to use an established vocabulary.
+
+A high value of clustering coefficient would mean there is tendency for a set of nodes to cohere or stay connected in a sub-network. The Religion, Fiction, and Adventure classes seem to have relatively high value of clustering coefficient as compared to News, Editorial and Hobbies. A high number of connected components indicates topic diversity within a genre. News and Hobbies have shown to have higher score, i.e. higher diversity, than Religion and Fiction. In addition, a relatively high score in network Centralization seems to be a good indicator for Fiction and Adventure genres. The network heterogeneity was found to be higher in News and Hobbies and this reflects the tendency of the graph to have links between high-degree to low degree-nodes. This can indicate a tendency to use function words in text. Genre-specific graph characteristics also found in that study \parencite{nabhan2016graph} including high global clustering coefficient found for Learned and Religious text genres. Moreover, average local clustering strongly correlates to the node degree shown to be a good indicator for genres showing concentration to specific concepts.
+
+Finally, the graph-based measures can also be used for discovering the existence of sub-genre within a genre such as in News. It has been shown that there are some areas within the News genre where the bigram graph has high node connection concentration (or high edge concentration).  
+
+In \parencite{kim2010formulating} the \textit{Harmonic Descriptor Representation} (HDR) of web-pages is proposed. This is inspired by the musical analogy of a string of a musical instrument. Each document is consider to be a temporal sequence of symbols (i.e. characters or words). Particularly, instead of counting the overall frequency of terms,  the intervals of the the occurrences of terms within the document are measured. This shows how the occurrences of a term are distributed within a document.
+
+This approach defines \textit{Range} as the interval between the initial an the ultimate occurrence of the term in a document and \textit{Period} as the time duration (i.e. the count of characters) between two consecutive occurrences of the term. Then HDR word encoding is a tuple of three explicit measurements defined as follows:
+
+\begin{enumerate}
+\item FP is the time duration before the first occurrence of the symbol in a document (i.e., the period before the first occurrence divided by the total number of characters into the document).
+\item LP is the time duration after the last occurrence of the symbol (i.e., the period after the last occurrence divided by the total number of terms)
+\item AP is the average period ratio as in equation \ref{chap:relevant_work:sec:word_embendding}.
+\end{enumerate}
+
+\begin{equation}\label{chap:relevant_work:sec:word_embendding}
+	AP  =
+      \begin{cases}
+        \frac{N - T}{T \cdot I^{max}}, I^{max} > 0  \\
+        1, I^{max} = 0 \\ 
+       \end{cases}
+\end{equation}
+
+\noindent
+where $T$ is the term's number of occurrences plus $1$, $N$ id the total number of pages terms and $I^{max}$is the maximum number of characters found between two consecutive occurrences of the term. The more harmonic the distribution of a terms in a documents the more the $AP$ is closer to $1$.
+
+The HDR vocabulary modeling in the \textit{7-Web} genres corpus managed to return a accuracy score $0.96$ with the SVM algorithm in a closed set classification experimental setup.
+
+Alternative methods and similar the HDR is the \textit{Pointwize Mutual Information (PMI)}. It is the Post-processing of the resulting modeled vectors. Such example is the \textit{unsupervised Post-processing via Conceptors (or Conceptor Negation)}. The main concept is to suppress the outages frequencies using PCA, SVD and most recently Conceptors Negation. The latest is a methodology (unsupervised) of Conceptors are a family of regularized identity maps introduced by (Jaeger 2014 ???) where a linear transformation is taking place minimizing a loss function similar to the PCA process. However, this methodology on the contrary to the PCA is a "Soft" regularization or "Soft" noise filtering, while PCA is considered "Hard". In both cases by projecting the data-point to the prediction space we are able to filter the noise (or outages) samples (CITE Unsupervised Post-processing of Word Vectors via Conceptor Negation ).
 
 To begin with, it shown that the \textit{Writing Style Features} and \textit{Key Event Placement (KEP) Features} are improving significantly the performance of the SVM classifier \parencite{dai2018fine}.  The writing style features are extracted as a combination of  other complex features, i.e. the combination of \textit{grammar production rules (GPR} and features from a semantic category of a \textit{Linguistic Inquiry and Word count (LIWC)} dictionary. GPR are the combination of POS and word lexical rules. LIWC is a sophisticated dictionary of occurrences of word from a word category. The KEP is a set of text formatting features, or "landmarks", such as \textit{specific characters, time, location} at specific areas of the text. In practice it is the \textit{words overlapping count} between the \textit{first paragraph} and \textit{the title} of a document. The combination of these structured based features has improved the macro-F1 performance.
+
+\subsection{Combination of Features}
 
 As registers are also considered as genres then there is also a set of heuristics have been used for a classification for this taxonomy. Particularly in \parencite{onan2018ensemble} Language Function Analysis (LFA) has been introduced for a classification task on a taxonomy of \textit{Expressive, Appellative,} and \textit{Informative} classes. The LFA is combining features that successfully used for Authorship Attribution (AA), Linguistic Features (LF), Character n-grams (CNG), Part of Speech n-grams (POSNG), and the frequency of the most discriminative words (MDW). 
 
@@ -61,8 +102,6 @@ As registers are also considered as genres then there is also a set of heuristic
 \item Part of speech n-grams (POSNG) same as CNG but for POS.
 \item The frequency of the most discriminative words (MDW) this is usually task dependent.
 \end{itemize}
-
-The \textit{Textual content} is the most analyzed part of the hypertext which has been used for WGI \parencite{mason2009distance,Sharroff2010}. There are several features than can be extracted used alone or combined to getting the maximum information one can get from the web-paged and feed it for training a prediction ML algorithm. Character n-grams, Word n-grams, Part-of-Speach n-grams and some \textit{special discriminative words} have been commonly used and usually combined with some heuristically extracted features \parencite{kanaris2009learning,kumari2014web,levering2008using,Lim2005,mason2009n,onan2018ensemble,petrenz2011stable,sharoff2010web,Nooralahzadeh2014}.
 
 \parencite{waltinger2010feature} The features suggested (but not constrained) for this algorithm and for the WGI task are the following:
 
@@ -81,9 +120,6 @@ In order to take into account all the above features contribution to the WGI tas
 	C_{g} = \sum_{k=1}^{F} \delta_{k} \cdot IM_{mn}^{k}
 \end{equation}
 Where $C_{g}$ is the similarity score for the a genre of the taxonomy, and $\delta_{k}$ is the weight of the $k$ feature set from all $F$ features, where is under the constraint co $\sum_{k=1}^{F} \delta_{k} = 1$.
-
-
-\subsection{Readability Assessment Features}
 
 Readability Assessment Features (RAF) have also been tested for the WGI/AGI task. Moreover, a primitive attempt also presented related to these features where they have been evaluated (and compared to other features) in their effectiveness on different taxonomies. Particularly they compared on the \textit{Domain-taxonomy} and the \textit{Genre-taxonomy} \parencite{falkenjack2016exploratory}.
 
@@ -111,24 +147,6 @@ RAF other than the basics are including some \textit{Superficial features, Lexic
 
 It should be noted that other than the basic LIX, NR and the Superficial of the RAF, all the other are language dependent such as the OVIX which mainly has been tested on Swedish language.
 
-\subsection{Graph-based Features} 
-
-A text is usually viewed as a sequence of words or characters. However, an alternative idea is to construct a graph from a document and then use graph metrics to represent the properties of documents. Such graph-based features are discussed in \parencite{nabhan2016graph} aiming to enhance AGI effectiveness. An unweighted graph is built from each document based on word bigrams found within sentence boundaries. Each word is a node of the graph and if a bigram is found in the text an edge connects the respective words. The frequency of bigram was not taken into account. 
-
-Then, graph-based measures are extracted to represent documents including node degree, clustering coefficient, average shortest path length, network diameter, number of connected components, average neighborhood connectivity, network centralization and network heterogeneity.  
-
-The average node degree, i.e. the number of neighbor connections, shown  to be an important criterion for discriminating for example scientific to humorous web-pages. A higher average of node degree may indicate a preference to use an established vocabulary.
-
-A high value of clustering coefficient would mean there is tendency for a set of nodes to cohere or stay connected in a sub-network. The Religion, Fiction, and Adventure classes seem to have relatively high value of clustering coefficient as compared to News, Editorial and Hobbies. 
-
-A high number of connected components indicates topic diversity within a genre. News and Hobbies have shown to have higher score, i.e. higher diversity, than Religion and Fiction. In addition, a relatively high score in network Centralization seems to be a good indicator for Fiction and Adnventure genres.
-
-The network heterogeneity was found to be higher in News and Hobbies and this reflects the tendency of the graph to have links between high-degree to low degree-nodes. This can indicate a tendency to use function words in text.
-
-Genre-specific graph characteristics also found in that study \parencite{nabhan2016graph} including high global clustering coefficient found for Learned and Religious text genres. Moreover, average local clustering strongly correlates to the node degree shown to be a good indicator for genres showing concentration to specific concepts.
-
-Finally, the graph-based measures can also be used for discovering the existence of sub-genre within a genre such as in News. It has been shown that there are some areas within the News genre where the bigram graph has high node connection concentration (or high edge concentration).  
-
 \subsection{Structural Features}
 
 As already discussed, genre is mainly associated with form of the presented information. However, it is quite unclear how this information can be quantified appropriately. The easiest way is to focus on HTML tags by counting the HTML tags frequency in the hypertext \parencite{kanaris2009learning}. Special focus in some cases is given to the image tags and the hyperlink tags \parencite{Lim2005,levering2008using}. These sources of information are useful and usually their combination with textual features enhances the performance of
@@ -138,6 +156,7 @@ WGI model. In addition there are very few cases where the DOM object structure i
 
 \textit{Structure indicative features} have also been combined with SVM for the WGI task, specifically for the case of \textit{News article} sub-genre identification. Experimental results show that reasonable performance, although, this kind of features are importing even more issues. At first are difficulty to be captured for example counting the HTML tags or by analyzing the HTML DOM tree from a browser is the best practice to follow. Moreover, this kind of information usually is vague and small (Cortes and Vapnik, 1995) .
 
+An approach that is based on structural features is presented in \parentcite{mehler2011integrating}. They focus on the web genre of homepages and its sub-genres (i.e., personal, conference, project). The web-pages are first automatically segmented into their constituent parts (e.g., for the personal academic homepage the segments are: contact information, personal information, publications, research, and teaching). Then, each page is represented according to the detected segments that were found in it. The reported results show a significant increase in performance when this structure-based method is compared with traditional approaches based only on textual features.
 
 \subsection{Complexity Features}
 
@@ -585,9 +604,11 @@ Distance-based approaches in the WGI task include mainly variations of nearest-n
 
 The new web-page is then classified to the nearest class. The accuracy of this method has been reported to surpass that of SVM using the same features \parencite{waltinger2010feature}.
 
-Following the impressive performance obtained in classification tasks involving natural lanaguage texts, deep learning algorithms have also been tested in WGI tasks \parencite{strobel2018text}. A \textit{recurrent neural network} comprising 200 gated recurrent unit cells in the hidden layer. On top of that, a fully-connected layer assigns documents to classes using a Softmax decision function. Very promising results are reported for this deep learning model in closed-set WGI tasks.
+Following the impressive performance obtained in classification tasks involving natural language texts, deep learning algorithms have also been tested in WGI tasks \parencite{strobel2018text}. A \textit{recurrent neural network} comprising 200 gated recurrent unit cells in the hidden layer. On top of that, a fully-connected layer assigns documents to classes using a Softmax decision function. Very promising results are reported for this deep learning model in closed-set WGI tasks. 
 
-Instead of learning a simple model, ensemble methods attempt to extract several base models and then combine them. One main direction is to use well-known ensemble learning methods such as AdaBoost, Bagging and Random Forests \parencite{sugiyanto2014term,onan2018ensemble}. This approach can easily handle high-dimensional representations and heterogeneous features.
+In another recent study, a variety of deep learning algorithms are compared with traditional methods and the latter seem to be more accurate in genre identification tasks \parencite{worsham2018genre}. In more detail, a convolutional neural network, a long short-term memory network and a hierarchical attention network have been applied to recognition of literary genres. However, they were outperformed by relatively simple models based on traditional machine learning algorithms. In addition, deep learning methods considerably increase the training time cost and require special hardware infrastructure to handle long texts.
+
+Instead of learning a simple model, ensemble methods attempt to extract several base models and then combine them. One main direction is to use well-known ensemble learning methods such as AdaBoost, Bagging and Random Forests \parencite{sugiyanto2014term,onan2018ensemble,worsham2018genre}. This approach can easily handle high-dimensional representations and heterogeneous features.
 
 \textcolor{red}{Although, the traditional bag-of-words approach had better result with XABoost or other techniques been tested for over a decade on genre identification or/and particularly on WGI, distributional feature models are early showing their advantages over the TF-IDF (or TF alone) models[REF].}
 
@@ -632,7 +653,7 @@ noise is used as the majority class in an experiment where 190 instances from pe
 
 Another, more realistic option is to adopt the pore open-set classification setting where training examples belong only to known classes and it is possible for some web pages not to be classified into any of the predefined genre categories. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup. A more concrete open-set classification models for WGI is presented in \parencite{stubbe2007genre}. However, this model was only tested in noise-free corpora. Nevertheless it has been shown that it is much more challenging to perform WGI in the noisy web in comparison to noise-free corpora \parencite{Asheghi2015}.
 
-\textcolor{red}{DESCRIBE IN DETAIL SCHEIRER-2013 and ASHEGHI-2015 OPEN SET APPROACHES}
+\textcolor{red}{DESCRIBE IN DETAIL STUBBE-2007 and ASHEGHI-2015 OPEN SET APPROACHES}
 
 Another open-set classifier is presented in \parencite{chen2012genre}. It is an ensemble approach composed by two base SVM classifiers each trained using a different mutually exclusive training subset. The assumption of this approach is that part of the support vectors will be optimized for every SVM preserving the generalization of the two independent models and the combined classification will manage to fit well over the whole corpus. The combination of the output of the base models is a pairwise genre operation that examines whether the SVM classifiers agreee on their decision about a new web-page:
 
@@ -643,6 +664,24 @@ Another open-set classifier is presented in \parencite{chen2012genre}. It is an 
 where $\{k, m\}$ are the genre classes and $\{g_{1}, g_{2}\}$, are the SVM classifiers. For any new web-page, the truth table of this binary rule for all genre pairs might end up full of zero values. Then, this page remains unclassified. In all other cases at least one genre will return as true. 
 		
 The above ensemble is an early fusion approach where the different features and document representations are all combined in a concatenated vector for each document. Then the concatenated vectors are the input for the learners of the ensemble.
+
+As already discussed, the web is a dynamic environment and web genres tend to evolve through time. New genres  emerge and existing genres are modified in time. Genres are adapting due to the medium transition such as from \textit{News on paper} to \textit{News on the Web}, or because of the medium itself emerging novelties such as the \textit{Blogs} which have been evolved to \textit{micro-Blogs} and \textit{the Social-Media}. In \parencite{caple2017genre} there is a characteristic study about the temporal manner of the web genres, where it is analyzed how the News (as a web genre) have changed over time and the way the News sub genres appeared.
+
+Most WGI approaches assume a static genre palette and a set of training examples for each genre that are representative of its characteristics. An approach that attempts to take into account the evolving of genres is presented in \parentcite{jebari2015combination}. The \textit{Enhanced Centroid-based Classification} (ECC) algorithm builds an incremental centroid-based ensemble where genres are represented by their centroids and these centroids are adjusted after the classification of each new web-page.
+
+In more detail, the ECC algorithm calculates an initial set of centroids for every genre $g$ given a set of training examples $T_g$ as follows:
+
+\begin{equation}\label{eq:jebary_ecc_centroids}
+	C_{g} = \frac{\sum_{p \in T_{g}} p}{\Vert \sum_{p \in T_{g}} p\Vert}
+\end{equation}
+
+\nointend where $\Vert x \Vert$ denotes the 2-norm of vector $x$. Then, each training sample is re-examined. If its distance from the centroid is more than a threshold, it is considered to be \textit{outlier} and it is excluded from the new calculation of the centroid for that class. The threshold is defined as the average of similarities of training examples to the centroid:
+
+\begin{equation}\label{eq:jebary_ecc_theshold}
+	\sigma_{g} = \frac{1}{\vert T_{g} \vert } \sum_{p \in T_{g}} sim(p, C_{g})
+\end{equation}
+
+In the testing phase, each new web-page is examined separately. If the similarity of a new web-page with the centroid of a genre surpasses the threshold then the web-page is used to re-calculate the centroid and the threshold of the genre. That way ECC can adapt in the evolution of genres in time. Note that this is a multi-label classification method since it assumes that a web-page can belong to more than one genres. In addition, this is an open-set classification method because when the similarity of a new web-page is not higher than any genre threshold, then this page is left unclassified. On the other hand, this algorithm is sensitive to noise since web-pages not actually belonging to any of the known genres but miss-classified to a known genre can be used to alter its properties (centroid and threshold). 
 
 %Another recent approach related to the open-set classification on the \textit{Text Classification} problem was suggesting the reduction of the \textit{open space risk} using an SVM based methodology. Particularly, they are comparing eight (8) SVM based methods (additionally with an EM Semi-supervised method) in a open-set setup. They have compared their method with an  SVM center-based similarity space learning methods and some other methods, also in a open-set setup. Their method outperformed the others significantly, with some exceptions. 
 
@@ -689,139 +728,74 @@ The reported results show than balanced k-means works better for this task on th
 
 The automatically obtained hierarchy has been compared with the one of built by a human-expert. The former has been found to work equally or even better than the latter. It has also been demonstrated that the obtained hierarchical structure can be used for a multi-class classification scenario \parencite{malinen2014balanced}. 
 
-\subsection{Web Genre Temporal Property}
-\label{chap:relevant_work:sec:temporal_wgi}
-The temporal idiosyncrasy of the genre-taxonomy is a major factor, yet not deeply studied in the linguistics and computational linguistic domains. Naturally, as in other human arts there is an evolution in the genres, while other genres emerging and others stop existing. Web-genre taxonomy is a result of an even more dynamic environment and it evolves rapidly. Genres are adapting due to the medium transition such as from \textit{News on paper} to \textit{News on the Web}, or because of the medium itself emerging novelties such as the \textit{Blogs} which have evolved to\textit{ micro-Blogs} and finally to \textit{the Social-Media}. 
-
-In \parencite{caple2017genre} there is a characteristic study advocating in the temporal manner of the web-genre, where it is analyzed how the News (as a web-genre) have changed overtime and the way the News sub-genres occurred.
-
-An \textit{Enhanced Centroid-based Classification (ECC)} ensemble model has been proposed for dealing with adapted genres and the temporal idiosyncrasy of the genre-taxonomy. The model is an \textit{incremental centroid-based} ensemble where new web pages are classified one by one, where in the testing/production phase the centroids adjust to the new data as long as they are "close-enough" \parencite{jebari2015combination}.
-
-The ECC learning algorithm is calculating an initial set of centroids for every given class based on the equation \ref{eq:jebary_ecc_centroids} and then using the threshold calculated by the equation \ref{eq:jebary_ecc_theshold} is re-evaluating the samples. When the samples of  class are not "close-enough" are considered to be \textit{outages} and a new centroid is calculated from the rest of the samples for this class. 
-
-\begin{equation}\label{eq:jebary_ecc_centroids}
-	GC_{i}^{N} = \frac{GC^{S}_{i}}{\Vert GC^{S}_{i}\Vert }
-\end{equation}
-
-\begin{equation}\label{eq:jebary_ecc_theshold}
-	\sigma_{i} = \frac{1}{\vert g_{i} \vert } \sum_{p_{j} \in T_{r_{g_{i}}}} sim(p_{j}, GC_{i}^{N})
-\end{equation}
-\noindent
-where $GC^{S}_{i} \in G$ is a set of predefined genre centroids for the $S_{i} \in G$ set of samples for each genre class $G$. $T_{r_{g_{i}}} =   \{ (p_{i}, g_{j}) \vert g_{i} \in G  \}$ is a set of training set samples initially and at the and is formed to $T_{r_{g_{i}}} =   \{ (p_{i}, g_{j}) \vert sim(p_{j}, GC^{N}_{i}) \leq \sigma_{i} \}$  after eq. will be applied \ref{eq:jebary_ecc_theshold}.
-
-In the testing phase an arbitrary page is ranked in deciding order to the \textit{similarity-rank} $\theta(p)$, as defined in the equation \ref{eq:jebary_ecc_rank}. Then the centroids and the threshold are re-calculated based on the equations \ref{eq:jebary_ecc_new_centr} and \ref{eq:jebary_ecc_new_thres}. 
-
-\begin{equation}\label{eq:jebary_ecc_rank}
-	\theta_{i} = \{g_{i}, sim(p, GC_{i}^{N}) > \sigma_{i}\}
-\end{equation}
-\begin{equation}\label{eq:jebary_ecc_new_centr}
-	GC_{i}^{N} =  \frac{GC^{S}_{i} + p}{\Vert GC^{S}_{i}  + p\Vert}
-\end{equation}
-
-\begin{equation}\label{eq:jebary_ecc_new_thres}
-	\sigma_{i} = \frac{S_{i} +  sim(p, GC_{i}^{N})}{\vert g_{i} \vert}
-\end{equation}
-The ECC has been \textit{designed to adapt in the evolution of genres in time}, thus, it makes no sense to classify the web pages exclusively on the contrary is returning the similarly-rank $\theta(p)$. Consequently, this algorithm can be considered open-set \textit{because possible for same web-pages the  $\theta(p)$ set might return empty}. On the other hand since the algorithm will adapt some web-pages that are not strictly belonging to the genre it is trained for, i.e. noise pages, will be incorporated to the new centroids and the threshold value.  Consequently, ECC is sensitive to noise as it has been defined in section \ref{chap:relevant_work:sec:openset_and_noise}.
-
-
 %\section{Web-Genres Identification using other than textual information}\label{chap:relevant_work:sec:intro}
 
-\section{Deep Learning Vocabulary of Distributional Features for WGI}\label{chap:relevant_work:sec:word_embedding}
+%\section{Deep Learning Vocabulary of Distributional Features for WGI}\label{chap:relevant_work:sec:word_embedding}
 
-\textit{Distributional Features/Word Emending} based on the words or/and document encoding is the state-of-the-art in IR and NLP because it a practical solution for automatically modeling the process of feature selection, document representation and dimentionality reduction. This is the case for the AGI/ WGI tasks, and it is the second contribution to the domain together with the open-set approach.
+%\textit{Distributional Features/Word Emending} based on the words or/and document encoding is the state-of-the-art in IR and NLP because it a practical solution for automatically modeling the process of feature selection, document representation and dimentionality reduction. This is the case for the AGI/ WGI tasks, and it is the second contribution to the domain together with the open-set approach.
 
-In section \ref{chap:Document_Representation} and it is shown how a week ML algorithm can be trained with 100 times less features than the features given to an better algorithm for the WGI task. Moreover in section \ref{chap:relevant_work:sec:word_embedding} there is a discussion related to the word embedding and the \textit{Features Vocabulary Modeling}.
+%In section \ref{chap:Document_Representation} and it is shown how a week ML algorithm can be trained with 100 times less features than the features given to an better algorithm for the WGI task. Moreover in section \ref{chap:relevant_work:sec:word_embedding} there is a discussion related to the word embedding and the \textit{Features Vocabulary Modeling}.
 
+%Given the complicated task of AGI, the traditional BOW models are unable to capture the enduring information span across sentences and paragraphs. Themes, registers and other properties of the texts cannot be captured only by the frequencies of the Terms (Word, Character, POS n-grams etc). The abstract concepts, the ontologies, the style and the form of the texts are only merely captured by a combination of heuristics as explained in section \ref{chap:relative_work:sec:heuristics}. 
 
-Given the complicated task of AGI, the traditional BOW models are unable to capture the enduring information span across sentences and paragraphs. Themes, registers and other properties of the texts cannot be captured only by the frequencies of the Terms (Word, Character, POS n-grams etc). The abstract concepts, the ontologies, the style and the form of the texts are only merely captured by a combination of heuristics as explained in section \ref{chap:relative_work:sec:heuristics}. 
+%The feature selection is so important that so far the simpler the model the better performs for the WGI task as long as the features are capturing \textit{the style and the concepts} of the texts. In \parencite{pritsos2019open}, which is part of this work, and also in \parencite{worsham2018genre} the \textit{Neural Language Modeling (NLM)} is proposed for the first time for WGI an AGI respectively. In both works the conclusion is similar. i.e. the ensemble based and boosting methods which are rather simpler than NLM are stile better performers on the task. However, in respect of speed performance and the automation in the process of feature selection the NLM seem to be the perspective research path for the following years.
 
-The feature selection is so important that so far the simpler the model the better performs for the WGI task as long as the features are capturing \textit{the style and the concepts} of the texts. In \parencite{pritsos2019open}, which is part of this work, and also in \parencite{worsham2018genre} the \textit{Neural Language Modeling (NLM)} is proposed for the first time for WGI an AGI respectively. In both works the conclusion is similar. i.e. the ensemble based and boosting methods which are rather simpler than NLM are stile better performers on the task. However, in respect of speed performance and the automation in the process of feature selection the NLM seem to be the perspective research path for the following years.
+%Most proposed \textit{NLM} are designed to capture text in a sequential manner. That is, the model is encoding the meaning of the words based on the sequence of the previews terms (or following terms). Therefore, these models also called \textit{Distributional Models (DM)} and the NLM process is also called \textit{Word Emending}. The NNet models which have been tested are the \textit{Convolutional Neural Networks (CNN)}, the Recurrent Neural Networks (RNN), and the \textit{Long Short-Term Memory Networks (LSTM)}. 
 
-Most proposed \textit{NLM} are designed to capture text in a sequential manner. That is, the model is encoding the meaning of the words based on the sequence of the previews terms (or following terms). Therefore, these models also called \textit{Distributional Models (DM)} and the NLM process is also called \textit{Word Emending}. The NNet models which have been tested are the \textit{Convolutional Neural Networks (CNN)}, the Recurrent Neural Networks (RNN), and the \textit{Long Short-Term Memory Networks (LSTM)}. 
+%The experimental procedures of this work is confirming the speed amplification in the WGI training and prediction process, mainly due to the dimentionality reduction and the better encoding of the abstract information required. However, it is also confirming that the process more the NLM was computationally expensive because of the length of the texts. In \parencite{worsham2018genre} there was an effort to reduce the problem and increase the performance of the NNet models.
 
-The experimental procedures of this work is confirming the speed amplification in the WGI training and prediction process, mainly due to the dimentionality reduction and the better encoding of the abstract information required. However, it is also confirming that the process more the NLM was computationally expensive because of the length of the texts. In \parencite{worsham2018genre} there was an effort to reduce the problem and increase the performance of the NNet models.
+%Working with long pieces of text the NNet for example CNN the network is increasing as the data input is growing. On the other hand the RNN and the LSTM are sensitive to long sequences and their hyper-parameters are degenerated then they are becoming very slow in training for overcoming this issue. Moreover, to train these NNet models with long corpora is required a great hardware infrastructure. 
 
-Working with long pieces of text the NNet for example CNN the network is increasing as the data input is growing. On the other hand the RNN and the LSTM are sensitive to long sequences and their hyper-parameters are degenerated then they are becoming very slow in training for overcoming this issue. Moreover, to train these NNet models with long corpora is required a great hardware infrastructure. 
+%In order to reduce the training time and computational cost of the word-embedding modeling one can think of several strategies. It turns out that the best strategies is to use the \textit{All Chapters} training input. That is,  the training and the test set is splinted into chapters in a heuristic manner. Then the lengths of the chapters are normalized by getting only the $C_{Doc}$ length of the whole chapter, say the first 2,000 terms. In case the chapter is shorter the rest of the chapter is padded with an abstract term such as $\$pad\$$. 
 
-In order to reduce the training time and computational cost of the word-embedding modeling one can think of several strategies. It turns out that the best strategies is to use the \textit{All Chapters} training input. That is,  the training and the test set is splinted into chapters in a heuristic manner. Then the lengths of the chapters are normalized by getting only the $C_{Doc}$ length of the whole chapter, say the first 2,000 terms. In case the chapter is shorter the rest of the chapter is padded with an abstract term such as $\$pad\$$. 
+%As it has been reported the all-chapters strategy with a CNN returned $F_{1}=0761$ score which was the best of all the NNet combinations and features sizes. However, \textit{Random Forests} or \textit{XGBoost on sequential trees} and simple BOW, outperformed the NNet model with $F_{1}=0.79$ and $F_{1}=0.81$ respectively. XGBoost is a highly optimized, \textit{Gradient Boosting }solution which is made up of a boosted set of sequential trees learned from the gradients of some differentiable loss function\textbf{ (Chen and Guestrin, 2016).}
 
-As it has been reported the all-chapters strategy with a CNN returned $F_{1}=0761$ score which was the best of all the NNet combinations and features sizes. However, \textit{Random Forests} or \textit{XGBoost on sequential trees} and simple BOW, outperformed the NNet model with $F_{1}=0.79$ and $F_{1}=0.81$ respectively. XGBoost is a highly optimized, \textit{Gradient Boosting }solution which is made up of a boosted set of sequential trees learned from the gradients of some differentiable loss function\textbf{ (Chen and Guestrin, 2016).}
+%In \parencite{pritsos2019open} a work is presented where Doc2Vec has been used for the WGI task on KI04 corpus. Detail are discussed in section \ref{word_embedding}. It is shown that \textit{Distributional (DL) features} can make a weak open-set learning algorithm namely the \textit{Nearest Neighbour Distance ratio} classifier to a combative learner. When it come to comparison in the open-set framework with the RFSE, the NNDR seems performing lower, however, the size of the document vectors are 10 to 100 times smaller because of the DL features. 
 
-In \parencite{pritsos2019open} a work is presented where Doc2Vec has been used for the WGI task on KI04 corpus. Detail are discussed in section \ref{word_embedding}. It is shown that \textit{Distributional (DL) features} can make a weak open-set learning algorithm namely the \textit{Nearest Neighbour Distance ratio} classifier to a combative learner. When it come to comparison in the open-set framework with the RFSE, the NNDR seems performing lower, however, the size of the document vectors are 10 to 100 times smaller because of the DL features. 
-
-In these experiments the whole KI04 corpus is given to the NNet document encoder. The line of thought is the same as Word2Vec and the word embedding, i.e. as an extension of the words encoding the documents can be encoded to a fixed size vector space. 
+%In these experiments the whole KI04 corpus is given to the NNet document encoder. The line of thought is the same as Word2Vec and the word embedding, i.e. as an extension of the words encoding the documents can be encoded to a fixed size vector space. 
 
 
 % ""Examples of word vectors include Word2Vec (Mikolov et al. 2013), GloVe (Pennington, Socher, and Manning 2014), Eigenwords (Dhillon, Foster,and Ungar 2015), and Fasttext (Bojanowski et al. 2017). These word vectors are usually referred to as distributional word vectors, as their training methods rely on the distributional hypothesis of semantics (Firth 1957)."""
 
 
-The state-of-the-art in the text-genre classification and WGI is the Vocabulary-Learning and particularly the use of the deep-learning methods for building comprehensive word encoding vocabularies or document encoding. 
+%The state-of-the-art in the text-genre classification and WGI is the Vocabulary-Learning and particularly the use of the deep-learning methods for building comprehensive word encoding vocabularies or document encoding. 
 
-This methods due to the nature of the Neural-Networks, mainly used,  the procedure for building vocabulary models is \textit{implicitly embedding} a variate of information\textit{ syntactical, morphological and structural}. However, there are some efforts, where these kind of information was \textit{"explicitly encoded"} by using other methods inspired by signal processing and dimentionality or noise reduction techniques.
+%This methods due to the nature of the Neural-Networks, mainly used,  the procedure for building vocabulary models is \textit{implicitly embedding} a variate of information\textit{ syntactical, morphological and structural}. However, there are some efforts, where these kind of information was \textit{"explicitly encoded"} by using other methods inspired by signal processing and dimentionality or noise reduction techniques.
 
 
-In \parencite{kim2010formulating} it is proposed the \textit{Harmonic Descriptor Representation (HDR)} of the web-pages inspired by the musical analogy of a string musical instrument. Then the document is consider to be a temporla sequence of signals, i.e. the characters or word n-grams. In similar manner to the NLE models it is captured explicitly the \textit{Distributional Properties} of the texts. Particularly instead of the terms occurrence counting the intervals of the the occurrences are measured, in addition the length of the documents are encoded and normalized implicitly. 
+%\section{The Web Genre units: Section, Page, Site and "Stage"}
 
-The HDR word encoding is a tuple of three explicit measurements; the FP, LP and AP. Moreover the \textit{Range} and the \textit{Period} are also introduced. The \textit{Range} is the interval between the initial an the ultimate occurrence of the term and the \textit{Period} is the "time duratio", i.e. the count of terms, between two conductive occurrences of the term. Therefore, the HDR vectors components are defined as follows:
+%AGI/WGI research mostly has studied the genre-taxonomy assuming than a page (or web-page) is mono-thematic, this it has only one genre and only one topic, That is the web pages has been assumed to be the \textit{Genre Unit}. Although, it has been noted in lots of studies that this is not the case. Additionally, the hyperlink and the connection of the web-pages is an other aspect is closely related the genre-units. 
 
-\begin{enumerate}
-\item FP: is the time duratio before the first occurrence of the term in a web-page. That is the Period before the first occurrence divided by the total number of terms into the page.
-\item LP: is the time duratio after the last occurrence of the term. Similarly calculated as FP.
-\item AP: is the average period ratio as in equation \ref{chap:relevant_work:sec:word_embendding}.
-\end{enumerate}
+%In the  traditional containers such as Books, Document, Posters, Slides, etc; the container itself is the linking of the pages considering the genre. The hyperlinks is replacing the traditional container propriety, respectively the genre taxonomy, and also it extends it. That is, web-pages of them genre are not necessarily belonging to the same web-site, however, they can be linked. Moreover, pages of the same web-site might not be from the same genre. 
 
-\begin{equation}\label{chap:relevant_work:sec:word_embendding}
-	AP  =
-      \begin{cases}
-        \frac{N - T}{T \cdot I^{max}}, I^{max} > 0  \\
-        1, I^{max} = 0 \\ 
-       \end{cases}
-\end{equation}
+%In this section the Web Genre units is discussed closely related to the linking of the genre-units and also introducing the notion of \textit{Tracking, Zoning and Sounding} of this units. 
 
-\noindent
-where $T$ is the term's number of occurrences plus $1$, $N$ id the total number of pages terms and $I^{max}$is the maximum number of characters found between two consecutive occurrences of the term. The more harmonic the distribution of a terms in a documents the more the $AP$ is closer to $1$.
+%In \parencite{mehler2011integrating} is an study for extracting the \textit{web-page thematic} information by exploiting the semantic linking of the genre-units. In an effort to explore the possibility of creating a \textit{Universal Structure Thematic Structure}, where genre-taxonomies (and topic) would be able to retrieved. Their strategy is exporting the \textit{Linked URL Graph} properties by using the Tracking, Zoning and Sounding graph traversal strategies. In order to extract rich information and finally creating a universal \textit{Genre Retrieval Graph Structure}.
 
-The HDR vocabulary modeling in the \textit{7-Web} genres corpus managed to return a accuracy score $0.96$ with the SVM algorithm in a closed set classification experimental setup.
+%The null hypothesis of the Genre Retrieval Graph is the two level of information can be extracted by the web-pages linking and then mapping this liking to the \textit{Stages} of the page. \textit{Staging} is the process where Sections of the page are extracted which are functioning as taxonomy units. This units are assumed to be mono-thematic. Thus stages are the sections which are sub-genre restricted. Stages for example might be, paragraphs, sentences, bibliography sections, titles, photo gallery, etc. Overall they are defined as the parts of the web-pages with specific sub-genre, for example Bibliography is a sub-genre of \textit{the Academic (and the Publication)} genres.
 
-Alternative methods and similar the HDR is the \textit{Pointwize Mutual Information (PMI)}. It is the Post-processing of the resulting modeled vectors. Such example is the \textit{unsupervised Post-processing via Conceptors (or Conceptor Negation)}. The main concept is to suppress the outages frequencies using PCA, SVD and most recently Conceptors Negation. The latest is a methodology (unsupervised) of Conceptors are a family of regularized identity maps introduced by (Jaeger 2014 ???) where a linear transformation is taking place minimizing a loss function similar to the PCA process. However, this methodology on the contrary to the PCA is a "Soft" regularization or "Soft" noise filtering, while PCA is considered "Hard". In both cases by projecting the data-point to the prediction space we are able to filter the noise (or outages) samples (CITE Unsupervised Post-processing of Word Vectors via Conceptor Negation ).
+%The web-page linking mapping to the Stages assumes that the linking implies similarity in the taxonomy level, in our case the genre-taxonomy. Then several issues occurring where with Tracking, Zoning and Sounding of the linked graph are tried to be resolved.
 
-Textual feature selection and document representation is the main research focus for WGI, with the NLM being the most promising path to follow for the near future. However, the URL and the Hypertext linking graph are the properties of the web-pages have also been exploited in the WGI research.  Analogous to the surface and structural types of cues for text features, these features can be treated as cues for extending or mining additional information for the classification process. In addition, some time for example in the cases of the very short textual information in a web-page, the URL and the sibling (in graph) pages are necessary for correctly identifying its genre. 
+%\textit{Sounding graph traversal} strategies are used for finding how deep in a \textit{Tree Structured Staged Graph (TSSG)}  the a sub-genre propagates. On the other hand Tracking is the hopes an algorithm should traverse until it reaches the root of the tree.
 
-In section \ref{chap:relevant_work:sec:url} the URL and the hypertext graph linking is discussed before the open-set and the NLE modeling, for WGI, will be thoroughly analyzed as the main focus of this work.
+%\textit{Zoning it the process} where the total number of paths are located where only one sub-genre is propagated on the tree. As an example given a web page of a \textit{Market Place} genre, where \textit{products Specification} together with \textit{product Reviews} coexist; sounding is the process where the paths of \textit{the linked Specification} will be separated by the paths of \textit{the linked Reviews}. Note that the assumption of the concept of TSSG is the taxonomy goes beyond the location restriction of a web-site and the sections/stages of the same genre are linked in cross-site manner.
 
-\section{The Web Genre units: Section, Page, Site and "Stage"}
+%Finally, the process is reduced to the proper staging and and feature/structure encoding on the web-page level, before the TSSG formation. The process is separated in five (5) main sequencs of processing:
 
-AGI/WGI research mostly has studied the genre-taxonomy assuming than a page (or web-page) is mono-thematic, this it has only one genre and only one topic, That is the web pages has been assumed to be the \textit{Genre Unit}. Although, it has been noted in lots of studies that this is not the case. Additionally, the hyperlink and the connection of the web-pages is an other aspect is closely related the genre-units. 
+%\begin{enumerate}
+%\item \textit{Segmenter process:} where a set of heuristics are applied in order to exploit the HTML markup tags and then forming sections of the webpage that make sense. To do so an algorithm is used where the DOM tree is analysed in its counterparts, together with the respective CSS. Then using an empirical threshold of the size of the text is included in the DOM objects, these objects are re-assembled for reaching the minimum context size.
+%\item \textit{Tagger process:} where the segments are analyzed for extracting linguistic and superficial features such as; 1) tf-idf term vectors of lexical features, structural features (paragraph size, sentence size ,etc) and HTML markup tag features such as counting the header tags (eg <h1></h1>) etc.
+%\item \textit{Stage Classification process:} Where several SVM models are trained one for every different Stage. As an example, one for Bibliography sections, one for Schedules, one for Product Review etc.
+%\item \textit{Disambiguation process:} a Markov-model is applied on each of  HTML Section where the its Stage is calculated based on the \textit{probabilistic grammar} based on the trained SVMs in the step 3.
+%\item \textit{Web-page Classification process:} where the whole information extracted by the previews steps are given as input to an other page level SVM model, which returns the final decision for the page. 
+%\end{enumerate}
 
-In the  traditional containers such as Books, Document, Posters, Slides, etc; the container itself is the linking of the pages considering the genre. The hyperlinks is replacing the traditional container propriety, respectively the genre taxonomy, and also it extends it. That is, web-pages of them genre are not necessarily belonging to the same web-site, however, they can be linked. Moreover, pages of the same web-site might not be from the same genre. 
+%It has been shown that following the above steps it is possible to reach up to $0.745$ score for $F_{1}$ and $0.694$  \textit{for predicting the sub-genre of the Academic web-sites super-genre }.
 
-In this section the Web Genre units is discussed closely related to the linking of the genre-units and also introducing the notion of \textit{Tracking, Zoning and Sounding} of this units. 
+%\textit{Disambiguation process} is using two types of features the Bag-of-Features (such as BOW, POS, Superficial text features etc) and the \textit{Bag-of-Structures}. Particularly the former is referring to the features extracted directly by the HTML raw text of the segments. The Bag-of-Structures (which is the probabilistic-grammar mentioned above) is a model derived by a the process of an \textit{accumulated transition probability}. To be more specific assuming that the proximity of the segment/stages is relevant; a probabilistic model is calculated for the genres a particular segment is under.
 
-In \parencite{mehler2011integrating} is an study for extracting the \textit{web-page thematic} information by exploiting the semantic linking of the genre-units. In an effort to explore the possibility of creating a \textit{Universal Structure Thematic Structure}, where genre-taxonomies (and topic) would be able to retrieved. Their strategy is exporting the \textit{Linked URL Graph} properties by using the Tracking, Zoning and Sounding graph traversal strategies. In order to extract rich information and finally creating a universal \textit{Genre Retrieval Graph Structure}.
-
-The null hypothesis of the Genre Retrieval Graph is the two level of information can be extracted by the web-pages linking and then mapping this liking to the \textit{Stages} of the page. \textit{Staging} is the process where Sections of the page are extracted which are functioning as taxonomy units. This units are assumed to be mono-thematic. Thus stages are the sections which are sub-genre restricted. Stages for example might be, paragraphs, sentences, bibliography sections, titles, photo gallery, etc. Overall they are defined as the parts of the web-pages with specific sub-genre, for example Bibliography is a sub-genre of \textit{the Academic (and the Publication)} genres.
-
-The web-page linking mapping to the Stages assumes that the linking implies similarity in the taxonomy level, in our case the genre-taxonomy. Then several issues occurring where with Tracking, Zoning and Sounding of the linked graph are tried to be resolved.
-
-\textit{Sounding graph traversal} strategies are used for finding how deep in a \textit{Tree Structured Staged Graph (TSSG)}  the a sub-genre propagates. On the other hand Tracking is the hopes an algorithm should traverse until it reaches the root of the tree.
-
-\textit{Zoning it the process} where the total number of paths are located where only one sub-genre is propagated on the tree. As an example given a web page of a \textit{Market Place} genre, where \textit{products Specification} together with \textit{product Reviews} coexist; sounding is the process where the paths of \textit{the linked Specification} will be separated by the paths of \textit{the linked Reviews}. Note that the assumption of the concept of TSSG is the taxonomy goes beyond the location restriction of a web-site and the sections/stages of the same genre are linked in cross-site manner.
-
-Finally, the process is reduced to the proper staging and and feature/structure encoding on the web-page level, before the TSSG formation. The process is separated in five (5) main sequencs of processing:
-
-\begin{enumerate}
-\item \textit{Segmenter process:} where a set of heuristics are applied in order to exploit the HTML markup tags and then forming sections of the webpage that make sense. To do so an algorithm is used where the DOM tree is analysed in its counterparts, together with the respective CSS. Then using an empirical threshold of the size of the text is included in the DOM objects, these objects are re-assembled for reaching the minimum context size.
-\item \textit{Tagger process:} where the segments are analyzed for extracting linguistic and superficial features such as; 1) tf-idf term vectors of lexical features, structural features (paragraph size, sentence size ,etc) and HTML markup tag features such as counting the header tags (eg <h1></h1>) etc.
-\item \textit{Stage Classification process:} Where several SVM models are trained one for every different Stage. As an example, one for Bibliography sections, one for Schedules, one for Product Review etc.
-\item \textit{Disambiguation process:} a Markov-model is applied on each of  HTML Section where the its Stage is calculated based on the \textit{probabilistic grammar} based on the trained SVMs in the step 3.
-\item \textit{Web-page Classification process:} where the whole information extracted by the previews steps are given as input to an other page level SVM model, which returns the final decision for the page. 
-\end{enumerate}
-
-It has been shown that following the above steps it is possible to reach up to $0.745$ score for $F_{1}$ and $0.694$  \textit{for predicting the sub-genre of the Academic web-sites super-genre }.
-
-\textit{Disambiguation process} is using two types of features the Bag-of-Features (such as BOW, POS, Superficial text features etc) and the \textit{Bag-of-Structures}. Particularly the former is referring to the features extracted directly by the HTML raw text of the segments. The Bag-of-Structures (which is the probabilistic-grammar mentioned above) is a model derived by a the process of an \textit{accumulated transition probability}. To be more specific assuming that the proximity of the segment/stages is relevant; a probabilistic model is calculated for the genres a particular segment is under.
-
-Multi-class classification, hierarchical classification, and multi-page classification is some of the aspects considered in the WGI. Naturally, a web-page, a section on the page, a paragraph on the page, a collection of pages linked together by their URLs. A web-site is, also, a genre-unit. That is, in an experimental set-up one has to consider which genre-unit will be assumed. However, it is foregrounded that in almost any unit there is always a change to be multi-genre \parencite{lee2017text} (also Ashegi, Santini, and other old citations)., for example in \parencite{madjarov2015web} has been found that on average $1.34$ genres are present per web-page.
+%Multi-class classification, hierarchical classification, and multi-page classification is some of the aspects considered in the WGI. Naturally, a web-page, a section on the page, a paragraph on the page, a collection of pages linked together by their URLs. A web-site is, also, a genre-unit. That is, in an experimental set-up one has to consider which genre-unit will be assumed. However, it is foregrounded that in almost any unit there is always a change to be multi-genre \parencite{lee2017text} (also Ashegi, Santini, and other old citations)., for example in \parencite{madjarov2015web} has been found that on average $1.34$ genres are present per web-page.
 
 \section{Focused Crawlers for Genres}\label{chap:relevant_work:sec:focused_crawlers}
 
