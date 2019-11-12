@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  10 NOV 2019 18:45
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  12 NOV 2019 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2044,29 +2044,7 @@ File: english.lbx 2017/12/19 v3.10 biblatex localization (PK/JW/AB)
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
- (./PhD_Thesis.aux (./Chapters/Introduction.aux) (./Chapters/Relevant_Work.aux
-
-LaTeX Warning: Label `chap:relevant_work:sec:intro' multiply defined.
-
-
-LaTeX Warning: Label `chap:relevant_work:sec:intro' multiply defined.
-
-
-LaTeX Warning: Label `chap:relevant_work:sec:intro' multiply defined.
-
-) (./Chapters/Open_set_algorithms.aux
-
-LaTeX Warning: Label `chap:openset:sec:NNRD_Description' multiply defined.
-
-) (./Chapters/Evaluation_methodology.aux
-
-LaTeX Warning: Label `chap:eval_methods:eq:recall' multiply defined.
-
-) (./Chapters/Experiments_noise.aux) (./Chapters/Word_embedding.aux
-
-LaTeX Warning: Label `chap:word_embeddings:sec:experiments_setup' multiply defined.
-
-) (./Chapters/Conclusions.aux))
+ (./PhD_Thesis.aux (./Chapters/Introduction.aux) (./Chapters/Relevant_Work.aux))
 \openout1 = `PhD_Thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
@@ -2288,13 +2266,13 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 1: section
 [3] [4
 
-] (./PhD_Thesis.toc
-1: section
-[5] [6])
+] (./PhD_Thesis.toc)
 \tf@toc=\write7
 \openout7 = `PhD_Thesis.toc'.
 
- [7] [8
+
+1: section
+[5] [6
 
 ]
 1: section
@@ -2318,23 +2296,98 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 
 
 ]
-Overfull \hbox (3.64348pt too wide) in paragraph at lines 44--45
-[]\T1/ptm/m/it/12 Automated Genre Iden-ti-fi-ca-tion (AGI)\T1/ptm/m/n/12 : Iden-ti-fi-ca-tion of the text's \T1/ptm/m/it/12 Genre \T1/ptm/m/n/12 and some-
+Overfull \hbox (0.7516pt too wide) in paragraph at lines 44--45
+[]\T1/ptm/m/it/12 Automated Genre Iden-ti-fi-ca-tion (AGI)\T1/ptm/m/n/12 : Iden-ti-fi-ca-tion of the text's genre and some-
+ []
+
+./Chapters/Introduction.tex:49: Undefined control sequence.
+l.49 ...ng/filtering of search results \parentcite
+                                                  {Braslavski2007,Rosso2008}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (92.84969pt too wide) in paragraph at lines 49--50
+[]\T1/ptm/m/n/12 IR sys-tems can en-able genre-based group-ing/-fil-ter-ing of search re-sults Braslavski2007,Rosso2008.
+ []
+
+[2]
+./Chapters/Introduction.tex:50: Undefined control sequence.
+l.50 ...es belonging to certain genres \parentcite
+                                                  {deAssis:2017}. As a resul...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Introduction.tex:52: Undefined control sequence.
+l.52 ...enhance anti-phishing attempts \parentcite
+                                                  {Abbasi:2015}.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (1.76021pt too wide) in paragraph at lines 52--53
+[]\T1/ptm/m/n/12 In cyber-security, genre of web-pages can be ex-ploited to en-hance anti-phishing
  []
 
 
-Overfull \hbox (2.31184pt too wide) in paragraph at lines 46--47
-\T1/ptm/m/n/12 Web where en-riched doc-u-ments (hy-per-texts) are clas-si-fied on a given genre-taxonomy
- []
+./Chapters/Introduction.tex:63: LaTeX Error: \begin{itemize} on input line 58 ended by \end{enumerate}.
 
-[2] [3] [4] [5]
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 \end{enumerate}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[3] [4] [5]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 101.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 107.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 101.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 107.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 101.
- [6] [7] [8] [9] [10]) [11]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 107.
+ [6] [7] [8]
+
+LaTeX Warning: Reference `chap:openset:sec:RFSE_Description' on page 9 undefined on input line 155.
+
+
+LaTeX Warning: Reference `chap:openset:sec:NNRD_Description' on page 9 undefined on input line 156.
+
+
+LaTeX Warning: Reference `chap:openset:sec:OCSVM_description' on page 9 undefined on input line 157.
+
+
+LaTeX Warning: Reference `chap:eval_methods' on page 9 undefined on input line 159.
+
+[9] [10]
+
+LaTeX Warning: Reference `chap:openset' on page 11 undefined on input line 185.
+
+
+LaTeX Warning: Reference `chap:eval_methods' on page 11 undefined on input line 187.
+
+
+LaTeX Warning: Reference `chap:noise' on page 11 undefined on input line 189.
+
+
+LaTeX Warning: Reference `chap:word_embeddings' on page 11 undefined on input line 191.
+
+
+LaTeX Warning: Reference `chap:conclusions' on page 11 undefined on input line 193.
+
+) [11]
 \openout2 = `Chapters/Relevant_Work.aux'.
 
  (./Chapters/Relevant_Work.tex [12
@@ -2413,426 +2466,18 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+
+Overfull \hbox (2.203pt too wide) in paragraph at lines 34--35
+[]\T1/ptm/m/n/12 Finally, we present an overview of ex-ist-ing re-sources to eval-u-ate WGI ap-proaches.
+ []
+
 1: section
-[13] [14]
+[13] [14] [15]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 49.
- [15] [16] [17]
-./Chapters/Relevant_Work.tex:101: Undefined control sequence.
-l.101 \nointend
-                where $A$ is the number of words, $B$ is the number of speci...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[18]
-Overfull \hbox (3.00722pt too wide) in paragraph at lines 128--129
-[]\T1/ptm/m/n/12 Genre-specific graph char-ac-ter-is-tics also found in that study ([]Nab-han and Shaalan,
- []
-
-./Chapters/Relevant_Work.tex:134: Undefined control sequence.
-l.134 ...gs frequency in the hypertext \parentcite
-                                                  {kanaris2009learning}. Spe...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Relevant_Work.tex:135: Undefined control sequence.
-l.135 ...re found and in what position \parentcite
-                                                  {levering2008using}.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[19] [20] [21]
-Underfull \hbox (badness 5161) in paragraph at lines 233--233
-[]|\T1/ptm/m/n/12 Five of more con-sec-u-tive func-tional
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 235--235
-[]|\T1/ptm/m/n/12 Average Sen-tence
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 236--236
-[]|\T1/ptm/m/n/12 Ratio of Sim-ple to
- []
-
-
-Underfull \hbox (badness 6526) in paragraph at lines 237--237
-[]|\T1/ptm/m/n/12 Average Sub-sentence
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 239--239
-[]|\T1/ptm/m/n/12 Dominant Per-son of
- []
-
-
-Underfull \hbox (badness 2469) in paragraph at lines 240--240
-[]|\T1/ptm/m/n/12 Dominant Num-ber of
- []
-
-
-Underfull \hbox (badness 1147) in paragraph at lines 244--244
-[]|\T1/ptm/m/n/12 Standard De-vi-a-tion of
- []
-
-
-Overfull \hbox (30.30948pt too wide) in paragraph at lines 216--247
- [] 
- []
-
-
-LaTeX Warning: Float too large for page by 30.65698pt on input line 247.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 258--258
-[]|\T1/ptm/m/n/12 Average words per
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 258--259
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 259--260
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 260--261
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--261
-[]|\T1/ptm/m/n/12 Average sen-tence
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--261
-\T1/ptm/m/n/12 length in terms of
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 261--262
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 262--263
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 263--264
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 264--265
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 265--266
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 266--267
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Underfull \hbox (badness 2626) in paragraph at lines 267--267
-[]|\T1/ptm/m/n/12 Words-length dis-tri-bu-
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 267--268
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Overfull \hbox (5.6127pt too wide) in paragraph at lines 268--269
-[]|\T1/ptm/m/n/12 Textual/Superficial| 
- []
-
-
-Underfull \hbox (badness 6428) in paragraph at lines 269--269
-[]|\T1/ptm/m/n/12 Descriptive words to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--271
-[]|\T1/ptm/m/n/12 Proportion of wh-determiners, wh-
- []
-
-
-Underfull \hbox (badness 5741) in paragraph at lines 272--272
-\T1/ptm/m/n/12 ber of end sen-tence
- []
-
-
-Underfull \hbox (badness 5105) in paragraph at lines 274--274
-[]|\T1/ptm/m/n/12 Part-of-speech tag n-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
-[]|\T1/ptm/m/n/12 Textual/Content
- []
-
-
-Overfull \hbox (30.30948pt too wide) in paragraph at lines 254--278
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 289--289
-[]|\T1/ptm/m/n/12 Average
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 289--289
-\T1/ptm/m/n/12 sen-tence
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 291--291
-[]|\T1/ptm/m/n/12 Average
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 291--291
-\T1/ptm/m/n/12 para-graph
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 293--293
-[]|\T1/ptm/m/n/12 Discipline-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 293--293
-\T1/ptm/m/n/12 specific
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 293--293
-\T1/ptm/m/n/12 word
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--295
-[]|\T1/ptm/m/n/12 Phrasal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--295
-\T1/ptm/m/n/12 verb den-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--297
-[]|\T1/ptm/m/n/12 Compound
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--297
-\T1/ptm/m/n/12 noun
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 301--301
-[]|\T1/ptm/m/n/12 Verb den-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 303--303
-[]|\T1/ptm/m/n/12 Adjective
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 305--305
-[]|\T1/ptm/m/n/12 Adverb
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
-[]|\T1/ptm/m/n/12 Lexical
- []
-
-
-Overfull \hbox (6.42992pt too wide) in paragraph at lines 309--309
-[]|\T1/ptm/m/n/12 Coordinating
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--309
-\T1/ptm/m/n/12 con-ju-ga-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 311--311
-[]|\T1/ptm/m/n/12 Content
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 311--311
-\T1/ptm/m/n/12 word
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--313
-[]|\T1/ptm/m/n/12 Evaluation
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--313
-\T1/ptm/m/n/12 move
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 315--315
-[]|\T1/ptm/m/n/12 Vocabulary
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--317
-[]|\T1/ptm/m/n/12 Logical
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--317
-\T1/ptm/m/n/12 con-nec-tive
- []
-
-
-Overfull \hbox (6.42961pt too wide) in paragraph at lines 319--319
-[]|\T1/ptm/m/n/12 Prepositional
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--321
-[]|\T1/ptm/m/n/12 Negation
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 323--323
-[]|\T1/ptm/m/n/12 Pronoun
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 325--325
-[]|\T1/ptm/m/n/12 Flesch
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 325--325
-\T1/ptm/m/n/12 Read-ing
- []
-
-
-Overfull \hbox (18.30948pt too wide) in paragraph at lines 285--328
- [] 
- []
-
-
-LaTeX Warning: Float too large for page by 240.85696pt on input line 328.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-[]|\T1/ptm/m/n/12 Interpersonal,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-\T1/ptm/m/n/12 Nar-ra-tive, Per-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-[]|\T1/ptm/m/n/12 Interpersonal,
- []
-
-
-Underfull \hbox (badness 6032) in paragraph at lines 342--342
-[]|\T1/ptm/m/n/12 Average sen-tence length, Discipline-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 342--343
-[]|\T1/ptm/m/n/12 Informative,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 342--343
-\T1/ptm/m/n/12 Elab-o-rated,
- []
-
-
-Overfull \hbox (30.30948pt too wide) in paragraph at lines 335--345
- [] 
- []
-
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-Missing character: There is no ’ in font ptmr8t!
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--358
-[]|\T1/ptm/m/n/12 Punctuation
- []
-
-
-Overfull \hbox (18.70947pt too wide) in paragraph at lines 352--361
- [] 
- []
-
-[22]
-File: Figures/GenreSim_Draw.eps Graphic file (type eps)
-<Figures/GenreSim_Draw.eps>
- [23]
-
-LaTeX Warning: Reference `fiig:GenreSim_Draw' on page 24 undefined on input line 396.
-
-[24]
-
-LaTeX Warning: Citation 'jebari2014pureURL' on page 25 undefined on input line 418.
-
-./Chapters/Relevant_Work.tex:423: Undefined control sequence.
-l.423 ...d Document Frequency (TF-IDF) \parentcite
-                                                  {sharoff2010web,santini200...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Relevant_Work.tex:425: Undefined control sequence.
-l.425 ...ng this scheme in WGI studies \patentcite
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 75.
+ [16]
+./Chapters/Relevant_Work.tex:81: Undefined control sequence.
+l.81 ...quite effective in WGI studies \parentcite
                                                   {kanaris2009learning,sharo...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2840,9 +2485,219 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Relevant_Work.tex:433: Undefined control sequence.
-l.433 \nointend
-                where $f(t,d)$ is the raw frequency of term $t$ in document ...
+
+Overfull \hbox (1.86682pt too wide) in paragraph at lines 81--82
+\T1/ptm/m/n/12 quite ef-fec-tive in WGI stud-ies ka-naris2009learning,sharoff2010web,kumari2014web.
+ []
+
+./Chapters/Relevant_Work.tex:88: Undefined control sequence.
+l.88 \nointend
+               where $A$ is the number of words, $B$ is the number of specia...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:90: Undefined control sequence.
+l.90 ...portant for stylistic purposes \parentcite
+                                                  {sharoff2010web,petrenz201...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:90: Undefined control sequence.
+l.90 ... prepositional components, etc \parentcite
+                                                  {falkenjack2013features,fa...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:90: Undefined control sequence.
+l.90 ...to extract them from documents \parentcite
+                                                  {stamatatos2009survey}. Th...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[17] [18]
+./Chapters/Relevant_Work.tex:126: Undefined control sequence.
+l.126 ...gs frequency in the hypertext \parentcite
+                                                  {kanaris2009learning}. Spe...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:127: Undefined control sequence.
+l.127 ...re found and in what position \parentcite
+                                                  {levering2008using}.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:133: Undefined control sequence.
+l.133 ...ural features is presented in \parentcite
+                                                  {mehler2011integrating}. T...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (21.78693pt too wide) in paragraph at lines 133--134
+[]\T1/ptm/m/n/12 An ap-proach that is based on struc-tural fea-tures is pre-sented in mehler2011integrating.
+ []
+
+[19] [20] [21]
+File: Figures/GenreSim_Draw.eps Graphic file (type eps)
+<Figures/GenreSim_Draw.eps>
+
+
+LaTeX Warning: Reference `fiig:GenreSim_Draw' on page 22 undefined on input line 185.
+
+[22]
+./Chapters/Relevant_Work.tex:212: Undefined control sequence.
+l.212 ...everal sources of information \parentcite
+                                                  {Lim2005}. Usually, textua...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:212: Undefined control sequence.
+l.212 ...e effectiveness of the method \parentcite
+                                                  {kanaris2009learning}.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (0.99094pt too wide) in paragraph at lines 212--213
+\T1/ptm/m/n/12 ally, such com-bi-na-tions in-crease the ef-fec-tive-ness of the method ka-naris2009learning. 
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 299--299
+[]|\T1/ptm/m/n/12 Special char-ac-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--310
+[]|\T1/ptm/m/n/12 Open/closed
+ []
+
+
+Overfull \hbox (4.64063pt too wide) in paragraph at lines 311--311
+[]|\T1/ptm/m/n/12 Functional/content
+ []
+
+
+Underfull \hbox (badness 2310) in paragraph at lines 311--311
+[]|\T1/ptm/m/n/12 Ratio of func-tional words to con-tent
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--312
+[]|\T1/ptm/m/n/12 Sequences of
+ []
+
+
+Overfull \hbox (2.6489pt too wide) in paragraph at lines 315--315
+[]|\T1/ptm/m/n/12 Simple/compound
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--319
+[]|\T1/ptm/m/n/12 Dominant num-
+ []
+
+
+Overfull \hbox (1.85672pt too wide) in paragraph at lines 295--326
+ [] 
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
+[]|\T1/ptm/m/n/12 Descriptive/nominal
+ []
+
+
+Overfull \hbox (30.30948pt too wide) in paragraph at lines 335--359
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--372
+[]|\T1/ptm/m/n/12 Discipline-specific
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 374--374
+[]|\T1/ptm/m/n/12 Compound noun den-
+ []
+
+
+Underfull \hbox (badness 2922) in paragraph at lines 380--380
+[]|\T1/ptm/m/n/12 Coordinating con-ju-ga-
+ []
+
+
+Underfull \hbox (badness 1308) in paragraph at lines 382--382
+[]|\T1/ptm/m/n/12 Evaluation move den-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
+[]|\T1/ptm/m/n/12 Logical con-nec-tive
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+[]|\T1/ptm/m/n/12 Prepositional phrase
+ []
+
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+Missing character: There is no ’ in font ptmr8t!
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
+[]|\T1/ptm/m/n/12 Punctuation
+ []
+
+
+Overfull \hbox (18.30948pt too wide) in paragraph at lines 398--407
+ [] 
+ []
+
+./Chapters/Relevant_Work.tex:411: Undefined control sequence.
+l.411 ...d Document Frequency (TF-IDF) \parentcite
+                                                  {sharoff2010web,santini200...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2850,8 +2705,27 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [25]
-./Chapters/Relevant_Work.tex:453: Extra }, or forgotten $.
-l.453 ...grams of variable length ($n = \{3, 4, 5}
+./Chapters/Relevant_Work.tex:413: Undefined control sequence.
+l.413 ...ng this scheme in WGI studies \patentcite
+                                                  {kanaris2009learning,sharo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:421: Undefined control sequence.
+l.421 \nointend
+                where $f(t,d)$ is the raw frequency of term $t$ in document ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[26]
+./Chapters/Relevant_Work.tex:441: Extra }, or forgotten $.
+l.441 ...grams of variable length ($n = \{3, 4, 5}
                                                   $. Then the \textit{LocalM...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2859,8 +2733,8 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./Chapters/Relevant_Work.tex:455: Undefined control sequence.
-l.455 ...tained from URLs of web-pages \parentcite
+./Chapters/Relevant_Work.tex:443: Undefined control sequence.
+l.443 ...tained from URLs of web-pages \parentcite
                                                   {jebari2014pureURL}. In pa...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2868,8 +2742,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Relevant_Work.tex:474: Undefined control sequence.
-l.474 ...cally using a training corpus \parentcite
+./Chapters/Relevant_Work.tex:462: Undefined control sequence.
+l.462 ...cally using a training corpus \parentcite
                                                   {jebari2014pureURL}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2878,27 +2752,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (52.65398pt too wide) in paragraph at lines 474--475
+Overfull \hbox (52.65398pt too wide) in paragraph at lines 462--463
 []\T1/ptm/m/n/12 Weights $\OMS/ztmcm/m/n/12 f\OML/ztmcm/m/it/12 ^^K\OT1/ztmcm/m/n/12 , \OML/ztmcm/m/it/12 ^^L\OT1/ztmcm/m/n/12 , \OML/ztmcm/m/it/12 ^^M\OMS/ztmcm/m/n/12 g$ \T1/ptm/m/n/12 should be de-fined em-pir-i-cally us-ing a train-ing cor-pus je-bari2014pureURL. 
  []
 
-[26] [27] [28] [29] [30] [31] [32]
-File: Figures/Sotlen_diagram.eps Graphic file (type eps)
-<Figures/Sotlen_diagram.eps>
- [33
-
-] [34]
-Overfull \hbox (0.1989pt too wide) in paragraph at lines 612--613
-[]\T1/ptm/m/n/12 They are dis-cussing of tree main per-cep-tion (psy-chol-ogy) the-o-ries, i.e. Gestaltism
- []
-
-[35]
-
-LaTeX Warning: Reference `chap:relevant_work:sec:features:subsec:heuristics' on page 36 undefined on input line 618.
-
-[36]
-./Chapters/Relevant_Work.tex:631: Undefined control sequence.
-l.631 ...oachims1997probabilistic}. In \parentcite
+[27] [28] [29] [30] [31] [32]
+./Chapters/Relevant_Work.tex:557: Undefined control sequence.
+l.557 ...oachims1997probabilistic}. In \parentcite
                                                   {sharoff2010web} analytica...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2906,13 +2766,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[37]
-Overfull \hbox (1.71141pt too wide) in paragraph at lines 651--652
+[33
+
+]
+Overfull \hbox (1.71141pt too wide) in paragraph at lines 579--580
 \T1/ptm/m/n/12 sem-ble learn-ing meth-ods such as Ad-aBoost, Bag-ging and Ran-dom Forests ([]Sugiyanto
  []
 
-./Chapters/Relevant_Work.tex:657: Undefined control sequence.
-l.657 ...nation} (MCC) is presented in \parentcite
+./Chapters/Relevant_Work.tex:585: Undefined control sequence.
+l.585 ...nation} (MCC) is presented in \parentcite
                                                   {zhu2016exploiting}. Parti...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2920,1291 +2782,1051 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-Overfull \hbox (1.784pt too wide) in paragraph at lines 677--678
+[34]
+Overfull \hbox (1.784pt too wide) in paragraph at lines 605--606
 []\T1/ptm/m/n/12 Another \T1/ptm/m/it/12 late fu-sion \T1/ptm/m/n/12 en-sem-ble is pro-posed in ([]Finn and Kush-m-er-ick, [][]2006[][]). Again,
  []
 
-./Chapters/Relevant_Work.tex:679: Argument of \textbf  has an extra }.
-<inserted text> 
-                \par 
-l.679 \paragraph\textbf{D
-                         omain transfer} is the ability to transfer across m...
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
+[35]
+./Chapters/Relevant_Work.tex:618: Undefined control sequence.
+l.618 ...ned categories plus the noise \parentcite
+                                                  {kennedy2005automatic}. In...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+./Chapters/Relevant_Work.tex:618: Undefined control sequence.
+l.618 ...ite{kennedy2005automatic}. In \parentcite
+                                                  {dong2006binary} noise is ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:618: Undefined control sequence.
+l.618 ...h 600 noise pages. Similarly, \parentcite
+                                                  {levering2008using} use ab...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Chapters/Relevant_Work.tex:618: Undefined control sequence.
+l.618 .... From another point of view, \parentcite
+                                                  {jebari2015combination} co...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (3.7753pt too wide) in paragraph at lines 618--619
+\T1/ptm/m/n/12 con-cate-na-tion of all other pre-de-fined cat-e-gories plus the noise kennedy2005automatic.
+ []
+
+./Chapters/Relevant_Work.tex:624: Undefined control sequence.
+l.624 ...arencite{stubbe2007genre} where a \tetxit
+                                                  {genre specific classifier...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[36]
 Runaway argument?
-./Chapters/Relevant_Work.tex:679: Paragraph ended before \textbf  was complete.
+./Chapters/Relevant_Work.tex:633: Paragraph ended before \end was complete.
 <to be read again> 
                    \par 
-l.679 \paragraph\textbf{D
-                         omain transfer} is the ability to transfer across m...
+l.633 
+      
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-LaTeX Warning: Reference `' on page 38 undefined on input line 679.
+LaTeX Warning: Reference `chap:relevant_work:tbl:stubbe_alg_rules' on page 37 undefined on input line 634.
 
-[38] [39]
-
-LaTeX Warning: Reference `corpus_building' on page 40 undefined on input line 710.
-
-
-LaTeX Warning: Reference `noise' on page 40 undefined on input line 710.
-
-
-LaTeX Warning: Citation 'Asheghi's relative work' on page 40 undefined on input line 710.
-
-[40]
-
-LaTeX Warning: Reference `' on page 41 undefined on input line 727.
-
-[41]
-
-LaTeX Warning: Citation 'jebari2014pureURL' on page 42 undefined on input line 739.
-
-[42]
-./Chapters/Relevant_Work.tex:755: Undefined control sequence.
-l.755 ...roposed from Scholkopf et al. \parencitep
-                                                  {scholkopf1999estimating}.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[43]
-./Chapters/Relevant_Work.tex:763: Undefined control sequence.
-l.763 ...r example in Scholkopf et al. \parencitep
-                                                  {scholkopf1999estimating} ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Relevant_Work.tex:767: Undefined control sequence.
-l.767 ...n this work, and published in \parencitep
-                                                  {pritsos2013open}, is desc...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Reference `alg:OCSVM-Ensemble' on page 44 undefined on input line 767.
-
-./Chapters/Relevant_Work.tex:769: Undefined control sequence.
-l.769 ...on of the method presented in \parencitep
-                                                  {koppel2011authorship}. In...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Reference `alg:RFS-Ensemble' on page 44 undefined on input line 769.
-
-
-Overfull \hbox (14.93481pt too wide) in paragraph at lines 769--770
-[]\T1/ptm/m/n/12 The RFSE al-go-rithm is a vari-a-tion of the method pre-sented in kop-pel2011authorship.
- []
-
-[44]
-
-LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 45 undefined on input line 787.
-
-
-LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 45 undefined on input line 789.
-
-
-Overfull \hbox (2.04654pt too wide) in paragraph at lines 789--790
-[]\T1/ptm/m/n/12 NNRD al-go-rithm is our vari-ant im-ple-men-ta-tion of the pro-posed in ([]Mendes Júnior
- []
-
-./Chapters/Relevant_Work.tex:798: Missing $ inserted.
+./Chapters/Relevant_Work.tex:643: Missing $ inserted.
 <inserted text> 
                 $
-l.798 ...Accuracy}. The balance parameters \lambda
-                                                   regulates the mistakes tr...
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Relevant_Work.tex:799: Missing $ inserted.
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\text@ ...e {\textdef@ \displaystyle \f@size {#1}}
+                                                  {\textdef@ \textstyle \f@s...
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Chapters/Relevant_Work.tex:643: Missing $ inserted.
 <inserted text> 
                 $
-l.799 
-      
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
-Overfull \hbox (97.04884pt too wide) in paragraph at lines 797--799
-\T1/ptm/m/it/12 Sam-ples Ac-cu-racy\T1/ptm/m/n/12 . The bal-ance pa-ram-e-ters $\OML/ztmcm/m/it/12 ^^Uregulatesthemistakestrade \OMS/ztmcm/m/n/12 ^^@ \OML/ztmcm/m/it/12 offontheknownandmarked \OMS/ztmcm/m/n/12 ^^@
- []
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
-[45]
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\text@ ...xtstyle \f@size {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \sf@...
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
-LaTeX Warning: Reference `chap:openset:alg:NNDR_fitting' on page 46 undefined on input line 810.
-
-
-LaTeX Warning: Reference `chap:openset:alg:NNDR_prediction' on page 46 undefined on input line 814.
-
-[46] [47]
-
-LaTeX Warning: Reference `chap:Document_Representation' on page 48 undefined on input line 861.
-
-
-LaTeX Warning: Reference `chap:relative_work:sec:heuristics' on page 48 undefined on input line 864.
-
-
-LaTeX Warning: Citation 'worsham2018genre' on page 48 undefined on input line 866.
-
-
-LaTeX Warning: Citation 'worsham2018genre' on page 48 undefined on input line 870.
-
-[48]
-Overfull \hbox (3.13957pt too wide) in paragraph at lines 874--875
-[]\T1/ptm/m/n/12 In or-der to re-duce the train-ing time and com-pu-ta-tional cost of the word-embedding
- []
-
-
-LaTeX Warning: Reference `word_embedding' on page 49 undefined on input line 878.
-
-[49] [50]
-Overfull \hbox (26.25667pt too wide) in paragraph at lines 920--920
-[]\T1/ptm/b/n/17.28 The Web Genre units: Sec-tion, Page, Site and "Stage" 
- []
-
-[51] [52] [53] [54]
-
-LaTeX Warning: Reference `chap:relevan_work:sec:features' on page 55 undefined on input line 981.
-
-
-Overfull \hbox (30.4387pt too wide) in paragraph at lines 987--987
-[]\T1/ptm/b/n/17.28 Web Genre Cor-pora: An un-fin-ished work in progress 
- []
-
-[55]
-
-LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 56 undefined on input line 993.
-
-./Chapters/Relevant_Work.tex:993: Missing $ inserted.
+./Chapters/Relevant_Work.tex:643: Missing $ inserted.
 <inserted text> 
                 $
-l.993 ...u2017genre,asheghi2014semi} (Ashegi,2018_
-                                                  Book_HistoryFeaturesAndTyp...
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Chapters/Relevant_Work.tex:994: Missing $ inserted.
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\text@ ...tstyle \sf@size {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \ssf...
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Chapters/Relevant_Work.tex:643: Missing $ inserted.
 <inserted text> 
                 $
-l.994 
-      
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
-Overfull \hbox (237.04816pt too wide) in paragraph at lines 993--994
-\T1/ptm/m/n/12 Frantzi, [][]2017[][]; []Asheghi, Mark-ert, and Sharoff, [][]2014[][]) (Ashegi,2018$[]\OML/ztmcm/m/it/12 ook[]istoryFeaturesAndTypologyOfLa[]EB[]EXT[]ORPUS\OT1/ztmcm/m/n/12 .\OML/ztmcm/m/it/12 pdf\OT1/zplm/m/n/12 )\OT1/ztmcm/m/n/12 .$ 
- []
-
-
-LaTeX Warning: Reference `' on page 56 undefined on input line 997.
-
-
-LaTeX Warning: Reference `chap:relevant_work:sec:heuristics' on page 56 undefined on input line 1005.
-
-
-LaTeX Warning: Reference `chap:relevant_work:sec:linguistics_definition' on page 56 undefined on input line 1005.
-
-[56]) [57]
-\openout2 = `Chapters/Open_set_algorithms.aux'.
-
- (./Chapters/Open_set_algorithms.tex [58
-
-
-
-]
-Chapter 3.
-
-./Chapters/Open_set_algorithms.tex:11: LaTeX Error: Command \keyword already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
                                                   
-l.11 \newcommand{\keyword}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\text@ ...style \ssf@size {\firstchoice@false #1}}
+                                                  \check@mathfonts }
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
-./Chapters/Open_set_algorithms.tex:12: LaTeX Error: Command \tabhead already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+./Chapters/Relevant_Work.tex:643: Extra }, or forgotten $.
+\text@ ...firstchoice@false #1}}\check@mathfonts }
                                                   
-l.12 \newcommand{\tabhead}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+l.643 ...Continuous text & $\text{number_of_verbs}
+                                                   > 18 \wedge number_of_con...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
+./Chapters/Relevant_Work.tex:644: Misplaced \cr.
+\reserved@c ->\ifnum 0=`{}\fi \cr 
+                                  
+l.644 ^^I^^IL
+             iterary or casual language & $number _o f _sentiment_bearing_ad...
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-./Chapters/Open_set_algorithms.tex:13: LaTeX Error: Command \code already defined.
-               Or name \end... illegal, see p.192 of the manual.
+./Chapters/Relevant_Work.tex:644: Misplaced alignment tab character &.
+l.644 ^^I^^ILiterary or casual language &
+                                          $number _o f _sentiment_bearing_ad...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.13 \newcommand{\code}[1]{\texttt{#1}}
-                                       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+Missing character: There is no ∧ in font zptmcm7t!
+./Chapters/Relevant_Work.tex:648: Misplaced \cr.
+\reserved@c ->\ifnum 0=`{}\fi \cr 
+                                  
+l.648 ^^I^^IF
+             AQ, Interview, Filter commentaries & $arguing_language < 1.3 \w...
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
+./Chapters/Relevant_Work.tex:648: Misplaced alignment tab character &.
+l.648 ^^I^^IFAQ, Interview, Filter commentaries &
+                                                  $arguing_language < 1.3 \w...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-./Chapters/Open_set_algorithms.tex:14: LaTeX Error: Command \file already defined.
-               Or name \end... illegal, see p.192 of the manual.
+./Chapters/Relevant_Work.tex:650: Misplaced \cr.
+\reserved@c ->\ifnum 0=`{}\fi \cr 
+                                  
+l.650 ^^I^^I\hline
+                  
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.14 \newcommand{\file}[1]{\texttt{\bfseries#1}}
-                                                
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+./Chapters/Relevant_Work.tex:650: Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.650 ^^I^^I\hline
+                  
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
+./Chapters/Relevant_Work.tex:650: You can't use `\hrule' here except with leaders.
+\hline ->\noalign {\ifnum 0=`}\fi \hrule 
+                                         \@height \arrayrulewidth \futurelet...
+l.650 ^^I^^I\hline
+                  
+To put a horizontal rule in an hbox or an alignment,
+you should use \leaders or \hrulefill (see The TeXbook).
 
-./Chapters/Open_set_algorithms.tex:15: LaTeX Error: Command \option already defined.
-               Or name \end... illegal, see p.192 of the manual.
+./Chapters/Relevant_Work.tex:650: Missing number, treated as zero.
+<to be read again> 
+                   \futurelet 
+l.650 ^^I^^I\hline
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.15 \newcommand{\option}[1]{\texttt{\itshape#1}}
-                                                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+./Chapters/Relevant_Work.tex:650: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \futurelet 
+l.650 ^^I^^I\hline
+                  
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
 
-1: section
-[59]
-./Chapters/Open_set_algorithms.tex:45: Undefined control sequence.
-l.45 ...of such classes can be performed by \tetit
-                                                  {zero-shot learning} \pare...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+./Chapters/Relevant_Work.tex:651: Misplaced \crcr.
+\endarray ->\crcr 
+                  \egroup \egroup \@arrayright \gdef \@preamble {}
+l.651 ^^I\end{tabular}
+                      
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-[60]
-File: Figures/closed-set_classification_schema.eps Graphic file (type eps)
-<Figures/closed-set_classification_schema.eps>
-
-Overfull \hbox (2.78902pt too wide) in paragraph at lines 65--66
- [] 
- []
-
-File: Figures/open-set_classification_schema.eps Graphic file (type eps)
-<Figures/open-set_classification_schema.eps>
-
-Overfull \hbox (1.38376pt too wide) in paragraph at lines 74--75
- [] 
- []
-
-[61]
-File: Figures/open_space_risk_schema.eps Graphic file (type eps)
-<Figures/open_space_risk_schema.eps>
-
-Overfull \hbox (2.78902pt too wide) in paragraph at lines 86--87
- [] 
- []
-
-[62] [63] [64]
-Overfull \hbox (9.57043pt too wide) in paragraph at lines 139--140
-[]\T1/ptm/m/n/12 Outlier-SVM is an-other SVM-based al-go-rithm in-tro-duced in ([]Manevitz and Yousef,
- []
-
-[65]
-File: Figures/OCSVM_diagrams.eps Graphic file (type eps)
-<Figures/OCSVM_diagrams.eps>
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 171.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 171.
- [66]
-./Chapters/Open_set_algorithms.tex:182: Undefined control sequence.
-l.182 \nointend
-                subject to:
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Open_set_algorithms.tex:194: Undefined control sequence.
-l.194 \nointent
-                subject to:
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[67]
-./Chapters/Open_set_algorithms.tex:205: Undefined control sequence.
-l.205 \nointend
-                where $k(x,y)$ is a kernel function. Non-zero $\alpha_i$ are...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 233.
-./Chapters/Open_set_algorithms.tex:252: Undefined control sequence.
-l.252 ...levant and redundant features \parentcite
-                                                  {Erfani:2016}. The followi...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[68]
-File: Figures/RFSE_diagrams.eps Graphic file (type eps)
-<Figures/RFSE_diagrams.eps>
- [69] [70]
-Missing character: There is no × in font zptmcm7t!
- [71]
-File: Figures/NNDR_diagrams.eps Graphic file (type eps)
-<Figures/NNDR_diagrams.eps>
-
-./Chapters/Open_set_algorithms.tex:331: Undefined control sequence.
-l.331 ...ation algorithm introduced in \parentcite
-                                                  {mendesjunior2016}, which ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Open_set_algorithms.tex:337: Undefined control sequence.
-l.337 \nointend
-                is higher than a predefined threshold, the new sample is cla...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 337.
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [72]
-./Chapters/Open_set_algorithms.tex:370: Undefined control sequence.
-l.370 \nointend
-                where $A_{KS}$ is the accuracy on known samples and $A_{US}$...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Open_set_algorithms.tex:370: Undefined control sequence.
-l.370 ...nown and "simulated" unknown) \parentcite
-                                                  {mendesjunior2016}.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[73] [74]) [75]
-\openout2 = `Chapters/Evaluation_methodology.aux'.
-
- (./Chapters/Evaluation_methodology.tex [76
-
-
-
-]
-Chapter 4.
-
-./Chapters/Evaluation_methodology.tex:11: LaTeX Error: Command \keyword already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11 \newcommand{\keyword}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Evaluation_methodology.tex:12: LaTeX Error: Command \tabhead already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12 \newcommand{\tabhead}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Evaluation_methodology.tex:13: LaTeX Error: Command \code already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.13 \newcommand{\code}[1]{\texttt{#1}}
-                                       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Evaluation_methodology.tex:14: LaTeX Error: Command \file already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.14 \newcommand{\file}[1]{\texttt{\bfseries#1}}
-                                                
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Evaluation_methodology.tex:15: LaTeX Error: Command \option already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.15 \newcommand{\option}[1]{\texttt{\itshape#1}}
-                                                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 30.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 30.
-
-1: section
-[77]
-Overfull \vbox (7.96541pt too high) detected at line 41
- []
-
-./Chapters/Evaluation_methodology.tex:41: Missing $ inserted.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
 <inserted text> 
-                $
-l.41 ...mn{1}{|c}{A} & \multicolumn{1}{c|}{\neg A}
-                                                   &  \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Chapters/Evaluation_methodology.tex:41: Missing $ inserted.
-<inserted text> 
-                $
-l.41 ...mn{1}{|c}{A} & \multicolumn{1}{c|}{\neg A}
-                                                   &  \\
+                }
+l.651 ^^I\end{tabular}
+                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./Chapters/Evaluation_methodology.tex:44: Missing $ inserted.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
 <inserted text> 
-                $
-l.44 ^^I^^I& \multicolumn{1}{|c}{\neg A}
-                                         & \multicolumn{1}{|c}{FN} &  \multi...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Chapters/Evaluation_methodology.tex:44: Missing $ inserted.
-<inserted text> 
-                $
-l.44 ^^I^^I& \multicolumn{1}{|c}{\neg A}
-                                         & \multicolumn{1}{|c}{FN} &  \multi...
+                }
+l.651 ^^I\end{tabular}
+                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./Chapters/Evaluation_methodology.tex:50: Undefined control sequence.
-l.50 ...ary classification algorithms, the \tetxit
-                                                  {Accuracy} measure can be ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[78]
-./Chapters/Evaluation_methodology.tex:95: Missing $ inserted.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
 <inserted text> 
-                $
-l.95 ...es over the classes. On the other hand, F_
-                                                  {macro} gives equal weight...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Chapters/Evaluation_methodology.tex:96: Missing $ inserted.
-<inserted text> 
-                $
-l.96 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-[79] [80]
-./Chapters/Evaluation_methodology.tex:117: Extra alignment tab has been changed to \cr.
-<template> \endtemplate 
-                        
-l.117 ^^I^^I& & \multicolumn{6}{c}{Actual} &
-                                             \\
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-./Chapters/Evaluation_methodology.tex:119: Missing $ inserted.
-<inserted text> 
-                $
-l.119 ...1}{c}{D} & \multicolumn{1}{c|}{\emptyset}
-                                                   & Sum \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Chapters/Evaluation_methodology.tex:119: Missing $ inserted.
-<inserted text> 
-                $
-l.119 ...1}{c}{D} & \multicolumn{1}{c|}{\emptyset}
-                                                   & Sum \\
+                }
+l.651 ^^I\end{tabular}
+                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./Chapters/Evaluation_methodology.tex:125: Missing $ inserted.
+./Chapters/Relevant_Work.tex:651: Missing $ inserted.
 <inserted text> 
                 $
-l.125 ^^I^^I& \multicolumn{1}{|c}{\emptyset}
-                                             & \multicolumn{1}{|c}{6} & \mul...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Chapters/Evaluation_methodology.tex:125: Missing $ inserted.
-<inserted text> 
-                $
-l.125 ^^I^^I& \multicolumn{1}{|c}{\emptyset}
-                                             & \multicolumn{1}{|c}{6} & \mul...
+l.651 ^^I\end{tabular}
+                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[81] [82]
-File: Figures/prc_macro_micro_count_noise.eps Graphic file (type eps)
-<Figures/prc_macro_micro_count_noise.eps>
-
-Overfull \hbox (4.86375pt too wide) in paragraph at lines 183--185
- [] 
- []
-
-File: Figures/prc_macro_micro.eps Graphic file (type eps)
-<Figures/prc_macro_micro.eps>
-
-Overfull \hbox (4.86375pt too wide) in paragraph at lines 190--191
- [] 
- []
-
-[83] [84]
-./Chapters/Evaluation_methodology.tex:241: Missing $ inserted.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
 <inserted text> 
-                $
-l.241 ^^I^^I0.64 & \emptyset
-                             & B & \xmark \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Chapters/Evaluation_methodology.tex:241: Missing $ inserted.
-<inserted text> 
-                $
-l.241 ^^I^^I0.64 & \emptyset &
-                               B & \xmark \\
+                }
+l.651 ^^I\end{tabular}
+                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./Chapters/Evaluation_methodology.tex:244: Missing $ inserted.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
 <inserted text> 
-                $
-l.244 ^^I^^I0.60 & \emptyset
-                             & D & \xmark \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Chapters/Evaluation_methodology.tex:244: Missing $ inserted.
-<inserted text> 
-                $
-l.244 ^^I^^I0.60 & \emptyset &
-                               D & \xmark \\
+                }
+l.651 ^^I\end{tabular}
+                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[85] [86]
-./Chapters/Evaluation_methodology.tex:280: Undefined control sequence.
-l.280 ...es used in the testing phase) \parentcite
-                                                  {mendesjunior2016}:
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-File: Figures/openness_test_for_f1_scores_example.eps Graphic file (type eps)
-<Figures/openness_test_for_f1_scores_example.eps>
-[87] [88]) [89]
-\openout2 = `Chapters/Experiments_noise.aux'.
-
- (./Chapters/Experiments_noise.tex [90
-
-
-
-]
-Chapter 5.
-
-./Chapters/Experiments_noise.tex:11: LaTeX Error: Command \keyword already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11 \newcommand{\keyword}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Experiments_noise.tex:12: LaTeX Error: Command \tabhead already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12 \newcommand{\tabhead}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Experiments_noise.tex:13: LaTeX Error: Command \code already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.13 \newcommand{\code}[1]{\texttt{#1}}
-                                       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Experiments_noise.tex:14: LaTeX Error: Command \file already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.14 \newcommand{\file}[1]{\texttt{\bfseries#1}}
-                                                
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Experiments_noise.tex:15: LaTeX Error: Command \option already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.15 \newcommand{\option}[1]{\texttt{\itshape#1}}
-                                                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-1: section
-[91] [92]
-./Chapters/Experiments_noise.tex:54: Undefined control sequence.
-l.54 ...nificant stylistic information \parentcite
-                                                  {stamatatos2009survey}.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[93]
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
-
- []
-
-File: Figures/OCSME_Best_per_DocRep.eps Graphic file (type eps)
-<Figures/OCSME_Best_per_DocRep.eps>
-File: Figures/RFSE_Best_per_DocRep.eps Graphic file (type eps)
-<Figures/RFSE_Best_per_DocRep.eps>
-[94]
-Overfull \hbox (1.27821pt too wide) in paragraph at lines 126--127
-[]\T1/ptm/m/n/12 In ad-di-tion, in al-most all cases, RFSE mod-els are far more ef-fec-tive than OCSVM.
- []
-
-File: Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps Graphic file (type eps)
-<Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps>
-PGFPlots: reading {tables_data/AUC_FStatistics_tables/OCSVME_SANTINIS_Best.csv}
-
-Overfull \hbox (18.29791pt too wide) in paragraph at lines 168--169
- [][] 
- []
-
-PGFPlots: reading {tables_data/AUC_FStatistics_tables/RFSE_SANTINIS_Best.csv}
-
-Overfull \hbox (102.30898pt too wide) in paragraph at lines 207--208
- [][] 
- []
-
-[95] [96] [97]
-File: Figures/OCSVME_openness_test_graph.eps Graphic file (type eps)
-<Figures/OCSVME_openness_test_graph.eps>
-File: Figures/RFSE_MIX_openness_test_graph.eps Graphic file (type eps)
-<Figures/RFSE_MIX_openness_test_graph.eps>
-File: Figures/RFSE_Precision_Focus_openness_test_graph.eps Graphic file (type eps)
-<Figures/RFSE_Precision_Focus_openness_test_graph.eps>
- [98
-
-]
-File: Figures/RFSE_vs_OCSVME_W1G.eps Graphic file (type eps)
-<Figures/RFSE_vs_OCSVME_W1G.eps>
- [99] [100] [101]) [102
-
-]
-\openout2 = `Chapters/Word_embedding.aux'.
-
- (./Chapters/Word_embedding.tex
-Chapter 6.
-
-./Chapters/Word_embedding.tex:12: LaTeX Error: Command \keyword already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12 \newcommand{\keyword}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Word_embedding.tex:13: LaTeX Error: Command \tabhead already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.13 \newcommand{\tabhead}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Word_embedding.tex:14: LaTeX Error: Command \code already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.14 \newcommand{\code}[1]{\texttt{#1}}
-                                       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Word_embedding.tex:15: LaTeX Error: Command \file already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.15 \newcommand{\file}[1]{\texttt{\bfseries#1}}
-                                                
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./Chapters/Word_embedding.tex:16: LaTeX Error: Command \option already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 \newcommand{\option}[1]{\texttt{\itshape#1}}
-                                                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./Chapters/Word_embedding.tex:26: Undefined control sequence.
-l.26 ...xtit{embeddings} introduced in \parentcite
-                                                  {mikolov2013distributed}.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-1: section
-[103
-
-
-
-]
-./Chapters/Word_embedding.tex:46: Undefined control sequence.
-l.46 ...{singular value decomposition} \parentcite
-                                                  {kontostathis2006framework...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:46: Undefined control sequence.
-l.46 ...d as a distribution over words \parentcite
-                                                  {blei2003latent}.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:52: Undefined control sequence.
-l.52 ...re learned by a neural network \parentcite
-                                                  {mikolov2013efficient}. Th...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:52: Undefined control sequence.
-l.52 ...e between "queen" and "woman") \parentcite
-                                                  {mikolov2013efficient}.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[104]
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 54.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
-File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-)
-File: Figures/CBOW_diagram.eps Graphic file (type eps)
-<Figures/CBOW_diagram.eps>
-
-./Chapters/Word_embedding.tex:104: Undefined control sequence.
-l.104 \nointdent
-                 where $y_{t_i}$ is the output vector for term $t_i$.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:112: Undefined control sequence.
-l.112 \nointend
-                where $k$ is the number of context words to be predicted, $S...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[105]
-File: Figures/skip_gram.eps Graphic file (type eps)
-<Figures/skip_gram.eps>
- [106]
-Overfull \hbox (7.29228pt too wide) in paragraph at lines 136--137
-[]\T1/ptm/m/n/12 To sum-ma-rize, the above mod-els are very ef-fec-tive \T1/ptm/m/it/12 Lan-guage Mod-el-ing \T1/ptm/m/n/12 ap-proaches
- []
-
-[107]
-./Chapters/Word_embedding.tex:138: Undefined control sequence.
-l.138 ...cant acceleration in training \parentcite
-                                                  {mikolov2013efficient,mitr...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:142: Undefined control sequence.
-l.142 ...e given its context sentences \parentcite
-                                                  {kenter2016}. Another idea...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:142: Undefined control sequence.
-l.142 ...rs and word n-gram embeddings \parentcite
-                                                  {pagliardini-etal-2018-uns...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:144: Undefined control sequence.
-l.144 ...2Vec} approach, introduced in \parentcite
-                                                  {le2014distributed}, that ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./Chapters/Word_embedding.tex:146: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.146 \usepackage
-                 {authblk}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[108]
-File: Figures/pvbow.eps Graphic file (type eps)
-<Figures/pvbow.eps>
-
-
-LaTeX Warning: Citation 'posadas2017application' on page 109 undefined on input line 172.
-
-./Chapters/Word_embedding.tex:174: Undefined control sequence.
-l.174 ...ral text classification tasks \parentcite
-                                                  {le2014distributed}. Its m...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[109] [110]
-./Chapters/Word_embedding.tex:184: Undefined control sequence.
-l.184 ...ed separately as suggested in \parentcite
-                                                  {posadas2017application}. ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:198: Undefined control sequence.
-l.198 ..., and $F_1$ measures are used \parentcite
-                                                  {mendesjunior2016}. Note a...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[111]
-
-LaTeX Warning: Reference `' on page 112 undefined on input line 206.
-
-
-LaTeX Warning: Reference `' on page 112 undefined on input line 206.
-
-./Chapters/Word_embedding.tex:212: Missing $ inserted.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
 <inserted text> 
-                $
-l.212 ...bda$ & Features & Dim. & $P_{macro}$ & R_
-                                                  {macro} & $AUC_{macro}$ & ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Chapters/Word_embedding.tex:212: Missing $ inserted.
-<inserted text> 
-                $
-l.212 ...atures & Dim. & $P_{macro}$ & R_{macro} &
-                                                   $AUC_{macro}$ & $F_1^{mac...
+                }
+l.651 ^^I\end{tabular}
+                      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
+./Chapters/Relevant_Work.tex:651: Missing $ inserted.
+<inserted text> 
+                $
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-Overfull \hbox (8.11668pt too wide) in paragraph at lines 210--219
- [] 
- []
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
+<inserted text> 
+                }
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-File: Figures/NNDR_W3G.eps Graphic file (type eps)
-<Figures/NNDR_W3G.eps>
-[112] [113]
-Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 294 replaced by U+FFFD.
-File: Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps Graphic file (type eps)
-<Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines.eps>
- [114] [115]
-./Chapters/Word_embedding.tex:304: Undefined control sequence.
-l.304 ...sing results in other domains \parentcite
-                                                  {mendesjunior2016}. Our ex...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
+<inserted text> 
+                }
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
+<inserted text> 
+                }
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-Overfull \hbox (4.67525pt too wide) in paragraph at lines 308--309
-[]\T1/ptm/m/n/12 Further re-search could fo-cus on more ap-pro-pri-ate dis-tance mea-sures within NNDR
- []
+./Chapters/Relevant_Work.tex:651: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.651 ^^I\end{tabular}
+                      
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
 
-) [116
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
+<inserted text> 
+                }
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-]
-\openout2 = `Chapters/Conclusions.aux'.
+./Chapters/Relevant_Work.tex:651: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.651 ^^I\end{tabular}
+                      
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
 
- (./Chapters/Conclusions.tex
-Chapter 7.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
+<inserted text> 
+                }
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-./Chapters/Conclusions.tex:10: LaTeX Error: Command \keyword already defined.
-               Or name \end... illegal, see p.192 of the manual.
+./Chapters/Relevant_Work.tex:651: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.651 ^^I\end{tabular}
+                      
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10 \newcommand{\keyword}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
+<inserted text> 
+                }
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
+./Chapters/Relevant_Work.tex:651: Missing } inserted.
+<inserted text> 
+                }
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-./Chapters/Conclusions.tex:11: LaTeX Error: Command \tabhead already defined.
-               Or name \end... illegal, see p.192 of the manual.
+./Chapters/Relevant_Work.tex:651: Missing $ inserted.
+<inserted text> 
+                $
+l.651 ^^I\end{tabular}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11 \newcommand{\tabhead}[1]{\textbf{#1}}
-                                          
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+./Chapters/Relevant_Work.tex:652: Missing } inserted.
+<inserted text> 
+                }
+l.652 \end{table}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-./Chapters/Conclusions.tex:12: LaTeX Error: Command \code already defined.
-               Or name \end... illegal, see p.192 of the manual.
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12 \newcommand{\code}[1]{\texttt{#1}}
-                                       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-./Chapters/Conclusions.tex:13: LaTeX Error: Command \file already defined.
-               Or name \end... illegal, see p.192 of the manual.
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.13 \newcommand{\file}[1]{\texttt{\bfseries#1}}
-                                                
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-./Chapters/Conclusions.tex:14: LaTeX Error: Command \option already defined.
-               Or name \end... illegal, see p.192 of the manual.
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.14 \newcommand{\option}[1]{\texttt{\itshape#1}}
-                                                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-)
-1: section
-[117
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-] [118
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-]
-Missing character: There is no ’ in font ptmr8t!
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-Overfull \hbox (16.44656pt too wide) in paragraph at lines 191--191
-[][]\T1/ptm/m/n/12 Asheghi, Noushin Reza-pour, Katja Mark-ert, and Serge Sharoff (2014). ^^P  Semi-supervised
- []
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-1: section
-[119]
-Overfull \hbox (10.91211pt too wide) in paragraph at lines 191--191
-[][]\T1/ptm/m/n/12 Feldman, S. et al. (2009). ^^P  Clas-si-fy-ing fac-tored gen-res with part-of-speech his-tograms^^Q.
- []
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-[120]
-Overfull \hbox (1.07516pt too wide) in paragraph at lines 191--191
-\T1/ptm/m/n/12 dimensional anal-y-sis^^Q. In: \T1/ptm/m/it/12 Jour-nal of En-glish for Aca-demic Pur-poses \T1/ptm/m/n/12 22, pp. 119^^U
- []
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-Overfull \hbox (33.72319pt too wide) in paragraph at lines 191--191
-\T1/ptm/m/n/12 for text cat-e-go-riza-tion^^Q. In: \T1/ptm/m/it/12 Ma-chine Learning-International Work-shop then Conference-
- []
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-[121]
-Overfull \hbox (0.10245pt too wide) in paragraph at lines 191--191
-\T1/ptm/m/n/12 genre clas-si-fi-ca-tion: Im-pact of n-gram lengths^^Q. In: \T1/ptm/m/it/12 In-ter-na-tional Jour-nal of Com-
- []
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-Overfull \hbox (8.03127pt too wide) in paragraph at lines 191--191
-[][]\T1/ptm/m/n/12 Lieungnapar, Angvar-rah, Richard Wat-son Todd, and Wan-napa Trakulka-sem-suk (2017).
- []
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-[122]
-LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 191.
- [123]
-Missing character: There is no ’ in font ptmr8t!
- [124]
-Overfull \hbox (2.80392pt too wide) in paragraph at lines 191--191
-\T1/ptm/m/n/12 GENRE FOR WEB PAGE GENRE CLAS-SI-FI-CA-TION^^Q. In: \T1/ptm/m/it/12 JUTI: Ju-r-nal Ilmiah
- []
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-[125]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
- (./PhD_Thesis.aux (./Chapters/Introduction.aux) (./Chapters/Relevant_Work.aux) (./Chapters/Open_set_algorithms.aux) (./Chapters/Evaluation_methodology.aux) (./Chapters/Experiments_noise.aux) (./Chapters/Word_embedding.aux) (./Chapters/Conclusions.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 194.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 194.
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-LaTeX Warning: There were undefined references.
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-LaTeX Warning: There were multiply-defined labels.
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                PhD_Thesis
-(biblatex)                and rerun LaTeX afterwards.
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
 
-Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
-\openout1 = `PhD_Thesis.run.xml'.
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
- )
-(\end occurred when \ifx on line 161 was incomplete) 
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+I'm guessing that you meant to end an alignment here.
+
+./Chapters/Relevant_Work.tex:652: Misplaced \cr.
+<inserted text> \cr 
+                    
+l.652 \end{table}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Chapters/Relevant_Work.tex:652: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.652 \end{table}
+                 
+(That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 58474 strings out of 493007
- 1336094 string characters out of 6136720
- 1761846 words of memory out of 5000000
- 61608 multiletter control sequences out of 15000+600000
- 634015 words of font info for 167 fonts, out of 8000000 for 9000
+ 57545 strings out of 493007
+ 1310357 string characters out of 6136720
+ 1712387 words of memory out of 5000000
+ 60760 multiletter control sequences out of 15000+600000
+ 616401 words of font info for 128 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,21n,128p,10452b,6136s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,24n,128p,10452b,4951s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on PhD_Thesis.pdf (133 pages).
+Output written on PhD_Thesis.pdf (42 pages).

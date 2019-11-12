@@ -4,10 +4,6 @@ The top-level auxiliary file: PhD_Thesis.aux
 The style file: biblatex.bst
 A level-1 auxiliary file: Chapters/Introduction.aux
 A level-1 auxiliary file: Chapters/Relevant_Work.aux
-White space in argument---line 626 of file PhD_Thesis.aux
- : \citation{Asheghi's
- :                     relative work}
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: Chapters/Open_set_algorithms.aux
 A level-1 auxiliary file: Chapters/Evaluation_methodology.aux
 A level-1 auxiliary file: Chapters/Experiments_noise.aux
@@ -27,10 +23,9 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 20568 items from 5000.
+Reallocated field_info (elt_size=4) to 18761 items from 5000.
 Database file #1: PhD_Thesis-blx.bib
 Database file #2: PhD_Thesis.bib
-Warning--I didn't find a database entry for "worsham2018genre"
 Warning--I didn't find a database entry for "posadas2017application"
 Biblatex version: 3.8
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
@@ -323,45 +318,45 @@ Too many commas in name 1 of "Lim, C. S., {\relax Lee, } K. J., , {\relax Kim, }
 while executing---line 2749 of file biblatex.bst
 Too many commas in name 1 of "Lim, C. S., {\relax Lee, } K. J., , {\relax Kim, }, G. C." for entry Lim2005
 while executing---line 2749 of file biblatex.bst
-You've used 110 entries,
+You've used 98 entries,
             6268 wiz_defined-function locations,
-            1776 strings with 28626 characters,
-and the built_in function-call counts, 668183 in all, are:
-= -- 45551
-> -- 13370
-< -- 4060
-+ -- 16369
-- -- 4882
-* -- 51515
-:= -- 65134
+            1722 strings with 26623 characters,
+and the built_in function-call counts, 605895 in all, are:
+= -- 41610
+> -- 12026
+< -- 3668
++ -- 14860
+- -- 4407
+* -- 46937
+:= -- 59297
 add.period$ -- 0
-call.type$ -- 110
-change.case$ -- 2280
+call.type$ -- 98
+change.case$ -- 2055
 chr.to.int$ -- 30
-cite$ -- 218
-duplicate$ -- 72496
-empty$ -- 61699
-format.name$ -- 8078
-if$ -- 138672
+cite$ -- 194
+duplicate$ -- 65278
+empty$ -- 55829
+format.name$ -- 7261
+if$ -- 125686
 int.to.chr$ -- 0
-int.to.str$ -- 310
+int.to.str$ -- 278
 missing$ -- 0
-newline$ -- 3913
-num.names$ -- 5807
-pop$ -- 37918
+newline$ -- 3525
+num.names$ -- 5196
+pop$ -- 33796
 preamble$ -- 1
-purify$ -- 2952
+purify$ -- 2662
 quote$ -- 0
-skip$ -- 21492
+skip$ -- 19280
 stack$ -- 0
-substring$ -- 73633
-swap$ -- 18972
-text.length$ -- 3187
-text.prefix$ -- 110
+substring$ -- 67997
+swap$ -- 17068
+text.length$ -- 2874
+text.prefix$ -- 98
 top$ -- 1
-type$ -- 3719
+type$ -- 3311
 warning$ -- 0
-while$ -- 7900
+while$ -- 7144
 width$ -- 0
-write$ -- 3804
-(There were 145 error messages)
+write$ -- 3428
+(There were 144 error messages)
