@@ -168,7 +168,7 @@ The first open-set WGI method introduced in this thesis follows the OCC paradigm
 \begin{figure}[t]
 	\begin{center}
     	\includegraphics[scale=0.70]{Figures/OCSVM_diagrams.eps}
-		\caption{One-Class SVM function algorithm. The optimization procedure is aiming to find the contour (at (a)) which is including the single class samples available. To do so, the origin is considered as outlier (at (b)) or the only negative samples for the $\nu$-SVM algorithm at the begin of the optimization process.}
+		\caption{One-class SVM algorithm. (a) The positive examples of the target class in the original feature space. (b) The examples in the mapped space (through the kernel function $K(x,y)$) where the origin plays the role of the only negative sample. The algorithm attempts to maximize the margin $\rho$ allowing some outliers.}
 		\label{chap:openset:fig:ocsvm_single_class}
 	\end{center}
 \end{figure}
@@ -259,10 +259,11 @@ WGI tasks are usually associated with high dimensional data. In addition, the ki
 \begin{figure}[t]
 	\begin{center}
     	\includegraphics[scale=0.70]{Figures/RFSE_diagrams.eps}
-		\caption{RFSE optimization procedure for multi-class classification. Several Random sub-spaces from the original feature space are selected and one distance is measured for this sub-space (or one learner if formed). Then the class where most of the learners are voting for is the one been selected to be assigned to an arbitrary samples. However, if the voting score is lower than the $\sigma$ threshold then the sample is considered as unknown (or outlier)}
+		\caption{The RFSE algorithm. Several distance-based learners are applied on random feature subsets. A threshold $\sigma$ is used to decide if a new web-page will be left unclassified.}
 		\label{chap:openset:fig:rfse_single_decision}
 	\end{center}
 \end{figure}
+
 
 A distance-based open-set classification method has been introduced in \parencite{koppel2011authorship} aiming to handle the task of \textit{Author Identification} where similar types of problems exist with respect to WGI. In the original approach, as shown in figure \ref{chap:openset:fig:rfse_single_decision}, there is only one training example for each known class and a number of simple classifiers is repetitively learned based on random feature subspacing (i.e., a randomly-selected number of features is used). Each classifier uses a similarity measure to estimate the most likely class for a given new sample. The main idea is that it is more likely for the true class to be selected by the majority of the classifiers since the used subset of features will still be able to reveal the high similarity. If, on the other hand, there is no prevailing class, then the new sample is not assigned to any of the known classes. Note that in author identification we are mainly interested about stylistic similarities. The style of the author (of genre) can be captured by many different features so a subset of them will also contain enough stylistic information (redundant features). Since WGI is also a style-based text categorization task, this idea should also work for it.
 
@@ -323,7 +324,7 @@ The approaches we consider so far use the positive training instances for the av
 \begin{figure}[t]
 	\begin{center}
     	\includegraphics[scale=0.70]{Figures/NNDR_diagrams.eps}
-		\caption{NNDR optimization procedure for multi-class classification. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. In (a) the $s$ is clearly closed to the $t$ where in (b) the distance $d(s,t)$ and $d(s,t)$ are almost the same. Also, the $s$ is far and thus the classification decision is difficult and the \textit{open space risk} is high.}
+		\caption{Examples of applying the NNDR algorithm. Training examples of two known classes (+,*) are given. To classify a new sample $s$, the distance to its nearest neighbor $t$ and to the nearest neighbor of another class $u$ (with respect to $t$) is calculated. In (a) $s$ the ratio of these distances is small and $s$ is classified to class *.  In (b) the ratio of distances $d(s,t)$ and $d(s,t)$ is high and $s$ is left unclassified.}
 		\label{chap:openset:fig:NNDR_single_decision}
 	\end{center}
 \end{figure}

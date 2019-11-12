@@ -1,7 +1,7 @@
 %!TeX spellcheck = en-US
 
 %\chapter{Web Genre Identification: A Survey}
-\chapter{Relevant work}
+\chapter{Relevant Work}
 
 \label{chap:relevant_work}
 
@@ -18,6 +18,21 @@
 
 \section{Introduction}\label{chap:relevant_work:sec:intro}
 
+This chapter describes previous work in genre recognition. First, the notion of genre is discussed using approaches from different disciplines and background. Important aspects of genre are noted and a general definition that is adopted in this study is provided.
+
+In general, genre recognition is viewed as a text classification task. Thus, the main issues that are studied are the following:
+
+\begin{itemize}
+    \item Represent documents in a feature space.
+    \item Learn a model that can distinguish between classes.
+\end{itemize}
+
+Genre-related information can be extracted from various sources. Since genre is mainly associated with form, structure, and communicative purpose of documents, features can relate to textual content, visual appearance, URL and graph of interlined web-pages, etc. In addition, as concerns textual features, information about style is far more important than topic of documents. The existing approaches to define suitable representations are analytically described. We include in this discussion both AGI and WGI tasks.
+
+There is also a great variety of classification algorithms applied to genre recognition tasks. These include general-purpose ML methods and approaches specifically-built for these tasks. Special emphasis is given in the type of classification setup adopted by existing approaches, mainly whether a closed-set or an open-set scenario is followed.
+
+Finally, we present an overview of existing resources to evaluate WGI approaches. A list of corpora used in previous studies and their main characteristics are described. 
+
 \section{The Notion of Genre}
 \label{chap:relevant_work:sec:definitions}
 
@@ -33,6 +48,17 @@ The discipline of the \textit{English for Academic Purposes} (EAP) has vividly d
 
 The utility of text genre identification has been realized by the journalism professionals. There are well-defined structures and guidelines given by newspaper editors about how to present, e.g. news articles. The structure consists of abstract elements and they follow specific paradigms, like the \textit{inverted pyramid} (i.e., contents are structured from the most important to the least important information), \textit{Martini Glass} (i.e., it first presents a summary of the story, then an inverted pyramid and finally a chronological elaboratio), \textit{Kabob} (i.e., it starts with an anecdote, continues with the main story and closes with a general discussion) and \textit{Narrative} (i.e., it presents a chronological sequence of events) \parencite{dai2018fine}.
 
+Some terms used in relevant literature, like \textit{register}, and \textit{text type} seem very relent to genre. Actually, they are used interchangeably, complimentary and even contradictory \parencite{melissourgou2017genre}. Although the exact definitions of these terms deviate according to the scholar and their background, text type is generally associated with linguistic properties of documents. Register usually refers to non-linguistic terms like the purpose of communication, the relation between speaker and hearer etc. Genre can be viewed as more general than both text type and register since it combines linguistic and non-linguistic information. 
+
+%One could attempt to describe the connection of these terms in a mathematical equations such as follows:  
+
+%\begin{equation}\label{eq:genre_notion_in_math}
+%	G  \subseteq P \uplus F \uplus T \uplus M
+%\end{equation}
+
+%\noindent
+%where $G$ refers to genre, $P$ is the communicative purpose and $F, T, M$ are the "register's" components. $F$ is the \textit{field} which answers to the question of \textit{Why?} the text was composed. $T$ is the \textit{tenor} which answers the question of \textit{Who?} or/and to \textit{Whom?} the text was written. $M$ is the \textit{mode} which is the text's form. Note, that G is not exactly equal to their sum of these components of the text, because, some topic counterparts are also genre indicators, although topic is orthogonal to the genre. However, there are several cases where topic indicator are also useful as genre indicators and discussed in section \ref{chap:relevant_work:sec:heuristics}. In addition, we humans recognize the genre by using topic counters parts which it been shown in some cognitive experiments on genre identification in \parencite{clark2014you, lieungnapar2017genre} (briefly explained in section \ref{chap:relevant_work:sec:linguistics_definition}).
+
 From a computational analysis point of view, genre (and genre taxonomy) is important as a classification factor to distinguish between documents. Genre labels are defined according to their association with practical applications rather than based on a rigid theoretical background \parencite{kanaris2009learning,santini2007automatic}. Genre identification is a style-based text categorization task. Another similar task is authorship attribution where the focus is on identifying the \textit{personal style} of the author \parencite{stamatatos2009survey,koppel2011authorship,koppel2014determining}. On the other hand, genre is mainly regarded as a \textit{group style}. Foe example scientists use a common form of language to write research papers, journalists describe news events and their opinion using similar patterns, bloggers express their beliefs and interests based on similar structures, etc.
 
 As concerns web genres (and their respective taxonomy), the utilities and opportunities that can provide as well as the difficulties they impose have been eloquently analyzed. It has been pointed out that the genre taxonomy summarizes the type and style of texts in a single term as a communicative act \parencite{de2009genre}. In the domain of WGI, usually a web genre palette is defined usually obtained from a top-down approach, where a group of domain-experts design the taxonomy based on specific objectives of the task \parencite{crowston2011problems}. Moreover, the genre palette may flat or hierarchically-structured \parencite{wu2010fine}. The former assumes that genre labels are independent while the latter defines a hierarchy of genres and sub-genres. Another important issue is whether a web-page should belong to exactly one genre label or page segmentation should be applied first and then each segment should be assigned to a genre label  \parencite{madjarov2015web,jebari2015combination}. 
@@ -41,7 +67,7 @@ As described so far, there is agreement for the criteria which are defining the 
 
 Considering the above discussion, it is clear that the notion of web genre depends on the use of this information. In this thesis, our approach is influenced by the use of web genres as a classification factor in order to enhance the potential of information retrieval systems. In particular, we use the following definition:
 
-\begin{definition} A web genre is a class of web documents. Every web-page is always derived under a unique class distribution and the class distributions are not overlapped.
+\begin{definition} A web genre is a class of web documents that share form, structure, and communicative purpose properties. Every web-page is always derived under a unique class distribution and the class distributions are not overlapped.
 \end{definition}
 
 \section{Representation of Genre-related Information}
@@ -53,6 +79,13 @@ The textual content of a document is the most analyzed source of text-related in
 There is a great variety of textual features than can be extracted from documents and be used in genre recognition \parencite{kanaris2009learning,kumari2014web,levering2008using,Lim2005,mason2009n,onan2018ensemble,petrenz2011stable,sharoff2010web,Nooralahzadeh2014}. The main categories of such features are described below.
 
 One simple way to represent documents is based on n-grams of either words or characters. This is a language-independent approach and has been demonstrated to be quite effective in WGI studies \parentcite{kanaris2009learning,sharoff2010web,kumari2014web}. In addition, surface features that are considered important to quantify stylistic properties of documents, such as statistics (i.e., count, mean, max, etc.) of word length (in characters), sentence length (in words), paragraph length (in words), capitalized word, lowercase word, punctuation marks, type/token ratio etc. \parencite{feldman2009classifying,santini2005linguistic,onan2018ensemble}. All these features attempt to represent information operating on lexical or character level. 
+
+Another popular idea is to attempt to quantify the difficulty of understanding the information included in documents by using \textit{readability assessment} features. The main purpose of developing such features is to help in the evaluation of a text with respect to measure the degree of comprehension by the reader. Examples of readability assessment features are the word variation index (OVIX), the nominal ratio (NR) and LIX \parencite{falkenjack2013features}:
+
+\begin{equation} \label{chap:relevant_work:eq:LIX}
+	LIX = \frac{A}{B} + \frac{C \cdot 100}{A}
+\end{equation}
+\nointend where $A$ is the number of words, $B$ is the number of special characters (i.e., colon, period, capital fist letter), and $C$ is the number of long words (more than 6 letters for the English language). 
 
 A more sophisticated type of features concerns the syntactic properties of documents since the grammar of sentences is considered important for stylistic purposes \parentcite{sharoff2010web,petrenz2011stable}. Moreover, this information is less likely to depend on topic of documents in comparison to lexical and character features. The simplest form of capturing syntactic information is the use of part-of-speech (POS) n-grams where the texts are analyzed by a POS tagger that assigns a tag in each word and then sequences of POS tags are counted. Other syntactic features are based on a more elaborate analysis of documents by NLP tools, like full syntactic parsers. Examples of such syntactic features include average dependency distance, ratio of dependencies, sentence depth (in dependency terms), unigram dependency type (based on token terms), average verbal arity, unigram verbal arity, tokens per clause, number of prepositional components, etc \parentcite{falkenjack2013features,falkenjack2016exploratory}. A major weakness of such features is that their usefulness depend on the accuracy of the NLP tools used to extract them from documents \parentcite{stamatatos2009survey}. This is especially crucial in case the documents that have been used for training the NLP tools significantly differ from the documents we want to analyze.
 
@@ -70,82 +103,23 @@ This approach defines \textit{Range} as the interval between the initial an the 
 
 \begin{enumerate}
 \item FP is the time duration before the first occurrence of the symbol in a document (i.e., the period before the first occurrence divided by the total number of characters into the document).
-\item LP is the time duration after the last occurrence of the symbol (i.e., the period after the last occurrence divided by the total number of terms)
-\item AP is the average period ratio as in equation \ref{chap:relevant_work:sec:word_embendding}.
-\end{enumerate}
+\item LP is the time duration after the last occurrence of the symbol (i.e., the period after the last occurrence divided by the total number of characters)
+\item AP is the average period ratio calculated as follows:
 
 \begin{equation}\label{chap:relevant_work:sec:word_embendding}
-	AP  =
+	AP(s,d)  =
       \begin{cases}
-        \frac{N - T}{T \cdot I^{max}}, I^{max} > 0  \\
-        1, I^{max} = 0 \\ 
+        \frac{\vert d \vert - (f_s +1)}{max(P_s)(\vert d \vert - (f_s +1))}, max(P_s) > 0  \\
+        1, max(P_s) = 0 \\ 
        \end{cases}
 \end{equation}
 
 \noindent
-where $T$ is the term's number of occurrences plus $1$, $N$ id the total number of pages terms and $I^{max}$is the maximum number of characters found between two consecutive occurrences of the term. The more harmonic the distribution of a terms in a documents the more the $AP$ is closer to $1$.
+where $f_s$ is the frequency of symbol $s$ in document $d$, $P_s$ is the set of periods between all consecutive occurrences of $s$ in $d$ and $\vert d \vert$ is the length in characters of $d$. 
 
-The HDR vocabulary modeling in the \textit{7-Web} genres corpus managed to return a accuracy score $0.96$ with the SVM algorithm in a closed set classification experimental setup.
-
-Alternative methods and similar the HDR is the \textit{Pointwize Mutual Information (PMI)}. It is the Post-processing of the resulting modeled vectors. Such example is the \textit{unsupervised Post-processing via Conceptors (or Conceptor Negation)}. The main concept is to suppress the outages frequencies using PCA, SVD and most recently Conceptors Negation. The latest is a methodology (unsupervised) of Conceptors are a family of regularized identity maps introduced by (Jaeger 2014 ???) where a linear transformation is taking place minimizing a loss function similar to the PCA process. However, this methodology on the contrary to the PCA is a "Soft" regularization or "Soft" noise filtering, while PCA is considered "Hard". In both cases by projecting the data-point to the prediction space we are able to filter the noise (or outages) samples (CITE Unsupervised Post-processing of Word Vectors via Conceptor Negation ).
-
-To begin with, it shown that the \textit{Writing Style Features} and \textit{Key Event Placement (KEP) Features} are improving significantly the performance of the SVM classifier \parencite{dai2018fine}.  The writing style features are extracted as a combination of  other complex features, i.e. the combination of \textit{grammar production rules (GPR} and features from a semantic category of a \textit{Linguistic Inquiry and Word count (LIWC)} dictionary. GPR are the combination of POS and word lexical rules. LIWC is a sophisticated dictionary of occurrences of word from a word category. The KEP is a set of text formatting features, or "landmarks", such as \textit{specific characters, time, location} at specific areas of the text. In practice it is the \textit{words overlapping count} between the \textit{first paragraph} and \textit{the title} of a document. The combination of these structured based features has improved the macro-F1 performance.
-
-\subsection{Combination of Features}
-
-As registers are also considered as genres then there is also a set of heuristics have been used for a classification for this taxonomy. Particularly in \parencite{onan2018ensemble} Language Function Analysis (LFA) has been introduced for a classification task on a taxonomy of \textit{Expressive, Appellative,} and \textit{Informative} classes. The LFA is combining features that successfully used for Authorship Attribution (AA), Linguistic Features (LF), Character n-grams (CNG), Part of Speech n-grams (POSNG), and the frequency of the most discriminative words (MDW). 
-
-\begin{itemize}
-\item Features used in authorship attribution (AA) usually are words, POS n-grams, character n-grams, capitalized words, lowercase words frequency, punctuation and quotation marks frequencies. 
-\item Linguistic features (LF) usually are time and money entities, POS, personal pronouns, possessive pronouns, adjectives and nouns frequencies. 
-\item Character n-grams (CNG) usually means their frequency of the n-grams, over a specific frequency threshold, say at least 4 times occurrence. 
-\item Part of speech n-grams (POSNG) same as CNG but for POS.
-\item The frequency of the most discriminative words (MDW) this is usually task dependent.
-\end{itemize}
-
-\parencite{waltinger2010feature} The features suggested (but not constrained) for this algorithm and for the WGI task are the following:
-
-\begin{enumerate}
-\item Word n-grams, Character n-grams, Word uni-grams and POS n-grams
-\item Superficial and Structural such as the sentence length and the divisions number, and the paragraph length, concerning of the HTML text formatting.
-\item HTML tag frequency in their logical structure, e.g. the number of <p></p> tags in total by ignoring the special cases of attributes or style sheets than might contain individually.
-\item HTML Attribute Frequency same as in tags case.
-\item First-Last tag frequency the x number of  the first occurring html tags and the y number of the last occurring tags.
-\item Name entities frequency based on an entity recognition heuristic engine.
 \end{enumerate}
 
-In order to take into account all the above features contribution to the WGI task, a \textit{weighted sum all the} $IM^{k}_{mn}$ scores is calculated by the equation \ref{eq:ranking_distance_weighted_sumsum}
-
-\begin{equation}\label{eq:ranking_distance_weighted_sumsum}
-	C_{g} = \sum_{k=1}^{F} \delta_{k} \cdot IM_{mn}^{k}
-\end{equation}
-Where $C_{g}$ is the similarity score for the a genre of the taxonomy, and $\delta_{k}$ is the weight of the $k$ feature set from all $F$ features, where is under the constraint co $\sum_{k=1}^{F} \delta_{k} = 1$.
-
-Readability Assessment Features (RAF) have also been tested for the WGI/AGI task. Moreover, a primitive attempt also presented related to these features where they have been evaluated (and compared to other features) in their effectiveness on different taxonomies. Particularly they compared on the \textit{Domain-taxonomy} and the \textit{Genre-taxonomy} \parencite{falkenjack2016exploratory}.
-
-Although, there is a ambiguity in the research literature related to the Domain/Genre definition, usually the genre considers to be (as explained in section \ref{chap:relevant_work:sec:definitions}) more abstract and related to \textit{the texts organization, rhetorical structure, length, syntax, morphology} and \textit{vocabulary richness}. Domain is more related to the \textit{General topic of a group of text}. Consequently, \textit{Sports} as category is considered to be a Domain while \textit{Academic papers} are considered Genres.
-
-It has been shown that genre-taxonomy ML classification is benefit by the use of RAF while the domain-taxonomy does not. 
-
-The RAF are very old in because they are studied since 1920 where their main purpose is to help in the evaluation of a text in respect the ease in reading and comperhation by the abilities of the reader. Although, the function includes two (2) variables the research is mainly focusing on the aspect of the evaluation of the text side only. 
-
-The most basic metrics are LIX metric (see eq \ref{chap:relevant_work:eq:LIX}) , OVIX (Word Variation Index) and NR (Nominal ratio) metric. However, since the evolution of ML there are several other text information have been evaluated and also used in combination with the basic metrics \parencite{falkenjack2013features}.
-
-\begin{equation} \label{chap:relevant_work:eq:LIX}
-	LIX = \frac{A}{B} + \frac{C \cdot 100}{A}
-\end{equation}
-\nointend where $A$ is the number of words, $B$ is the number of special characters (i.e., colon, period, capital fist letter), and $C$ is the number of long words (more than 6 letters for the English language). 
-
-RAF other than the basics are including some \textit{Superficial features, Lexical features, Morpho-syntactic features} and \textit{Syntactic features}. Specifically the selected features from every lingustic categories are:
-
-\begin{enumerate}
-\item Superficial: Average Word Lengh (in Characters), Averga Word Length Syllables per word, Average Sentence Length.
-\item Lexical: Vocabulary Lemmas for Communication, Everyday use, High frequent, Unique.
-\item Morpho-syntactic: Unigram-POS, ratio-to-content of nouns, verbs etc.
-\item Syntactic: Average Dependency Distance, ratio of Dependencies, Sentence Depth (in dependency terms), Unigram Dependency Type (based on token terms), Verbal Roots, Average Verbal Arity, Unigram Verbal Arity, Tokens per clause, Average Nominal Pre and Pos Modifiers, Average Number of Prepositional components.
-\end{enumerate}
-
-It should be noted that other than the basic LIX, NR and the Superficial of the RAF, all the other are language dependent such as the OVIX which mainly has been tested on Swedish language.
+%Alternative methods and similar the HDR is the \textit{Pointwize Mutual Information (PMI)}. It is the Post-processing of the resulting modeled vectors. Such example is the \textit{unsupervised Post-processing via Conceptors (or Conceptor Negation)}. The main concept is to suppress the outages frequencies using PCA, SVD and most recently Conceptors Negation. The latest is a methodology (unsupervised) of Conceptors are a family of regularized identity maps introduced by (Jaeger 2014 ???) where a linear transformation is taking place minimizing a loss function similar to the PCA process. However, this methodology on the contrary to the PCA is a "Soft" regularization or "Soft" noise filtering, while PCA is considered "Hard". In both cases by projecting the data-point to the prediction space we are able to filter the noise (or outages) samples (CITE Unsupervised Post-processing of Word Vectors via Conceptor Negation ).
 
 \subsection{Structural Features}
 
@@ -157,54 +131,6 @@ WGI model. In addition there are very few cases where the DOM object structure i
 \textit{Structure indicative features} have also been combined with SVM for the WGI task, specifically for the case of \textit{News article} sub-genre identification. Experimental results show that reasonable performance, although, this kind of features are importing even more issues. At first are difficulty to be captured for example counting the HTML tags or by analyzing the HTML DOM tree from a browser is the best practice to follow. Moreover, this kind of information usually is vague and small (Cortes and Vapnik, 1995) .
 
 An approach that is based on structural features is presented in \parentcite{mehler2011integrating}. They focus on the web genre of homepages and its sub-genres (i.e., personal, conference, project). The web-pages are first automatically segmented into their constituent parts (e.g., for the personal academic homepage the segments are: contact information, personal information, publications, research, and teaching). Then, each page is represented according to the detected segments that were found in it. The reported results show a significant increase in performance when this structure-based method is compared with traditional approaches based only on textual features.
-
-\subsection{Complexity Features}
-
-Another notable methodology in respect of the feature selection and document representation is the \textit{Complexity Measures (CM)}. Particularly a sliding window of characters and words is considered over a text. Then using this window several heuristics and superficial metrics are counted and/or calculated. Particularly there are 32 features, depicted in table \ref{chap:relevant_work:tbl:complexity_measures}. These features can be categorized in the following four (4) classes: (1) \textit{Raw Text Features} such as the Mean Sentence Length, (2) \textit{Lexical Features} such as Type Token ratio, (3) \textit{Morpho-Syntactic Features} such as Lexical Density, (4) \textit{Syntactic Features}, such as \textit{Complex Nominals} per term unit \parencite{strobel2018text}.
-
-\begin{table}[t]
-	\center
-	\caption {Complexity Measures table as found in \parencite{strobel2018text}.}\label{chap:relevant_work:tbl:complexity_measures}
-	\begin{tabular}{lll}
-		\hline
-		CM Name & Definition & NLP Category \\
-		\hline
-		Number of Different Words / Sample & $Nw_{diff} / Nw$ & Lexical \\
-		Correct Type-Token ratio & $T/\sqrt{2N}$ & Lexical \\
-		Number of Different Words & $Nw_{diff}$ & Lexical \\
-		Root Type-Token ratio & $T/\sqrt{N}$ & Lexical \\
-		Type-Token ratio & $T/N$ & Lexical \\
-		Lexical Density & $N_{lex}/N$ & Morpho-Syntactic \\
-		Mean Length Clause & $N_{W}/N_{C}$ & Morpho-Syntactic \\
-		Mean Length Term-Unit & $N_{W}/N_{T}$ & Morpho-Syntactic \\
-		Sequence Academic Formula List & $N_{seq}/AWL$ & Raw text \\
-		Lexical Sophistication (ANC) & $N_{ANC}/N_{Lex}$ & Raw text \\
-		Lexical Sophistication (BNC) & $N_{BNC}/N_{Lex}$ & Raw text \\
-		Kolmogorov Deflate & KS2011 & Raw text \\
-		Morphological Kolmogorov Deflate & KS2011 & Raw text \\
-		Syntactic Kolmogorov Deflate & KS2011 & Raw text \\
-		Mean Length Sentence & $N_{W}/N_{S}$ & Raw text \\
-		Mean Length of Words & $N_{C}/N_{W}$ & Raw text \\
-		Words on New Academic Word List & ${N_{W^{AWL}}}$ & Raw text \\
-		Words not on General Service List & $\neg{N_{W^{GSL}}}$ & Raw text \\
-		Clause per Sentence & $N_{C}/N_{T}$ & Syntactic \\
-		Clause per Term-Unit & $N_{C}/N_{T}$ & Syntactic \\
-		Complex Nominals per Clause & $N_{CN}/C$ & Syntactic \\
-		Complex Nominals per Term Unit & $N_{CN}/N_{T}$ & Syntactic \\
-		Complex Terms Units per Term Unit & $N_{CT}/N_{T}$ & Syntactic \\
-		Coordinate Phrase per Clause & $N_{CP}/N_{C}$ & Syntactic \\
-		Coordinate Phrase per Clause & $N_{CP}/N_{T}$ & Syntactic \\
-		Dependent Clause per Clause & $N_{DC}/N_{C}$ & Syntactic \\
-		Dependent Clause per Terms Unit & $N_{DC}/N_{T}$ & Syntactic \\
-		Mean Length of Words (syllables) & $N_{Syl}/N_{W}$ & Syntactic \\
-		Noun Phrase Post-modification (words) & $N_{NP^{Post}}$ & Syntactic \\
-		Noun Phrase Pre-modification (words) & $N_{NP^{Pre}}$ & Syntactic \\
-		Noun Phrase Pre-modification (words) & $N_{NP^{Pre}}$ & Syntactic \\
-		Term Units per Sentence & $N_{T}/N_{S}$ & Syntactic \\
-		Verb Phrase per Term Unit &  $N_{VP}/N_{T}$ & Syntactic \\
-		\hline
-	\end{tabular}
-\end{table}
 
 \subsection{Image-related Features} 
 
@@ -222,162 +148,6 @@ The image-based features were extracted by splitting the image of the document i
 \end{itemize}
 
 Their reported experiments of that study were conducted to a very special case of  the AGI research and for a very specialized taxonomy of office documents. The corpus included papers in PDF format, photos in JPG format, PowerPoint slides, and tables in documents. This corpus has been collected manually and then also manually annotated. \textit{Fleiss' Kappa} agreement score for the annotators, has been used in order to evaluate the quality of their corpus (the \textit{Kappa} score was from 0.88 to 0.92).
-
-\subsection{Domain-specific Genre Representation}
-
-Beyond general characteristics that can be extracted from web-pages and be useful in any WGI task, there are domain-specific features related to certain genres and domains that provide a rich representation of their properties.
-
-Blog is a genre with special interest for several research domains and as might be expected it has its own particular characteristics. These features require lexical analysis, morphological analysis, lightweight syntactical analysis, and structural analysis of documents so that they become available. In table \ref{chap:relevant_work:tbl:blogs_special_features} a rich set of such linguistic properties used for Blog's sub-genres classification are presented in detail. In \parencite{virik2017blog} there is a detailed analysis for the correlation of the linguistic features and the Blog's sub-genres. Example of these sub-genres are the following: informative, affecting, reflective, narrative, emotional and ratioal.
-
-\begin{table}[t]
-	\center
-	\caption {Blog-specific features  \parencite{virik2017blog}.}\label{chap:relevant_work:tbl:blogs_special_features}
-	\begin{tabular}{p{4cm}p{7cm}p{3cm}}
-		\hline
-		Type & Description & NLP Analysis\\
-		\hline
-		Special Character Frequency & Frequency of: @, \#, \$, \%, <WhiteSpace>,\&, -, =, +, !,  ¿, ¡, [, ], /, | & Lexical \\
-		Word Count & Number of alphanumeric tokens & Lexical \\
-        Unique Lemma Count & Number of unique identified tokens & Lexical \\
-        Abbreviation frequency & ratio of abbreviations to all words & Lexical \\
-        Ratio of long to short words & Long words consist of three and more syllables & Lexical \\
-        Misspelled words Frequency & ratio of misspelled words of all words & Lexical\\
-		Noun Frequency & ratio of nouns to all words & Morphological \\
-        Adjective Frequency & ratio of adjectives to all words & Morphological \\
-        Pronoun frequency & ratio of pronouns to all words & Morphological \\
-        Verb frequency & ratio of verbs to all words & Morphological \\
-        Proper Noun Frequency & ratio of proper nouns to all words & Morphological \\
-        Ratio of open to closed words classes & Words open to inflection which include nouns, adjectives, pronouns, numerals, and verbs  & Morphological \\
-        Ratio of functional to Content words Classes & Words with only grammatical function. Content words include nouns, adjectives, numerical, non-modal verbs and adverbs  & Morphological \\
-        Frequency of sequences of functional words & Five of more consecutive functional words with tolerance of one closed word & Morphological \\
-		Sentence Count & Number of identified sentences & Syntactical \\
-        Average Sentence Count & Average sentence length in number of words & Syntactical \\
-        Ratio of Simple to Compound Sentences & Compound consist of two or more sentences & Syntactical \\
-        Average Sub-sentence Count & Sub-sentence is simple sentence inside a compound sentence & Syntactical \\
-        Dominant Tense of  Predicted Candidates & Present, future and past & Syntactical \\
-        Dominant Person of  Predicted Candidates & First, second and third & Syntactical \\
-        Dominant Number of  Predicted Candidates & Singular and plural & Syntactical \\
-		Link Frequency & ratio of number of Links to number of Sections  & Structural \\
-        Image Frequency & ratio of number of Images to number of Sections  & Structural \\
-        Section Count & Number of Sections & Structural \\
-        Standard Deviation of Section length & Deviation of the number of words in sections & Structural \\
-		\hline
-	\end{tabular}
-\end{table}
-
-Automated genre identification is a subject of interest in the domain of intellectual products (e.g. paintings, music, movies etc). Taxonomies of movies has also a special interest for the technology and entertainment industries. The part of this research related with the current thesis, is when movie genre is induced by textural features such as subtitles and the text description of a video content. Features that are specifically defined for this domain are summarized in Table \ref{chap:relevant_work:tbl:videogenre_textbased_special_features}. Particularly, BOW, surface and syntactical features are combined. Surface features include content-free and content-specific (the ones related to specific words) information \parencite{lee2017text}. It has been found that not all of these features are so important. The most important of them are the token-type ratio, words per minute, Characters per minute, hapax legomena, dislegomena, short words ratio, ratios of (10, 4, 3, 1)-letter words. 
-
-\begin{table}[t]
-	\center
-	\caption {Features for video content genre classification  \parencite{lee2017text}.}\label{chap:relevant_work:tbl:videogenre_textbased_special_features}
-	\begin{tabular}{p{4cm}p{7cm}p{3cm}}
-		\hline
-		Type & Description & NLP Category \\
-		\hline
-		Average words per minute & & Textual/Superficial  \\
-        Average characters per minute & & Textual/Superficial  \\
-        Average word length & & Textual/Superficial  \\
-        Average sentence length in terms of words & & Textual/Superficial  \\
-        Type/token ratio & Ratio of different words to the total number of words & Textual/Superficial  \\
-        Hapax legomena ratio & ratio of once-occurring words to the total number of words  & Textual/Superficial  \\
-        Dis Legomena ratio & ratio of twice-occuring words to the total number of words  & Textual/Superficial  \\
-        Short words ratio & Words less than 4 characters to the total number of words & Textual/Superficial  \\
-        Long words ratio & Words more than 6 characters to the total number of words & Textual/Superficial  \\
-        Words-length distribution & Ratio of words in length of 1-20 & Textual/Superficial  \\
-        Function words ratio & Ratio of function words to the total number of words  & Textual/Superficial  \\
-        Descriptive words to nominal words ratio & Adjectives and adverbs to the total number of nouns & Syntactical \\
-        Personal pronouns ratio & Ratio of personal pronouns to the total number of words & Syntactical \\
-        Question words ratio & Proportion of wh-determiners, wh-pronouns, and wh-adverbs to the total number of words & Syntactical \\
-        Proportion of question marks to the total number of end sentence punctuation & & Syntactical \\
-        Exclamation mark ratio & Proportion of exclamation marks to the total number of end sentence punctuation & Syntactical \\
-        Part-of-speech tag n-grams & & Syntactical \\
-        Word n-grams & Bag-of-words n-grams  & Textual/Content Specific \\
-  		\hline
-	\end{tabular}
-\end{table}
-
-Wikipedia (and in general Wiki sites) is considered as a special genre due to its characteristic, mainly the richness of textual content per page and secondary its informative linguistic register. Also there are several sub-genres of wiki pages which are also characterized as \textit{popular science} web-site and web-documents (e.g. Wikipedia, Nature, New Scientist, Wikinews, etc). There are some domain-specific features that seem to work well for classifying wiki-pages into a sub-genre taxonomy. Table \ref{chap:relevant_work:tbl:pop_science_features} shows the set of features used for representing sub-genres of popular science and grouping web-pages with similar properties \parencite{lieungnapar2017genre}. 
-
-\begin{table}[t]
-	\center
-	\caption {Features used to reprsent popular science genres \parencite{lieungnapar2017genre}.}\label{chap:relevant_work:tbl:pop_science_features}
-	\begin{tabular}{p{2cm}p{12cm}}
-		\hline
-		Type & Description \\
-		\hline
-		Average sentence length & Average number of words per sentence with the text. Longer sentences are commonly used to mark complex and elaborated structure. \\
-        \hline
-        Average paragraph length & Average number of sentences per paragraph with the text. Longer paragraphs are frequently used to mark information density. \\
-        \hline
-        Discipline-specific word density & Number of specialized vocabulary items in content-specific areas as a proportion of total number of words. Discipline-specific words are frequently used to express referential information in specific subject areas. \\
-        \hline
-        Phrasal verb density & Number of phrasal verbs as a proportion of total number of verbs. Since phrasal verbs manifest a degree of informality and textual spokenness, a high frequency of this feature suggests a narrative purpose. \\
-        \hline
-        Compound noun density & Number of open compound nouns as proportion of total number of nouns. A high frequency of compound nouns indicates greater density of information. \\
-        \hline
-        Modal verb density & Number of modal verbs as proportion of total number of words. Modality is used to mark explicit persuasion.  \\
-        \hline
-        Verb density &  Verbs indicate a verbal style that can be considered interactive or involved and are used for overt expression of attitudes, thoughts, and emotions. \\
-        \hline
-        Adjective density & Number of adjectives as proportion of total number of words. A high frequency of adjectives can be associated with high informative focus and careful integratio of information in a text. \\
-        \hline
-        Adverb density & Number of adverbs as a proportion of total number of words. Adverbs are used more frequently to indicate situation-dependent reference for narrating a story. \\
-        \hline
-        Lexical repetition & Yule's characteristic K, the variance of the mean number of occurrences per word. The larger Yule's K, the more the lexical repetition, Greater use of repetition results from the purpose of explicitly marking cohesion in a text and informative focus.  \\
-        \hline
-        Coordinating conjugation density & Number of coordinating conjunctions as a proportion of total number of sentences. Coordinating conjugations are commonly used to show formality in reverentially explicit discourse.  \\
-        \hline
-        Content word density & Number of content words as proportion of total number of words. Content words mark precise lexical choice resulting in presentation of informative content.\\
-        \hline
-        Evaluation move density & Numbers of evaluation moves as portion of total number or sentences. Evaluative language in normally used to express emotions and attitudes.  \\
-        \hline
-        Vocabulary diversity & Sums of probabilities of encountering each word type in 35-50 tokens. A high diversity of vocabulary results from the use of many different vocabulary items. Narrative texts often have high vocabulary diversity.  \\
-        \hline
-        Logical connective density & Number of logical connectives per 1000 words. A high frequency of logical connectives indicates an informative relation in a text.  \\
-        \hline
-        Prepositional phrase density & Number of prepositional phrase per 1000 words. Prepositional phrase indicates a greater density of information.  \\
-        \hline
-        Negation density & Number of negation markers per 1000 words. Negation is preferred in literary narrative.  \\
-        \hline
-        Pronoun density & Number of pronouns refer directly to the addressor and addressee and thus are used frequently in highly interactive discourse. \\
-        \hline
-        Flesch Reading Ease & Flesh Reading Ease formula. Higher Flesch reading scores are easier to read.  \\
-  		\hline
-	\end{tabular}
-\end{table}
-
-In \parencite{lieungnapar2017genre} a high-level description of sub-genres of popular science is provided. The authors use abstract terms to describe each sub-genre obtained by grouping popular science documents into four clusters and associate each cluster with its key linguistic features.Table \ref{chap:relevant_work:tbl:pop_science_registers_features} shows how each sub-genre is presented in association with linguistic and register-related information.
-
-\begin{table}[t]
-	\center
-	\caption {Popular science sub-genres description \parencite{lieungnapar2017genre}.}\label{chap:relevant_work:tbl:pop_science_registers_features}
-	\begin{tabular}{p{4cm}p{7cm}p{3cm}}
-		\hline
-		Pop Science Sub-Genre & Key features & Text-Registers \\
-		\hline
-		 Sub-genre 1 & Phrasal verb density, verb density, adverb density, vocabulary diversity, logical connective density, negation density, pronoun density, Flesch reading ease & Interpersonal, Narrative, Persuasive, Informative \\
-         Sub-genre 2 & Modal verb density, Flesch reading ease & Interpersonal, Persuasive \\
-         Sub-genre 3 & Average paragraph length, Lexical repetition, Evaluation move density, Prepositional phrase density & Informative\\
-         Sub-genre 4 & Average sentence length, Discipline-specific word density, compound noun density, adjective density, coordinating g7conjunction density, content word density & Informative, Elaborated, Impersonal  \\
-  		\hline
-	\end{tabular}
-\end{table}
-
-News sub-genres as well as online reviews offer also a subject of great interest in several text categorization applications. In this case, it is very important to avoid topic-related information. Ideally, a WGI approach could be trained with samples of a specific topic (e.g., sports) and could be applied to other topics (e.g., politics) without a significant drop in its performance. This is called {domain transfer} learning \parencite{finn2006learning}. Table \ref{chap:relevant_work:tbl:domain_trans_text_statistics} comprise a topic-neutral set of features (mainly composed of function words and punctuation marks) to achieve this. 
-
-\begin{table}[t]
-	\center
-	\caption {Topic-neutral features to represent genres \parencite{finn2006learning}.}\label{chap:relevant_work:tbl:domain_trans_text_statistics}
-	\begin{tabular}{p{3cm}|p{11cm}}
-		\hline
-		Feature Type & Features\\
-		\hline
-		 Surface statistics & Sentence length, Number of words, Words length \\
-         Function words & because, been, being, beneath, can, can’t, certainly, completely, could, couldn’t, did, didn’t, do, does, doesn’t, doing, don’t, done, downstairs, each, early, enormously, entirely, every, extremely, few, fully, furthermore, greatly, had, hadn’t, has, hasn’t, haven’t, having, he, her, herself, highly, him, himself, his, how, however, intensely, is, isn’t, it, its, itself, large, little, many, may, me, might, mighten, mine, mostly, much, musn’t, must, my, nearly, our, perfectly, probably, several, shall, she, should, shouldn’t, since, some, strongly, that, their, them, themselves, therefore, these, they, this, thoroughly, those, tonight, totally, us, utterly, very, was, wasn’t, we, were, weren’t, what, whatever, when, whenever, where, wherever, whether, which, whichever, while, who, whoever, whom, whomever, whose, why, will, won’t, would, wouldn’t, you, your \\
-         Punctuation marks  & ! " \$ \% ' ( ) * + - . : ; = ? \\
-  		\hline
-	\end{tabular}
-\end{table}
 
 \subsection{Hyperlinks and URL-based Representation}
 \label{chap:relevant_work:sec:url}
@@ -437,6 +207,205 @@ Hyperlinks themselves can be exploited by extracting information from the URL st
 WGI experiments using only the hyperlink information combined (or not) with other web-page information seems to be a promising researching path especially for performance oriented WGI applications such as genre-based focused-crawling where only the URLs are available \parencite{jebari2014pureURL,jebari2015combination,abramson2012_URL,priyatam2013don_URL} 
 \textcolor{red}{(MSc reference on focused-genre-crawling)}
 
+\subsection{Combination of Features}
+
+Instead of using only one type of features, studies in genre recognition tend to combine several sources of information \parentcite{Lim2005}. Usually, textual features are considered more important and they are combined with alternative kinds of features . Usually, such combinations increase the effectiveness of the method \parentcite{kanaris2009learning}.
+
+An example of combination of textual features from different levels of analysis is reported in \parencite{onan2018ensemble}. The following features are used:
+
+\begin{itemize}
+\item Most frequent words (function words). 
+\item Character n-grams
+\item POS n-grams
+\item Capitalized and lowercase words
+\item Punctuation marks 
+\item Semantic feature (time and money entities).
+\item Genre-specific features (n-grams occurring many times within a genre)
+\end{itemize}
+
+In a similar fashion, \parencite{waltinger2010feature} combine the following features:
+
+\begin{enumerate}
+\item Word n-grams
+\item Character n-grams
+\item POS n-grams
+\item Sentence and paragraph length
+\item HTML tags
+\item HTML attributes
+\item Named entities
+\end{enumerate}
+
+Other examples of combining different types of features can be seen in Tables \ref{chap:relevant_work:tbl:complexity_measures} and \ref{chap:relevant_work:tbl:blogs_special_features} \parencite{strobel2018text,virik2017blog}. Interestingly, for each feature, the required NLP analysis to extract such measures from documents is also shown. It has to be noted that elaborate types of NLP analysis (e.g. syntactic parsing) introduce a cost concerning the efficiency of the model. In addition, such features are language-dependent.
+
+\begin{table}[t]
+	\center
+	\caption {An example of combining different kinds of features for genre recognition \parencite{strobel2018text}. The NLP analysis required to extract each feature is also shown.}
+	\label{chap:relevant_work:tbl:complexity_measures}
+	\begin{tabular}{ll}
+		\hline
+		Name & NLP Analysis \\
+		\hline
+		Number of Different Words / Sample & Lexical \\
+		Correct Type-Token ratio & Lexical \\
+		Number of Different Words & Lexical \\
+		Root Type-Token ratio & Lexical \\
+		Type-Token ratio & Lexical \\
+		Lexical Density & Morpho-Syntactic \\
+		Mean Length Clause & Morpho-Syntactic \\
+		Mean Length Term-Unit & Morpho-Syntactic \\
+		Sequence Academic Formula List & Raw text \\
+		Lexical Sophistication (ANC) & Raw text \\
+		Lexical Sophistication (BNC) & Raw text \\
+		Kolmogorov Deflate & Raw text \\
+		Morphological Kolmogorov Deflate & Raw text \\
+		Syntactic Kolmogorov Deflate & Raw text \\
+		Mean Length Sentence & Raw text \\
+		Mean Length of Words & Raw text \\
+		Words on New Academic Word List & Raw text \\
+		Words not on General Service List & Raw text \\
+		Clause per Sentence & Syntactic \\
+		Clause per Term-Unit & Syntactic \\
+		Complex Nominals per Clause & Syntactic \\
+		Complex Nominals per Term Unit & Syntactic \\
+		Complex Terms Units per Term Unit & Syntactic \\
+		Coordinate Phrase per Clause & Syntactic \\
+		Coordinate Phrase per Clause & Syntactic \\
+		Dependent Clause per Clause & Syntactic \\
+		Dependent Clause per Terms Unit & Syntactic \\
+		Mean Length of Words (syllables) & Syntactic \\
+		Noun Phrase Post-modification (words) & Syntactic \\
+		Noun Phrase Pre-modification (words) & Syntactic \\
+		Noun Phrase Pre-modification (words) & Syntactic \\
+		Term Units per Sentence & Syntactic \\
+		Verb Phrase per Term Unit & Syntactic \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{Domain-specific Genre Representation}
+
+Beyond general characteristics that can be extracted from web-pages and be useful in any WGI task, there are domain-specific features related to certain genres and domains that provide a rich representation of their properties.
+
+Blog is a genre with special interest for several research domains and as might be expected it has its own particular characteristics. These features require lexical analysis, morphological analysis, lightweight syntactical analysis, and structural analysis of documents so that they become available. In table \ref{chap:relevant_work:tbl:blogs_special_features} a rich set of such linguistic properties used for Blog's sub-genres classification are presented in detail. In \parencite{virik2017blog} there is a detailed analysis for the correlation of the linguistic features and the Blog's sub-genres. Example of these sub-genres are the following: informative, affecting, reflective, narrative, emotional and rational.
+
+\begin{table}[t]
+	\center
+	\caption {Blog-specific features and required NLP analysis \parencite{virik2017blog}.}
+	\label{chap:relevant_work:tbl:blogs_special_features}
+	\begin{tabular}{p{3cm}p{7cm}p{3cm}}
+		\hline
+		Name & Description & NLP Analysis\\
+		\hline
+		Special characters & Frequency of: @, \#, \$, \%, <WhiteSpace>,\&, -, =, +, !,  ¿, ¡, [, ], /, | & Lexical \\
+		Word count & Number of alphanumeric tokens & Lexical \\
+        Unique lemmas & Number of unique identified tokens & Lexical \\
+        Abbreviations & Ratio of abbreviations to all words & Lexical \\
+        Long/short words & Ratio of long (3 or more syllables) to short words & Lexical \\
+        Misspelled words & Ratio of misspelled words to all words & Lexical\\
+		Nouns & Ratio of nouns to all words & Morphological \\
+        Adjectives & Ratio of adjectives to all words & Morphological \\
+        Pronouns & Ratio of pronouns to all words & Morphological \\
+        Verbs & Ratio of verbs to all words & Morphological \\
+        Proper Nouns & Ratio of proper nouns to all words & Morphological \\
+        Open/closed words & Ratio of open words (e.g., nouns, adjectives) to open words (e.g., determiners, conjunctions) & Morphological \\
+        Functional/content words & Ratio of functional words to content words include nouns, adjectives, numerical, non-modal verbs and adverbs & Morphological \\
+        Sequences of functional words & 5 or more consecutive functional words with tolerance of one closed word & Morphological \\
+		Sentences & Number of sentences & Syntactic \\
+        Sentence length & Average sentence length in number of words & Syntactic \\
+        Simple/compound sentences & ratio of simple to compound (with two or more clauses) sentences & Syntactic \\
+        Sub-sentences & number of simple sentences inside a compound sentence & Syntactic \\
+        Dominant tense & Present, future and past & Syntactic \\
+        Dominant person & First, second and third & Syntactic \\
+        Dominant number & Singular and plural & Syntactic \\
+		Links & Ratio of number of Links to number of sections  & Structural \\
+        Image frequency & Ratio of number of images to number of sections  & Structural \\
+        Sections & Number of sections & Structural \\
+        Section length & Standard deviation words in sections & Structural \\
+		\hline
+	\end{tabular}
+\end{table}
+
+In \parencite{dai2018fine} the focus is on the News genre. They use a combination of features to recognize the main paradigms of presenting events in news. These features include word unigrams and bigrams, syntactic features like the frequency of syntactic production rules as well as primitive semantic information provided by a pre-defined dictionary (\textit{Linguistic Inquiry and Word Count} (LIWC)). The latter indicates terms that associated with time, motion, and space, important information for quantifying the narrative scheme of the news story. In addition, key events placement features are introduced that attempt to quantify information about specific persons, time, and location of the news story and the point of the document that they occur. In practice, these features calculate the overlap of title with the paragraphs of the document.
+
+Automated genre identification is a subject of interest in the domain of intellectual products (e.g. paintings, music, movies etc). Taxonomies of movies has also a special interest for the technology and entertainment industries. The part of this research related with the current thesis, is when movie genre is induced by textural features such as subtitles and the text description of a video content. Features that are specifically defined for this domain are summarized in Table \ref{chap:relevant_work:tbl:videogenre_textbased_special_features}. Particularly, BOW, surface and syntactical features are combined. Surface features include content-free and content-specific (the ones related to specific words) information \parencite{lee2017text}. It has been found that not all of these features are so important. The most important of them are the token-type ratio, words per minute, Characters per minute, hapax legomena, dislegomena, short words ratio, ratios of (10, 4, 3, 1)-letter words. 
+
+\begin{table}[t]
+	\center
+	\caption {Features for video content genre classification  \parencite{lee2017text}.}\label{chap:relevant_work:tbl:videogenre_textbased_special_features}
+	\begin{tabular}{p{4cm}p{7cm}p{3cm}}
+		\hline
+		Name & Description & NLP Analysis \\
+		\hline
+		Words & Average words per minute & Raw text  \\
+        Characters & Average characters per minute & Raw text  \\
+        Word length & Average word length & Raw text  \\
+        Word n-grams & Frequencies of word n-grams & Raw text \\
+        Sentence length & Average sentence length in words & Raw text \\
+        Type/token ratio & Ratio of different words to the total number of words & Raw text \\
+        Hapax legomena & Ratio of once-occurring words to total words  & Raw text  \\
+        Dis legomena & Ratio of twice-occurring words to total words & Raw text  \\
+        Short words & Ratio of words with less than 4 characters to total words & Raw text  \\
+        Long words & Ratio of words with more than 6 characters to total number words & Raw text \\
+        Word length & Ratio of words of length of 1-20 to total words & Raw text \\
+        Function words & Ratio of function words to total words  & Raw text \\
+        Descriptive/nominal words & Ratio of adjectives and adverbs to nouns & Syntactic \\
+        Personal pronouns & Ratio of personal pronouns to total words & Syntactic \\
+        Question words & Ratio of of wh-words to total words & Syntactic \\
+        Question marks & Ratio of question marks to total end sentence punctuation & Syntactic \\
+        Exclamation marks & Ratio of exclamation marks to total end sentence punctuation & Syntacticc \\
+        POS n-grams & Frequencies of POS n-grams & Syntactic \\
+  		\hline
+	\end{tabular}
+\end{table}
+
+Wikipedia (and in general Wiki sites) is considered as a special genre due to its characteristic, mainly the richness of textual content per page and secondary its informative linguistic register. Also there are several sub-genres of wiki pages which are also characterized as \textit{popular science} web-site and web-documents (e.g. Wikipedia, Nature, New Scientist, Wikinews, etc). There are some domain-specific features that seem to work well for classifying wiki-pages into a sub-genre taxonomy. Table \ref{chap:relevant_work:tbl:pop_science_features} shows the set of features used for representing sub-genres of popular science and grouping web-pages with similar properties \parencite{lieungnapar2017genre}. 
+
+\begin{table}[t]
+	\center
+	\caption {Features used to represent popular science genres \parencite{lieungnapar2017genre}.}\label{chap:relevant_work:tbl:pop_science_features}
+	\begin{tabular}{p{4cm}p{8cm}}
+		\hline
+		Name & Description \\
+		\hline
+		Sentence length & Average number of words per sentence \\
+        Paragraph length & Average number of sentences per paragraph \\
+        Discipline-specific word density & Ratio of specialized vocabulary items to total words \\
+        Phrasal verb density & Ratio of phrasal verbs to total verbs \\
+        Compound noun density & Ratio of compound nouns to total nouns \\
+        Modal verb density & Ratio of modal verbs to total words \\
+        Verb density &  Ratio of verbs to total words \\
+        Adjective density & Ratio of adjectives to total words \\
+        Adverb density & Ratio of adverbs to total words \\
+        Lexical repetition & Yule's characteristic K \\
+        Coordinating conjugation density & Ratio of coordinating conjunctions to total sentences \\
+        Content word density & Ratio of content words to total words \\
+        Evaluation move density & Ratio of evaluation moves to total sentences \\
+        Vocabulary diversity & Probabilities of encountering each word type in 35-50 tokens \\
+        Logical connective density & Number of logical connectives per 1000 words \\
+        Prepositional phrase density & Number of prepositional phrase per 1000 words \\
+        Negation density & Number of negation markers per 1000 words \\
+        Pronoun density & Number of pronouns per 1000 words \\
+        Flesch reading-ease & Flesh reading-ease index \\
+        \hline
+	\end{tabular}
+\end{table}
+
+On the other hand, it is also crucial to study what features used in genre recognition studies remain unaffected by domain variations. This is especially important in genres like News as well as Online reviews. In such cases, it is very important to avoid topic-related information. Ideally, a WGI approach could be trained with samples of a specific topic (e.g., sports) and could be applied to other topics (e.g., politics) without a significant drop in its performance. This is called {domain transfer} learning \parencite{finn2006learning}. Table \ref{chap:relevant_work:tbl:domain_trans_text_statistics} comprise a topic-neutral set of features (mainly composed of function words and punctuation marks) to achieve this. 
+
+\begin{table}[t]
+	\center
+	\caption {Topic-neutral features to represent genres \parencite{finn2006learning}.}\label{chap:relevant_work:tbl:domain_trans_text_statistics}
+	\begin{tabular}{p{3cm}p{11cm}}
+		\hline
+		Type & Features\\
+		\hline
+		 Surface statistics & Sentence length, Number of words, Words length \\
+         Function words & because, been, being, beneath, can, can’t, certainly, completely, could, couldn’t, did, didn’t, do, does, doesn’t, doing, don’t, done, downstairs, each, early, enormously, entirely, every, extremely, few, fully, furthermore, greatly, had, hadn’t, has, hasn’t, haven’t, having, he, her, herself, highly, him, himself, his, how, however, intensely, is, isn’t, it, its, itself, large, little, many, may, me, might, mighten, mine, mostly, much, musn’t, must, my, nearly, our, perfectly, probably, several, shall, she, should, shouldn’t, since, some, strongly, that, their, them, themselves, therefore, these, they, this, thoroughly, those, tonight, totally, us, utterly, very, was, wasn’t, we, were, weren’t, what, whatever, when, whenever, where, wherever, whether, which, whichever, while, who, whoever, whom, whomever, whose, why, will, won’t, would, wouldn’t, you, your \\
+         Punctuation marks  & ! " \$ \% ' ( ) * + - . : ; = ? \\
+  		\hline
+	\end{tabular}
+\end{table}
+
 \subsection{Feature Weighting and Selection}
 
 Term weighting is an essential issue in text mining applications. The features extracted from web-pages can be represented using a variety of  traditional weighting schemes such as Binary representation, Term Frequency (TF), and Term Frequency - Inverted Document Frequency (TF-IDF) \parentcite{sharoff2010web,santini2007automatic}. 
@@ -492,36 +461,35 @@ where $f(t,s,d)$ denotes the raw frequency of n-gram $t$ in section $s$ of docum
 
 Weights $\{\alpha,\beta,\gamma\}$ should be defined empirically using a training corpus \parentcite{jebari2014pureURL}. 
 
-\textcolor{red}{THERE IS NO REFERENCE FOR THE FOLLOWING WORK. IN ADDITION THE FORMULAS SEEM PROBLEMATIC AND NOT WELL DEFINED}
+\textcolor{red}{THERE IS NO REFERENCE FOR THE FOLLOWING WORK (in comments). IN ADDITION THE FORMULAS SEEM PROBLEMATIC AND NOT WELL DEFINED}
 
-Another genre-specific term weighting approach has been proposed for the task of video genre detection where textual information such as subtitles and brief descriptions are used. In websites like IMDB and Movelens it is also possible for the the users to create their own tags in addition to the existing keywords manually created by human experts. These user-created tags can be exploited in a similar manner as the words of the subtitle text for classification of the video to their genre. Particularly, it has been shown that the user tags provide a rich source of information and enhance performance of genre detection in comparison to the case only keywords are used. In order to appropriately estimate the importance of user tags a fuzzy extension of TF-IDF weighting scheme is introduced.
+%Another genre-specific term weighting approach has been proposed for the task of video genre detection where textual information such as subtitles and brief descriptions are used. In websites like IMDB and Movelens it is also possible for the the users to create their own tags in addition to the existing keywords manually created by human experts. These user-created tags can be exploited in a similar manner as the words of the subtitle text for classification of the video to their genre. Particularly, it has been shown that the user tags provide a rich source of information and enhance performance of genre detection in comparison to the case only keywords are used. In order to appropriately estimate the importance of user tags a fuzzy extension of TF-IDF weighting scheme is introduced.
 
-Although the above method was aiming for building an effective recommendation system here it is presented briefly for the innovative weighting scheme which is exploiting the meta-data of the tags. Particularly the aforementioned user tags are in fact triplets of  $\{Tag, Movie, User \}$. The idea is to exploit the frequency of users selecting a tag for a movie and then the number of different movies a tag has been assigned to, similar to TF and IDF factors.
+%Although the above method was aiming for building an effective recommendation system here it is presented briefly for the innovative weighting scheme which is exploiting the meta-data of the tags. Particularly the aforementioned user tags are in fact triplets of  $\{Tag, Movie, User \}$. The idea is to exploit the frequency of users selecting a tag for a movie and then the number of different movies a tag has been assigned to, similar to TF and IDF factors.
 
-To do so, initially the \textit{Appropriateness} of a tag is estimated by counting the number of times users assigns the same tag to a movie that belongs to a specific genre as follows:
+%To do so, initially the \textit{Appropriateness} of a tag is estimated by counting the number of times users assigns the same tag to a movie that belongs to a specific genre as follows:
 
-\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq1}
-	tf_(u_{j},g_{i}) = \frac{\sum_{m \in G} tagged(t,u,m) }{ \max_{t \in T} \sum_{m \in G} tagged(t,u,m)}
-\end{equation}
-where $tagged(t,u,m)$ is 1 when a user $u$ tag with t the movie $m$ when it belongs to genre $g$, and $0$ if not. The score of a tag similar to the TF-IDF is called Degree $deg(t,m,g_{i})$and it is the weighted frequency of users as singed this tag by the \textit{Importance Score} $imp(t,g_{i})$ of the tag, as shown in equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq2}
+%\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq1}
+%	tf_(u_{j},g_{i}) = \frac{\sum_{m \in G} tagged(t,u,m) }{ \max_{t \in T} \sum_{m \in G} tagged(t,u,m)}
+%\end{equation}
+%where $tagged(t,u,m)$ is 1 when a user $u$ tag with t the movie $m$ when it belongs to genre $g$, and $0$ if not. The score of a tag similar to the TF-IDF is called Degree $deg(t,m,g_{i})$and it is the weighted frequency of users as singed this tag by the \textit{Importance Score} $imp(t,g_{i})$ of the tag, as shown in equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq2}
 
-\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq2}
-	deg(t,m,g_{i}) = uf(t,m) \cdot imp(t,g_{i})
-\end{equation}
-Where $uf(t,m)$ is the frequency of the users assigned the this tag to a movie $m$. The $imp()$ is calculated by the \textit{Fussy Linguistic Ordered Weighted Averaging Aggregation Operator (OWA)} of the equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq1} weighted by the \textit{Uniqueness} of the tag. The uniqueness is also the OWA compliment of the term among all the genres of the taxonomy. The $imp()$ is then calculated by the equations \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq4} and \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq4}.
+%\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq2}
+%	deg(t,m,g_{i}) = uf(t,m) \cdot imp(t,g_{i})
+%\end{equation}
+%Where $uf(t,m)$ is the frequency of the users assigned the this tag to a movie $m$. The $imp()$ is calculated by the \textit{Fussy Linguistic Ordered Weighted Averaging Aggregation Operator (OWA)} of the equation \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq1} weighted by the \textit{Uniqueness} of the tag. The uniqueness is also the OWA compliment of the term among all the genres of the taxonomy. The $imp()$ is then calculated by the equations \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq4} and \ref{chap:relevant_work:eq:fuzzy_movies_genre_eq4}.
 
-\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq3}
-	t_{most}(g_{i}) = \oint_{j=1}^{U} tf_(u_{j},g_{i})
-\end{equation}
+%\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq3}
+%	t_{most}(g_{i}) = \oint_{j=1}^{U} tf_(u_{j},g_{i})
+%\end{equation}
 
-\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq4}
-	imp(t,g_{i}) = \oint_{j=1}^{U} tf_(u_{j},g_{i}) \cdot (1 -  \oint_{i=1}^{G} t_{most}(g_{i}))
-\end{equation}
+%\begin{equation}\label{chap:relevant_work:eq:fuzzy_movies_genre_eq4}
+%	imp(t,g_{i}) = \oint_{j=1}^{U} tf_(u_{j},g_{i}) \cdot (1 -  %\oint_{i=1}^{G} t_{most}(g_{i}))
+%\end{equation}
 
-Where $\oint=OWA$,  $g_{i}$ is a particular genre, $G$ is the number of the genres in the taxonomy and $U$ is the number of users used this tag for this genre.
+%Where $\oint=OWA$,  $g_{i}$ is a particular genre, $G$ is the number of the genres in the taxonomy and $U$ is the number of users used this tag for this genre.
 
-Finally, for the movie genre categorization a binary vector of the genres list is returned of the \textit{Quantised  $\max_{t \in T} deg()$}. The maximum degree values of the genre tag is set to $1$ when it is above the \textit{mean values of all tag-degrees} and zero otherwise.
-
+%Finally, for the movie genre categorization a binary vector of the genres list is returned of the \textit{Quantised  $\max_{t \in T} deg()$}. The maximum degree values of the genre tag is set to $1$ when it is above the \textit{mean values of all tag-degrees} and zero otherwise.
 
 %\subsection{Dimensionality Reduction}
 
@@ -697,7 +665,7 @@ In the testing phase, each new web-page is examined separately. If the similarit
 
 %To sum up, as concerns the classification models involved in WGI studies, when a given genre taxonomy is utilized and there is no noise, then well-known machine learning models, like SVMs, decision trees, neural networks, naive Bayes, Random Forests, etc. are used \parencite{Lim2005,santini2007automatic,kanaris2009learning,jebari2015combination,sharoff2010web}. In case of presence of noise, in a clustering framework described in \parencite{kennedy2005automatic} one cluster is built for each predefined class and another cluster is built for the noise. However, the most common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of all other predefined categories plus the noise \parencite{kennedy2005automatic,dong2006binary,levering2008using}. Such a combination of binary classifiers can also be seen as a multi-label and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. 
 
-\subsection{Semi-supervised Learning} 
+\subsection{Semi-supervised and Unsupervised Learning} 
 
 In WGI, there is lack of large labeled corpora including multiple genres and sufficient training samples per genre. On the other hand, there is plenty of unlabeled examples that can easily be used. One suggested direction in WGI research is the use of \textit{semi-supervised learning} approaches in order to exploit the virtually infinite number of unlabeled data of the Web. 
 
@@ -717,6 +685,23 @@ One proposed solution to achieve robustness across domains is presented in \pare
 \end{enumerate}
 
 The results in this study were very promising given that with a generic language independent approach manages to exceed the results of the common solution of using machine translation technology (i.e., where the texts of the  source language, used to train the model, are automatically translated to the target language and they are used to train the classification model).
+
+Finally, genre recognition could be performed using unsupervised learning, namely without any positive training examples. An interesting work that induces a genre taxonomy from unlabeled documents is presented in \parencite{lieungnapar2017genre}. They use a k-means clustering method to induce sub-genres of popular science. A set of linguistic features (presented in table \ref{chap:relevant_work:tbl:pop_science_features}) is used to represent web-pages and by taking into account the correlation of z-scores of these features to the four detected clusters it is possible to estimate their significance for each cluster. In addition, the detected clusters are associated with sub-genres of popular science based on a functional relations analysis (e.g. impersonal, narrative, persuasive, informative, elaborated, impersonal). That way a high-level description of the detected sub-genres of popular science is provided. The results of this analysis providing specific examples of popular science sub-genres, the key linguistic features and the functional relations for each detected cluster can be seen in Table \ref{chap:relevant_work:tbl:pop_science_registers_features}. Finally, they have shown that their final evaluation of the proposed semi-automated process was as effective as the experts agreement on the same task. 
+
+\begin{table}[t]
+	\center
+	\caption {Popular science sub-genres description \parencite{lieungnapar2017genre}.}\label{chap:relevant_work:tbl:pop_science_registers_features}
+	\begin{tabular}{p{3.5cm}p{7cm}p{2cm}}
+		\hline
+		Sub-genre & Key Features & Functional Relations \\
+		\hline
+		 Scientific narratives (e.g., \textit{Science} news) & Phrasal verb density, verb density, adverb density, vocabulary diversity, logical connective density, negation density, pronoun density, Flesch reading ease & Interpersonal, Narrative, Persuasive, Informative \\
+         Persuasive reports (e.g., \textit{New Scientist}) & Modal verb density, Flesch reading ease & Interpersonal, Persuasive \\
+         Scientific descriptions (e.g., \textit{Wikipedia}) & Average paragraph length, Lexical repetition, Evaluation move density, Prepositional phrase density & Informative\\
+         Technical summaries (e.g., \textit{Science} abstracts)  & Average sentence length, Discipline-specific word density, compound noun density, adjective density, coordinating conjunction density, content word density & Informative, Elaborated, Impersonal  \\
+  		\hline
+	\end{tabular}
+\end{table}
 
 \subsection{Hierarchical Classification} 
 
@@ -797,134 +782,127 @@ The automatically obtained hierarchy has been compared with the one of built by 
 
 %Multi-class classification, hierarchical classification, and multi-page classification is some of the aspects considered in the WGI. Naturally, a web-page, a section on the page, a paragraph on the page, a collection of pages linked together by their URLs. A web-site is, also, a genre-unit. That is, in an experimental set-up one has to consider which genre-unit will be assumed. However, it is foregrounded that in almost any unit there is always a change to be multi-genre \parencite{lee2017text} (also Ashegi, Santini, and other old citations)., for example in \parencite{madjarov2015web} has been found that on average $1.34$ genres are present per web-page.
 
-\section{Focused Crawlers for Genres}\label{chap:relevant_work:sec:focused_crawlers}
+%\section{Focused Crawlers for Genres}\label{chap:relevant_work:sec:focused_crawlers}
 
-Focused crawling, unlike general web-crawling, is the process of downloading only relevant web-pages of \textit{particular topic, genre or query}. As a result valuable time is saved and resources, such as processing power, bandwidth and storage space. Focused crawling engines, i.e. Focused crawlers, are following several strategies and criteria in order to download only the desired pages. The difficulty on the downloading decision is to be made in advance, i.e. before the pages be downloaded \parencite{priyatam2013don_URL} . 
+%Focused crawling, unlike general web-crawling, is the process of downloading only relevant web-pages of \textit{particular topic, genre or query}. As a result valuable time is saved and resources, such as processing power, bandwidth and storage space. Focused crawling engines, i.e. Focused crawlers, are following several strategies and criteria in order to download only the desired pages. The difficulty on the downloading decision is to be made in advance, i.e. before the pages be downloaded \parencite{priyatam2013don_URL} . 
  
-Particularly, a genre-focused crawler is possible to be implemented using only the URL's BOW for predicting whether or not a web page will return by this URL will be relevant to genre. To do so a machine learning algorithm should me trained using a well curated training set. Experimental results shown a promising approach with all the affronted benefits for crawling.
+%Particularly, a genre-focused crawler is possible to be implemented using only the URL's BOW for predicting whether or not a web page will return by this URL will be relevant to genre. To do so a machine learning algorithm should me trained using a well curated training set. Experimental results shown a promising approach with all the affronted benefits for crawling.
 
-There are simple heuristics that could be used in production such as well composed list of words in the URLs strings. Particularly some strategies has been tested where: 1) a list from experts derived, 2) a list of experts augmented using WordNet, 3) list of keywords derived from an "authority" site where the genre-taxonomy is already used for categorizing its content, such as Wikipedia. These heuristic are able to capture some of the required information however is far from a satisfying performance and is a tedious, non-automated and hard to be updated procedure.
+%There are simple heuristics that could be used in production such as well composed list of words in the URLs strings. Particularly some strategies has been tested where: 1) a list from experts derived, 2) a list of experts augmented using WordNet, 3) list of keywords derived from an "authority" site where the genre-taxonomy is already used for categorizing its content, such as Wikipedia. These heuristic are able to capture some of the required information however is far from a satisfying performance and is a tedious, non-automated and hard to be updated procedure.
 
-An other approach is the machine learning method such as \textit{Nearest Neighbours (NN)} method but in an \textit{Incremental/Adaptive form}. Such as in the case of \parencite{jebari2015combination} this algorithm is adapting the new discovered web-pages when they are above a specific threshold irrespective the similarity score. In could also used an verification algorithm where it could use an other trained model on the webpages contexts. In this manner, after a web paged would have been downloaded the second algorithm could return a verification score in order to be decided whether to adapt the URL or not the the NN model. 
+%An other approach is the machine learning method such as \textit{Nearest Neighbours (NN)} method but in an \textit{Incremental/Adaptive form}. Such as in the case of \parencite{jebari2015combination} this algorithm is adapting the new discovered web-pages when they are above a specific threshold irrespective the similarity score. In could also used an verification algorithm where it could use an other trained model on the webpages contexts. In this manner, after a web paged would have been downloaded the second algorithm could return a verification score in order to be decided whether to adapt the URL or not the the NN model. 
 
- The main evaluation criterion for the focused crawlers is the \textit{Precision}, although, \textit{Recall} and \textit{Harvest Ratio} are also important \parencite{priyatam2013don_URL}. The task objective is more important the crawled pages to be relevant to the requested genre than potentially missing a few, i.e. high precision and low recall. As we will see later WGI in an open-set framework is focusing mainly on precision performance, which it seems more suitable for the application. 
+% The main evaluation criterion for the focused crawlers is the \textit{Precision}, although, \textit{Recall} and \textit{Harvest Ratio} are also important \parencite{priyatam2013don_URL}. The task objective is more important the crawled pages to be relevant to the requested genre than potentially missing a few, i.e. high precision and low recall. As we will see later WGI in an open-set framework is focusing mainly on precision performance, which it seems more suitable for the application. 
  
-An aspect to be noted is the seeding. Seeding is the initialization procedure where the several URLs are given as starting point for the crawler. First of all usually a manually curated seeding returns faster, and more relevant pages. Secondly main issue for the genre-focused crawling is the \textit{diversity}. That is, \textit{the seed pages should be diverse in respect of the topic} but similar to the genre requested. Several strategies can be used, where the URL string, the webpage content, and the user/authority posting/publishing, are analyzed with machine learning and/or heuristic method for measuring the diversity. Ultimately, exploiting the similarities in context of the above units (URL, Text, Html, Author) a graph is constricted of the \textit{perspective seed pages}. Then an out-of-the box algorithm can be used for finding the pages are connected with a distance greater than three (3) nodes.
+%An aspect to be noted is the seeding. Seeding is the initialization procedure where the several URLs are given as starting point for the crawler. First of all usually a manually curated seeding returns faster, and more relevant pages. Secondly main issue for the genre-focused crawling is the \textit{diversity}. That is, \textit{the seed pages should be diverse in respect of the topic} but similar to the genre requested. Several strategies can be used, where the URL string, the webpage content, and the user/authority posting/publishing, are analyzed with machine learning and/or heuristic method for measuring the diversity. Ultimately, exploiting the similarities in context of the above units (URL, Text, Html, Author) a graph is constricted of the \textit{perspective seed pages}. Then an out-of-the box algorithm can be used for finding the pages are connected with a distance greater than three (3) nodes.
  
-Measuring the diversity is also an important issue. In the semantic point of view diversity means that a web-page content would be really distant in WordNet distance metric. However, this is not the case, because some specific words, POS n-grams, and other features which are genre-related are also topic-related. Thus \textit{Semantic Distance metric } is not the best choice. On the other hand \textit{Average Similarity between Document-pairs} shown to be more efficient \parencite{priyatam2013don_URL}. 
+%Measuring the diversity is also an important issue. In the semantic point of view diversity means that a web-page content would be really distant in WordNet distance metric. However, this is not the case, because some specific words, POS n-grams, and other features which are genre-related are also topic-related. Thus \textit{Semantic Distance metric } is not the best choice. On the other hand \textit{Average Similarity between Document-pairs} shown to be more efficient \parencite{priyatam2013don_URL}. 
  
 %\textbf{Using the Web as a Corpus - The Genre Approach}
     
 
-\section{Genres Utility}\label{chap:relevant_work:sec:intro}
+%\section{Genres Utility}\label{chap:relevant_work:sec:intro}
 
-Genre taxonomy of the texts has a research interest for linguistics and computational linguistics studies, as part of the taxonomy behaviour and evolution. However, is not strictly a tool for studying the languages only academically or as an aiding tool for better NLP and IR results in other domains. It also has its one practical utility directly for the end user. Some examples will follow.
+%The ability to automatically recognize the genre of web documents can enhance modern information retrieval systems by enabling genre-based grouping/filtering of search results or building intuitive hierarchies of web page collections combining topic and genre information (Braslavski 2007; Rosso 2008; De Assis et al. 2009). For example, a search engine can provide its users with the option to define complex queries (e.g., blogs about machine learning or eshops about sports equipment) as well as the option to navigate through results based on genre labels (e.g. social media pages, web shops, discussion forum, blogs, etc). The recognition of web genre can also enhance the effectiveness of processing the content of web pages in information extraction applications. For example, given that a set of web pages has to be part-of-speech tagged, appropriate models can be applied to each web page according to their genre (Nooralahzadeh et al. 2014).
 
-To begin with,  journalism historians have a great interest in the advances of the ML and NLP in order to automatically cluster their resources for better studying the News publication in a systematic historical manner. An closely related study in native and foreign languages teaching is an essential tool for locating documents to be used in the teaching process for developing the competence of written ans spoken language on specific genre. As an example, when the student should learn the difference of academic and casual writing.
+%Genre taxonomy of the texts has a research interest for linguistics and computational linguistics studies, as part of the taxonomy behaviour and evolution. However, is not strictly a tool for studying the languages only academically or as an aiding tool for better NLP and IR results in other domains. It also has its one practical utility directly for the end user. Some examples will follow.
 
-An other study for the utility of the genre taxonomy and the \textit{Search Engines Results (SER} is one conducted at Pittsburgh, USA, University.  The experiment measured the correlation of the website's/web-page's genre and the user's preference for completing the task of finding health care information for \textit{Multiple Sclerosis} and \textit{Weight Loss}. The results clearly show that the user's task would be significantly easier if the web resource were organized based on their genre and no only on their topic relation ranking \parencite{chi2018sources}.
+%To begin with,  journalism historians have a great interest in the advances of the ML and NLP in order to automatically cluster their resources for better studying the News publication in a systematic historical manner. An closely related study in native and foreign languages teaching is an essential tool for locating documents to be used in the teaching process for developing the competence of written ans spoken language on specific genre. As an example, when the student should learn the difference of academic and casual writing.
 
-Text based genre identification is also a utility for video (e.g. movies, TV series, etc) classification in video/cinematographic genres using the text available such as the subtitles. In this study a variety of ML algorithms has been tested such as SVM, Naive Bayes, Random Forest, Decision Trees and several types of features. Their \textit{content-free} features are equivalent to the superficial features described in section \ref{chap:relevan_work:sec:features}. Moreover, \textit{content-specific} features also used which they are specific words relevant to content\parencite{lee2017text}.
+%An other study for the utility of the genre taxonomy and the \textit{Search Engines Results (SER} is one conducted at Pittsburgh, USA, University.  The experiment measured the correlation of the website's/web-page's genre and the user's preference for completing the task of finding health care information for \textit{Multiple Sclerosis} and \textit{Weight Loss}. The results clearly show that the user's task would be significantly easier if the web resource were organized based on their genre and no only on their topic relation ranking \parencite{chi2018sources}.
 
-In \textit{Author Profiling} cross-genre evaluation has been employed. That is, texts from a variate of different genres such as \textit{Social Media, Blogs, Twitter and Hotel reviews} used for this task's  \parencite{rangel2016overview}. 
+%Text based genre identification is also a utility for video (e.g. movies, TV series, etc) classification in video/cinematographic genres using the text available such as the subtitles. In this study a variety of ML algorithms has been tested such as SVM, Naive Bayes, Random Forest, Decision Trees and several types of features. Their \textit{content-free} features are equivalent to the superficial features described in section \ref{chap:relevan_work:sec:features}. Moreover, \textit{content-specific} features also used which they are specific words relevant to content\parencite{lee2017text}.
 
-\textit{Office/local documents} multi-faceted search application documents in an office environment (with shared files) was using a genre-taxonomy for aiding the users locating their files. Particularly, their application had great acceptance rate form the users who tested it.  User reported that they were able to locate old slides abandoned more than a decayed related to their current work when using the genre-taxonomy based retrieval. An ensemble based algorithm within an open-set framework was trained, for this task, in a relatively small data-set of 5,098 pages. Then it was tested in a production environment with 30,000 office documents of a 10-year time span. The corpus was including pdf files, images (jpg, png, etc), slides (Powerpoint, Keynote) and HTML booklets \parencite{chen2012genre}.
+%In \textit{Author Profiling} cross-genre evaluation has been employed. That is, texts from a variate of different genres such as \textit{Social Media, Blogs, Twitter and Hotel reviews} used for this task's  \parencite{rangel2016overview}. 
 
-\section{Web Genre Corpora: An unfinished work in progress}\label{chap:relevant_work:sec:intro}
+%\textit{Office/local documents} multi-faceted search application documents in an office environment (with shared files) was using a genre-taxonomy for aiding the users locating their files. Particularly, their application had great acceptance rate form the users who tested it.  User reported that they were able to locate old slides abandoned more than a decayed related to their current work when using the genre-taxonomy based retrieval. An ensemble based algorithm within an open-set framework was trained, for this task, in a relatively small data-set of 5,098 pages. Then it was tested in a production environment with 30,000 office documents of a 10-year time span. The corpus was including pdf files, images (jpg, png, etc), slides (Powerpoint, Keynote) and HTML booklets \parencite{chen2012genre}.
 
-Santini and Serge in \parencite{santini2009web} for more than a decade have pointed out the problem of the Genre Corpora in the context of the difficulty to be consisted and maintained due to the reasons explained in this chapter up to here. 
+\section{Corpora for WGI Evaluation}\label{chap:relevant_work:sec:intro}
 
-The constitution process for the rules required to be followed for composing a text corpus is still a research problem in \textit{linguistics studies}, while the utility of the genre-taxonomy is vividly pointed out. A collection of texts cannot be assumed to be a corpus by default due to several issues should be considered starting with the taxonomy definition where mostly is an overlapping problem, then the texts should have several properties linguistically and statistically defined. The homogeneity in temporal manner, whether are from multiple languages and the way have been collected; \textit{speech, spoken or written corpus}. Particularly speech corpus implies voice recording while spoken means to be transcribed from speech samples. Particularly for the genre-taxonomy the homogeneity related to the time the samples has been collected is very critical since the genres are changing over time until a new genre occurs replacing or dividing from an older \parencite{dash2018history}. Blogs, for example, was the evolution of "personal/memory diaries" when they became public on the web and named "web-logs" then in a second time evolution renamed to "blogs" where their content also changed now is mostly like an \textit{informal journalism} rather than a diary.
+In order to evaluate WGI approaches, there is need for corpora including multiple web genres. Given that most WGI methods need to be trained, an adequate number of positive examples per genre should be provided so that a large part of it to be used for training and hyper-parameter tuning and the rest for test purposes. Unfortunately, the available corpora used in previous studies are relatively small. 
 
-The NLP community has overcome the problem of a non-well established corpus of the WGI. There are at least tree publication on the effort on \textit{corpus building methodologies} with vividly different approaches, yet the problem is remaining open due to several issues described in detail in section \ref{chap:relevant_work:sec:linguistics_definition} and in \parencite{melissourgou2017genre,asheghi2014semi} (Ashegi,2018_Book_HistoryFeaturesAndTypologyOfLa_WEB_TEXT_CORPUS.pdf). 
+Table \ref{table:corpora} shows a list of corpora developed by researchers to evaluate their methods (focusing on corpora that include HTML documents). Most of these corpora have also been used by other researchers to provide comparative evaluation results when new WGI methods are proposed. Due to the small size of the existing corpora, the most popular approach is to apply 10-fold cross-validation.
 
-All the approaches are focusing on the genre's main principals, i.e. the function, form and communicative purpose. While in \parencite{asheghi2014semi} the focus was on the semi-automated evaluation procedure in the categorization of the texts, in \parencite{melissourgou2017genre} the process is focusing on the systematic manual process. This process is based on a well established theory of  the Systemic Functional Linguistic (STL) framework where as a shortcut in the process can help on building and evaluating a genre taxonomy corpus. 
-
-There is no drought for the significant contribution of the above studies where all three can be used as the solid framework for building \textit{web-genre-taxonomy corpora} and web-text corpora in general. The utility of the each work can be used as multi-layer filtering process:  1) starting with the automated crawling of the web using focused crawling as explained above \ref{}, 2) Using non-experts crowd-sourcing semi-automated procedures form first level filtering, 3) using the methodology of manual STL based evaluation for fast qualitative analysis and categorization of the post-crowdsourcing-filtered corpus. 
-
-Starting form the final step, in \parencite{melissourgou2017genre} firstly is resolved the ambiguity on the notions related to genre. As they explained the terms "genre", "register", and "text type" are used interchangeably, complimentary and even contradictory, in addition to the debate related to the terms usage. Particularly \textit{text's register, communicative purpose, form} are all components of the \textit{text's genre}, while \textit{text type} is mainly defined by the \textit{text's form}. Alternatively, register is used to describe very general concepts of writing styles such as \textit{formal/informal} while genre mostly includes also the purpose such as \textit{news/blog}, where news' style is mostly formal and blog's informal. Moreover, text's form is also one of the three components of the \textit{register} where it is called "mode" in the context of the register's counterpart. One could attempt to describe the connection of these terms in a mathematical equations such as in equation \ref{eq:genre_notion_in_math}.  
-
-\begin{equation}\label{eq:genre_notion_in_math}
-	G  \subseteq P \uplus F \uplus T \uplus M
-\end{equation}
-\noindent
-where $G$ is the genre, $P$ is the communicative purpose and $F, T, M$ are the "register's" components. $F$ is the \textit{field} which answers to the question of \textit{Why?} the text was composed. $T$ is the \textit{tenor} which answers the question of \textit{Who?} or/and to \textit{Whom?} the text was written. $M$ is the \textit{mode} which is the text's form. Note, that G is not exactly equal to their sum of these components of the text, because, some topic counterparts are also genre indicators, although topic is orthogonal to the genre. However, there are several cases where topic indicator are also useful as genre indicators and discussed in section \ref{chap:relevant_work:sec:heuristics}. In addition, we humans recognize the genre by using topic counters parts which it been shown in some cognitive experiments on genre identification in \parencite{clark2014you, lieungnapar2017genre} (briefly explained in section \ref{chap:relevant_work:sec:linguistics_definition}).
-
-Finally, an interesting path towards to the process automating the building of genre-taxonomy corpora is the one found in \parencite{lieungnapar2017genre}. They are using a K-means clustering method as an automated procedure for capturing the possible correlation of \textit{logistic features} and the \textit{Popular Science Sub-Genres}. In their methodology they are using a set of manually extracted linguistic features as presented in table \ref{chap:relevant_work:tbl:pop_science_features} and then they are correlating the z-scores of these features to the possible 4 clusters found to be in the Popular Science \textit{web documents}. Following the same strategy they have managed to show the correlation of the sub-genres to the science disciplines and document sources. Finally they have managed to correlate manually identified genre's function to the linguistic features. Showing that it is possible by using a short of \textit{funnel like Filter} is possible to gradually extract higher and more abstract levels of information starting with the linguistic features, continuing with function features (or text-registers) (e.g. Impersonal, Narrative, Persuasive, Informative, Elaborated, Impersonal) and finally classifying the genres. Finally, they have shown that their final evaluation to their semi-automated process was as good as the experts agreement on the same task after they have manged to form a "golden standard" manually. 
-
-
-\section{Discussion and Future Work Suggestions}\label{chap:relevant_work:sec:intro}
+\begin{table}[t]
+	\center
+	\caption {Corpora used in the evaluation of WGI methods.}
+	\begin{tabular}{lcc}
+		\hline
+		Corpus & Texts & Genres \\
+		\hline
+        KI-04 & 1,205 & 8 \\
+        I-EN & 250 & 7 \\
+        7-Genre & 1,400 & 8 \\
+        SANTINIS & 2,480 & 12 \\
+        HGC & 1,412 & 34 \\
+        MGC & 1,536 & 20 \\
+        LWGC-B & 3,964 & 15 \\
+        LWGC-R & 966 & 15 \\
+  		\hline
+	\end{tabular}
+\end{table}
 
 \begin{itemize}
-\item Semi-automated corpus bundling.
-\item Metrics for evaluating the corpora qualities such as diversity, topic to genre orthogonal properties, etc.
-\item ML with built-in feature selection properties.
-\item Open-set Semi-supervised clustering.
-\item Web-documents linked Graph visualization with URL and Genre connection.
-\item Random Term Feature Selection can it be "beaten" by the Neural Language Models, i.e. is there a case of NLM where they can behave significantly better than random selection? NLM seem worst or equal (but not better) than random features because of the limited available corpora for WGI or is a task oriented issue?
+    \item KI-04: This is a corpus of 7 web genres selected according to their usefulness for web search  purposes \parentcite{meyer2004genre}. Documents were downloaded in 2004.
+    \item I-EN: This is a small collection of web-pages randomly selected from a large corpus representing English Web in 2005.    \item 7-Genre: This is a corpus of web genres downloaded in 2005 \parentcite{santini2007automatic}. All pages were manually collected. 
+    \item SANTINIS: This is an augmented version of 7-Genres. It includes four additional genres from BBC pages as well as 1,000 unlabeled pages from the SPIRIT collection \parentcite{joho2004spirit}. The latter can be viewed as noise.
+    \parentcite{Sharroff2010inthegarden}. Genre labels are defined according to the functional genre classification scheme that is based on very abstract concepts.
+    \item HGC: This corpus provides a hierarchical structured genre palette  \parentcite{stubbe2007genre}. For example poem is a sub-genre of literature and reportage is a sub-genre of journalism.
+    \item MGC: This is the only multi-labelled corpus of the list. Each web-page can belong to several genres. \parentcite{Vidulin2007}
+    \item LWGC-B: This is a corpus constructed using crowd-sourcing to ensure the reliability of genre labels \parentcite{Asheghi2015}. It is a balanced corpus meaning that the samples are evenly distributed over the selected genres.
+    \item LWGC-R: This is based on the same methodology with LWGC-B. However, a random collection of web-pages was assigned to genres meaning that it is highly unblalanced. In addition, a large part of web-pages do not belong to any of the given genres (i.e., noise).
 \end{itemize}
 
+As can be seen, the characteristics of these collections differ. Each one enables the evaluation of WGI approaches in specific setups. In addition, there is variety of genre labels included in these collections. The most common labels refer to personal home pages and e-shop. In general, genre labels of one collection cannot be easily mapped to labels of another collection. It has to be noted that the time of building the corpus constrains the genres that includes. For example, KI-04 that is relatively old exclude blogs and FAQs. This also clearly indicates the emerging of new web genres \parencite{dash2018history}. 
 
-\section{Corpora for Evaluating WGI Approaches}
+Another weakness of some corpora is the lack of representativeness for specific genres. For example, the FAQ label of 7-Genres consists of web-pages mainly discussing hurricanes. Thus, this genre becomes too specific and could be identified thematically. 
 
-These issues are labor intensive and very hard to be resolved even with the attempt of the cowed sourcing engines (like \textit{Amazon Mechanical Turk}) as presented in \parencite{Asheghi's relative work}.
+As concerns, open-set evaluation of WGI approaches, only two corpora include (unstructured) noise: SANTINIS and LWGC-R. Unfortunately, the latter is not publicly-available. 
 
-\textbf{NOTE: In this survey section the Genre and Web-Genre is studied mostly thematically than historically. However, wherever there is interesting historical sequence in the research field it is pointed out.}
+\section{Conclusions}\label{chap:relevant_work:sec:intro}
 
-This study is focused on the Open-set Machine Learning (ML) computational methods for \textit{Automated Classification} of \textit{the Web-pages} into a \textit{Genre Taxonomy}. In a broader definition is also known as Web-Genre Identification (WGI). Since most of the literature has also worked with corpora including also electronic document other than web-sourced, the WGI also called as Automated Genre Identification (AGI).
+The bulk of research in genre recognition studies focuses on the extraction of relevant information from documents. Various sources have been explored including the textual part of web-pages, the visual appearance and structure, the URL and graph of interlinked web-pages. Usually, a combination of features from several such categories assist to enhance performance in WGI. However, the textual features are considered the most important ones and provide the starting point of almost every study. It is remarkable that among the most effective ways to represent web-pages in the framework of WGI tasks are word and character n-grams. Such features are easy to extract requiring minimal resources, language-independent, and able to capture nuances of stylistic properties of texts. On the other hand, such features build high-dimensional and sparse representations.
 
-The \textit{Genre} taxonomy of \textit{the texts} in linguistics domains is a subject of a theoretical (mostly philosophical) debate respectively to its evolution mechanics. Several computational methodologies has been developed for automating the process based on \textit{Machine Learning (ML)} methods. However, most of the AGI research has focused on the raw text pre-processing and the feature selection methodologies and the \textit{Bag-of-Words (or Bag-of-Terms) BoT }\footnote{In this text Bag-of-Terms (BoT) is equivalent to the Bag-of-Words  (BOW), which has been widely used in the literature of the Information Retrieval and Natural Language Processing domains. Since, BoT is accurately describing the meaning of BOW in most of the cited literature.} text representation. Only recently there is a redirection of the research focus to the \textit{Vocabulary Learning Models (VLM)} where they are used as input to the Identification/Classification ML model, instead of the BoT. 
+It has to be noted that, in contrast to thematic text classification approaches, minimum text pre-processing should be applied in WGI tasks. That is stopword removal is not a good idea since the most frequent words are associated with certain syntactic structures that provide useful stylistic information. Punctuation marks, capitalization, etc. should not be removed since they are important style markers. Stemming or lemmatization is not advisable since significant morphological information will be lost.
 
+The vast majority of WGI approaches adopt the closed-set classification scenario. This is far from realistic for most WGI applications where it is not possible build an adequate genre palette. In an experiment presented in \parentcite{Asheghi2015}, users (in a crowd-sourcing environment) were asked to assign about 1,000 randomly selected pages to 15 pre-defined general genre labels. More than 45\% of the web-pages were left unclassified. This clearly shows that a great amount of web-pages will not meet the criteria of any pre-defined genre palette. In addition, it demonstrates that the level of noise is higher than any pre-defined genre in WGI tasks. 
 
+The most successful classification algorithms applied to genre recognition tasks so far, are SVMs, distance-based methods, and ensemble methods. It seems that it is especially important to adequately handle irrelevant and redundant features. The application of deep learning methods in WGI tasks has not provided remarkable results yet, in contrast to several other text classification tasks. One reason for this could be the lack of large volumes of training examples. 
 
+There is only a few open-set WGI approaches. Some of them are not adequately evaluated since experiments using noise-free corpora are used \parentcite{stubbe2007genre,jebari2015combination}. In addition, even when noise is included in the evaluation corpus, the evaluation measures do not take into account the open-set conditions \parentcite{Asheghi2015}. 
 
+The evaluation corpora used for the estimation of effectiveness of WGI methods are small in size and greatly differ in characteristics. Most of them are old enough and do not cover modern genres. Unfortunately, two recently developed ones (LWGC-B and LWGC-R) specifically designed to provide reliability of genre labels and thematic-neutrality of samples belonging to each genre are not currently publicly available. 
 
+%\section{OLD INTRO}
 
-\begin{figure}[t]
-	\begin{center}
-    	\includegraphics[scale=0.95]{Figures/Sotlen_diagram.eps}
-		\caption{Stolen Imag.}
-		\label{fiig:Stolen}
-	\end{center}
-\end{figure}
-
-
+%Web Genre Identification (WGI) concerns the association of web pages with labels that correspond to their form, communicative purpose and style rather than their content. The ability to automatically recognize the genre of web documents can enhance modern information retrieval systems by enabling genre-based grouping/filtering of search results or building intuitive hierarchies of web page collections combining topic and genre information \parencite{Braslavski2007,Rosso2008,de2009genre}. For example, a search engine can provide its users with the option to define complex queries (e.g., blogs about machine learning or eshops about sports equipment) as well as the option to navigate through results based on genre labels (e.g. social media pages, web shops, discussion forum, blogs, etc). The recognition of web genre can also enhance the effectiveness of processing the content of web pages in information extraction applications. For example, given that a set of web pages has to be part-of-speech tagged, appropriate models can be applied to each web page according to their genre \parencite{Nooralahzadeh2014}. However, research in WGI is relatively limited due to fundamental difficulties emanating from the genre notion itself.
 
 
+%The most significant difficulties in the WGI domain are: (1) There is not a consensus on the exact definition of genre \parencite{crowston2011problems}; (2) There is not a common genre  palette that comprises all available genres and sub-genres \parencite{santini2011cross,mehler2010genres_on_web,mason2009n,sharoff2010web}, moreover, genres are evolving in time since new  genres are born or existing genres are modified \parencite{Boese2005}; (3) It is not clear whether a whole web page should belong to a genre or sections of the same web page can belong to  different genres \parencite{jebari2015combination,madjarov2015web}; (4) Style of documents is affected by both genre-related choices and author-related choices \parencite{petrenz2011stable,Sharroff2010}. As a result, it is hard to accurately distinguish between personal style characteristics and genre properties when style is quantified.
 
+%Genre means "genus" in the Greek language and for the text focused studies (either traditional linguistics or computational) mainly means style. The main utility of the genre taxonomy is for speeding up the communication in a broader sense. 
 
+%Starting with two cases outside the computer science the genre taxonomy is very useful in English 
 
-A very recent research on Cross-Lingual Genre Classification showed that it is possible to get very good results when an ML model is trained with a corpus samples of one language and then testing the trained model to an other. However, the evaluation framework was closed-set and the relation of the languages seems to be of a great importance for the accuracy performance of the model. That is, in some cases it was important the language to be of the same group for example the Roman or the Slavic group of languages and for others was not. Some times oddly the performance was dropping when the language was form the same language group \parencite{nguyen2019cross}.
+%One (REF) from the discipline of the \textit{English for Academic Purposes} (EAP) where it was vividly discussed the divergence in the genre taxonomies between the difference academic disciplines and reasoned the utility of the genre taxonomy for enabling the teachers and the students to improve their rhetorical and written language with the purpose of improving the teaching procedure. What is important to note for this study is the conclusion that the same genre-type can be very different for the communication purpose, i.e. as text identity carrier, but it can also contain the same style and other language properties when the purpose is similar, for example the article of new paper and an article form a magazine where one can claim that they are a different genre-type although they governed by the same linguistic properties.
 
-Web Genre Identification (WGI) concerns the association of web pages with labels that correspond to their form, communicative purpose and style rather than their content. The ability to automatically recognize the genre of web documents can enhance modern information retrieval systems by enabling genre-based grouping/filtering of search results or building intuitive hierarchies of web page collections combining topic and genre information \parencite{Braslavski2007,Rosso2008,de2009genre}. For example, a search engine can provide its users with the option to define complex queries (e.g., blogs about machine learning or eshops about sports equipment) as well as the option to navigate through results based on genre labels (e.g. social media pages, web shops, discussion forum, blogs, etc). The recognition of web genre can also enhance the effectiveness of processing the content of web pages in information extraction applications. For example, given that a set of web pages has to be part-of-speech tagged, appropriate models can be applied to each web page according to their genre \parencite{Nooralahzadeh2014}. However, research in WGI is relatively limited due to fundamental difficulties emanating from the genre notion itself.
-
-
-The most significant difficulties in the WGI domain are: (1) There is not a consensus on the exact definition of genre \parencite{crowston2011problems}; (2) There is not a common genre  palette that comprises all available genres and sub-genres \parencite{santini2011cross,mehler2010genres_on_web,mason2009n,sharoff2010web}, moreover, genres are evolving in time since new  genres are born or existing genres are modified \parencite{Boese2005}; (3) It is not clear whether a whole web page should belong to a genre or sections of the same web page can belong to  different genres \parencite{jebari2015combination,madjarov2015web}; (4) Style of documents is affected by both genre-related choices and author-related choices \parencite{petrenz2011stable,Sharroff2010}. As a result, it is hard to accurately distinguish between personal style characteristics and genre properties when style is quantified.
-
-Genre means "genus" in the Greek language and for the text focused studies (either traditional linguistics or computational) mainly means style. The main utility of the genre taxonomy is for speeding up the communication in a broader sense. 
-
-Starting with two cases outside the computer science the genre taxonomy is very useful in English 
-
-One (REF) from the discipline of the \textit{English for Academic Purposes} (EAP) where it was vividly discussed the divergence in the genre taxonomies between the difference academic disciplines and reasoned the utility of the genre taxonomy for enabling the teachers and the students to improve their rhetorical and written language with the purpose of improving the teaching procedure. What is important to note for this study is the conclusion that the same genre-type can be very different for the communication purpose, i.e. as text identity carrier, but it can also contain the same style and other language properties when the purpose is similar, for example the article of new paper and an article form a magazine where one can claim that they are a different genre-type although they governed by the same linguistic properties.
-
-The types of their study genre taxonomy mainly focused on the \textit{purpose} of the students written context and less on the \textit{style}, thus their genre-types where \textit{Creative Writing, Response Paper, Critique/Evaluation, Argumentative Essay, Report, Research Paper and Proposal}. Their study was a manual statistical process, similar to a \textit{Data Mining} process where grammatical features were counted in the texts. Then these features where indicating the score for each of the four (4) dimensions which has been qualitatively predefined. The counting process was using a heuristic computational tagger, named as Biber tagger (see Biber 1988 or ??? *** Genre variations in student .... (paper)).   
+%The types of their study genre taxonomy mainly focused on the \textit{purpose} of the students written context and less on the \textit{style}, thus their genre-types where \textit{Creative Writing, Response Paper, Critique/Evaluation, Argumentative Essay, Report, Research Paper and Proposal}. Their study was a manual statistical process, similar to a \textit{Data Mining} process where grammatical features were counted in the texts. Then these features where indicating the score for each of the four (4) dimensions which has been qualitatively predefined. The counting process was using a heuristic computational tagger, named as Biber tagger (see Biber 1988 or ??? *** Genre variations in student .... (paper)).   
   
-  ***
-Genres, in textual sense, is sometimes defined as group of texts of documents that share a communicative purpose, as determined by the \textit{discourse community} which produces and/or reads them. "In \textbf{structural}terms, genre are social institutions that are produced, reproduced, reproduced or modified when \textit{human agents} draw on genre rules to engage in organizational communication".
+%  ***
+%Genres, in textual sense, is sometimes defined as group of texts of documents that share a communicative purpose, as determined by the \textit{discourse community} which produces and/or reads them. "In \textbf{structural}terms, genre are social institutions that are produced, reproduced, reproduced or modified when \textit{human agents} draw on genre rules to engage in organizational communication".
 
-"Layout in organizational communities cause people to focus perceptually on key parts of the text and our \textbf{empirical research has previously demonstrated that people use layouts and other related cues to focus on key parts of the text.}"
-***
+%"Layout in organizational communities cause people to focus perceptually on key parts of the text and our \textbf{empirical research has previously demonstrated that people use layouts and other related cues to focus on key parts of the text.}"
+%***
 
+%On the other hand and other research lying in the discipline of cognitive computing an health research they found humans are recognizing the genre type of a document or web-page using other cognitive processes relates mostly to the formatting of the text. Particularly they used as well configured apparatus for tracking the eyes movement while the recognition effort, where they fount that the eyes where following specific paths and where stopping to special landmarks on the text. They have concluded that the process of genre recognition was mostly related to the format and not the context, in addition they statistically measured that they previews experience was not related to the recognition process. Although it was the previews knowledge of the text formatting was accelerating the process. However, on the opinion of the authors of this study the genre recognition is a more deep process, thus as one can concluded by reading their study the landmarks they are referring into seems to be the only context combined with the formatting of the text that the human brain is requiring for identifying the genre-type. Given that their study is focused on the e-mail genres where formatting options compare to the web or textbooks is rather limited is advocating the conclusion that the minimum context is required for identifying the genre-type.
 
-On the other hand and other research lying in the discipline of cognitive computing an health research they found humans are recognizing the genre type of a document or web-page using other cognitive processes relates mostly to the formatting of the text. Particularly they used as well configured apparatus for tracking the eyes movement while the recognition effort, where they fount that the eyes where following specific paths and where stopping to special landmarks on the text. They have concluded that the process of genre recognition was mostly related to the format and not the context, in addition they statistically measured that they previews experience was not related to the recognition process. Although it was the previews knowledge of the text formatting was accelerating the process. However, on the opinion of the authors of this study the genre recognition is a more deep process, thus as one can concluded by reading their study the landmarks they are referring into seems to be the only context combined with the formatting of the text that the human brain is requiring for identifying the genre-type. Given that their study is focused on the e-mail genres where formatting options compare to the web or textbooks is rather limited is advocating the conclusion that the minimum context is required for identifying the genre-type.
+%They are discussing of tree main perception (psychology) theories, i.e. Gestaltism (or Gestalt psychology), Ecological and Constructivism, which are the theories which can interpret the perception procedures, it this case the eye movement on the texts, to the cognition process for identifying the genre types of the texts. The perception procedure includes some eye movements mainly doing two tasks, \textit{scanning} and \textit{skimming}. Theses two procedures are irrespective of the belief of the supported interpretation theory related to the internal thought process for making a genre taxonomy decision. Scanning is the process where more or less we are trying to locate information of interest where the information has a homogeneous property, such as the a phone number in phone-book list. Skimming is the process where we are trying to locate information of interest where the information is raw or without a specific form, such as names, verbs, or phrases that is related to the abstract related concept in order to decide whether the text is matches and worth farther reading. 
 
-They are discussing of tree main perception (psychology) theories, i.e. Gestaltism (or Gestalt psychology), Ecological and Constructivism, which are the theories which can interpret the perception procedures, it this case the eye movement on the texts, to the cognition process for identifying the genre types of the texts. The perception procedure includes some eye movements mainly doing two tasks, \textit{scanning} and \textit{skimming}. Theses two procedures are irrespective of the belief of the supported interpretation theory related to the internal thought process for making a genre taxonomy decision. Scanning is the process where more or less we are trying to locate information of interest where the information has a homogeneous property, such as the a phone number in phone-book list. Skimming is the process where we are trying to locate information of interest where the information is raw or without a specific form, such as names, verbs, or phrases that is related to the abstract related concept in order to decide whether the text is matches and worth farther reading. 
-
-The process of scanning and especially skimming in practice follows some specific eye movements, i.e. Fixation and Saccadic. Saccadic is the process while scanning or skimming that the eye is jumping around to the text, while Fixation is the process where the eye remains focused for a while. One can resemble the process like navigation where the eye is constantly moving while is focused for small fragments of time in landmarks of interest.
+%The process of scanning and especially skimming in practice follows some specific eye movements, i.e. Fixation and Saccadic. Saccadic is the process while scanning or skimming that the eye is jumping around to the text, while Fixation is the process where the eye remains focused for a while. One can resemble the process like navigation where the eye is constantly moving while is focused for small fragments of time in landmarks of interest.
   
-As \textit{Web Search} from an extension of IR because the main subject under investigation \parencite{manning2008introduction}, \textit{Web page Genre Classification } is becoming the main subject of document classification research.
+%As \textit{Web Search} from an extension of IR because the main subject under investigation \parencite{manning2008introduction}, \textit{Web page Genre Classification } is becoming the main subject of document classification research.
 
-Blogs is a genre-type has attracted as special interest on its own, in differed domains such as in sociology, psychology, linguistics and mostly in computational linguistics and WGI. There are several blogs' properties of interest of the research and  also blogs having their own sub-genre taxonomy. Blog-taxonomy general genres are \textit{Filter, Personal-diary} and \textit{Notebook} and other related to the authors group of styles such as \textit{Reflective, Narrative, Emotional, ratioal} and \textit{Personal , Non-Personal}. The thought research on the blog-types classification has delivered a set of special linguistic and web-page structural properties which are increasing the performance of the closed set classification. Details for this linguistic properties used for specially for blogs sub-taxonomy classification are described in section \ref{chap:relevant_work:sec:features:subsec:heuristics} \parencite{virik2017blog,hoffmann2012cohesive,hoffmann2012cohesive,derczynski2014social,qu2006automated}. 
+%Blogs is a genre-type has attracted as special interest on its own, in differed domains such as in sociology, psychology, linguistics and mostly in computational linguistics and WGI. There are several blogs' properties of interest of the research and  also blogs having their own sub-genre taxonomy. Blog-taxonomy general genres are \textit{Filter, Personal-diary} and \textit{Notebook} and other related to the authors group of styles such as \textit{Reflective, Narrative, Emotional, ratioal} and \textit{Personal , Non-Personal}. The thought research on the blog-types classification has delivered a set of special linguistic and web-page structural properties which are increasing the performance of the closed set classification. Details for this linguistic properties used for specially for blogs sub-taxonomy classification are described in section \ref{chap:relevant_work:sec:features:subsec:heuristics} \parencite{virik2017blog,hoffmann2012cohesive,hoffmann2012cohesive,derczynski2014social,qu2006automated}. 
 
-Most previous work in WGI follows a typical closed-set text categorization approach where, first, features are extracted from documents and, then, a classifier is built to distinguish between classes. Attention is paid to the appropriate definition of features that are able to capture genre characteristics and should not be affected by topic shifts or personal style choices. 
+%Most previous work in WGI follows a typical closed-set text categorization approach where, first, features are extracted from documents and, then, a classifier is built to distinguish between classes. Attention is paid to the appropriate definition of features that are able to capture genre characteristics and should not be affected by topic shifts or personal style choices. 
 
