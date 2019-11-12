@@ -278,6 +278,21 @@
          style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.00000003pt;stroke-opacity:1"
          transform="matrix(-0.4,0,0,-0.4,-4,0)" />
     </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-0-1-4-9"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1121-6-7-8-6"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -287,8 +302,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="348.11662"
-     inkscape:cy="96.836873"
+     inkscape:cx="513.27656"
+     inkscape:cy="158.96125"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -959,5 +974,69 @@
        d="m 128.28233,271.71822 7.33587,-6.75686"
        id="path2224-1-9-9"
        inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.19054759;stroke-miterlimit:13.10000038;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2186-7-1-2"
+       width="18.160963"
+       height="8.3598089"
+       x="111.59171"
+       y="244.29308" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:0.56500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-0-1-4-9)"
+       d="m 118.79424,251.91987 -2.68673,20.10372"
+       id="path2224-1-9-9-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g2311"
+       transform="matrix(0.84882397,0,0,0.84882397,20.55546,37.598265)">
+      <text
+         id="text2182-1-2-5"
+         y="246.73201"
+         x="123.19798"
+         style="font-style:normal;font-weight:normal;font-size:3.5793817px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.08948454"
+         xml:space="preserve"><tspan
+           id="tspan2184-5-3-4"
+           style="line-height:1;stroke-width:0.08948454"
+           y="246.73201"
+           x="123.19798"
+           sodipodi:role="line">ρ</tspan></text>
+      <rect
+         y="247.8999"
+         x="120.50093"
+         height="0.46772167"
+         width="7.5503645"
+         id="rect2294"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.55818856;stroke-miterlimit:4;stroke-dasharray:3.11637733, 6.23275468;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         transform="scale(0.99004687,1.0100532)"
+         id="text2304"
+         y="248.56709"
+         x="122.27381"
+         style="font-style:normal;font-weight:normal;font-size:3.07753587px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.07693839"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.07693839"
+           y="248.56709"
+           x="122.27381"
+           id="tspan2302"
+           sodipodi:role="line">||w||</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.1577456px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.07894365"
+       x="113.89387"
+       y="243.95735"
+       id="text2182-5-5-9"
+       transform="scale(0.97991575,1.0204959)"><tspan
+         sodipodi:role="line"
+         id="tspan2180-0-0-3"
+         x="113.89387"
+         y="243.95735"
+         style="line-height:1;stroke-width:0.07894365">Margin</tspan><tspan
+         sodipodi:role="line"
+         x="113.89387"
+         y="247.1151"
+         style="line-height:1;stroke-width:0.07894365"
+         id="tspan2184-3-4-6"> </tspan></text>
   </g>
 </svg>

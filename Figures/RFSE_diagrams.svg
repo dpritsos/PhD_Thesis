@@ -448,38 +448,6 @@
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
          transform="matrix(-0.4,0,0,-0.4,-4,0)" />
     </marker>
-    <marker
-       inkscape:stockid="Arrow1Mend"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="marker12349-5-5-8-43"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         inkscape:connector-curvature="0"
-         id="path12347-5-2-1-8"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
-         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow1Mend"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="marker12349-5-5-8-8"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         inkscape:connector-curvature="0"
-         id="path12347-5-2-1-82"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
-         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
-    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -489,7 +457,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="562.34266"
+     inkscape:cx="374.45429"
      inkscape:cy="127.59045"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -522,12 +490,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-192)">
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.50400001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker12349-5-5-8-8)"
-       d="m 163.46325,253.11356 -0.0548,23.18586"
-       id="path12121-4-2-1-5"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.46011737;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect8021"
@@ -980,7 +942,7 @@
          x="164.06807"
          y="218.97775"
          style="line-height:1;text-align:center;text-anchor:middle;stroke-width:0.10005724"
-         id="tspan13581-9-0">Threshold T </tspan><tspan
+         id="tspan13581-9-0">Threshold σ </tspan><tspan
          sodipodi:role="line"
          x="163.43098"
          y="222.98004"
@@ -1149,115 +1111,27 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <rect
-       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.75227404;stroke-miterlimit:4;stroke-dasharray:1.504548, 0.752274, 0.37613701, 0.752274;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.92038947;stroke-miterlimit:4;stroke-dasharray:1.84077891, 0.92038945, 0.46019474, 0.92038945;stroke-dashoffset:0;stroke-opacity:1"
        id="rect20419-3-6"
-       width="21.515198"
+       width="32.205978"
        height="10.289877"
-       x="82.885788"
+       x="78.598732"
        y="194.96986" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.0022893px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10005724"
-       x="93.642075"
+       x="94.700409"
        y="199.2048"
        id="text12791-8-1-1"><tspan
          sodipodi:role="line"
-         x="94.27916"
+         x="94.700409"
          y="199.2048"
          style="line-height:1;text-align:center;text-anchor:middle;stroke-width:0.10005724"
-         id="tspan13581-9-0-5">Distance </tspan><tspan
+         id="tspan13581-9-0-5">Distance-based</tspan><tspan
          sodipodi:role="line"
-         x="93.642075"
+         x="94.700409"
          y="203.20709"
          style="line-height:1;text-align:center;text-anchor:middle;stroke-width:0.10005724"
          id="tspan13610-5-5">Learners</tspan></text>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.50400001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker12349-5-5-8-43)"
-       d="m 171.65452,248.01849 c 17.21008,0.68011 15.49318,-5.6011 15.81532,28.29822"
-       id="path12121-4-2-1-8"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <rect
-       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.48384553;stroke-miterlimit:4;stroke-dasharray:0.96769112, 0.48384556, 0.24192278, 0.48384556;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect20419-3-7-2"
-       width="15.229477"
-       height="6.0135646"
-       x="146.77234"
-       y="255.95009" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.0022893px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10005724"
-       x="154.87393"
-       y="260.18005"
-       id="text12791-8-1-3"><tspan
-         sodipodi:role="line"
-         x="154.87393"
-         y="260.18005"
-         style="line-height:1;text-align:center;text-anchor:middle;stroke-width:0.10005724"
-         id="tspan13581-9-0-2">T &gt; σ</tspan><tspan
-         sodipodi:role="line"
-         x="154.87393"
-         y="264.18234"
-         style="line-height:1;text-align:center;text-anchor:middle;stroke-width:0.10005724"
-         id="tspan13610-5-6" /></text>
-    <rect
-       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.48384553;stroke-miterlimit:4;stroke-dasharray:0.96769113, 0.48384557, 0.24192278, 0.48384557;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect20419-3-7-2-1"
-       width="15.229478"
-       height="6.0135646"
-       x="170.9213"
-       y="256.3082" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.0022893px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10005724"
-       x="179.02289"
-       y="260.53815"
-       id="text12791-8-1-3-9"><tspan
-         sodipodi:role="line"
-         x="179.02289"
-         y="260.53815"
-         style="line-height:1;text-align:center;text-anchor:middle;stroke-width:0.10005724"
-         id="tspan13581-9-0-2-5">T &lt; σ</tspan><tspan
-         sodipodi:role="line"
-         x="179.02289"
-         y="264.54044"
-         style="line-height:1;text-align:center;text-anchor:middle;stroke-width:0.10005724"
-         id="tspan13610-5-6-9" /></text>
-    <rect
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.35416663;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect13803-4-8"
-       width="17.574953"
-       height="5.8238621"
-       x="178.88152"
-       y="278.31918" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.09279966px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.10231999"
-       x="179.58165"
-       y="282.40588"
-       id="text26557"><tspan
-         sodipodi:role="line"
-         id="tspan26555"
-         x="179.58165"
-         y="282.40588"
-         style="fill:#ffffff;stroke-width:0.10231999">Unkown</tspan></text>
-    <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.35416663;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect13803-4-8-7"
-       width="17.574953"
-       height="5.8238621"
-       x="154.80969"
-       y="278.07336" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.09279966px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10231999;"
-       x="155.50983"
-       y="282.16006"
-       id="text26557-2"><tspan
-         sodipodi:role="line"
-         id="tspan26555-9"
-         x="155.50983"
-         y="282.16006"
-         style="fill:#000000;stroke-width:0.10231999;">Class X</tspan></text>
   </g>
 </svg>
