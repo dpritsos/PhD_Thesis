@@ -24,11 +24,9 @@ The main difference in open-set WGI with respect to closed-set WGI is the presen
 
 In the remaining of this chapter, we first describe the properties of well-known evaluation measures usually adopted in supervised learning tasks and discuss their suitability for open-set classification tasks. Then, we focus on appropriate evaluation measures that can depict the performance of open-set classifiers in varying conditions. Finally, the proposed evaluation framework is summarized.
 
-\section{Evaluation Measures}
-\label{chap:eval_methods:sec:measures} 
+\section{Evaluation Measures}\label{chap:eval_methods:sec:measures} 
 
-\subsection{Precision, Recall, and $F$-Score}
-\label{chap:eval_methods:sec:prf_micro}
+\subsection{Precision, Recall, and $F$-Score}\label{chap:eval_methods:sec:prf_micro}
 
 In machine learning, specifically in supervised learning, a \textit{confusion matrix} is a table that depicts the performance of an algorithm. It is a special case of a \textit{contingency table}, with two dimensions (i.e., actual and predicted). In the binary classification case, such as depicted in table \ref{chap:eval_methods:tbl:bin_confusion}, there are two classes (i.e., $A$ and $\neg A$ ) and four types of results: True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN). TP and TN correspond to correct predictions while FP and FN are the two types of errors (they are also called Type I and Type II errors).
 
@@ -96,7 +94,7 @@ where $F_c$ is the F-score for the class $c \in \mathcal{C}$. Alternatively, one
 
 \subsection{Open-set Variants of Evaluation Measures}\label{chap:eval_methods:sec:openset_measures}
 
-In an open-set classification task, we are given a set of known classes $\mathcal{C}$ and training samples for each $c \in \mathcal{C}$. However, in the evaluation phase the dataset may consist of both samples belonging to members of $\mathcal{C}$ and samples of classes excluded from $\mathcal{C}$, that is noise $\mathcal{N}$. The latter can be composed of several classes. Especially in WGI, it is expected that the number of web-pages not belonging to any of the known genres would be very high \parentcite{Asheghi2015}. 
+In an open-set classification task, we are given a set of known classes $\mathcal{C}$ and training samples for each $c \in \mathcal{C}$. However, in the evaluation phase the dataset may consist of both samples belonging to members of $\mathcal{C}$ and samples of classes excluded from $\mathcal{C}$, that is noise $\mathcal{N}$. The latter can be composed of several classes. Especially in WGI, it is expected that the number of web-pages not belonging to any of the known genres would be very high \parencite{Asheghi2015}. 
 
 If one adopts the evaluation measures described in the previous section for an open-set classification task, then all samples belonging to any $c \notin \mathcal{C}$ could be considered as a single \textit{unknown} class (i.e., a super-class). Then, precision, recall, and $F_{1}$ values can be obtained for this unknown class that would be considered equally important to the corresponding ones of known classes (members of $\mathcal{C}$) when calculating either macro-averaged or micro-averaged precision, recall, and $F_{1}$. However, this implies that TPs for the unknown class are equally important with TPs for a known class. Since there are no training samples for the unknown class and it is actually a merging of several classes, it does not make sense for the evaluation measures to consider this super-class in a  regular way \parencite{mendesjunior2016}. Rather, the open-set evaluation measures should focus on the correct recognition of known classes only. It should be noted that open-set classifiers attempt to recognize the known classes and actually leave unclassified any new samples that are not assigned to any of those classes rather than actually recognizing the unknown classes. This should be reflected in the evaluation measures used to estimate their performance. 
 
@@ -199,7 +197,7 @@ The Area Under the Curve (AUC) is a scalar measure that can be extracted from a 
 
 \begin{table}[t]
 	\center
-	\caption{An example of macro-averaged and micro-averaged AUC and $F_1$ of two algorithms}\label{chap:eval_methods:tbl:AUC_F1}
+	\caption{An example of macro-averaged and micro-averaged AUC and $F_{1}$ of two algorithms}\label{chap:eval_methods:tbl:AUC_F1}
 	\begin{tabular}{c c c c c}
 		\cline{2-5}
 		& \multicolumn{2}{|c|}{Algorithm A} & \multicolumn{2}{c|}{Algorithm B} \\
@@ -217,19 +215,20 @@ The Area Under the Curve (AUC) is a scalar measure that can be extracted from a 
 
 In Figure \ref{chap:eval_methods:fig:prc_noise} the PRCs of two different systems are depicted when regular evaluation measures are used (i.e., the unknown class is also considered). Similar, Figure \ref{chap:eval_methods:fig:prc} shows the corresponding performance of the same systems the open-set variants of the evaluation measures are used (i.e., the unknown class is excluded). As can be seen, according to macro-averaged scores, regular measures and open-set variants lead to opposite conclusions. The former favours the grey system while the latter indicates that the red system is better. Clearly, the red system makes less mistakes in the recognition of known genres. In addition, the estimation of performance of both systems with micro-averaged PRCs seems very optimistic.
 
-\begin{center}
-    	\includegraphics[scale=0.38]{Figures/prc_macro_micro.eps}
-		\caption{Regular precision-recall curve for two systems. Left: Macro-averaged, Right: micro-averaged. \ref{chap:eval_methods:tbl:multi_confusion}}
+\begin{figure}[p]
+
+	\begin{center}
+		\includegraphics[scale=0.38]{Figures/prc_macro_micro.eps}
+		\caption{Regular precision-recall curve for two systems. Left: Macro-averaged, Right: micro-averaged. Table \ref{chap:eval_methods:tbl:multi_confusion}}
 		\label{chap:eval_methods:fig:prc}
 	\end{center}
-\end{figure}
 
-\begin{figure}[p]
 	\begin{center}
     	\includegraphics[scale=0.38]{Figures/prc_macro_micro_count_noise.eps}
 		\caption{Open-set precision-recall curve for two systems. Left: macro-averaged, Right: micro-averaged.}
 		\label{chap:eval_methods:fig:prc_noise}
 	\end{center}
+\end{figure}
 
 %Figures \ref{chap:eval_methods:fig:prc_noise} are the PR cures where the noise/unknown prediction are also included (i.e $\mathcal{C} \cup \emptyset$) in the calculation for the scores while in figure \ref{chap:eval_methods:fig:prc} is not. In both figures at the left are the $PR_{macro}$ cures and at the right are the $PR_{micro}$ cures. 
 
@@ -250,7 +249,7 @@ In Figure \ref{chap:eval_methods:fig:prc_noise} the PRCs of two different system
 
 The open-set evaluation measures defined in this chapter can be used in both unstructured and structured noise. However, in the structured noise case, we need a more detailed analysis of the performance to evaluate the ability of the open-set classifier to handle low/high number of training/unknown classes. It is especially important to study the relation of the number of training classes with respect to the number of unknown classes. 
 
-In \parencite{scheirer2013toward}, the \textit{openness measure} is introduced for measuring this relation. The openness measure indicates the difficulty of an open-set classification task by taking into account the number of \textit{training classes} (i.e. the known classes used in the training phase) and the number of \textit{testing classes} (i.e., both known and unknown classes used in the testing phase) \parentcite{mendesjunior2016}:
+In \parencite{scheirer2013toward}, the \textit{openness measure} is introduced for measuring this relation. The openness measure indicates the difficulty of an open-set classification task by taking into account the number of \textit{training classes} (i.e. the known classes used in the training phase) and the number of \textit{testing classes} (i.e., both known and unknown classes used in the testing phase) \parencite{mendesjunior2016}:
 
 \begin{equation}\label{chap:eval_methods:eq:openness}
 	openness=1-\sqrt{\frac{ | Training Classes | }{ |Testing Classes | }}

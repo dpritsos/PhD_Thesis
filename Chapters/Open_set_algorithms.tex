@@ -249,7 +249,7 @@ $score[:, :]$=0, the score 2D matrix where rows are for genre's class tags and c
 
 \hfill
 
-Note that the same hyper-parameter $\nu$ value is used for all known genres. This value should be determined empirically. OCSVM is affected by the \textit{curse of dimensionality} which causes the generalization error to increase with the number of irrelevant and redundant features \parentcite{Erfani:2016}. The following open-set classification method attempts to avoid this problem.
+Note that the same hyper-parameter $\nu$ value is used for all known genres. This value should be determined empirically. OCSVM is affected by the \textit{curse of dimensionality} which causes the generalization error to increase with the number of irrelevant and redundant features \parencite{Erfani:2016}. The following open-set classification method attempts to avoid this problem.
 
 
 \subsection{Random Feature Subspacing Ensemble}\label{chap:openset:sec:RFSE_Description}
@@ -331,7 +331,7 @@ The approaches we consider so far use the positive training instances for the av
 	\end{center}
 \end{figure}
 
-The Nearest Neighbors Distance Ratio (NNRD) algorithm is an open-set classification algorithm introduced in \parentcite{mendesjunior2016}, which in turn, is an extension upon the \textit{k-Nearest Neighbors} (NN) algorithm. The main idea is that if the new sample lies close to the training samples of a known class and far away from the closest samples of other known classes, then it most likely belongs to that class. If, on the other hand, the new sample is more or less equally distanced from the closest classes, then it should not be assigned to none of them. This is depicted in the examples of Figure \ref{chap:openset:fig:NNDR_single_decision}. More formally, let $d(x,y)$ be the distance between two samples $x$ and $y$. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. Then, if the ratio: 
+The Nearest Neighbors Distance Ratio (NNRD) algorithm is an open-set classification algorithm introduced in \parencite{mendesjunior2016}, which in turn, is an extension upon the \textit{k-Nearest Neighbors} (NN) algorithm. The main idea is that if the new sample lies close to the training samples of a known class and far away from the closest samples of other known classes, then it most likely belongs to that class. If, on the other hand, the new sample is more or less equally distanced from the closest classes, then it should not be assigned to none of them. This is depicted in the examples of Figure \ref{chap:openset:fig:NNDR_single_decision}. More formally, let $d(x,y)$ be the distance between two samples $x$ and $y$. NNRD calculates the distance of a new sample $s$ to its nearest neighbor $t$ and to the closest training sample $u$ belonging to a different class with respect to $t$. Then, if the ratio: 
 
 \begin{equation}
     \frac{d(s,t)}{d(s,u)}
@@ -370,7 +370,7 @@ NNDR needs a way to estimate the threshold that is appropriate for a given datas
 NA = \lambda A_{KS} + (1 - \lambda) A_{US}
 \end{equation}
 
-\nointend where $A_{KS}$ is the accuracy on known samples and $A_{US}$ is the accuracy on unknown samples. The parameter $\lambda$ regulates the mistakes trade-off on the known and unknown samples prediction. Since usually in training phase only samples of known classes are available, Mendes et al. proposed an approach to repeatedly split available training classes into two sets (i.e., known and "simulated" unknown) \parentcite{mendesjunior2016}. 
+\nointend where $A_{KS}$ is the accuracy on known samples and $A_{US}$ is the accuracy on unknown samples. The parameter $\lambda$ regulates the mistakes trade-off on the known and unknown samples prediction. Since usually in training phase only samples of known classes are available, Mendes et al. proposed an approach to repeatedly split available training classes into two sets (i.e., known and "simulated" unknown) \parencite{mendesjunior2016}. 
 
 In this thesis we adapt the threshold estimation process to work as follows. During the training phase the known classes are split into two sets $\mathcal{C}_K$ and $\mathcal{C}_{U}$ according to a predefined ratio $p_1$. The latter is used as the simulated unknown classes. In addition, the samples $K_c$ of each class $c \in \mathcal{C}_K$ are split into two parts $K_c^F$ and $K_c^V$ according to another predefined ratio $p_2$. The former is used as the fitting set and the latter is used as the validation set of known classes. Thus, the original training set is split into two parts: the fitting set (containing the $p_2$ of the positive instances of each $c \in \mathcal{C}_K$) and the validation set (including the $(1-p_2)$ of the positive instances of each $c \in \mathcal{C}_K$ and all positive instances of each $c \in \mathcal{C}_U$). 
 

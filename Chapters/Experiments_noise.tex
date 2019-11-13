@@ -18,7 +18,7 @@
 
 \section{Introduction}\label{chap:noise:sec:intro}
 
-Based on the evaluation framework described in the previous chapter, it is now possible to evaluate the open-set WGI algorithms presented in chapter \ref{chap:openset}. Certainly, any kind of empirical evaluation depends on the dataset that is used for estimating the performance of the examined models. Each dataset has its weakneesses and this might lead to an over-estimation or under-estimation of performance of the examined methods in more realistic conditions. However, what we want to study here is the comparison of performance of different approaches on exactly the same datasets and experimental setup to extract conclusions about the relative improvement in performance of one method with respect to another.
+Based on the evaluation framework described in the previous chapter, it is now possible to evaluate the open-set WGI algorithms presented in chapter \ref{chap:openset}. Certainly, any kind of empirical evaluation depends on the dataset that is used for estimating the performance of the examined models. Each dataset has its weaknesses and this might lead to an over-estimation or under-estimation of performance of the examined methods in more realistic conditions. However, what we want to study here is the comparison of performance of different approaches on exactly the same datasets and experimental setup to extract conclusions about the relative improvement in performance of one method with respect to another.
 
 In this thesis, we focus on the effect of noise in open-set WGI approaches. In particular, we want to examine the performance of WGI methods when either unstructured or structured noise is available. The former is a realistic scenario in most WGI applications where it is difficult, if not impossible, to define the genre of a large part of the web. In such cases, it is better to assume that the unknown class comprises any kind of web-pages that do not belong to the known genres. On the other hand, this makes the definition of noise chaotic and extremely heterogeneous. 
 
@@ -54,7 +54,7 @@ Based on the good results reported in \parencite{sharoff2010web,kanaris2009learn
     \item Part-of-speech 3-grams (POS3G)
 \end{itemize}
 
-The Stanford POS tagger has been used for POS3G creation. We use the Term-Frequency (TF) weighting scheme and the feature space is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only. There is no pre-processing of textual data (e.g., stop word removal, stemming etc.) since in style-based text categorization tasks these processes remove significant stylistic information \parentcite{stamatatos2009survey}.
+The Stanford POS tagger has been used for POS3G creation. We use the Term-Frequency (TF) weighting scheme and the feature space is defined by a \textit{Vocabulary} which is extracted based on the terms appearing at training set only. There is no pre-processing of textual data (e.g., stop word removal, stemming etc.) since in style-based text categorization tasks these processes remove significant stylistic information \parencite{stamatatos2009survey}.
 
 Each open-set WGI method has some hyper-parameters to be tuned. In order to extract the best possible parameter settings for each classification method we apply grid-search over the space of all parameter value combinations. This is not the most sophisticated approach but ensures that the extracted parameter values will fine-tune the model for the specific dataset.
 

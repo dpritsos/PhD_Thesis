@@ -23,10 +23,13 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 18344 items from 5000.
+Reallocated field_info (elt_size=4) to 20846 items from 5000.
 Database file #1: PhD_Thesis-blx.bib
 Database file #2: PhD_Thesis.bib
+Warning--I didn't find a database entry for "deAssis:2017"
 Warning--I didn't find a database entry for "posadas2017application"
+Warning--I didn't find a database entry for "radford2019language"
+Warning--I didn't find a database entry for "Egbert:2015"
 Biblatex version: 3.8
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Too many commas in name 1 of "Lim, C. S., {\relax Lee, } K. J., , {\relax Kim, }, G. C." for entry Lim2005
@@ -318,45 +321,45 @@ Too many commas in name 1 of "Lim, C. S., {\relax Lee, } K. J., , {\relax Kim, }
 while executing---line 2749 of file biblatex.bst
 Too many commas in name 1 of "Lim, C. S., {\relax Lee, } K. J., , {\relax Kim, }, G. C." for entry Lim2005
 while executing---line 2749 of file biblatex.bst
-You've used 95 entries,
+You've used 110 entries,
             6268 wiz_defined-function locations,
-            1707 strings with 26323 characters,
-and the built_in function-call counts, 594444 in all, are:
-= -- 40985
-> -- 11756
-< -- 3567
-+ -- 14745
-- -- 4330
-* -- 46098
-:= -- 58521
+            1800 strings with 29556 characters,
+and the built_in function-call counts, 693501 in all, are:
+= -- 48078
+> -- 13616
+< -- 4179
++ -- 17231
+- -- 4968
+* -- 53520
+:= -- 68189
 add.period$ -- 0
-call.type$ -- 95
-change.case$ -- 1995
+call.type$ -- 110
+change.case$ -- 2390
 chr.to.int$ -- 30
-cite$ -- 188
-duplicate$ -- 64134
-empty$ -- 54562
-format.name$ -- 7130
-if$ -- 123082
+cite$ -- 218
+duplicate$ -- 74851
+empty$ -- 63620
+format.name$ -- 8253
+if$ -- 143628
 int.to.chr$ -- 0
-int.to.str$ -- 269
+int.to.str$ -- 313
 missing$ -- 0
-newline$ -- 3459
-num.names$ -- 5038
-pop$ -- 32854
+newline$ -- 4029
+num.names$ -- 5920
+pop$ -- 38105
 preamble$ -- 1
-purify$ -- 2599
+purify$ -- 3091
 quote$ -- 0
-skip$ -- 18725
+skip$ -- 21873
 stack$ -- 0
-substring$ -- 67086
-swap$ -- 16659
-text.length$ -- 2800
-text.prefix$ -- 94
+substring$ -- 78675
+swap$ -- 19409
+text.length$ -- 3214
+text.prefix$ -- 110
 top$ -- 1
-type$ -- 3209
+type$ -- 3719
 warning$ -- 0
-while$ -- 7067
+while$ -- 8240
 width$ -- 0
-write$ -- 3365
+write$ -- 3920
 (There were 144 error messages)
