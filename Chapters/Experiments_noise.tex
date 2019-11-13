@@ -176,6 +176,8 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 \begin{table}[t]
 \centering
 
+\resizebox{\columnwidth}{!}{
+
 \pgfplotstableset{
     create on use/Criterion/.style={ create col/set list={AUC,$F_{1}$,$F_{0.5}$} },
     columns/DocRep/.style={string type},
@@ -210,6 +212,9 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 		]{tables_data/AUC_FStatistics_tables/RFSE_SANTINIS_Best.csv}
 \caption{Best performing models for RFSE on SANTINIS corpus.}
 \label{chap:noise:tbl:RFSE_SANTINIS}
+
+}
+
 \end{table}
 
 

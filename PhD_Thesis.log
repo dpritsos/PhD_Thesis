@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  13 NOV 2019 20:08
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  13 NOV 2019 21:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2370,10 +2370,6 @@ LaTeX Warning: Label `chap:eval_methods:eq:recall' multiply defined.
 
 ) (./Chapters/Experiments_noise.aux) (./Chapters/Word_embedding.aux
 
-LaTeX Warning: Label `chap:word_embeddingss:fig:PVBOW_diagram' multiply defined
-.
-
-
 LaTeX Warning: Label `chap:word_embeddings:sec:experiments_setup' multiply defi
 ned.
 
@@ -2667,10 +2663,6 @@ search re-sults ([]Braslavski,
  []
 
 [2]
-
-LaTeX Warning: Citation 'deAssis:2017' on page 3 undefined on input line 50.
-
-
 Overfull \hbox (1.76021pt too wide) in paragraph at lines 52--53
 []\T1/ptm/m/n/12 In cyber-security, genre of web-pages can be ex-ploited to en-
 hance anti-phishing
@@ -2792,35 +2784,11 @@ al-u-ate WGI ap-proaches.
 
 1: section
 [13]
-./Chapters/Relevant_Work.tex:43: Undefined control sequence.
-l.43 ...eat confusion and disagreement \parentcite
-                                                  {Rosso2005,Asheghi2015}. A...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 Missing character: There is no σ in font ptmr8t!
-[14] [15]
+ [14] [15]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 75.
  [16]
-./Chapters/Relevant_Work.tex:81: Undefined control sequence.
-l.81 ...quite effective in WGI studies \parentcite
-                                                  {kanaris2009learning,sharo...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (1.86682pt too wide) in paragraph at lines 81--82
-\T1/ptm/m/n/12 quite ef-fec-tive in WGI stud-ies ka-naris2009learning,sharoff20
-10web,kumari2014web.
- []
-
 ./Chapters/Relevant_Work.tex:89: Undefined control sequence.
 l.89 \nointend
                where $A$ is the number of words, $B$ is the number of specia...
@@ -2830,50 +2798,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./Chapters/Relevant_Work.tex:91: Undefined control sequence.
-l.91 ...portant for stylistic purposes \parentcite
-                                                  {sharoff2010web,petrenz201...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Relevant_Work.tex:91: Undefined control sequence.
-l.91 ... prepositional components, etc \parentcite
-                                                  {falkenjack2013features,fa...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Relevant_Work.tex:91: Undefined control sequence.
-l.91 ...to extract them from documents \parentcite
-                                                  {stamatatos2009survey}. Th...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[17] [18]
-./Chapters/Relevant_Work.tex:133: Undefined control sequence.
-l.133 ...ural features is presented in \parentcite
-                                                  {mehler2011integrating}. T...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (21.78693pt too wide) in paragraph at lines 133--134
-[]\T1/ptm/m/n/12 An ap-proach that is based on struc-tural fea-tures is pre-sen
-ted in mehler2011integrating.
- []
-
-[19] [20]
+[17] [18] [19] [20]
 File: Figures/GenreSim_Draw.eps Graphic file (type eps)
 <Figures/GenreSim_Draw.eps>
  [21]
@@ -3033,32 +2958,13 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[26] [27] [28] [29] [30] [31] [32]
-./Chapters/Relevant_Work.tex:560: Undefined control sequence.
-l.560 ...oachims1997probabilistic}. In \parentcite
-                                                  {sharoff2010web} analytica...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[33
+[26] [27] [28] [29] [30] [31] [32] [33
 
 ]
 Overfull \hbox (1.71141pt too wide) in paragraph at lines 582--583
 \T1/ptm/m/n/12 sem-ble learn-ing meth-ods such as Ad-aBoost, Bag-ging and Ran-d
 om Forests ([]Sugiyanto
  []
-
-./Chapters/Relevant_Work.tex:588: Undefined control sequence.
-l.588 ...nation} (MCC) is presented in \parentcite
-                                                  {zhu2016exploiting}. Parti...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
 [34]
 Overfull \hbox (1.784pt too wide) in paragraph at lines 608--609
@@ -3159,47 +3065,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 725--726
 \T1/ptm/m/n/12 Elab-o-rated,
  []
 
-[40]
-./Chapters/Relevant_Work.tex:870: Undefined control sequence.
-l.870 ...ness for web search  purposes \parentcite
-                                                  {meyer2004genre}. Document...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Relevant_Work.tex:872: Undefined control sequence.
-l.872 ...web genres downloaded in 2005 \parentcite
-                                                  {santini2007automatic}. Al...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (20.76778pt too wide) in paragraph at lines 872--873
-[]\T1/ptm/m/n/12 7-Genre: This is a cor-pus of web gen-res down-loaded in 2005 
-san-tini2007automatic.
- []
-
-./Chapters/Relevant_Work.tex:874: Undefined control sequence.
-l.874 ...lly structured genre palette  \parentcite
-                                                  {stubbe2007genre}. For exa...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (32.55121pt too wide) in paragraph at lines 874--875
-[]\T1/ptm/m/n/12 HGC: This cor-pus pro-vides a hi-er-ar-chi-cally struc-tured g
-enre palette stubbe2007genre.
- []
-
-[41]
+[40] [41]
 Overfull \hbox (13.60233pt too wide) in paragraph at lines 884--885
 \T1/ptm/m/n/12 (un-struc-tured) noise: SAN-TI-NIS and LWGC-R. Un-for-tu-nately,
  the lat-ter is not publicly-
@@ -3735,6 +3601,14 @@ File: Figures/OCSME_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/OCSME_Best_per_DocRep.eps>
 File: Figures/RFSE_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/RFSE_Best_per_DocRep.eps>
+
+LaTeX Warning: Reference `chap:noise:tbl:RFSE_SANTINIS' on page 78 undefined on
+ input line 125.
+
+
+LaTeX Warning: Reference `chap:noise:tbl:RFSE_SANTINIS' on page 78 undefined on
+ input line 127.
+
 [78]
 Overfull \hbox (1.27821pt too wide) in paragraph at lines 129--130
 []\T1/ptm/m/n/12 In ad-di-tion, in al-most all cases, RFSE mod-els are far more
@@ -3751,10 +3625,136 @@ Overfull \hbox (18.29791pt too wide) in paragraph at lines 171--172
  []
 
 PGFPlots: reading {tables_data/AUC_FStatistics_tables/RFSE_SANTINIS_Best.csv}
+./Chapters/Experiments_noise.tex:216: You can't use `\hrule' here except with l
+eaders.
+\caption@hrule ->\hrule 
+                        \@height \z@ 
+l.216 }
+       
+To put a horizontal rule in an hbox or an alignment,
+you should use \leaders or \hrulefill (see The TeXbook).
 
-Overfull \hbox (102.30898pt too wide) in paragraph at lines 210--211
- [][] 
- []
+./Chapters/Experiments_noise.tex:216: Missing number, treated as zero.
+<to be read again> 
+                   \vskip 
+l.216 }
+       
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./Chapters/Experiments_noise.tex:216: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \vskip 
+l.216 }
+       
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+./Chapters/Experiments_noise.tex:216: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.216 }
+       
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Chapters/Experiments_noise.tex:216: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.216 }
+       
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Chapters/Experiments_noise.tex:216: Missing } inserted.
+<inserted text> 
+                }
+l.216 }
+       
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Chapters/Experiments_noise.tex:216: Missing } inserted.
+<inserted text> 
+                }
+l.216 }
+       
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./Chapters/Experiments_noise.tex:216: Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.216 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./Chapters/Experiments_noise.tex:218: Too many }'s.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.218 \end{table}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+./Chapters/Experiments_noise.tex:218: Extra \endgroup.
+\color@endgroup ->\endgraf \endgroup 
+                                     
+l.218 \end{table}
+                 
+Things are pretty mixed up, but I think the worst is over.
+
+./Chapters/Experiments_noise.tex:218: Too many }'s.
+\color@endbox ->\color@endgroup \egroup 
+                                        
+l.218 \end{table}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+
+./Chapters/Experiments_noise.tex:218: LaTeX Error: \begin{document} ended by \e
+nd{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.218 \end{table}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./Chapters/Experiments_noise.tex:218: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.218 \end{table}
+                 
+Things are pretty mixed up, but I think the worst is over.
 
 [79] [80] [81]
 File: Figures/OCSVME_openness_test_graph.eps Graphic file (type eps)
@@ -3893,17 +3893,7 @@ Overfull \hbox (7.29228pt too wide) in paragraph at lines 133--134
 [91] [92]
 File: Figures/pvbow.eps Graphic file (type eps)
 <Figures/pvbow.eps>
-
-
-LaTeX Warning: Citation 'posadas2017application' on page 93 undefined on input 
-line 169.
-
-[93] [94]
-
-LaTeX Warning: Citation 'posadas2017application' on page 95 undefined on input 
-line 181.
-
-[95
+ [93] [94] [95
 
 ]
 ./Chapters/Word_embedding.tex:207: Missing $ inserted.
@@ -4050,27 +4040,10 @@ g of weak-nesses and strengths
 
 
 ] [102] [103]
-
-LaTeX Warning: Citation 'radford2019language' on page 104 undefined on input li
-ne 56.
-
-
-Overfull \hbox (43.9744pt too wide) in paragraph at lines 56--57
-\T1/ptm/m/n/12 and ob-tained ex-cel-lent re-sults in sev-eral text clas-si-fi-c
-a-tion tasks ([];
- []
-
-
-LaTeX Warning: Citation 'Egbert:2015' on page 104 undefined on input line 58.
-
-
 Overfull \hbox (3.53615pt too wide) in paragraph at lines 58--59
 []\T1/ptm/m/n/12 Additional ex-per-i-ments can be per-formed on new web cor-por
 a in-clud-ing dozens
  []
-
-
-LaTeX Warning: Citation 'deAssis:2017' on page 104 undefined on input line 59.
 
 [104]) [105] [106
 
@@ -4142,9 +4115,8 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                PhD_Thesis
-(biblatex)                and rerun LaTeX afterwards.
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
 
 Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
 \openout1 = `PhD_Thesis.run.xml'.
@@ -4152,12 +4124,12 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 58424 strings out of 493007
- 1334628 string characters out of 6136720
- 1752920 words of memory out of 5000000
- 61559 multiletter control sequences out of 15000+600000
+ 58460 strings out of 493007
+ 1335502 string characters out of 6136720
+ 1757490 words of memory out of 5000000
+ 61595 multiletter control sequences out of 15000+600000
  632303 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,21n,128p,10383b,6136s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,21n,128p,10383b,6132s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on PhD_Thesis.pdf (120 pages).

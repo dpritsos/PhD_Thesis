@@ -995,6 +995,45 @@
     \field{year}{2006}
   \endentry
 
+  \entry{Egbert:2015}{article}{}
+    \name{author}{3}{}{%
+      {{hash=EJ}{%
+         family={Egbert},
+         familyi={E\bibinitperiod},
+         given={Jesse},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Biber},
+         familyi={B\bibinitperiod},
+         given={Douglas},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=DM}{%
+         family={Davies},
+         familyi={D\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{EJBDDM1}
+    \strng{fullhash}{EJBDDM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{year}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{number}{9}
+    \field{pages}{1817\bibrangedash 1831}
+    \field{title}{Developing a bottom-up, user-based method of web register
+  classification}
+    \field{volume}{66}
+    \field{journaltitle}{Journal of the Association for Information Science and
+  Technology}
+    \field{year}{2015}
+  \endentry
+
   \entry{meyer2004genre}{article}{}
     \name{author}{2}{}{%
       {{hash=MzES}{%
@@ -1106,6 +1145,42 @@
     \field{pages}{27\bibrangedash 40}
     \field{title}{Features indicating readability in Swedish text}
     \field{year}{2013}
+  \endentry
+
+  \entry{falkenjack2016exploratory}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=FJ}{%
+         family={Falkenjack},
+         familyi={F\bibinitperiod},
+         given={Johan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Santini},
+         familyi={S\bibinitperiod},
+         given={Marina},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={J{\"o}nsson},
+         familyi={J\bibinitperiod},
+         given={Arne},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FJSMJA1}
+    \strng{fullhash}{FJSMJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{year}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{The Sixth Swedish Language Technology Conference (SLTC)
+  Ume{\aa} University, Ume{\aa}, Sweden, November 17-18, 2016}
+    \field{title}{An Exploratory Study on Genre Classification using
+  Readability Features}
+    \field{year}{2016}
   \endentry
 
   \entry{fei2016breaking}{inproceedings}{}
@@ -3063,6 +3138,62 @@
     \field{year}{2011}
   \endentry
 
+  \entry{posadas2017application}{article}{}
+    \name{author}{6}{}{%
+      {{hash=PDJP}{%
+         family={Posadas-Dur{\'a}n},
+         familyi={P\bibinitperiod-D\bibinitperiod},
+         given={Juan-Pablo},
+         giveni={J\bibinitperiod-P\bibinitperiod},
+      }}%
+      {{hash=GAH}{%
+         family={G{\'o}mez-Adorno},
+         familyi={G\bibinitperiod-A\bibinitperiod},
+         given={Helena},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Sidorov},
+         familyi={S\bibinitperiod},
+         given={Grigori},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BI}{%
+         family={Batyrshin},
+         familyi={B\bibinitperiod},
+         given={Ildar},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Pinto},
+         familyi={P\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CHL}{%
+         family={Chanona-Hern{\'a}ndez},
+         familyi={C\bibinitperiod-H\bibinitperiod},
+         given={Liliana},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PDJP+1}
+    \strng{fullhash}{PDJPGAHSGBIPDCHL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{year}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{number}{3}
+    \field{pages}{627\bibrangedash 639}
+    \field{title}{Application of the distributed document representation in the
+  authorship attribution task for small corpora}
+    \field{volume}{21}
+    \field{journaltitle}{Soft Computing}
+    \field{year}{2017}
+  \endentry
+
   \entry{pritsos2013open}{incollection}{}
     \name{author}{2}{}{%
       {{hash=PDA}{%
@@ -3136,6 +3267,85 @@
     \field{volume}{70}
     \field{journaltitle}{Research in Computing Science}
     \field{year}{2013}
+  \endentry
+
+  \entry{radford2019language}{article}{}
+    \name{author}{6}{}{%
+      {{hash=RA}{%
+         family={Radford},
+         familyi={R\bibinitperiod},
+         given={Alec},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Jeffrey},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CR}{%
+         family={Child},
+         familyi={C\bibinitperiod},
+         given={Rewon},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=LD}{%
+         family={Luan},
+         familyi={L\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=AD}{%
+         family={Amodei},
+         familyi={A\bibinitperiod},
+         given={Dario},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SI}{%
+         family={Sutskever},
+         familyi={S\bibinitperiod},
+         given={Ilya},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RA+1}
+    \strng{fullhash}{RAWJCRLDADSI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{year}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{number}{8}
+    \field{title}{Language models are unsupervised multitask learners}
+    \field{volume}{1}
+    \field{journaltitle}{OpenAI Blog}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Rosso2005}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=RM}{%
+         family={Rosso},
+         familyi={R\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RM1}
+    \strng{fullhash}{RM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{labeldatesource}{year}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Using genre to improve web search}
+    \list{institution}{1}{%
+      {University of North Carolina at Chapel Hill}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{2005}
   \endentry
 
   \entry{Rosso2008}{article}{}
@@ -3626,6 +3836,60 @@
     \field{volume}{3}
     \field{journaltitle}{J. Web Eng.}
     \field{year}{2004}
+  \endentry
+
+  \entry{deAssis:2017}{article}{}
+    \true{moreauthor}
+    \name{author}{5}{}{%
+      {{hash=dSGO}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Siqueira},
+         familyi={S\bibinitperiod},
+         given={Gustavo\bibnamedelima Oliveira},
+         giveni={G\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+      {{hash=dAGT}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Assis},
+         familyi={A\bibinitperiod},
+         given={Guilherme\bibnamedelima Tavares},
+         giveni={G\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=AFA}{%
+         family={Almeida\bibnamedelima Ferreira},
+         familyi={A\bibinitperiod\bibinitdelim F\bibinitperiod},
+         given={Anderson},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MV}{%
+         family={Mangaravite},
+         familyi={M\bibinitperiod},
+         given={V{\'\i}tor},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=CPFL}{%
+         family={Cardeal\bibnamedelima P{\'a}dua},
+         familyi={C\bibinitperiod\bibinitdelim P\bibinitperiod},
+         given={Fl{\'a}vio\bibnamedelima Luis},
+         giveni={F\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SGOd+1}
+    \strng{fullhash}{SGOdAGTdAFAMVCPFL+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{year}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{1}
+    \field{title}{Strategies for automatic determination of similarity
+  threshold for genre-aware focused crawling processes.}
+    \field{volume}{15}
+    \field{journaltitle}{IADIS International Journal on WWW/Internet}
+    \field{year}{2017}
   \endentry
 
   \entry{stamatatos2009survey}{article}{}
