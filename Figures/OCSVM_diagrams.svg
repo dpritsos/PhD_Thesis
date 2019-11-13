@@ -302,7 +302,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="513.27656"
+     inkscape:cx="419.33237"
      inkscape:cy="158.96125"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -311,10 +311,10 @@
      inkscape:snap-grids="true"
      inkscape:snap-to-guides="true"
      inkscape:bbox-nodes="true"
-     inkscape:window-width="2560"
-     inkscape:window-height="1413"
-     inkscape:window-x="0"
-     inkscape:window-y="283"
+     inkscape:window-width="1080"
+     inkscape:window-height="1893"
+     inkscape:window-x="2560"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
      showguides="false" />
@@ -987,56 +987,33 @@
        id="path2224-1-9-9-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
-    <g
-       id="g2311"
-       transform="matrix(0.84882397,0,0,0.84882397,20.55546,37.598265)">
-      <text
-         id="text2182-1-2-5"
-         y="246.73201"
-         x="123.19798"
-         style="font-style:normal;font-weight:normal;font-size:3.5793817px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.08948454"
-         xml:space="preserve"><tspan
-           id="tspan2184-5-3-4"
-           style="line-height:1;stroke-width:0.08948454"
-           y="246.73201"
-           x="123.19798"
-           sodipodi:role="line">ρ</tspan></text>
-      <rect
-         y="247.8999"
-         x="120.50093"
-         height="0.46772167"
-         width="7.5503645"
-         id="rect2294"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.55818856;stroke-miterlimit:4;stroke-dasharray:3.11637733, 6.23275468;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         transform="scale(0.99004687,1.0100532)"
-         id="text2304"
-         y="248.56709"
-         x="122.27381"
-         style="font-style:normal;font-weight:normal;font-size:3.07753587px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.07693839"
-         xml:space="preserve"><tspan
-           style="stroke-width:0.07693839"
-           y="248.56709"
-           x="122.27381"
-           id="tspan2302"
-           sodipodi:role="line">||w||</tspan></text>
-    </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:3.1577456px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.07894365"
-       x="113.89387"
-       y="243.95735"
+       style="font-style:normal;font-weight:normal;font-size:3.90820765px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0977052"
+       x="125.57902"
+       y="249.105"
+       id="text2182-1-2-5"><tspan
+         sodipodi:role="line"
+         x="125.57902"
+         y="249.105"
+         style="line-height:1;stroke-width:0.0977052"
+         id="tspan2184-5-3-4">ρ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.73073912px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.09326848"
+       x="114.43388"
+       y="244.42143"
        id="text2182-5-5-9"
        transform="scale(0.97991575,1.0204959)"><tspan
          sodipodi:role="line"
          id="tspan2180-0-0-3"
-         x="113.89387"
-         y="243.95735"
-         style="line-height:1;stroke-width:0.07894365">Margin</tspan><tspan
+         x="114.43388"
+         y="244.42143"
+         style="line-height:1;stroke-width:0.09326848">Margin</tspan><tspan
          sodipodi:role="line"
-         x="113.89387"
-         y="247.1151"
-         style="line-height:1;stroke-width:0.07894365"
+         x="114.43388"
+         y="248.15218"
+         style="line-height:1;stroke-width:0.09326848"
          id="tspan2184-3-4-6"> </tspan></text>
   </g>
 </svg>
