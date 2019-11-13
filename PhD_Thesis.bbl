@@ -332,28 +332,6 @@
     \field{year}{2006}
   \endentry
 
-  \entry{boden2002guide}{article}{}
-    \name{author}{1}{}{%
-      {{hash=BM}{%
-         family={Boden},
-         familyi={B\bibinitperiod},
-         given={Mikael},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{BM1}
-    \strng{fullhash}{BM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2002}
-    \field{labeldatesource}{year}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{title}{A guide to recurrent neural networks and backpropagation}
-    \field{journaltitle}{the Dallas project}
-    \field{year}{2002}
-  \endentry
-
   \entry{Boese2005}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=BES}{%

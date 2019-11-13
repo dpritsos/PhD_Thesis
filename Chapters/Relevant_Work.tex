@@ -640,16 +640,21 @@ The genre-specific rules that formed on these features were based on the maximiz
 		\hline
 		Rule & Criteria \\
 		\hline
-		Continuous text & $number_of_verbs > 18 \wedge number_of_conjunctions > 2$ \\
-		Literary or casual language & $number _o f _sentiment_bearing_adjectives > 17 \wedge
-		sentiment_adjectives/adjectives > 0.5 \wedge
-		sentiment_adjectives/adjectives < 4 \wedge
-		contractions < 2.5 ∧ casual_language < 3$\\
-		FAQ, Interview, Filter commentaries & $arguing_language < 1.3 \wedge generalizing_language < 3.8 \wedge
-		questionmarks < 3$\\
+		Continuous text & $(NV > 18) \wedge (NC > 2)$\\
+		Literary or casual language & $(NSBA > 17) \wedge (SA/A > 0.5) \wedge$\\ 
+		& $(SA/A < 4) \wedge (C < 2.5) \wedge (CL < 3)$\\
+		FAQ, Interview, Filter commentaries &($AL < 1.3) \wedge (GL < 3.8) \wedge (Q < 3)$\\
+		\hline
+		\multicolumn{2}{|l|}{NV = number of verbs, NC = number of conjunctions,}\\
+		\multicolumn{2}{|l|}{NSBA = number of sentiment bearing adjectives, SA = sentiment adjectives,}\\
+		\multicolumn{2}{|l|}{A = adjectives, C = contractions, CL = casual language,}\\
+		\multicolumn{2}{|l|}{AL = arguing language, GL = generalizing language, Q = questionmarks}\\
 		\hline
 	\end{tabular}
 \end{table}
+
+The mono-classification cascading sequences were finally formed using \textit{F1-ordering} or \textit{Confusion-matrix-ordering}. 
+
 
 Another open-set classifier is presented in \parencite{chen2012genre}. It is an ensemble approach composed by two base SVM classifiers each trained using a different mutually exclusive training subset. The assumption of this approach is that part of the support vectors will be optimized for every SVM preserving the generalization of the two independent models and the combined classification will manage to fit well over the whole corpus. The combination of the output of the base models is a pairwise genre operation that examines whether the SVM classifiers agreee on their decision about a new web-page:
 

@@ -23,7 +23,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 18761 items from 5000.
+Reallocated field_info (elt_size=4) to 18622 items from 5000.
 Database file #1: PhD_Thesis-blx.bib
 Database file #2: PhD_Thesis.bib
 Warning--I didn't find a database entry for "posadas2017application"
@@ -318,45 +318,45 @@ Too many commas in name 1 of "Lim, C. S., {\relax Lee, } K. J., , {\relax Kim, }
 while executing---line 2749 of file biblatex.bst
 Too many commas in name 1 of "Lim, C. S., {\relax Lee, } K. J., , {\relax Kim, }, G. C." for entry Lim2005
 while executing---line 2749 of file biblatex.bst
-You've used 98 entries,
+You've used 97 entries,
             6268 wiz_defined-function locations,
-            1722 strings with 26623 characters,
-and the built_in function-call counts, 605895 in all, are:
-= -- 41610
-> -- 12026
-< -- 3668
-+ -- 14860
-- -- 4407
-* -- 46937
-:= -- 59297
+            1718 strings with 26522 characters,
+and the built_in function-call counts, 602461 in all, are:
+= -- 41441
+> -- 11948
+< -- 3644
++ -- 14805
+- -- 4383
+* -- 46697
+:= -- 59027
 add.period$ -- 0
-call.type$ -- 98
-change.case$ -- 2055
+call.type$ -- 97
+change.case$ -- 2045
 chr.to.int$ -- 30
-cite$ -- 194
-duplicate$ -- 65278
-empty$ -- 55829
-format.name$ -- 7261
-if$ -- 125686
+cite$ -- 192
+duplicate$ -- 64859
+empty$ -- 55456
+format.name$ -- 7214
+if$ -- 124944
 int.to.chr$ -- 0
-int.to.str$ -- 278
+int.to.str$ -- 276
 missing$ -- 0
-newline$ -- 3525
-num.names$ -- 5196
-pop$ -- 33796
+newline$ -- 3503
+num.names$ -- 5155
+pop$ -- 33466
 preamble$ -- 1
-purify$ -- 2662
+purify$ -- 2650
 quote$ -- 0
-skip$ -- 19280
+skip$ -- 19131
 stack$ -- 0
-substring$ -- 67997
-swap$ -- 17068
-text.length$ -- 2874
-text.prefix$ -- 98
+substring$ -- 67813
+swap$ -- 16944
+text.length$ -- 2850
+text.prefix$ -- 97
 top$ -- 1
-type$ -- 3311
+type$ -- 3277
 warning$ -- 0
-while$ -- 7144
+while$ -- 7108
 width$ -- 0
-write$ -- 3428
+write$ -- 3407
 (There were 144 error messages)
