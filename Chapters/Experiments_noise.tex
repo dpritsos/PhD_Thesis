@@ -128,6 +128,8 @@ In the tables \ref{chap:noise:tbl:OCSVME_SANTINIS} and \ref{chap:noise:tbl:RFSE_
 
 In addition, in almost all cases, RFSE models are far more effective than OCSVM. Another important conclusion is that the optimization criterion plays a crucial role for the properties of the model especially for RFSE. When AUC is maximized, recall is favored. On the other hand, while $F_{1}$ is maximized, precision is substantially increased. Fig. \ref{chap:noise:fig:MacroPRC_RFSE_OCSVME_SANTINIS} shows the performance of OCSVM and RFSE models when AUC and $F_{1}$ criteria are used to select parameter settings. As can be seen, the RFSE model based on $F_{1}$ maximization avoids to make wrong decisions and leaves a large number of web pages unclassified. On the other hand, the model optimized by AUC prefers to make a lot of errors in order to recognize more web pages of known genres. OCSVM models seem not significantly affected. Note that choosing between WGI models that prefers precision over recall and vice versa is an application-specific task.
 
+
+
 \begin{figure}[t]
 \begin{center}
     \includegraphics[scale=0.45]{Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps}
@@ -140,6 +142,9 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 %
 \begin{table}[t]
 \centering
+
+
+
 
 \pgfplotstableset{
     create on use/Criterion/.style={ create col/set list={AUC, $F_{1}$, $F_{0.5}$} },
@@ -171,12 +176,18 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 		]{tables_data/AUC_FStatistics_tables/OCSVME_SANTINIS_Best.csv}
 \caption{Best performing models for OCSVM on SANTINIS corpus.}
 \label{chap:noise:tbl:OCSVME_SANTINIS}
+
+
+
 \end{table}
+
+
+
 
 \begin{table}[t]
 \centering
 
-\resizebox{\columnwidth}{!}{
+
 
 \pgfplotstableset{
     create on use/Criterion/.style={ create col/set list={AUC,$F_{1}$,$F_{0.5}$} },
@@ -213,7 +224,6 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 \caption{Best performing models for RFSE on SANTINIS corpus.}
 \label{chap:noise:tbl:RFSE_SANTINIS}
 
-}
 
 \end{table}
 

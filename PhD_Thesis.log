@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  13 NOV 2019 21:30
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  13 NOV 2019 21:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3601,14 +3601,6 @@ File: Figures/OCSME_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/OCSME_Best_per_DocRep.eps>
 File: Figures/RFSE_Best_per_DocRep.eps Graphic file (type eps)
 <Figures/RFSE_Best_per_DocRep.eps>
-
-LaTeX Warning: Reference `chap:noise:tbl:RFSE_SANTINIS' on page 78 undefined on
- input line 125.
-
-
-LaTeX Warning: Reference `chap:noise:tbl:RFSE_SANTINIS' on page 78 undefined on
- input line 127.
-
 [78]
 Overfull \hbox (1.27821pt too wide) in paragraph at lines 129--130
 []\T1/ptm/m/n/12 In ad-di-tion, in al-most all cases, RFSE mod-els are far more
@@ -3620,141 +3612,15 @@ File: Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps Graphic file (type eps)
 PGFPlots: reading {tables_data/AUC_FStatistics_tables/OCSVME_SANTINIS_Best.csv}
 
 
-Overfull \hbox (18.29791pt too wide) in paragraph at lines 171--172
+Overfull \hbox (18.29791pt too wide) in paragraph at lines 176--177
  [][] 
  []
 
 PGFPlots: reading {tables_data/AUC_FStatistics_tables/RFSE_SANTINIS_Best.csv}
-./Chapters/Experiments_noise.tex:216: You can't use `\hrule' here except with l
-eaders.
-\caption@hrule ->\hrule 
-                        \@height \z@ 
-l.216 }
-       
-To put a horizontal rule in an hbox or an alignment,
-you should use \leaders or \hrulefill (see The TeXbook).
 
-./Chapters/Experiments_noise.tex:216: Missing number, treated as zero.
-<to be read again> 
-                   \vskip 
-l.216 }
-       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./Chapters/Experiments_noise.tex:216: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \vskip 
-l.216 }
-       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-./Chapters/Experiments_noise.tex:216: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.216 }
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./Chapters/Experiments_noise.tex:216: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.216 }
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./Chapters/Experiments_noise.tex:216: Missing } inserted.
-<inserted text> 
-                }
-l.216 }
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./Chapters/Experiments_noise.tex:216: Missing } inserted.
-<inserted text> 
-                }
-l.216 }
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-./Chapters/Experiments_noise.tex:216: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.216 }
-       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./Chapters/Experiments_noise.tex:218: Too many }'s.
-\@endfloatbox ...pagefalse \outer@nobreak \egroup 
-                                                  \color@endbox 
-l.218 \end{table}
-                 
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-./Chapters/Experiments_noise.tex:218: Extra \endgroup.
-\color@endgroup ->\endgraf \endgroup 
-                                     
-l.218 \end{table}
-                 
-Things are pretty mixed up, but I think the worst is over.
-
-./Chapters/Experiments_noise.tex:218: Too many }'s.
-\color@endbox ->\color@endgroup \egroup 
-                                        
-l.218 \end{table}
-                 
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-
-./Chapters/Experiments_noise.tex:218: LaTeX Error: \begin{document} ended by \e
-nd{table}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.218 \end{table}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./Chapters/Experiments_noise.tex:218: Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.218 \end{table}
-                 
-Things are pretty mixed up, but I think the worst is over.
+Overfull \hbox (102.30898pt too wide) in paragraph at lines 223--224
+ [][] 
+ []
 
 [79] [80] [81]
 File: Figures/OCSVME_openness_test_graph.eps Graphic file (type eps)
@@ -4114,20 +3980,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
 Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
 \openout1 = `PhD_Thesis.run.xml'.
 
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 58460 strings out of 493007
- 1335502 string characters out of 6136720
- 1757490 words of memory out of 5000000
- 61595 multiletter control sequences out of 15000+600000
+ 58464 strings out of 493007
+ 1335550 string characters out of 6136720
+ 1757652 words of memory out of 5000000
+ 61599 multiletter control sequences out of 15000+600000
  632303 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  82i,21n,128p,10383b,6132s stack positions out of 5000i,500n,10000p,200000b,80000s
