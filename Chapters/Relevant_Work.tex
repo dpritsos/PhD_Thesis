@@ -617,39 +617,33 @@ To handle noise in WGI there are two options. First, to adopt the closed-set cla
 
 A few studies follow this direction. In these cases samples of noise is available in the training phase of the prediction model. In \parencite{Vidulin2007} structured noise samples constitute the negative class of a binary classifier. The most common approach to handle noise is to build binary classifiers where the positive class is based on a certain predefined category and the negative class is based on the concatenation of all other predefined categories plus the noise \parentcite{kennedy2005automatic}. In \parentcite{dong2006binary} noise is used as the majority class in an experiment where 190 instances from personal homepage, FAQ, and e-shop categories were used in combination with 600 noise pages. Similarly, \parentcite{levering2008using} use about 200 instances for the predefined genres of store homepages, product lists, and product descriptions in combination with about 800 other pages (noise). Such a combination of binary classifiers can also be seen as a multi-label and open-set classification model where a web page can belong to different genres and it is possible for one page not to belong to any of the predefined genres. From another point of view, \parentcite{jebari2015combination} considers outlier samples of known genre labels as noise and excludes them from computing the centroids that represent genres in mult-label WGI. The centroid of a genre is then adjusted each time a new web page is classified to that genre. 
 
-Another, more realistic option is to adopt the pure open-set classification setting where training examples belong only to known classes and it is possible for some web pages not to be classified into any of the predefined genre categories. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup. A more concrete open-set classification models for WGI is presented in \parencite{stubbe2007genre}. However, this model was only tested in noise-free corpora. Nevertheless it has been shown that it is much more challenging to perform WGI in the noisy web in comparison to noise-free corpora \parencite{Asheghi2015}.
+Another, more realistic option is to adopt the pure open-set classification setting where training examples belong only to known classes and it is possible for some web pages not to be classified into any of the predefined genre categories. This setup avoids the problem of class imbalance caused by numerous noisy pages and also avoids the problem of handling a diverse and highly heterogeneous class. On the other hand, open-set classification requires strong generalization with respect to the closed-set setup. 
 
-\textbf{Stubbe-Ashegi}
-
-The idea of \textit{mono-classification} for the WGI task has been introduced by \parencite{stubbe2007genre} where a \tetxit{genre specific classifier} is following a \textit{cascading sequence of genre specific rules}. In its original version the algorithm was working as a closed-set classifier but in \parencite{Asheghi2015} it has been shown that the algorithm can be adopt working in the open-set framework. In order to build such an algorithm initially it is required a selection features, shown in the following list, where special rules are formed for each of these features.
-
-\begin{itemize}
-	\item \textit{Form Features}: Average line length, number of sentences, document structure, HTML formatting, text formatting, text-to-HTML ration, etc.
-	\item \textit{Vocabulary}: Specialized on genres lists of words, phrases, adjectives (say positive), most common words, etc.
-	\item \textit{Patterns}: Complex units such as repetitions of characters, dates, bibliography etc.
-	\item \textit{Combinations}: A set of the above features that can construct a high-level feature such as "Pros and Cons" writing structure, "Polemic or Pamphlets" writing style, etc.
-	\item \textit{Part-of-Speech}.
-\begin{end}
-
-The genre-specific rules that formed on these features were based on the maximization of the $F_{1}$ statistic. In the rule construction phase the training data were used for determining the threshold or other criteria, for example a shopping catalog is containing lots of prices. Then the classification criteria were then formed into a decision tree. The ones led to performance improvement were kept and the rest were discarded. Examples of these rules are shown in table \ref{chap:relevant_work:tbl:stubbe_alg_rules}.
+A more concrete open-set classification models for WGI is presented in \parencite{stubbe2007genre}. They use the idea of \textit{mono-classification} for the WGI task, building a genre-specific classifier following a cascading sequence of genre-specific rules. Initially, a feature set is considered (including surface, lexical, HTML-based and POS features) and rules based on these features are constructed. The genre-specific rules are evaluated based on the $F_{1}$ measure. In the rule construction phase, the training data were used for determining feature selection and combination criteria. Then, the classification criteria were formed into a decision tree. The ones led to performance improvement were kept and the rest were discarded. An example of such rules are shown in table \ref{chap:relevant_work:tbl:stubbe_alg_rules}.
 
 \begin{table}[t]
 	\center
-	\caption{Samples of the Rule Based Genre classification algorithm for its open-set and closed-set form.}\label{chap:relevant_work:tbl:stubbe_alg_rules}.
+	\caption{Example of open-set WGI rule \parentcite{stubbe2007genre}\label{chap:relevant_work:tbl:stubbe_alg_rules}.
 	\begin{tabular}{|l|l|}
 		\hline
 		Rule & Criteria \\
 		\hline
-		Continuous text & $number_of_verbs > 18 \wedge number_of_conjunctions > 2$ \\
-		Literary or casual language & $number _o f _sentiment_bearing_adjectives > 17 \wedge
-		sentiment_adjectives/adjectives > 0.5 \wedge
-		sentiment_adjectives/adjectives < 4 \wedge
-		contractions < 2.5 ∧ casual_language < 3$\\
-		FAQ, Interview, Filter commentaries & $arguing_language < 1.3 \wedge generalizing_language < 3.8 \wedge
-		questionmarks < 3$\\
+		Continuous text & $(NV > 18) \wedge (NC > 2)$\\
+		Literary or casual language & $(NSBA > 17) \wedge (SA/A > 0.5) \wedge$\\ 
+		& $(SA/A < 4) \wedge (C < 2.5) \wedge (CL < 3)$\\
+		FAQ, Interview, Filter commentaries &($AL < 1.3) \wedge (GL < 3.8) \wedge (Q < 3)$\\
+		\hline
+		\multicolumn{2}{|l|}{NV = number of verbs, NC = number of conjunctions,}\\
+		\multicolumn{2}{|l|}{NSBA = number of sentiment bearing adjectives, SA = sentiment adjectives,}\\
+		\multicolumn{2}{|l|}{A = adjectives, C = contractions, CL = casual language,}\\
+		\multicolumn{2}{|l|}{AL = arguing language, GL = generalizing language, Q = questionmarks}\\
 		\hline
 	\end{tabular}
 \end{table}
+
+
+
+In its original version \parentcite{stubbe2007genre}, the algorithm has been tested in a noise-free corpus but in \parencite{Asheghi2015} it has been applied on a corpus with unstructured noise and its performance was drastically lower. 
 
 Another open-set classifier is presented in \parencite{chen2012genre}. It is an ensemble approach composed by two base SVM classifiers each trained using a different mutually exclusive training subset. The assumption of this approach is that part of the support vectors will be optimized for every SVM preserving the generalization of the two independent models and the combined classification will manage to fit well over the whole corpus. The combination of the output of the base models is a pairwise genre operation that examines whether the SVM classifiers agreee on their decision about a new web-page:
 
