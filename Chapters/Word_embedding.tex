@@ -251,7 +251,7 @@ A more detailed view of the performance of NNDR when combined with either tradit
 
 \subsection{Comparison of Open-set WGI Methods}\label{chap:word_embeddings:sec:experiments_setup}
 
-In this section, the performance of NNDR on the SANTINIS corpus is compared to that of OCSVM and RFSE obtained as described in Chapter \ref{chap:noise}. The experimental setup for NNDR with either TF or DF schemes is exactly the same therefore the evaluation results for these models are directly comparable. In the framework of this experiment OCSVM and RFSE serve as baseline models to help us see how competitive the NNDR approach can be assisted by DF representation when unstructured noise is available in WGI.
+In this section, the performance of NNDR on the SANTINIS corpus is compared to that of OCSVM and RFSE obtained as described in Chapter \ref{chap:noise}. The experimental setup for NNDR with either TF or DF schemes is exactly the same therefore the evaluation results for these models are directly comparable. In the framework of this experiment, OCSVM and RFSE serve as baseline models to help us see how competitive the NNDR approach can be when it is assisted by DF representation in unstructured noise conditions.
 
 \begin{table}[t]
 \center
@@ -277,9 +277,9 @@ NNDR & DF-W3G & 100 & 0.827 & 0.615 & 0.564 & 0.706 \\
 \end{tabular}
 \end{table}
 
-First, NNDR is compared with the baselines using TF features. In this case, NNDR outperforms OCSVM. On the other hand, RFSE performed NNDR in both macro-averaged $F_1$ and AUC. This is consistent for any kind of features (C4G, W1G, or W3G). The RFSE model is the top overall performer while both OCSVM and NNDR are significantly low in respect of AUC, $F_1$ and precision. Only, NNDR with TF scheme for W3G is competitive. 
+First, NNDR with TF features is compared with the baselines. In this case, NNDR outperforms OCSVM. On the other hand, RFSE performed NNDR in both macro-averaged $F_1$ and AUC. This is consistent for any kind of features (C4G, W1G, or W3G). The RFSE model is the top overall performer while both OCSVM and NNDR are significantly low in respect of AUC, $F_1$ and precision. Only, NNDR with TF scheme for W3G is competitive. 
 
-There is notable difference in the dimensionality of representation used by the examined approaches though. RFSE relies upon a 50k-D manifold while NNDR and OCSVM are based on much lower dimensional spaces. This demonstrates the ability of RFSE to exploit the existence of redundant feature sets. It has to be noted that RFSE builds an ensemble by iteratively and randomly selecting a subset of the available features. That way, it internally reduces the dimensionality for each constituent base classifier (RFSE is using 1,000 randomly selected features from the 50,000 most frequent features in each repetition). 
+There is notable difference in the dimensionality of representation used by the examined approaches though. RFSE relies upon a 50k-manifold while NNDR and OCSVM are based on much lower dimensional spaces. This demonstrates the ability of RFSE to exploit the existence of redundant feature sets. It has to be noted that RFSE builds an ensemble by iteratively and randomly selecting a subset of the available features. That way, it internally reduces the dimensionality for each constituent base classifier (RFSE is using 1,000 randomly selected features from the 50,000 most frequent features in each repetition). 
 
 Next, NNDR with DF is compared with the same baselines. Although there is a notable improvement for NNDR using DF, it is still outperformed by RFSE in terms of both $F_1$ and AUC. On the other hand, NNDR returns a notably higher performance than RFSE with respect to precision for C4G and W3G features. This indicates that NNDR using DF could be more useful than RFSE in WGI applications where precision is more important than recall.
 
