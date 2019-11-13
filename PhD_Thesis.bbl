@@ -365,39 +365,6 @@
     \field{year}{2005}
   \endentry
 
-  \entry{caple2017genre}{article}{}
-    \name{author}{2}{}{%
-      {{hash=CH}{%
-         family={Caple},
-         familyi={C\bibinitperiod},
-         given={Helen},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=KJS}{%
-         family={Knox},
-         familyi={K\bibinitperiod},
-         given={John\bibnamedelima S},
-         giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Elsevier}%
-    }
-    \strng{namehash}{CHKJS1}
-    \strng{fullhash}{CHKJS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2017}
-    \field{labeldatesource}{year}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \field{pages}{204\bibrangedash 217}
-    \field{title}{Genre (less) and purpose (less): Online news galleries}
-    \field{volume}{20}
-    \field{journaltitle}{Discourse, context \& media}
-    \field{year}{2017}
-  \endentry
-
   \entry{cardoso2017weightless}{article}{}
     \name{author}{3}{}{%
       {{hash=CDO}{%
@@ -489,31 +456,6 @@
     \field{journaltitle}{International Journal on Document Analysis and
   Recognition (IJDAR)}
     \field{year}{2012}
-  \endentry
-
-  \entry{chetry2011web}{article}{}
-    \name{author}{1}{}{%
-      {{hash=CR}{%
-         family={Chetry},
-         familyi={C\bibinitperiod},
-         given={Roshan},
-         giveni={R\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Kansas State University}%
-    }
-    \strng{namehash}{CR1}
-    \strng{fullhash}{CR1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2011}
-    \field{labeldatesource}{year}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \field{title}{Web genre classification using feature selection and
-  semi-supervised learning}
-    \field{year}{2011}
   \endentry
 
   \entry{clark2014you}{article}{}
@@ -674,37 +616,6 @@
     \field{year}{2018}
   \endentry
 
-  \entry{dash2018history}{book}{}
-    \name{author}{2}{}{%
-      {{hash=DNS}{%
-         family={Dash},
-         familyi={D\bibinitperiod},
-         given={Niladri\bibnamedelima Sekhar},
-         giveni={N\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-      {{hash=AS}{%
-         family={Arulmozi},
-         familyi={A\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Springer}%
-    }
-    \strng{namehash}{DNSAS1}
-    \strng{fullhash}{DNSAS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2018}
-    \field{labeldatesource}{year}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{pages}{35\bibrangedash 49}
-    \field{title}{History, Features, and Typology of Language Corpora}
-    \field{year}{2018}
-  \endentry
-
   \entry{de2009genre}{article}{}
     \name{author}{4}{}{%
       {{hash=DAGT}{%
@@ -786,6 +697,49 @@
     \field{year}{2018}
   \endentry
 
+  \entry{dong2006binary}{article}{}
+    \name{author}{4}{}{%
+      {{hash=DL}{%
+         family={Dong},
+         familyi={D\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=WC}{%
+         family={Watters},
+         familyi={W\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=DJ}{%
+         family={Duffy},
+         familyi={D\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Shepherd},
+         familyi={S\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE Computer Society}%
+    }
+    \strng{namehash}{DL+1}
+    \strng{fullhash}{DLWCDJSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2006}
+    \field{labeldatesource}{year}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{{Binary cybergenre classification using theoretic feature
+  measures}}
+    \field{year}{2006}
+  \endentry
+
   \entry{meyer2004genre}{article}{}
     \name{author}{2}{}{%
       {{hash=MzES}{%
@@ -854,6 +808,42 @@
     \field{pages}{27\bibrangedash 40}
     \field{title}{Features indicating readability in Swedish text}
     \field{year}{2013}
+  \endentry
+
+  \entry{falkenjack2016exploratory}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=FJ}{%
+         family={Falkenjack},
+         familyi={F\bibinitperiod},
+         given={Johan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Santini},
+         familyi={S\bibinitperiod},
+         given={Marina},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={J{\"o}nsson},
+         familyi={J\bibinitperiod},
+         given={Arne},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FJSMJA1}
+    \strng{fullhash}{FJSMJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{year}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{The Sixth Swedish Language Technology Conference (SLTC)
+  Ume{\aa} University, Ume{\aa}, Sweden, November 17-18, 2016}
+    \field{title}{An Exploratory Study on Genre Classification using
+  Readability Features}
+    \field{year}{2016}
   \endentry
 
   \entry{fei2016breaking}{inproceedings}{}
@@ -1831,40 +1821,6 @@
     \field{title}{Web Genre Classification via Hierarchical Multi-label
   Classification}
     \field{year}{2015}
-  \endentry
-
-  \entry{malinen2014balanced}{inproceedings}{}
-    \name{author}{2}{}{%
-      {{hash=MMI}{%
-         family={Malinen},
-         familyi={M\bibinitperiod},
-         given={Mikko\bibnamedelima I},
-         giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod},
-      }}%
-      {{hash=FP}{%
-         family={Fr{\"a}nti},
-         familyi={F\bibinitperiod},
-         given={Pasi},
-         giveni={P\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {Springer}%
-    }
-    \strng{namehash}{MMIFP1}
-    \strng{fullhash}{MMIFP1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2014}
-    \field{labeldatesource}{year}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \field{booktitle}{Joint IAPR International Workshops on Statistical
-  Techniques in Pattern Recognition (SPR) and Structural and Syntactic Pattern
-  Recognition (SSPR)}
-    \field{pages}{32\bibrangedash 41}
-    \field{title}{Balanced k-means for clustering}
-    \field{year}{2014}
   \endentry
 
   \entry{manevitz2002one}{article}{}

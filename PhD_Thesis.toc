@@ -20,28 +20,7 @@
 \contentsline {subsection}{\numberline {2.3.4}Hyperlinks and URL-based Representation}{21}{subsection.39}
 \contentsline {subsection}{\numberline {2.3.5}Combination of Features}{23}{subsection.46}
 \contentsline {subsection}{\numberline {2.3.6}Domain-specific Genre Representation}{24}{subsection.55}
-\contentsline {subsection}{\numberline {2.3.7}Feature Weighting and Selection}{25}{subsection.60}
+\contentsline {subsection}{\numberline {2.3.7}Feature Weighting and Selection}{26}{subsection.60}
 \contentsline {section}{\numberline {2.4}Machine Learning Approaches to Genre Identification}{33}{section.66}
 \contentsline {subsection}{\numberline {2.4.1}Closed-set Genre Recognition}{33}{subsection.67}
 \contentsline {subsection}{\numberline {2.4.2}Open-set Classification}{35}{subsection.71}
-\contentsline {subsection}{\numberline {2.4.3}Semi-supervised and Unsupervised Learning}{39}{subsection.76}
-\contentsline {subsection}{\numberline {2.4.4}Hierarchical Classification}{41}{subsection.82}
-\contentsline {section}{\numberline {2.5}Corpora for WGI Evaluation}{42}{section.83}
-\contentsline {section}{\numberline {2.6}Conclusions}{44}{section.85}
-\contentsline {chapter}{\numberline {3}Open-set WGI Algorithms}{47}{chapter.86}
-\contentsline {section}{\numberline {3.1}Introduction}{47}{section.87}
-\contentsline {section}{\numberline {3.2}Open-set Classification}{48}{section.88}
-\contentsline {subsection}{\numberline {3.2.1}Noise in Open-set Recognition}{48}{subsection.89}
-\contentsline {subsection}{\numberline {3.2.2}The Open-Space Risk}{49}{subsection.90}
-\contentsline {section}{\numberline {3.3}Paradigms in Open-set Classification}{53}{section.97}
-\contentsline {section}{\numberline {3.4}Open-set Classifiers for WGI}{55}{section.98}
-\contentsline {subsection}{\numberline {3.4.1}One-Class SVM}{55}{subsection.99}
-\contentsline {subsection}{\numberline {3.4.2}Random Feature Subspacing Ensemble}{57}{subsection.124}
-\contentsline {subsection}{\numberline {3.4.3}Nearest Neighbors Distance Ratio}{61}{subsection.150}
-\contentsline {section}{\numberline {3.5}Conclusions}{64}{section.174}
-\contentsline {chapter}{\numberline {4}An Evaluation Framework for Open-set WGI}{65}{chapter.175}
-\contentsline {section}{\numberline {4.1}Introduction}{65}{section.176}
-\contentsline {section}{\numberline {4.2}Evaluation Measures}{66}{section.177}
-\contentsline {subsection}{\numberline {4.2.1}Precision, Recall, and $F$-Score}{66}{subsection.178}
-\contentsline {subsection}{\numberline {4.2.2}Open-set Variants of Evaluation Measures}{68}{subsection.187}
-\contentsline {subsection}{\numberline {4.2.3}Precision-Recall Curves}{71}{subsection.190}
