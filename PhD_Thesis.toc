@@ -52,20 +52,20 @@
 \contentsline {section}{\numberline {5.2}Corpora}{76}{section.201}
 \contentsline {section}{\numberline {5.3}Experimental Setup}{76}{section.204}
 \contentsline {section}{\numberline {5.4}WGI with Unstructured Noise}{78}{section.206}
-\contentsline {section}{\numberline {5.5}WGI with Structured Noise}{82}{section.212}
-\contentsline {section}{\numberline {5.6}Conclusions}{86}{section.217}
-\contentsline {chapter}{\numberline {6}The Usefulness of Distributed Representations in WGI}{87}{chapter.218}
-\contentsline {section}{\numberline {6.1}Introduction}{87}{section.219}
-\contentsline {section}{\numberline {6.2}Obtaining Distributed Representations}{88}{section.220}
-\contentsline {subsection}{\numberline {6.2.1}Word Embeddings}{88}{subsection.221}
-\contentsline {subsection}{\numberline {6.2.2}Document Embeddings}{92}{subsection.230}
-\contentsline {section}{\numberline {6.3}Experimental Setup}{95}{section.235}
-\contentsline {section}{\numberline {6.4}Experimental Results}{96}{section.238}
-\contentsline {subsection}{\numberline {6.4.1}The Effect of Distributed Representation on NNDR}{96}{subsection.239}
-\contentsline {subsection}{\numberline {6.4.2}Comparison of Open-set WGI Methods}{97}{subsection.243}
-\contentsline {section}{\numberline {6.5}Conclusions}{100}{section.246}
-\contentsline {chapter}{\numberline {7}Conclusions}{101}{chapter.247}
-\contentsline {section}{\numberline {7.1}Introduction}{101}{section.248}
-\contentsline {section}{\numberline {7.2}Main Findings}{102}{section.249}
-\contentsline {section}{\numberline {7.3}Future Work Directions}{104}{section.250}
-\contentsline {chapter}{Bibliography}{107}{chapter*.251}
+\contentsline {section}{\numberline {5.5}WGI with Structured Noise}{82}{section.211}
+\contentsline {section}{\numberline {5.6}Conclusions}{86}{section.216}
+\contentsline {chapter}{\numberline {6}The Usefulness of Distributed Representations in WGI}{87}{chapter.217}
+\contentsline {section}{\numberline {6.1}Introduction}{87}{section.218}
+\contentsline {section}{\numberline {6.2}Obtaining Distributed Representations}{88}{section.219}
+\contentsline {subsection}{\numberline {6.2.1}Word Embeddings}{88}{subsection.220}
+\contentsline {subsection}{\numberline {6.2.2}Document Embeddings}{92}{subsection.229}
+\contentsline {section}{\numberline {6.3}Experimental Setup}{95}{section.234}
+\contentsline {section}{\numberline {6.4}Experimental Results}{96}{section.237}
+\contentsline {subsection}{\numberline {6.4.1}The Effect of Distributed Representation on NNDR}{96}{subsection.238}
+\contentsline {subsection}{\numberline {6.4.2}Comparison of Open-set WGI Methods}{97}{subsection.242}
+\contentsline {section}{\numberline {6.5}Conclusions}{100}{section.245}
+\contentsline {chapter}{\numberline {7}Conclusions}{101}{chapter.246}
+\contentsline {section}{\numberline {7.1}Introduction}{101}{section.247}
+\contentsline {section}{\numberline {7.2}Main Findings}{102}{section.248}
+\contentsline {section}{\numberline {7.3}Future Work Directions}{104}{section.249}
+\contentsline {chapter}{Bibliography}{107}{chapter*.250}

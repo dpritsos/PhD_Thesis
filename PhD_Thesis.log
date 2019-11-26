@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  13 NOV 2019 21:41
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.9.8)  14 NOV 2019 16:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1084,13 +1084,13 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
 
-./PhD_Thesis.tex:43: LaTeX Error: Option clash for package graphicx.
+./PhD_Thesis.tex:46: LaTeX Error: Option clash for package graphicx.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.43 \usepackage
+l.46 \usepackage
                 {pgfplotstable}
 The package graphicx has already been loaded with options:
   []
@@ -1562,7 +1562,7 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package scrhack Info: loading listings hack on input line 51.
+Package scrhack Info: loading listings hack on input line 54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/listings.hak
 File: listings.hak 2017/09/07 v3.24 KOMA-Script package (hacking package listin
@@ -1586,7 +1586,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks43
 \@floatcapt=\box71
 )
-Package scrhack Info: loading float hack on input line 52.
+Package scrhack Info: loading float hack on input line 55.
 
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/float.hak
 File: float.hak 2017/09/07 v3.24 KOMA-Script package (hacking package float)
@@ -1732,14 +1732,60 @@ LaTeX Font Info:    Try loading font information for U+psy on input line 64.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
-\c@definition=\count332
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks44
+\XKV@tempa@toks=\toks45
+)
+\XKV@depth=\count332
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
+
+(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box80
+)
+\tc@llx=\dimen325
+\tc@lly=\dimen326
+\tc@urx=\dimen327
+\tc@ury=\dimen328
+Package trimclip Info: Using driver 'tc-xetex.def'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-xetex.def
+File: tc-xetex.def 2012/05/13 v1.0 Clipping driver for xetex
+))
+\adjbox@Width=\dimen329
+\adjbox@Height=\dimen330
+\adjbox@Depth=\dimen331
+\adjbox@Totalheight=\dimen332
+
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box81
+\sift@deathcycles=\count333
+\@vwid@loff=\dimen333
+\@vwid@roff=\dimen334
+))
+\c@definition=\count334
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2017/12/19 v3.10 programmable bibliographies (PK/JW/AB)
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count333
+\lrq@indent=\count335
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -1751,49 +1797,49 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write4
-\integerpart=\count334
-\decimalpart=\count335
+\integerpart=\count336
+\decimalpart=\count337
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\c@tabx@nest=\count336
-\c@listtotal=\count337
-\c@listcount=\count338
-\c@liststart=\count339
-\c@liststop=\count340
-\c@citecount=\count341
-\c@citetotal=\count342
-\c@multicitecount=\count343
-\c@multicitetotal=\count344
-\c@instcount=\count345
-\c@maxnames=\count346
-\c@minnames=\count347
-\c@maxitems=\count348
-\c@minitems=\count349
-\c@citecounter=\count350
-\c@savedcitecounter=\count351
-\c@uniquelist=\count352
-\c@uniquename=\count353
-\c@refsection=\count354
-\c@refsegment=\count355
-\c@maxextratitle=\count356
-\c@maxextratitleyear=\count357
-\c@maxextradate=\count358
-\c@maxextraalpha=\count359
-\c@abbrvpenalty=\count360
-\c@highnamepenalty=\count361
-\c@lownamepenalty=\count362
-\c@maxparens=\count363
-\c@parenlevel=\count364
-\blx@tempcnta=\count365
-\blx@tempcntb=\count366
-\blx@tempcntc=\count367
-\blx@maxsection=\count368
-\blx@maxsegment@0=\count369
-\blx@notetype=\count370
-\blx@parenlevel@text=\count371
-\blx@parenlevel@foot=\count372
-\blx@sectionciteorder@0=\count373
+\c@tabx@nest=\count338
+\c@listtotal=\count339
+\c@listcount=\count340
+\c@liststart=\count341
+\c@liststop=\count342
+\c@citecount=\count343
+\c@citetotal=\count344
+\c@multicitecount=\count345
+\c@multicitetotal=\count346
+\c@instcount=\count347
+\c@maxnames=\count348
+\c@minnames=\count349
+\c@maxitems=\count350
+\c@minitems=\count351
+\c@citecounter=\count352
+\c@savedcitecounter=\count353
+\c@uniquelist=\count354
+\c@uniquename=\count355
+\c@refsection=\count356
+\c@refsegment=\count357
+\c@maxextratitle=\count358
+\c@maxextratitleyear=\count359
+\c@maxextradate=\count360
+\c@maxextraalpha=\count361
+\c@abbrvpenalty=\count362
+\c@highnamepenalty=\count363
+\c@lownamepenalty=\count364
+\c@maxparens=\count365
+\c@parenlevel=\count366
+\blx@tempcnta=\count367
+\blx@tempcntb=\count368
+\blx@tempcntc=\count369
+\blx@maxsection=\count370
+\blx@maxsegment@0=\count371
+\blx@notetype=\count372
+\blx@parenlevel@text=\count373
+\blx@parenlevel@foot=\count374
+\blx@sectionciteorder@0=\count375
 \labelnumberwidth=\skip91
 \labelalphawidth=\skip92
 \biblabelsep=\skip93
@@ -1819,9 +1865,9 @@ or  <return>  to continue without it.
 
 \blx@bcfin=\read3
 \blx@bcfout=\write5
-\c@mincomprange=\count374
-\c@maxcomprange=\count375
-\c@mincompwidth=\count376
+\c@mincomprange=\count376
+\c@maxcomprange=\count377
+\c@mincompwidth=\count378
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def)
@@ -1829,74 +1875,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'authoryear.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count377
-\c@savedafterword=\count378
-\c@annotator=\count379
-\c@savedannotator=\count380
-\c@author=\count381
-\c@savedauthor=\count382
-\c@bookauthor=\count383
-\c@savedbookauthor=\count384
-\c@commentator=\count385
-\c@savedcommentator=\count386
-\c@editor=\count387
-\c@savededitor=\count388
-\c@editora=\count389
-\c@savededitora=\count390
-\c@editorb=\count391
-\c@savededitorb=\count392
-\c@editorc=\count393
-\c@savededitorc=\count394
-\c@foreword=\count395
-\c@savedforeword=\count396
-\c@holder=\count397
-\c@savedholder=\count398
-\c@introduction=\count399
-\c@savedintroduction=\count400
-\c@namea=\count401
-\c@savednamea=\count402
-\c@nameb=\count403
-\c@savednameb=\count404
-\c@namec=\count405
-\c@savednamec=\count406
-\c@translator=\count407
-\c@savedtranslator=\count408
-\c@shortauthor=\count409
-\c@savedshortauthor=\count410
-\c@shorteditor=\count411
-\c@savedshorteditor=\count412
-\c@labelname=\count413
-\c@savedlabelname=\count414
-\c@institution=\count415
-\c@savedinstitution=\count416
-\c@lista=\count417
-\c@savedlista=\count418
-\c@listb=\count419
-\c@savedlistb=\count420
-\c@listc=\count421
-\c@savedlistc=\count422
-\c@listd=\count423
-\c@savedlistd=\count424
-\c@liste=\count425
-\c@savedliste=\count426
-\c@listf=\count427
-\c@savedlistf=\count428
-\c@location=\count429
-\c@savedlocation=\count430
-\c@organization=\count431
-\c@savedorganization=\count432
-\c@origlocation=\count433
-\c@savedoriglocation=\count434
-\c@origpublisher=\count435
-\c@savedorigpublisher=\count436
-\c@publisher=\count437
-\c@savedpublisher=\count438
-\c@language=\count439
-\c@savedlanguage=\count440
-\c@origlanguage=\count441
-\c@savedoriglanguage=\count442
-\c@pageref=\count443
-\c@savedpageref=\count444
+\c@afterword=\count379
+\c@savedafterword=\count380
+\c@annotator=\count381
+\c@savedannotator=\count382
+\c@author=\count383
+\c@savedauthor=\count384
+\c@bookauthor=\count385
+\c@savedbookauthor=\count386
+\c@commentator=\count387
+\c@savedcommentator=\count388
+\c@editor=\count389
+\c@savededitor=\count390
+\c@editora=\count391
+\c@savededitora=\count392
+\c@editorb=\count393
+\c@savededitorb=\count394
+\c@editorc=\count395
+\c@savededitorc=\count396
+\c@foreword=\count397
+\c@savedforeword=\count398
+\c@holder=\count399
+\c@savedholder=\count400
+\c@introduction=\count401
+\c@savedintroduction=\count402
+\c@namea=\count403
+\c@savednamea=\count404
+\c@nameb=\count405
+\c@savednameb=\count406
+\c@namec=\count407
+\c@savednamec=\count408
+\c@translator=\count409
+\c@savedtranslator=\count410
+\c@shortauthor=\count411
+\c@savedshortauthor=\count412
+\c@shorteditor=\count413
+\c@savedshorteditor=\count414
+\c@labelname=\count415
+\c@savedlabelname=\count416
+\c@institution=\count417
+\c@savedinstitution=\count418
+\c@lista=\count419
+\c@savedlista=\count420
+\c@listb=\count421
+\c@savedlistb=\count422
+\c@listc=\count423
+\c@savedlistc=\count424
+\c@listd=\count425
+\c@savedlistd=\count426
+\c@liste=\count427
+\c@savedliste=\count428
+\c@listf=\count429
+\c@savedlistf=\count430
+\c@location=\count431
+\c@savedlocation=\count432
+\c@organization=\count433
+\c@savedorganization=\count434
+\c@origlocation=\count435
+\c@savedoriglocation=\count436
+\c@origpublisher=\count437
+\c@savedorigpublisher=\count438
+\c@publisher=\count439
+\c@savedpublisher=\count440
+\c@language=\count441
+\c@savedlanguage=\count442
+\c@origlanguage=\count443
+\c@savedoriglanguage=\count444
+\c@pageref=\count445
+\c@savedpageref=\count446
 \shorthandwidth=\skip98
 \shortjournalwidth=\skip99
 \shortserieswidth=\skip100
@@ -1943,12 +1989,12 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2017/12/19 v3.10 biblatex compatibility (PK/JW/AB)
-\c@textcitecount=\count445
-\c@textcitetotal=\count446
-\c@textcitemaxnames=\count447
-\c@biburlnumpenalty=\count448
-\c@biburlucpenalty=\count449
-\c@biburllcpenalty=\count450
+\c@textcitecount=\count447
+\c@textcitetotal=\count448
+\c@textcitemaxnames=\count449
+\c@biburlnumpenalty=\count450
+\c@biburlucpenalty=\count451
+\c@biburllcpenalty=\count452
 
 
 /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def:279: LaTeX Error:
@@ -1965,7 +2011,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-\c@smartand=\count451
+\c@smartand=\count453
 
 Package biblatex Warning: Redefining '\citeauthor'.
 
@@ -2177,8 +2223,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2017/12/19 v3.10 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count452
-\c@bbx:relatedtotal=\count453
+\c@bbx:relatedcount=\count454
+\c@bbx:relatedtotal=\count455
 ))
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
@@ -2201,13 +2247,13 @@ File: biblatex.cfg
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2018/02/11 v5.2c context-sensitive quotations (JAW)
-\csq@reset=\count454
-\csq@gtype=\count455
-\csq@glevel=\count456
-\csq@qlevel=\count457
-\csq@maxlvl=\count458
-\csq@tshold=\count459
-\csq@ltx@everypar=\toks44
+\csq@reset=\count456
+\csq@gtype=\count457
+\csq@glevel=\count458
+\csq@qlevel=\count459
+\csq@maxlvl=\count460
+\csq@tshold=\count461
+\csq@ltx@everypar=\toks46
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2018/02/11 v5.2c csquotes generic definitions (JAW)
@@ -2258,14 +2304,14 @@ Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen325
-\Hy@linkcounter=\count460
-\Hy@pagecounter=\count461
+\@linkdim=\dimen335
+\Hy@linkcounter=\count462
+\Hy@pagecounter=\count463
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count462
+\Hy@SavedSpaceFactor=\count464
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -2277,12 +2323,12 @@ Package hyperref Info: Plain pages OFF on input line 4524.
 Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count463
+\c@Hy@tempcnt=\count465
 LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen326
-\Fld@menulength=\count464
-\Field@Width=\dimen327
-\Fld@charsize=\dimen328
+\XeTeXLinkMargin=\dimen336
+\Fld@menulength=\count466
+\Field@Width=\dimen337
+\Fld@charsize=\dimen338
 Package hyperref Info: Hyper figures OFF on input line 6369.
 Package hyperref Info: Link nesting OFF on input line 6374.
 Package hyperref Info: Hyper index ON on input line 6377.
@@ -2292,13 +2338,13 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6394.
 Package hyperref Info: PDF/A mode OFF on input line 6399.
 LaTeX Info: Redefining \ref on input line 6439.
 LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count465
-\c@Item=\count466
-\c@Hfootnote=\count467
+\Hy@abspage=\count467
+\c@Item=\count468
+\c@Hfootnote=\count469
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 93.
+(scrhack)             need that hack, on input line 104.
 Package hyperref Info: Driver (autodetected): hxetex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -2311,11 +2357,11 @@ File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
 Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box80
-\c@Hy@AnnotLevel=\count468
-\HyField@AnnotCount=\count469
-\Fld@listcount=\count470
-\c@bookmark@seq@number=\count471
+\pdfm@box=\box82
+\c@Hy@AnnotLevel=\count470
+\HyField@AnnotCount=\count471
+\Fld@listcount=\count472
+\c@bookmark@seq@number=\count473
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -2328,21 +2374,21 @@ tly
 )
 \Hy@SectionHShift=\skip104
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 93.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 93.
-Package hyperref Info: Option `colorlinks' set `true' on input line 93.
-Package hyperref Info: Option `unicode' set `true' on input line 93.
-Package hyperref Info: Option `breaklinks' set `true' on input line 93.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 104.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 104.
+Package hyperref Info: Option `colorlinks' set `true' on input line 104.
+Package hyperref Info: Option `unicode' set `true' on input line 104.
+Package hyperref Info: Option `breaklinks' set `true' on input line 104.
 
 
-./PhD_Thesis.tex:93: Package biblatex Error: Incompatible package 'natbib'.
+./PhD_Thesis.tex:104: Package biblatex Error: Incompatible package 'natbib'.
 
 See the biblatex package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.93 \begin{document}
-                     
+l.104 \begin{document}
+                      
 The 'natbib' package and biblatex are incompatible.
 
 Package biblatex Info: Trying to load language 'english'...
@@ -2376,25 +2422,25 @@ ned.
 ) (./Chapters/Conclusions.aux))
 \openout1 = `PhD_Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 93.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 104.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -2448,20 +2494,20 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 93.
-Package scrbase Info: activating english \abbrevname on input line 93.
-Package scrbase Info: activating english \byname on input line 93.
-Package scrbase Info: activating english \acknowledgementname on input line 93.
-
-Package scrbase Info: activating english \authorshipname on input line 93.
-Package scrbase Info: activating english \constantsname on input line 93.
-Package scrbase Info: activating english \symbolsname on input line 93.
+(scrlayer)             \begin{document} on input line 104.
+Package scrbase Info: activating english \abbrevname on input line 104.
+Package scrbase Info: activating english \byname on input line 104.
+Package scrbase Info: activating english \acknowledgementname on input line 104
+.
+Package scrbase Info: activating english \authorshipname on input line 104.
+Package scrbase Info: activating english \constantsname on input line 104.
+Package scrbase Info: activating english \symbolsname on input line 104.
 ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.15}).
 
-\c@lstlisting=\count472
-Package scrhack Info: undefining \float@addtolists on input line 93.
+\c@lstlisting=\count474
+Package scrhack Info: undefining \float@addtolists on input line 104.
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
@@ -2478,15 +2524,15 @@ Invalid UTF-8 byte or sequence at line 28 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 32 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 64 replaced by U+FFFD.
 )
-Package biblatex Info: Reference section=0 on input line 93.
-Package biblatex Info: Reference segment=0 on input line 93.
+Package biblatex Info: Reference section=0 on input line 104.
+Package biblatex Info: Reference segment=0 on input line 104.
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 )
-\AtBeginShipoutBox=\box81
-Package hyperref Info: Link coloring ON on input line 93.
+\AtBeginShipoutBox=\box83
+Package hyperref Info: Link coloring ON on input line 104.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -2494,65 +2540,66 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count473
+\c@section@level=\count475
 )
-LaTeX Info: Redefining \ref on input line 93.
-LaTeX Info: Redefining \pageref on input line 93.
-LaTeX Info: Redefining \nameref on input line 93.
+LaTeX Info: Redefining \ref on input line 104.
+LaTeX Info: Redefining \pageref on input line 104.
+LaTeX Info: Redefining \nameref on input line 104.
 
 (./PhD_Thesis.out) (./PhD_Thesis.out)
 \@outlinefile=\write6
 \openout6 = `PhD_Thesis.out'.
 
-\c__siunitx_mathsf_int=\count474
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 93
-.
+\c__siunitx_mathsf_int=\count476
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 10
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 93
-.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 10
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 93
-.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 10
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 93
-.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 10
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 93.
-
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 104
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 93.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 104.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
-\c__siunitx_mathtt_int=\count475
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
+\c__siunitx_mathtt_int=\count477
 
 1: section
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 111.
-./PhD_Thesis.tex:131: Undefined control sequence.
-l.131 \groupname
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 122.
+./PhD_Thesis.tex:142: Undefined control sequence.
+l.142 \groupname
                 \\\deptname{Dept. of Information and Communication Systems E...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2561,23 +2608,23 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./PhD_Thesis.tex:131: LaTeX Error: There's no line here to end.
+./PhD_Thesis.tex:142: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.131 \groupname\\
+l.142 \groupname\\
                   \deptname{Dept. of Information and Communication Systems E...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./PhD_Thesis.tex:131: Undefined control sequence.
+./PhD_Thesis.tex:142: Undefined control sequence.
 <recently read> \deptname 
                           
-l.131 \groupname\\\deptname
+l.142 \groupname\\\deptname
                            {Dept. of Information and Communication Systems E...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2595,10 +2642,10 @@ and I'll forget about whatever was undefined.
 --------------------
  Abstract
 --------------------
-./PhD_Thesis.tex:146: Undefined control sequence.
+./PhD_Thesis.tex:157: Undefined control sequence.
 \environment abstract code ...normalsize \facname 
                                                   \par }{\normalsize \deptna...
-l.146 \begin{abstract}
+l.157 \begin{abstract}
                       
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2606,10 +2653,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./PhD_Thesis.tex:146: Undefined control sequence.
+./PhD_Thesis.tex:157: Undefined control sequence.
 \environment abstract code ...ormalsize \deptname 
                                                   \par }\bigskip {\normalsiz...
-l.146 \begin{abstract}
+l.157 \begin{abstract}
                       
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2618,7 +2665,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 146.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 157.
 1: section
 [3] [4] (./PhD_Thesis.toc
 1: section
@@ -3066,6 +3113,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 725--726
  []
 
 [40] [41]
+
+LaTeX Warning: Citation 'Asheghi:2015c' on page 42 undefined on input line 877.
+
+
+
 Overfull \hbox (13.60233pt too wide) in paragraph at lines 884--885
 \T1/ptm/m/n/12 (un-struc-tured) noise: SAN-TI-NIS and LWGC-R. Un-for-tu-nately,
  the lat-ter is not publicly-
@@ -3609,19 +3661,6 @@ Overfull \hbox (1.27821pt too wide) in paragraph at lines 129--130
 
 File: Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps Graphic file (type eps)
 <Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps>
-PGFPlots: reading {tables_data/AUC_FStatistics_tables/OCSVME_SANTINIS_Best.csv}
-
-
-Overfull \hbox (18.29791pt too wide) in paragraph at lines 176--177
- [][] 
- []
-
-PGFPlots: reading {tables_data/AUC_FStatistics_tables/RFSE_SANTINIS_Best.csv}
-
-Overfull \hbox (102.30898pt too wide) in paragraph at lines 223--224
- [][] 
- []
-
 [79] [80] [81]
 File: Figures/OCSVME_openness_test_graph.eps Graphic file (type eps)
 <Figures/OCSVME_openness_test_graph.eps>
@@ -3917,62 +3956,62 @@ a in-clud-ing dozens
 ]
 Missing character: There is no ’ in font ptmr8t!
 
-Overfull \hbox (16.44656pt too wide) in paragraph at lines 204--204
+Overfull \hbox (16.44656pt too wide) in paragraph at lines 215--215
 [][]\T1/ptm/m/n/12 Asheghi, Noushin Reza-pour, Katja Mark-ert, and Serge Sharof
 f (2014). ^^P  Semi-supervised
  []
 
 1: section
 [107] [108]
-Overfull \hbox (10.91211pt too wide) in paragraph at lines 204--204
+Overfull \hbox (10.91211pt too wide) in paragraph at lines 215--215
 [][]\T1/ptm/m/n/12 Feldman, S. et al. (2009). ^^P  Clas-si-fy-ing fac-tored gen
 -res with part-of-speech his-tograms^^Q.
  []
 
 
-Overfull \hbox (1.07516pt too wide) in paragraph at lines 204--204
+Overfull \hbox (1.07516pt too wide) in paragraph at lines 215--215
 \T1/ptm/m/n/12 dimensional anal-y-sis^^Q. In: \T1/ptm/m/it/12 Jour-nal of En-gl
 ish for Aca-demic Pur-poses \T1/ptm/m/n/12 22, pp. 119^^U
  []
 
 
-Overfull \hbox (33.72319pt too wide) in paragraph at lines 204--204
+Overfull \hbox (33.72319pt too wide) in paragraph at lines 215--215
 \T1/ptm/m/n/12 for text cat-e-go-riza-tion^^Q. In: \T1/ptm/m/it/12 Ma-chine Lea
 rning-International Work-shop then Conference-
  []
 
 [109]
-Overfull \hbox (0.10245pt too wide) in paragraph at lines 204--204
+Overfull \hbox (0.10245pt too wide) in paragraph at lines 215--215
 \T1/ptm/m/n/12 genre clas-si-fi-ca-tion: Im-pact of n-gram lengths^^Q. In: \T1/
 ptm/m/it/12 In-ter-na-tional Jour-nal of Com-
  []
 
 
-Overfull \hbox (8.03127pt too wide) in paragraph at lines 204--204
+Overfull \hbox (8.03127pt too wide) in paragraph at lines 215--215
 [][]\T1/ptm/m/n/12 Lieungnapar, Angvar-rah, Richard Wat-son Todd, and Wan-napa 
 Trakulka-sem-suk (2017).
  []
 
 [110]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 215.
  [111]
 Missing character: There is no ’ in font ptmr8t!
  [112]
-Overfull \hbox (2.80392pt too wide) in paragraph at lines 204--204
+Overfull \hbox (2.80392pt too wide) in paragraph at lines 215--215
 \T1/ptm/m/n/12 GENRE FOR WEB PAGE GENRE CLAS-SI-FI-CA-TION^^Q. In: \T1/ptm/m/it
 /12 JUTI: Ju-r-nal Ilmiah
  []
 
 [113] [114]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 207.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 207.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
  (./PhD_Thesis.aux (./Chapters/Introduction.aux)
 (./Chapters/Relevant_Work.aux) (./Chapters/Open_set_algorithms.aux)
 (./Chapters/Evaluation_methodology.aux) (./Chapters/Experiments_noise.aux)
 (./Chapters/Word_embedding.aux) (./Chapters/Conclusions.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 207.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 207.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 218.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 218.
 
 
 LaTeX Warning: There were undefined references.
@@ -3980,18 +4019,23 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
+
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                PhD_Thesis
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
 \openout1 = `PhD_Thesis.run.xml'.
 
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 58464 strings out of 493007
- 1335550 string characters out of 6136720
- 1757652 words of memory out of 5000000
- 61599 multiletter control sequences out of 15000+600000
+ 59001 strings out of 493007
+ 1340359 string characters out of 6136720
+ 1852774 words of memory out of 5000000
+ 62111 multiletter control sequences out of 15000+600000
  632303 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,21n,128p,10383b,6132s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,21n,128p,10383b,6301s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on PhD_Thesis.pdf (120 pages).

@@ -112,9 +112,9 @@ In all cases, RFSE outperforms OCSVM. Moreover, for both methods, W3G seems to b
 	\caption{Precision-Recall Curves of OCSVM models on SANTINIS corpus using W1G, W3G, and C4G features.}
 	\label{chap:noise:fig:MacroPRC_OCSVME_W3G_W1G_C4G_OPTIMAL_SANTINIS}
 	\end{center}
-\end{figure}
+%\end{figure}
 
-\begin{figure}[t]
+%\begin{figure}[t]
 	\begin{center}
     \includegraphics[scale=0.45]{Figures/RFSE_Best_per_DocRep.eps}
 	\caption{Precision-Recall Curves of RFSE models on SANTINIS corpus using W1G, W3G, and C4G features.}
@@ -132,98 +132,121 @@ In addition, in almost all cases, RFSE models are far more effective than OCSVM.
 
 \begin{figure}[t]
 \begin{center}
-    \includegraphics[scale=0.45]{Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps}
-	\caption{Precision-Recall Curves of OCSVM and RFSE models on SANTINIS corpus optimized either by AUC or $F_{1}$.}
-	\label{chap:noise:fig:MacroPRC_RFSE_OCSVME_SANTINIS}
-	\end{center}
+\includegraphics[scale=0.45]{Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2.eps}
+\caption{Precision-Recall Curves of OCSVM and RFSE models on SANTINIS corpus optimized either by AUC or $F_{1}$.}\label{chap:noise:fig:MacroPRC_RFSE_OCSVME_SANTINIS}
+\end{center}
 \end{figure}
 
 % 7Genres
 %
+%\begin{table}[t]
+%\centering
+
+%\pgfplotstableset{
+%    create on use/Criterion/.style={ create col/set list={AUC, $F_{1}$, $F_{0.5}$} },
+%	columns/DocRep/.style={string type},
+%	create on use/DocRep/.style={ create col/set list={W3G, W3G, W3G} },
+%	columns/DocRep/.style={string type}
+%}
+
+%\pgfplotstabletypeset[
+%		fixed,
+%		precision=3,
+%		col sep=comma,
+%		every head row/.style={
+%			before row = \toprule,
+%			after row=\midrule,
+%		},
+%		every last row/.style={after row=\bottomrule \\},
+%		columns={Criterion, DocRep, 0, 1, 2, 3, 4, 5, 6, 7},
+%		columns/Criterion/.style ={string type,column type=c, column name=Optim.},
+%        columns/DocRep/.style ={string type,column type=c, column name=Features},
+%		columns/0/.style ={column type=c, column name=Voc.},
+%		columns/1/.style ={column type=c, column name=\textit{f}},
+%		columns/2/.style ={column type=c, column name=$\nu$},
+%		columns/3/.style ={column type=c, column name=Prec.},
+%		columns/4/.style ={column type=c, column name=Rec.},
+%		columns/5/.style ={column type=c, column name=AUC},
+%        columns/6/.style ={column type=c, column name=$F_{0.5}$},
+%        columns/7/.style ={column type=c, column name=$F_{1}$},
+%		]{tables_data/AUC_FStatistics_tables/OCSVME_SANTINIS_Best.csv}
+%\caption{Best performing models for OCSVM on SANTINIS corpus.}
+%\label{chap:noise:tbl:OCSVME_SANTINIS}
+
+%\end{table}
+
 \begin{table}[t]
-\centering
-
-
-
-
-\pgfplotstableset{
-    create on use/Criterion/.style={ create col/set list={AUC, $F_{1}$, $F_{0.5}$} },
-	columns/DocRep/.style={string type},
-	create on use/DocRep/.style={ create col/set list={W3G, W3G, W3G} },
-	columns/DocRep/.style={string type}
-}
-
-\pgfplotstabletypeset[
-		fixed,
-		precision=3,
-		col sep=comma,
-		every head row/.style={
-			before row = \toprule,
-			after row=\midrule,
-		},
-		every last row/.style={after row=\bottomrule \\},
-		columns={Criterion, DocRep, 0, 1, 2, 3, 4, 5, 6, 7},
-		columns/Criterion/.style ={string type,column type=c, column name=Optim.},
-        columns/DocRep/.style ={string type,column type=c, column name=Features},
-		columns/0/.style ={column type=c, column name=Voc.},
-		columns/1/.style ={column type=c, column name=\textit{f}},
-		columns/2/.style ={column type=c, column name=$\nu$},
-		columns/3/.style ={column type=c, column name=Prec.},
-		columns/4/.style ={column type=c, column name=Rec.},
-		columns/5/.style ={column type=c, column name=AUC},
-        columns/6/.style ={column type=c, column name=$F_{0.5}$},
-        columns/7/.style ={column type=c, column name=$F_{1}$},
-		]{tables_data/AUC_FStatistics_tables/OCSVME_SANTINIS_Best.csv}
-\caption{Best performing models for OCSVM on SANTINIS corpus.}
-\label{chap:noise:tbl:OCSVME_SANTINIS}
-
-
-
+	\center
+	\caption{Best performing models for OCSVM on SANTINIS corpus.}\label{chap:noise:tbl:OCSVME_SANTINIS}
+	\begin{adjustbox}{width=\textwidth}
+	\begin{tabular}{|c c c c c c c c c c|}
+		\hline
+		Optim. & Features & Voc. & $f$ & $\nu$ & Prec. & Rec. & AUC & $F_{0.5}$ & $F_{1}$ \\
+		\hline
+		AUC & W3G & 50,000 & 10,000 & 0.07 & 0.630 & 0.643 & 0.542 & 0.633 & 0.636 \\
+		$F_{1}$ & W3G & 50,000 & 10,000 & 0.10 & 0.631 & 0.654 & 0.535 & 0.636 & 0.643 \\
+		$F_{0.5}$ & W3G & 100,000 & 50,000 & 0.07 & 0.647 & 0.603 & 0.518 & 0.638 & 0.624\\
+		\hline
+	\end{tabular}
+\end{adjustbox}	
 \end{table}
 
-
+% \begin{table}[t]
+% \centering
+% 
+% \pgfplotstableset{
+%     create on use/Criterion/.style={ create col/set list={AUC,$F_{1}$,$F_{0.5}$} },
+%     columns/DocRep/.style={string type},
+% 	create on use/DocRep/.style={ create col/set list={W3G,W3G,W3G} },
+% 	columns/DocRep/.style={string type},
+%     create on use/SimMeas/.style={ create col/set list={Combo,MinMax,MinMax} },
+% 	columns/SimMeas/.style={string type}
+% }
+% \pgfplotstabletypeset[
+% 		fixed,
+% 		precision=3,
+% 		col sep=comma,
+% 		every head row/.style={
+% 			before row = \toprule,
+% 			after row=\midrule,
+% 		},
+% 		every last row/.style={after row=\bottomrule \\},
+% 		%columns={Criterion, DocRep, SimMeas, 0, 1, 2, 3, 4, 5, 6, 7, 8},
+% 		columns={Criterion, DocRep, SimMeas, 0, 1, 2, 3, 4, 5, 6, 8},
+%         columns/Criterion/.style ={string type,column type=c, column name=Optim.},
+% 		columns/DocRep/.style ={string type,column type=c, column name=Features},
+%         columns/SimMeas/.style ={string type,column type=c, column name=Similarity},
+% 		columns/0/.style ={column type=c, column name=Voc.},
+% 		columns/1/.style ={column type=c, column name=\textit{f}},
+% 		columns/2/.style ={column type=c, column name=$\sigma$},
+%         columns/3/.style ={column type=c, column name=\textit{I}},
+% 		columns/4/.style ={column type=c, column name=Prec.},
+% 		columns/5/.style ={column type=c, column name=Rec.},
+% 		columns/6/.style ={column type=c, column name=AUC},
+%         %columns/7/.style ={column type=c, column name=$F_{0.5}$},
+%         columns/8/.style ={column type=c, column name=$F_{1}$},
+% 		]{tables_data/AUC_FStatistics_tables/RFSE_SANTINIS_Best.csv}
+% \caption{Best performing models for RFSE on SANTINIS corpus.}
+% \label{chap:noise:tbl:RFSE_SANTINIS}
+% 
+% \end{table}
 
 
 \begin{table}[t]
-\centering
+\center
+\caption{Best performing models for RFSE on SANTINIS corpus.}\label{chap:noise:tbl:RFSE_SANTINIS}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|c c c c c c c c c c c c|}
+	\hline
+	Optim. & Features & Similarity & Voc. & $f$ & $\sigma$ & $I$ & Prec. & Rec. & AUC & $F_{0.5}$ & $F_{1}$ \\
+	\hline
+	AUC & W3G & Combo & 50,000 & 10,000 & 0.5 & 100 & 0.572 & 0.824 & 0.730 & 0.609 & 0.67\\
+	$F_{1}$ & W3G & MinMax & 50,000 & 5,000 & 0.7 & 100 & 0.933 & 0.680 & 0.595  & 0.868 & 0.787\\
+	$F_{0.5}$ & W3G & MinMax & 100,000 & 5,000 & 0.9 & 100 & 0.987 & 0.596 & 0.498 & 0.872 & 0.743\\
+	\hline
+\end{tabular}
 
-
-
-\pgfplotstableset{
-    create on use/Criterion/.style={ create col/set list={AUC,$F_{1}$,$F_{0.5}$} },
-    columns/DocRep/.style={string type},
-	create on use/DocRep/.style={ create col/set list={W3G,W3G,W3G} },
-	columns/DocRep/.style={string type},
-    create on use/SimMeas/.style={ create col/set list={Combo,MinMax,MinMax} },
-	columns/SimMeas/.style={string type}
-}
-
-\pgfplotstabletypeset[
-		fixed,
-		precision=3,
-		col sep=comma,
-		every head row/.style={
-			before row = \toprule,
-			after row=\midrule,
-		},
-		every last row/.style={after row=\bottomrule \\},
-		columns={Criterion, DocRep, SimMeas, 0, 1, 2, 3, 4, 5, 6, 7, 8},
-        columns/Criterion/.style ={string type,column type=c, column name=Optim.},
-		columns/DocRep/.style ={string type,column type=c, column name=Features},
-        columns/SimMeas/.style ={string type,column type=c, column name=Similarity},
-		columns/0/.style ={column type=c, column name=Voc.},
-		columns/1/.style ={column type=c, column name=\textit{f}},
-		columns/2/.style ={column type=c, column name=$\sigma$},
-        columns/3/.style ={column type=c, column name=\textit{I}},
-		columns/4/.style ={column type=c, column name=Prec.},
-		columns/5/.style ={column type=c, column name=Rec.},
-		columns/6/.style ={column type=c, column name=AUC},
-        columns/7/.style ={column type=c, column name=$F_{0.5}$},
-        columns/8/.style ={column type=c, column name=$F_{1}$},
-		]{tables_data/AUC_FStatistics_tables/RFSE_SANTINIS_Best.csv}
-\caption{Best performing models for RFSE on SANTINIS corpus.}
-\label{chap:noise:tbl:RFSE_SANTINIS}
-
+\end{adjustbox}	
 
 \end{table}
 
