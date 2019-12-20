@@ -101,9 +101,8 @@
     \field{sortinit}{A}
     \field{sortinithash}{A}
     \field{title}{What’s in a URL? Genre Classification from URLs}
-    \field{journaltitle}{Intelligent techniques for web personalization and
-  recommender systems. aaai technical report. Association for the Advancement
-  of Artificial Intelligence}
+    \field{journaltitle}{Proceedings of AAAI workshop om Intelligent Techniques
+  for Web Personalization and Recommender Systems}
     \field{year}{2012}
   \endentry
 
@@ -613,7 +612,7 @@
     \field{year}{2012}
   \endentry
 
-  \entry{chetry2011web}{article}{}
+  \entry{chetry2011web}{thesis}{}
     \name{author}{1}{}{%
       {{hash=CR}{%
          family={Chetry},
@@ -621,9 +620,6 @@
          given={Roshan},
          giveni={R\bibinitperiod},
       }}%
-    }
-    \list{publisher}{1}{%
-      {Kansas State University}%
     }
     \strng{namehash}{CR1}
     \strng{fullhash}{CR1}
@@ -635,6 +631,10 @@
     \field{sortinithash}{C}
     \field{title}{Web genre classification using feature selection and
   semi-supervised learning}
+    \list{institution}{1}{%
+      {Kansas State University}%
+    }
+    \field{type}{mathesis}
     \field{year}{2011}
   \endentry
 
@@ -952,7 +952,7 @@
     \field{year}{2018}
   \endentry
 
-  \entry{dong2006binary}{article}{}
+  \entry{dong2006binary}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=DL}{%
          family={Dong},
@@ -979,9 +979,6 @@
          giveni={M\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {IEEE Computer Society}%
-    }
     \strng{namehash}{DL+1}
     \strng{fullhash}{DLWCDJSM1}
     \field{labelnamesource}{author}
@@ -990,6 +987,9 @@
     \field{labeldatesource}{year}
     \field{sortinit}{D}
     \field{sortinithash}{D}
+    \field{booktitle}{2006 IEEE/WIC/ACM International Conference on Web
+  Intelligence (WI 2006 Main Conference Proceedings)(WI'06)}
+    \field{pages}{313\bibrangedash 316}
     \field{title}{{Binary cybergenre classification using theoretic feature
   measures}}
     \field{year}{2006}
@@ -1176,8 +1176,7 @@
     \field{labeldatesource}{year}
     \field{sortinit}{F}
     \field{sortinithash}{F}
-    \field{booktitle}{The Sixth Swedish Language Technology Conference (SLTC)
-  Ume{\aa} University, Ume{\aa}, Sweden, November 17-18, 2016}
+    \field{booktitle}{The Sixth Swedish Language Technology Conference (SLTC)}
     \field{title}{An Exploratory Study on Genre Classification using
   Readability Features}
     \field{year}{2016}
@@ -1684,7 +1683,6 @@
     \field{labeldatesource}{year}
     \field{sortinit}{K}
     \field{sortinithash}{K}
-    \field{issn}{0306-4573}
     \field{number}{5}
     \field{pages}{499\bibrangedash 512}
     \field{title}{{Learning to recognize webpage genres}}
@@ -2218,7 +2216,8 @@
     \field{labeldatesource}{year}
     \field{sortinit}{L}
     \field{sortinithash}{L}
-    \field{booktitle}{MACHINE LEARNING-INTERNATIONAL WORKSHOP THEN CONFERENCE-}
+    \field{booktitle}{Proceedings of the Nineteenth International Conference on
+  Machine Learning}
     \field{pages}{387\bibrangedash 394}
     \field{title}{{Partially supervised classification of text documents}}
     \field{year}{2002}
@@ -2408,7 +2407,7 @@
     \field{labeldatesource}{year}
     \field{sortinit}{M}
     \field{sortinithash}{M}
-    \field{booktitle}{hicss}
+    \field{booktitle}{42nd Hawaii International Conference on System Sciences}
     \field{pages}{1\bibrangedash 10}
     \field{title}{{An n-gram based approach to automatically identifying web
   page genre}}
@@ -2818,8 +2817,7 @@
     \field{pages}{1\bibrangedash 126}
     \field{title}{An introduction to neural information retrieval}
     \field{volume}{13}
-    \field{journaltitle}{Foundations and Trends{\textregistered} in Information
-  Retrieval}
+    \field{journaltitle}{Foundations and Trends in Information Retrieval}
     \field{year}{2018}
   \endentry
 
@@ -2921,9 +2919,8 @@
     \field{labeldatesource}{year}
     \field{sortinit}{N}
     \field{sortinithash}{N}
-    \field{booktitle}{{COLING} 2014, 25th International Conference on
-  Computational Linguistics, Proceedings of the Conference: Technical Papers,
-  August 23-29, 2014, Dublin, Ireland}
+    \field{booktitle}{Proceedings of the 25th International Conference on
+  Computational Linguistics {COLING}}
     \field{pages}{1764\bibrangedash 1772}
     \field{title}{Part of Speech Tagging for French Social Media Data}
     \field{year}{2014}
@@ -3368,16 +3365,9 @@
     \field{labeldatesource}{year}
     \field{sortinit}{R}
     \field{sortinithash}{R}
-    \verb{doi}
-    \verb 10.1002/asi.20798
-    \endverb
-    \field{issn}{1532-2890}
     \field{number}{7}
     \field{pages}{1053\bibrangedash 1072}
     \field{title}{User-based identification of Web genres}
-    \verb{url}
-    \verb http://dx.doi.org/10.1002/asi.20798
-    \endverb
     \field{volume}{59}
     \field{journaltitle}{Journal of the American Society for Information
   Science and Technology}
@@ -3710,9 +3700,6 @@
     \field{labeldatesource}{year}
     \field{sortinit}{S}
     \field{sortinithash}{S}
-    \verb{doi}
-    \verb http://doi.acm.org/10.1145/505282.505283
-    \endverb
     \field{issn}{0360-0300}
     \field{number}{1}
     \field{pages}{1\bibrangedash 47}
@@ -3809,8 +3796,8 @@
          giveni={K\bibinitperiod},
       }}%
     }
-    \list{organization}{1}{%
-      {Citeseer}%
+    \list{publisher}{1}{%
+      {European Language Resources Association ({ELRA})}%
     }
     \strng{namehash}{SSWZMK2}
     \strng{fullhash}{SSWZMK2}
@@ -3821,7 +3808,8 @@
     \field{labeldatesource}{year}
     \field{sortinit}{S}
     \field{sortinithash}{S}
-    \field{booktitle}{LREC}
+    \field{booktitle}{Proceedings of the Seventh International Conference on
+  Language Resources and Evaluation ({LREC})}
     \field{title}{The Web Library of Babel: evaluating genre collections.}
     \field{year}{2010}
   \endentry
@@ -3974,10 +3962,6 @@
          giveni={Y\bibinitperiod},
       }}%
     }
-    \list{publisher}{2}{%
-      {Tenth International Workshop Modelling}%
-      {Reasoning in Context (MRC)}%
-    }
     \strng{namehash}{SM+1}
     \strng{fullhash}{SMKEWDQY1}
     \field{labelnamesource}{author}
@@ -3986,6 +3970,9 @@
     \field{labeldatesource}{year}
     \field{sortinit}{S}
     \field{sortinithash}{S}
+    \field{booktitle}{Tenth International Workshop Modelling and Reasoning in
+  Context (MRC)}
+    \field{pages}{56\bibrangedash 63}
     \field{title}{Text Genre Classification Based on Linguistic Complexity
   Contours Using A Recurrent Neural Network}
     \field{year}{2018}
@@ -4069,8 +4056,8 @@
     \field{sortinithash}{S}
     \field{number}{1}
     \field{pages}{27\bibrangedash 34}
-    \field{title}{TERM WEIGHTING BASED ON INDEX OF GENRE FOR WEB PAGE GENRE
-  CLASSIFICATION}
+    \field{title}{Term Weighting Based on Index of Genre for Wwb Page Genre
+  Classification}
     \field{volume}{12}
     \field{journaltitle}{JUTI: Jurnal Ilmiah Teknologi Informasi}
     \field{year}{2014}
@@ -4319,7 +4306,6 @@
     \field{labeldatesource}{year}
     \field{sortinit}{Y}
     \field{sortinithash}{Y}
-    \field{issn}{0885-6125}
     \field{number}{1}
     \field{pages}{49\bibrangedash 69}
     \field{title}{{Single-class classification with mapping convergence}}

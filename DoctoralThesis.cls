@@ -185,6 +185,12 @@
 
 \RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
 
+% ----------------------------------------------------------------------------------------------------- 
+% --------------------------- REQUIREMENT FOR SUPPORTING GREEK LUNGUALGE ------------------------------
+% ----------------------------------------------------------------------------------------------------- 
+\RequirePackage{polyglossia}
+\RequirePackage{fontspec}
+
 \RequirePackage{scrbase} % Required for handling language-dependent names of sections/document elements
 
 \RequirePackage{scrhack} % Loads fixes for various packages
@@ -373,6 +379,16 @@ KOMA-script documentation for details.}]{fancyhdr}
 			{\normalsize \byname{} \authorname \par}% Author name
 			\bigskip
 		\end{center}
+	}
+	{
+		\vfill\null
+	}
+}{%
+	\DeclareDocumentEnvironment{abstractGR}{ O{\null\vfill} }{
+		\checktoopen
+		\tttypeout{\abstractname}
+		#1%added to be able to have abstract more than one page long
+		\thispagestyle{plain}
 	}
 	{
 		\vfill\null
