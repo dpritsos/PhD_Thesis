@@ -183,13 +183,11 @@
 %	REQUIRED PACKAGES
 %----------------------------------------------------------------------------------------
 
-\RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
 
-% ----------------------------------------------------------------------------------------------------- 
-% --------------------------- REQUIREMENT FOR SUPPORTING GREEK LUNGUALGE ------------------------------
-% ----------------------------------------------------------------------------------------------------- 
-\RequirePackage{polyglossia}
-\RequirePackage{fontspec}
+% ------------------------------------------------------------------------------------------------------------------- 
+%  The bellow RequiredPagage{bable} is in comments for supporing multi-ligual pacakge calling in the main tex file.
+% -------------------------------------------------------------------------------------------------------------------
+%\RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
 
 \RequirePackage{scrbase} % Required for handling language-dependent names of sections/document elements
 

@@ -1,10 +1,78 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\select@language {english}
-\contentsline {chapter}{Abstract}{vii}{section*.8}
-\select@language {greek}
-\select@language {english}
-\contentsline {chapter}{List of Figures}{xv}{chapter*.10}
-\contentsline {chapter}{List of Tables}{xvii}{chapter*.11}
+\babel@toc {english}{}
+\contentsline {chapter}{Abstract}{{\fontencoding {T1}\selectfont vii}}{section*.8}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\contentsline {chapter}{List of Figures}{{\fontencoding {T1}\selectfont xv}}{chapter*.10}
+\contentsline {chapter}{List of Tables}{{\fontencoding {T1}\selectfont xvii}}{chapter*.11}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.12}
 \contentsline {section}{\numberline {1.1}Text Mining}{1}{section.13}
 \contentsline {section}{\numberline {1.2}Classifying Documents by Genre}{2}{section.14}
