@@ -4,7 +4,7 @@
 \documentclass[
     12pt, % The default document font size, options: 10pt, 11pt, 12pt
     %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
-    % greek, % ngerman for German
+    english, % ngerman for German
     singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
     %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
     %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
@@ -21,12 +21,12 @@
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{mathpazo} % Use the Palatino font by default
 
-% ----------------------------------------------------------------------------------------------------- 
-% --------------------------- REQUIREMENT FOR SUPPORTING GREEK LANGUAGE ------------------------------
-% ----------------------------------------------------------------------------------------------------- 
+% ----------------------------------------------------------------------------------------------------
+%   REQUIREMENT FOR SUPPORTING GREEK LANGUAGE - REQUIRES XLATEX
+% ---------------------------------------------------------------------------------------------------- 
 \usepackage{fontspec}
 \newfontfamily\greekfont{FreeSerif}
-%\setmainfont{FreeSerif}[BoldFont=FreeSerifBold]
+%\setmainfont{Palatino}
 %\setseriffont{FreeSerifBold}
 %\setsansfont{FreeSans}
 %\setmonofont{FreeMono}
@@ -48,7 +48,6 @@
 
 \usepackage{natbib}
 \usepackage{mathptmx}
-\usepackage{amsmath}
 \usepackage{amsmath}
 \DeclareMathOperator*{\argminA}{arg\,min}
 \usepackage{amsfonts}
@@ -295,7 +294,6 @@ A series of experiments is conducted to evaluate the proposed WGI methods using 
 \end{abstract}
 
 \newpage
-
 
 \begin{abstractGR}
 %  \addchaptertocentry{\textgreek{Greek Περίληψη (abstract - )}} % Add the abstract to the table of contents
