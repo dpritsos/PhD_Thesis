@@ -70,32 +70,36 @@
 \babel@toc {english}{}
 \babel@toc {greek}{}
 \babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces A directed graph of web-pages \parencite {zhu2016exploiting}.\relax }}{22}{figure.caption.49}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces A directed graph of web-pages \parencite {zhu2016exploiting}.\relax }}{22}{figure.caption.50}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces An example of closed-set classification with a reject option. Known classes '+' and '-' are separated by a decision boundary. In (a) an unknown class 'o' lies away from both known classes and near the decision boundary. In (b) the unknown class lies deep in the part of one of the known classes.\relax }}{48}{figure.caption.100}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces An example of open-set classification. Decision boundaries for known classes '+' and '-' include all positive results. In (a) an unknown class 'o' lies away from both known classes. In (b) the unknown class lies near one of the known classes.\relax }}{49}{figure.caption.101}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Examples of open-set classification with different open space risk. In (a) a conservative open-set algorithm is used and avoids the open space risk. In (b) an optimistic open-set algorithm is used that is more sensitive to the open space risk.\relax }}{50}{figure.caption.102}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces One-class SVM algorithm. (a) The positive examples of the target class in the original feature space. (b) The examples in the mapped space (through the kernel function $K(x,y)$) where the origin plays the role of the only negative sample. The algorithm attempts to maximize the margin $\rho $ allowing some outliers.\relax }}{53}{figure.caption.109}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The RFSE algorithm. Several distance-based learners are applied on random feature subsets. A threshold $\sigma $ is used to decide if a new web-page will be left unclassified.\relax }}{56}{figure.caption.134}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Examples of applying the NNDR algorithm. Training examples of two known classes (+,*) are given. To classify a new sample $s$, the distance to its nearest neighbor $t$ and to the nearest neighbor of another class $u$ (with respect to $t$) is calculated. In (a) the ratio of these distances is small and $s$ is classified to class *. In (b) the ratio of distances $d(s,t)$ and $d(s,t)$ is high and $s$ is left unclassified.\relax }}{58}{figure.caption.160}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces An example of closed-set classification with a reject option. Known classes '+' and '-' are separated by a decision boundary. In (a) an unknown class 'o' lies away from both known classes and near the decision boundary. In (b) the unknown class lies deep in the part of one of the known classes.\relax }}{48}{figure.caption.101}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces An example of open-set classification. Decision boundaries for known classes '+' and '-' include all positive results. In (a) an unknown class 'o' lies away from both known classes. In (b) the unknown class lies near one of the known classes.\relax }}{49}{figure.caption.102}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Examples of open-set classification with different open space risk. In (a) a conservative open-set algorithm is used and avoids the open space risk. In (b) an optimistic open-set algorithm is used that is more sensitive to the open space risk.\relax }}{50}{figure.caption.103}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces One-class SVM algorithm. (a) The positive examples of the target class in the original feature space. (b) The examples in the mapped space (through the kernel function $K(x,y)$) where the origin plays the role of the only negative sample. The algorithm attempts to maximize the margin $\rho $ allowing some outliers.\relax }}{53}{figure.caption.110}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The RFSE algorithm. Several distance-based learners are applied on random feature subsets. A threshold $\sigma $ is used to decide if a new web-page will be left unclassified.\relax }}{56}{figure.caption.135}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Examples of applying the NNDR algorithm. Training examples of two known classes (+,*) are given. To classify a new sample $s$, the distance to its nearest neighbor $t$ and to the nearest neighbor of another class $u$ (with respect to $t$) is calculated. In (a) the ratio of these distances is small and $s$ is classified to class *. In (b) the ratio of distances $d(s,t)$ and $d(s,t)$ is high and $s$ is left unclassified.\relax }}{58}{figure.caption.161}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Regular precision-recall curve for two systems. Left: Macro-averaged, Right: micro-averaged. Table \ref {chap:eval_methods:tbl:multi_confusion}\relax }}{71}{figure.caption.203}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Open-set precision-recall curve for two systems. Left: macro-averaged, Right: micro-averaged.\relax }}{71}{figure.caption.203}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces An example of using the openness test. The smallest openness level corresponds to 4 training classes and 5 testing classes. The maximum openness level refers to 1 training class and 5 testing classes.\relax }}{73}{figure.caption.206}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Regular precision-recall curve for two systems. Left: Macro-averaged, Right: micro-averaged. Table \ref {chap:eval_methods:tbl:multi_confusion}\relax }}{71}{figure.caption.204}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Open-set precision-recall curve for two systems. Left: macro-averaged, Right: micro-averaged.\relax }}{71}{figure.caption.204}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces An example of using the openness test. The smallest openness level corresponds to 4 training classes and 5 testing classes. The maximum openness level refers to 1 training class and 5 testing classes.\relax }}{73}{figure.caption.207}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Precision-Recall Curves of OCSVM models on SANTINIS corpus using W1G, W3G, and C4G features.\relax }}{80}{figure.caption.216}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Precision-Recall Curves of RFSE models on SANTINIS corpus using W1G, W3G, and C4G features.\relax }}{80}{figure.caption.216}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Precision-Recall Curves of OCSVM and RFSE models on SANTINIS corpus optimized either by AUC or $F_{1}$.\relax }}{81}{figure.caption.217}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces OCSVM performance in varying openness level.\relax }}{83}{figure.caption.221}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces RFSE performance in varying openness level.\relax }}{84}{figure.caption.222}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces RFSE precision in varying openness level.\relax }}{84}{figure.caption.223}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison of OCSVM and RFSE models based on W1G features in varying Openness levels.\relax }}{85}{figure.caption.224}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Precision-Recall Curves of OCSVM models on SANTINIS corpus using W1G, W3G, and C4G features.\relax }}{80}{figure.caption.217}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Precision-Recall Curves of RFSE models on SANTINIS corpus using W1G, W3G, and C4G features.\relax }}{80}{figure.caption.217}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Precision-Recall Curves of OCSVM and RFSE models on SANTINIS corpus optimized either by AUC or $F_{1}$.\relax }}{81}{figure.caption.218}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces OCSVM performance in varying openness level.\relax }}{83}{figure.caption.222}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces RFSE performance in varying openness level.\relax }}{84}{figure.caption.223}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces RFSE precision in varying openness level.\relax }}{84}{figure.caption.224}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison of OCSVM and RFSE models based on W1G features in varying Openness levels.\relax }}{85}{figure.caption.225}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Architecture of the C-BOW model \parencite {mitra2018introduction}. The network attempts to predict a word given its context words. The order of input words is ignored. The hidden layer has much lower dimensionality in comparison to the one-hot representation of input and output words. The learned weights in $W_{in}$ (and $W_{out}$) can be used as word embeddings.\relax }}{90}{figure.caption.230}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Architecture of skip-gram model \parencite {mitra2018introduction}. Given a word the network tries to predict its context words. The dimensionality of the hidden layer is much lower than the one-hot representation of input and output words. The learned weights in $W_{in}$ (and $W_{out}$) can be used as word embeddings.\relax }}{91}{figure.caption.235}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Architecture of PV-DBOW. Given a paragraph vector, predict context words.\relax }}{94}{figure.caption.242}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Precision-Recall curves of NNDR on SANTINIS corpus for traditional (TF) and distributed (DF) W3G features.\relax }}{98}{figure.caption.250}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Precision curves in 11-standard recall levels of the examined open-set classifiers using either W3G features (left) or W1G features (right).\relax }}{100}{figure.caption.253}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Architecture of the C-BOW model \parencite {mitra2018introduction}. The network attempts to predict a word given its context words. The order of input words is ignored. The hidden layer has much lower dimensionality in comparison to the one-hot representation of input and output words. The learned weights in $W_{in}$ (and $W_{out}$) can be used as word embeddings.\relax }}{90}{figure.caption.231}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Architecture of skip-gram model \parencite {mitra2018introduction}. Given a word the network tries to predict its context words. The dimensionality of the hidden layer is much lower than the one-hot representation of input and output words. The learned weights in $W_{in}$ (and $W_{out}$) can be used as word embeddings.\relax }}{91}{figure.caption.236}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Architecture of PV-DBOW. Given a paragraph vector, predict context words.\relax }}{94}{figure.caption.243}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Precision-Recall curves of NNDR on SANTINIS corpus for traditional (TF) and distributed (DF) W3G features.\relax }}{98}{figure.caption.251}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Precision curves in 11-standard recall levels of the examined open-set classifiers using either W3G features (left) or W1G features (right).\relax }}{100}{figure.caption.254}
 \addvspace {10\p@ }

@@ -184,9 +184,9 @@
 %----------------------------------------------------------------------------------------
 
 
-% ------------------------------------------------------------------------------------------------------------------- 
-%  The bellow RequiredPagage{bable} is in comments for supporing multi-ligual pacakge calling in the main tex file.
-% -------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------
+%  %  The bellow RequirePackage{babel} is in comments for supporting multi-lingual package calling in the main .tex file.
+% ------------------------------------------------------------------------------------------------------------------------
 %\RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
 
 \RequirePackage{scrbase} % Required for handling language-dependent names of sections/document elements

@@ -179,7 +179,7 @@ One-class SVM attempts to find the contour including the positive samples of the
 	arg\min_{w,\rho}\left\{ \frac{1}{\nu l} \sum_{i=1}^{l}(\xi_{i}-\rho)+\frac{1}{2}\|w\|^{2}\right\}
 \end{equation}
 
-\nointend subject to:
+\noindent subject to:
 
 \begin{equation}
     (w \cdot \phi(x)) \geq \rho - \xi_i, \xi_i \geq 0
@@ -202,7 +202,7 @@ One-class SVM attempts to find the contour including the positive samples of the
 	\qquad \sum_{i=1}^{l}a_{i}=1
 \end{equation}
 
-\nointend where $K(x,y)$ is a kernel function. Non-zero $\alpha_i$ are the support vectors (see Figure \ref{chap:openset:fig:ocsvm_single_class}) and only them contribute to the decision function:
+\noindent where $K(x,y)$ is a kernel function. Non-zero $\alpha_i$ are the support vectors (see Figure \ref{chap:openset:fig:ocsvm_single_class}) and only them contribute to the decision function:
 
 \begin{equation}
     f(x) = sgn(\sum_i \alpha_i K(x_i,x) - \rho)
@@ -337,7 +337,7 @@ The Nearest Neighbors Distance Ratio (NNRD) algorithm is an open-set classificat
     \frac{d(s,t)}{d(s,u)}
 \end{equation}
 
-\nointend is higher than a predefined threshold, the new sample is classified to the class of $s$. Otherwise, it is left unclassified. An analytical description of this approach is presented in Algorithm \ref{alg:NNDR_algorithm} \footnote{The implementation of the NNRD algorithm can be found at \url{https://github.com/dpritsos/OpenNNDR}, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.}. 
+\noindent is higher than a predefined threshold, the new sample is classified to the class of $s$. Otherwise, it is left unclassified. An analytical description of this approach is presented in Algorithm \ref{alg:NNDR_algorithm} \footnote{The implementation of the NNRD algorithm can be found at \url{https://github.com/dpritsos/OpenNNDR}, where it is implemented in Python/Cython and can significantly accelerated using as much as possible CPUs due to its capability for concurrent calculations in C level speed. Since, NNRD is a rather slow classification method, we have seen in practice that there is up to 100 time acceleration from the capability to exploit a cloud service with 32 vCPUs (Xeon) compare to 4-core/8-threads i7 CPU.}. 
 
 \begin{algorithm}[t]
 \caption{The \textit{NNDR} algorithm}
@@ -370,17 +370,17 @@ NNDR needs a way to estimate the threshold that is appropriate for a given datas
 NA = \lambda A_{KS} + (1 - \lambda) A_{US}
 \end{equation}
 
-\nointend where $A_{KS}$ is the accuracy on known samples and $A_{US}$ is the accuracy on unknown samples. The parameter $\lambda$ regulates the mistakes trade-off on the known and unknown samples prediction. Since usually in training phase only samples of known classes are available, Mendes et al. proposed an approach to repeatedly split available training classes into two sets (i.e., known and "simulated" unknown) \parencite{mendesjunior2016}. 
+\noindent where $A_{KS}$ is the accuracy on known samples and $A_{US}$ is the accuracy on unknown samples. The parameter $\lambda$ regulates the mistakes trade-off on the known and unknown samples prediction. Since usually in training phase only samples of known classes are available, Mendes et al. proposed an approach to repeatedly split available training classes into two sets (i.e., known and "simulated" unknown) \parencite{mendesjunior2016}. 
 
 In this thesis we adapt the threshold estimation process to work as follows. During the training phase the known classes are split into two sets $\mathcal{C}_K$ and $\mathcal{C}_{U}$ according to a predefined ratio $p_1$. The latter is used as the simulated unknown classes. In addition, the samples $K_c$ of each class $c \in \mathcal{C}_K$ are split into two parts $K_c^F$ and $K_c^V$ according to another predefined ratio $p_2$. The former is used as the fitting set and the latter is used as the validation set of known classes. Thus, the original training set is split into two parts: the fitting set (containing the $p_2$ of the positive instances of each $c \in \mathcal{C}_K$) and the validation set (including the $(1-p_2)$ of the positive instances of each $c \in \mathcal{C}_K$ and all positive instances of each $c \in \mathcal{C}_U$). 
 
-Then, a given range of DTR values is examined. The NNDR algorithm is called for each DTR value and the fitting set to estimate the class of each member of the validation set. That way, it is possible to calculate the $A_{KS}$ and $A_{US}$ in formula \ref{eq:normalized_accuracy} and the DTR value that maximizes normalized accuracy can be estimated. This process is repeated for all possible splits of the known classes set. In particular, given that $n = |\mathcal{C}|$ is the amount of known classes the number of splits is taken by the binomial coefficient:
+Then, a given range of DRT values is examined. The NNDR algorithm is called for each DRT value and the fitting set to estimate the class of each member of the validation set. That way, it is possible to calculate the $A_{KS}$ and $A_{US}$ in formula \ref{eq:normalized_accuracy} and the DRT value that maximizes normalized accuracy can be estimated. This process is repeated for all possible splits of the known classes set. In particular, given that $n = |\mathcal{C}|$ is the amount of known classes the number of splits is taken by the binomial coefficient:
 
 \begin{equation} \label{eq:splt}
     splits(n,p_1) = \frac{n!}{\floor*{p_1n}!\floor*{(1-p_1)n}!}
 \end{equation}
 
-For example, in case we have 8 known genres and a splitting ratio $p_1=0.25$, the number of possible splits is 56. Finally the DTR value that optimizes the normalized accuracy over all splits is extracted. Note that by considering a subset of known classes as noise, the NNDR algorithm attempts to directly model the open space risk. This comes with a considerable increase in training time of the algorithm. In addition, the process of estimating DRT assumes that a big enough set of known classes is available so that a subset of them to be used as (simulated) unknown. This makes the application of this algorithm difficult in cases where there only a few known classes.
+For example, in case we have 8 known genres and a splitting ratio $p_1=0.25$, the number of possible splits is 56. Finally the DRT value that optimizes the normalized accuracy over all splits is extracted. Note that by considering a subset of known classes as noise, the NNDR algorithm attempts to directly model the open space risk. This comes with a considerable increase in training time of the algorithm. In addition, the process of estimating DRT assumes that a big enough set of known classes is available so that a subset of them to be used as (simulated) unknown. This makes the application of this algorithm difficult in cases where there only a few known classes.
 
 \section{Conclusions}\label{chap:openset:sec:NNRD_Description}
 

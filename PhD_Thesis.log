@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.8)  21 DEC 2019 15:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.8)  23 DEC 2019 17:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1774,24 +1774,6 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-
-./PhD_Thesis.tex:64: LaTeX Error: Option clash for package graphicx.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.64 \usepackage
-                {pgfplotstable}
-The package graphicx has already been loaded with options:
-  []
-There has now been an attempt to load it with options
-  [dvips,dvipdfm,pdftex]
-Adding the global options:
-  ,dvips,dvipdfm,pdftex
-to your \documentclass declaration may fix this.
-Try typing  <return>  to proceed.
-
 (/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplotstable 2017/06/05 v1.15 Table typesetting and Pretty-printing (
@@ -2463,14 +2445,30 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen333
 \@vwid@roff=\dimen334
 ))
-\c@definition=\count340
+(/usr/share/texlive/texmf-dist/tex/latex/acronym/acronym.sty
+Package: acronym 2015/03/21 v1.41 Support for acronyms (Tobias Oetiker)
+
+(/usr/share/texlive/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
+)
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write4
+\integerpart=\count340
+\decimalpart=\count341
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+\AC@clearlist=\toks46
+)
+\c@definition=\count342
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2017/12/19 v3.10 programmable bibliographies (PK/JW/AB)
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count341
+\lrq@indent=\count343
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -2478,14 +2476,6 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
-(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
-\@xs@message=\write4
-\integerpart=\count342
-\decimalpart=\count343
-)
-Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
 \c@tabx@nest=\count344
 \c@listtotal=\count345
@@ -2934,7 +2924,7 @@ Package: csquotes 2018/02/11 v5.2c context-sensitive quotations (JAW)
 \csq@qlevel=\count465
 \csq@maxlvl=\count466
 \csq@tshold=\count467
-\csq@ltx@everypar=\toks46
+\csq@ltx@everypar=\toks47
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2018/02/11 v5.2c csquotes generic definitions (JAW)
@@ -3027,7 +3017,7 @@ LaTeX Info: Redefining \pageref on input line 6443.
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 116.
+(scrhack)             need that hack, on input line 120.
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -3042,26 +3032,26 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip104
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 116.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 116.
-Package hyperref Info: Option `colorlinks' set `true' on input line 116.
-Package hyperref Info: Option `unicode' set `true' on input line 116.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 120.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 120.
+Package hyperref Info: Option `colorlinks' set `true' on input line 120.
+Package hyperref Info: Option `unicode' set `true' on input line 120.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 116.
+Package hyperref Info: Option `breaklinks' set `true' on input line 120.
 
 
-./PhD_Thesis.tex:116: Package biblatex Error: Incompatible package 'natbib'.
+./PhD_Thesis.tex:120: Package biblatex Error: Incompatible package 'natbib'.
 
 See the biblatex package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.116 \begin{document}
+l.120 \begin{document}
                       
 The 'natbib' package and biblatex are incompatible.
 
@@ -3080,7 +3070,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
 (./PhD_Thesis.aux
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 28.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 29.
  (/usr/share/texlive/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 ) (./Chapters/Introduction.aux) (./Chapters/Relevant_Work.aux
@@ -3106,25 +3096,25 @@ ned.
 ) (./Chapters/Conclusions.aux))
 \openout1 = `PhD_Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 116.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 120.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -3218,12 +3208,12 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 \scratchbox=\box82
 \nofMPsegments=\count479
 \nofMParguments=\count480
-\everyMPshowfont=\toks47
+\everyMPshowfont=\toks48
 \MPscratchCnt=\count481
 \MPscratchDim=\dimen340
 \MPnumerator=\count482
 \makeMPintoPDFobject=\count483
-\everyMPtoPDFconversion=\toks48
+\everyMPtoPDFconversion=\toks49
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
@@ -3267,20 +3257,20 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 116.
-Package scrbase Info: activating english \abbrevname on input line 116.
-Package scrbase Info: activating english \byname on input line 116.
-Package scrbase Info: activating english \acknowledgementname on input line 116
+(scrlayer)             \begin{document} on input line 120.
+Package scrbase Info: activating english \abbrevname on input line 120.
+Package scrbase Info: activating english \byname on input line 120.
+Package scrbase Info: activating english \acknowledgementname on input line 120
 .
-Package scrbase Info: activating english \authorshipname on input line 116.
-Package scrbase Info: activating english \constantsname on input line 116.
-Package scrbase Info: activating english \symbolsname on input line 116.
+Package scrbase Info: activating english \authorshipname on input line 120.
+Package scrbase Info: activating english \constantsname on input line 120.
+Package scrbase Info: activating english \symbolsname on input line 120.
 ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.15}).
 
 \c@lstlisting=\count484
-Package scrhack Info: undefining \float@addtolists on input line 116.
+Package scrhack Info: undefining \float@addtolists on input line 120.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -3292,10 +3282,10 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'PhD_Thesis.bbl' found.
 (./PhD_Thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 116.
-Package biblatex Info: Reference segment=0 on input line 116.
+Package biblatex Info: Reference section=0 on input line 120.
+Package biblatex Info: Reference segment=0 on input line 120.
 \AtBeginShipoutBox=\box83
-Package hyperref Info: Link coloring ON on input line 116.
+Package hyperref Info: Link coloring ON on input line 120.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -3305,184 +3295,119 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count485
 )
-LaTeX Info: Redefining \ref on input line 116.
-LaTeX Info: Redefining \pageref on input line 116.
-LaTeX Info: Redefining \nameref on input line 116.
+LaTeX Info: Redefining \ref on input line 120.
+LaTeX Info: Redefining \pageref on input line 120.
+LaTeX Info: Redefining \nameref on input line 120.
 
 (./PhD_Thesis.out) (./PhD_Thesis.out)
 \@outlinefile=\write6
 \openout6 = `PhD_Thesis.out'.
 
 \c__siunitx_mathsf_int=\count486
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 11
-6.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 12
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 11
-6.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 12
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 11
-6.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 12
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 11
-6.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 12
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 116
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 120
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 116.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 120.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 116.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 120.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 116.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 120.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 116.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 120.
 \c__siunitx_mathtt_int=\count487
 
 1: section
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 134.
-./PhD_Thesis.tex:154: Undefined control sequence.
-l.154 \groupname
-                \\\deptname{Dept. of Information and Communication Systems E...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./PhD_Thesis.tex:154: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.154 \groupname\\
-                  \deptname{Dept. of Information and Communication Systems E...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./PhD_Thesis.tex:154: Undefined control sequence.
-<recently read> \deptname 
-                          
-l.154 \groupname\\\deptname
-                           {Dept. of Information and Communication Systems E...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 138.
 [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 169.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 173.
  [2] [3] [4] [5]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 269.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 273.
  [6]
 --------------------
  Abstract
 --------------------
-./PhD_Thesis.tex:287: Undefined control sequence.
-\environment abstract code ...normalsize \facname 
-                                                  \par }{\normalsize \deptna...
-l.287 \begin{abstract}
-                      
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./PhD_Thesis.tex:287: Undefined control sequence.
-\environment abstract code ...ormalsize \deptname 
-                                                  \par }\bigskip {\normalsiz...
-l.287 \begin{abstract}
-                      
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 287.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 291.
 1: section
 [7
 
 ] [8]
 
-./PhD_Thesis.tex:307: LaTeX Error: Environment abstractGR undefined.
+./PhD_Thesis.tex:311: LaTeX Error: Environment abstractGR undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.307 \begin{abstractGR}
+l.311 \begin{abstractGR}
                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Font Info:    Try loading font information for LGR+ptm on input line 311.
+LaTeX Font Info:    Try loading font information for LGR+ptm on input line 315.
 
-LaTeX Font Info:    No file LGRptm.fd. on input line 311.
+LaTeX Font Info:    No file LGRptm.fd. on input line 315.
 
 LaTeX Font Warning: Font shape `LGR/ptm/m/n' undefined
-(Font)              using `LGR/cmr/m/n' instead on input line 311.
+(Font)              using `LGR/cmr/m/n' instead on input line 315.
 
 
 LaTeX Font Warning: Font shape `LGR/ptm/m/it' undefined
-(Font)              using `LGR/ptm/m/n' instead on input line 313.
-
-./PhD_Thesis.tex:318: Undefined control sequence.
-l.318 ...�άλειας, όπως το \textenglish
-                                                  {anti-phishing,} μπορ�...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(Font)              using `LGR/ptm/m/n' instead on input line 317.
 
 
 LaTeX Font Warning: Font shape `LGR/ptm/m/sl' undefined
-(Font)              using `LGR/ptm/m/n' instead on input line 323.
+(Font)              using `LGR/ptm/m/n' instead on input line 326.
 
 [9]
 
-./PhD_Thesis.tex:332: LaTeX Error: \begin{document} ended by \end{abstractGR}.
+./PhD_Thesis.tex:331: LaTeX Error: \begin{document} ended by \end{abstractGR}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.332 \end{abstractGR}
+l.331 \end{abstractGR}
                       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3492,55 +3417,61 @@ or  <return>  to continue without it.
 1: section
 [11
 
-] [12])
+])
 \tf@toc=\write7
 \openout7 = `PhD_Thesis.toc'.
 
- [13] [14
-
-] (./PhD_Thesis.lof
-Overfull \hbox (4.73605pt too wide) in paragraph at lines 78--78
+ [12] (./PhD_Thesis.lof
+Overfull \hbox (4.73605pt too wide) in paragraph at lines 82--82
  [][] [][][]\T1/ptm/m/n/12 An ex-am-ple of open-set clas-si-fi-ca-tion. De-ci-s
 ion bound-aries for known 
  []
 
 
-Overfull \hbox (6.73979pt too wide) in paragraph at lines 84--84
+Overfull \hbox (6.73979pt too wide) in paragraph at lines 88--88
  [][] [][][]\T1/ptm/m/n/12 Regular precision-recall curve for two sys-tems. Lef
 t: Macro-averaged, 
  []
 
 
-Overfull \hbox (10.9156pt too wide) in paragraph at lines 85--85
+Overfull \hbox (10.9156pt too wide) in paragraph at lines 89--89
  [][] [][][]\T1/ptm/m/n/12 Open-set precision-recall curve for two sys-tems. Le
 ft: macro-averaged, 
  []
 
 1: section
-[15])
+[13
+
+])
 \tf@lof=\write8
 \openout8 = `PhD_Thesis.lof'.
 
- [16] (./PhD_Thesis.lot
-Overfull \hbox (4.35239pt too wide) in paragraph at lines 77--77
+ [14] (./PhD_Thesis.lot
+Overfull \hbox (4.35239pt too wide) in paragraph at lines 82--82
  [][] [][][]\T1/ptm/m/n/12 Features used to rep-re-sent pop-u-lar sci-ence gen-
 res (Lie-ung-na-par, Todd, 
  []
 
 
-Overfull \hbox (25.13646pt too wide) in paragraph at lines 80--80
+Overfull \hbox (25.13646pt too wide) in paragraph at lines 85--85
  [][] [][][]\T1/ptm/m/n/12 Popular sci-ence sub-genres de-scrip-tion (Lie-ung-n
 a-par, Todd, and Trakulka- 
  []
 
 1: section
-[17
+[15
 
 ])
 \tf@lot=\write9
 \openout9 = `PhD_Thesis.lot'.
 
- [18]
+ [16]
+1: section
+[17
+
+] [18] [19] [20
+
+]
 1: section
 \openout2 = `Chapters/Introduction.aux'.
 
@@ -3557,7 +3488,6 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 
 1: section
 [1
-
 
 
 ]
@@ -3709,17 +3639,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[14] [15] [16]
-./Chapters/Relevant_Work.tex:89: Undefined control sequence.
-l.89 \nointend
-               where $A$ is the number of words, $B$ is the number of specia...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[17] [18] [19] [20]
+[14] [15] [16] [17] [18] [19] [20]
 Package epstopdf Info: Source file: <Figures/GenreSim_Draw.eps>
 (epstopdf)                    date: 2019-09-06 08:15:32
 (epstopdf)                    size: 80557 bytes
@@ -3735,32 +3655,13 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/GenreSim_Draw-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/GenreSim_Draw-eps-converted-to.pdf, id=934, 256.96pt x 93.34875pt>
+<Figures/GenreSim_Draw-eps-converted-to.pdf, id=997, 256.96pt x 93.34875pt>
 File: Figures/GenreSim_Draw-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/GenreSim_Draw-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/GenreSim_Draw-eps-converted-to.pdf  used on in
 put line 165.
 (pdftex.def)             Requested size: 244.11061pt x 88.68079pt.
-[21]
-./Chapters/Relevant_Work.tex:181: Undefined control sequence.
-l.181 \nointend
-                where $V$ is the set of vertices (web-pages) of the graph. W...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Relevant_Work.tex:187: Undefined control sequence.
-l.187 \nointend
-                where $N$ is the number of backward links of the original pa...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[22 <./Figures/GenreSim_Draw-eps-converted-to.pdf>] [23]
+[21] [22 <./Figures/GenreSim_Draw-eps-converted-to.pdf>] [23]
 Underfull \hbox (badness 10000) in paragraph at lines 302--302
 []|\T1/ptm/m/n/12 Special char-ac-
  []
@@ -3801,71 +3702,62 @@ Overfull \hbox (1.85672pt too wide) in paragraph at lines 298--329
  []
 
 [24]
-
-Package caption Warning: \label without proper reference on input line 337.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `chap:relevant_work:tbl:videogenre_textbased_special_f
-eatures' on page 25 undefined on input line 333.
-
-
-Overfull \hbox (12.15248pt too wide) in paragraph at lines 354--354
+Overfull \hbox (12.15248pt too wide) in paragraph at lines 355--355
 []|\T1/ptm/m/n/12 Descriptive/nominal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
+Underfull \hbox (badness 10000) in paragraph at lines 356--356
 []|\T1/ptm/m/n/12 Personal pro-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--358
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
 []|\T1/ptm/m/n/12 Exclamation
  []
 
 
-Overfull \hbox (1.85672pt too wide) in paragraph at lines 337--362
+Overfull \hbox (1.85672pt too wide) in paragraph at lines 339--363
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 375--375
+Underfull \hbox (badness 10000) in paragraph at lines 376--376
 []|\T1/ptm/m/n/12 Discipline-specific
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 377--377
+Underfull \hbox (badness 1635) in paragraph at lines 378--378
 []|\T1/ptm/m/n/12 Compound noun den-
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 383--383
+Underfull \hbox (badness 2922) in paragraph at lines 384--384
 []|\T1/ptm/m/n/12 Coordinating con-ju-ga-
  []
 
 
-Underfull \hbox (badness 1308) in paragraph at lines 385--385
+Underfull \hbox (badness 1308) in paragraph at lines 386--386
 []|\T1/ptm/m/n/12 Evaluation move den-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--387
+Underfull \hbox (badness 10000) in paragraph at lines 388--388
 []|\T1/ptm/m/n/12 Logical con-nec-tive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 389--389
 []|\T1/ptm/m/n/12 Prepositional phrase
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--407
+Underfull \hbox (badness 10000) in paragraph at lines 408--408
 []|\T1/ptm/m/n/12 Punctuation
  []
 
-./Chapters/Relevant_Work.tex:416: Undefined control sequence.
-l.416 ...ng this scheme in WGI studies \patentcite
+./Chapters/Relevant_Work.tex:417: Undefined control sequence.
+l.417 ...ng this scheme in WGI studies \patentcite
                                                   {kanaris2009learning,sharo...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3873,86 +3765,53 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[25]
-./Chapters/Relevant_Work.tex:424: Undefined control sequence.
-l.424 \nointend
-                where $f(t,d)$ is the raw frequency of term $t$ in document ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[26] [27] [28] [29] [30] [31] [32] [33
+[25] [26] [27] [28] [29] [30] [31] [32] [33
 
 ]
-Overfull \hbox (1.71141pt too wide) in paragraph at lines 582--583
+Overfull \hbox (1.71141pt too wide) in paragraph at lines 583--584
 \T1/ptm/m/n/12 sem-ble learn-ing meth-ods such as Ad-aBoost, Bag-ging and Ran-d
 om Forests ([]Sugiyanto
  []
 
 [34]
-Overfull \hbox (1.40881pt too wide) in paragraph at lines 608--609
+Overfull \hbox (1.40881pt too wide) in paragraph at lines 609--610
 []\T1/ptm/m/n/12 Another \T1/ptm/m/it/12 late fu-sion \T1/ptm/m/n/12 en-sem-ble
  is pro-posed in ([]Finn and Kush-m-er-ick, [][]2006[][]). Again,
  []
 
 [35]
-Overfull \hbox (13.98386pt too wide) in paragraph at lines 646--647
+Overfull \hbox (13.98386pt too wide) in paragraph at lines 647--648
 []\T1/ptm/m/n/12 The mono-classification cas-cad-ing se-quences were fi-nally f
 ormed us-ing \T1/ptm/m/it/12 F1-ordering
  []
 
 [36] [37]
-./Chapters/Relevant_Work.tex:670: Undefined control sequence.
-l.670 \nointend
-                where $\Vert x \Vert$ denotes the 2-norm of vector $x$. Then...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Overfull \hbox (0.2235pt too wide) in paragraph at lines 671--672
+\T1/ptm/m/n/12 where $\OMS/ztmcm/m/n/12 k\OML/ztmcm/m/it/12 x\OMS/ztmcm/m/n/12 
+k$ \T1/ptm/m/n/12 de-notes the 2-norm of vec-tor $\OML/ztmcm/m/it/12 x$\T1/ptm/
+m/n/12 . Then, each train-ing sam-ple is re-examined.
+ []
 
 [38]
-Overfull \hbox (2.2824pt too wide) in paragraph at lines 704--705
+Overfull \hbox (2.2824pt too wide) in paragraph at lines 705--706
 []\T1/ptm/m/it/12 ITLA \T1/ptm/m/n/12 is a spe-cial case of cross-lingual AGI m
 ethod where pair-wise inter-language
  []
 
-[39]
-Overfull \hbox (6.89252pt too wide) in paragraph at lines 715--716
+
+Overfull \hbox (6.89252pt too wide) in paragraph at lines 716--717
 []\T1/ptm/m/n/12 Finally, genre recog-ni-tion could be per-formed us-ing un-su-
 per-vised learn-ing, namely
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 722--723
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 []|\T1/ptm/m/n/12 Functional
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 724--724
+Underfull \hbox (badness 1472) in paragraph at lines 725--725
 []|\T1/ptm/m/n/12 Scientific nar-ra-tives
- []
-
-
-Overfull \hbox (9.40578pt too wide) in paragraph at lines 724--725
-[]|\T1/ptm/m/n/12 Interpersonal,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 724--725
-\T1/ptm/m/n/12 Nar-ra-tive,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 724--725
-\T1/ptm/m/n/12 Per-sua-sive,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 725--725
-[]|\T1/ptm/m/n/12 Persuasive re-ports
  []
 
 
@@ -3961,37 +3820,57 @@ Overfull \hbox (9.40578pt too wide) in paragraph at lines 725--726
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--726
-[]|\T1/ptm/m/n/12 Scientific de-
+Underfull \hbox (badness 10000) in paragraph at lines 725--726
+\T1/ptm/m/n/12 Nar-ra-tive,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 725--726
+\T1/ptm/m/n/12 Per-sua-sive,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 726--726
-\T1/ptm/m/n/12 scrip-tions (e.g.,
+[]|\T1/ptm/m/n/12 Persuasive re-ports
+ []
+
+
+Overfull \hbox (9.40578pt too wide) in paragraph at lines 726--727
+[]|\T1/ptm/m/n/12 Interpersonal,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 727--727
+[]|\T1/ptm/m/n/12 Scientific de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
+\T1/ptm/m/n/12 scrip-tions (e.g.,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 728--728
 []|\T1/ptm/m/n/12 Technical sum-
  []
 
 
-Underfull \hbox (badness 6032) in paragraph at lines 727--727
+Underfull \hbox (badness 6032) in paragraph at lines 728--728
 []|\T1/ptm/m/n/12 Average sen-tence length, Discipline-
  []
 
 
-Overfull \hbox (2.26596pt too wide) in paragraph at lines 727--728
+Overfull \hbox (2.26596pt too wide) in paragraph at lines 728--729
 []|\T1/ptm/m/n/12 Informative,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--728
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
 \T1/ptm/m/n/12 Elab-o-rated,
  []
 
 [40] [41]
-Overfull \hbox (13.60233pt too wide) in paragraph at lines 886--887
+Overfull \hbox (13.60233pt too wide) in paragraph at lines 887--888
 \T1/ptm/m/n/12 (un-struc-tured) noise: SAN-TI-NIS and LWGC-R. Un-for-tu-nately,
  the lat-ter is not publicly-
  []
@@ -4100,7 +3979,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/closed-set_classification_schema-eps-c
 onverted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <
 1.5> allowed
-<Figures/closed-set_classification_schema-eps-converted-to.pdf, id=1208, 581.17
+<Figures/closed-set_classification_schema-eps-converted-to.pdf, id=1271, 581.17
 125pt x 268.00125pt>
 File: Figures/closed-set_classification_schema-eps-converted-to.pdf Graphic fil
 e (type pdf)
@@ -4130,7 +4009,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/open-set_classification_schema-eps-con
 verted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.
 5> allowed
-<Figures/open-set_classification_schema-eps-converted-to.pdf, id=1209, 579.1637
+<Figures/open-set_classification_schema-eps-converted-to.pdf, id=1272, 579.1637
 6pt x 268.00125pt>
 File: Figures/open-set_classification_schema-eps-converted-to.pdf Graphic file 
 (type pdf)
@@ -4160,7 +4039,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/open_space_risk_schema-eps-converted-t
 o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
 ed
-<Figures/open_space_risk_schema-eps-converted-to.pdf, id=1218, 581.17125pt x 26
+<Figures/open_space_risk_schema-eps-converted-to.pdf, id=1282, 581.17125pt x 26
 9.005pt>
 File: Figures/open_space_risk_schema-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4197,7 +4076,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/OCSVM_diagrams-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/OCSVM_diagrams-eps-converted-to.pdf, id=1303, 569.12625pt x 298.11375p
+<Figures/OCSVM_diagrams-eps-converted-to.pdf, id=1365, 569.12625pt x 298.11375p
 t>
 File: Figures/OCSVM_diagrams-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/OCSVM_diagrams-eps-converted-to.pdf>
@@ -4209,15 +4088,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 171.
 [52]
-./Chapters/Open_set_algorithms.tex:182: Undefined control sequence.
-l.182 \nointend
-                subject to:
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 ./Chapters/Open_set_algorithms.tex:194: Undefined control sequence.
 l.194 \nointent
                 subject to:
@@ -4228,18 +4098,9 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [53 <./Figures/OCSVM_diagrams-eps-converted-to.pdf>]
-./Chapters/Open_set_algorithms.tex:205: Undefined control sequence.
-l.205 \nointend
-                where $K(x,y)$ is a kernel function. Non-zero $\alpha_i$ are...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 233.
-[54]
+ [54]
 Package epstopdf Info: Source file: <Figures/RFSE_diagrams.eps>
 (epstopdf)                    date: 2019-11-12 11:20:16
 (epstopdf)                    size: 45619 bytes
@@ -4255,7 +4116,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/RFSE_diagrams-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/RFSE_diagrams-eps-converted-to.pdf, id=1350, 496.85625pt x 287.0725pt>
+<Figures/RFSE_diagrams-eps-converted-to.pdf, id=1414, 496.85625pt x 287.0725pt>
 
 File: Figures/RFSE_diagrams-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/RFSE_diagrams-eps-converted-to.pdf>
@@ -4296,7 +4157,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/NNDR_diagrams-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/NNDR_diagrams-eps-converted-to.pdf, id=1425, 569.12625pt x 298.11375pt
+<Figures/NNDR_diagrams-eps-converted-to.pdf, id=1487, 569.12625pt x 298.11375pt
 >
 File: Figures/NNDR_diagrams-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/NNDR_diagrams-eps-converted-to.pdf>
@@ -4304,33 +4165,16 @@ Package pdftex.def Info: Figures/NNDR_diagrams-eps-converted-to.pdf  used on in
 put line 328.
 (pdftex.def)             Requested size: 398.38567pt x 208.67819pt.
 [58 <./Figures/NNDR_diagrams-eps-converted-to.pdf>]
-./Chapters/Open_set_algorithms.tex:340: Undefined control sequence.
-l.340 \nointend
-                is higher than a predefined threshold, the new sample is cla...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 340.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [59]
-./Chapters/Open_set_algorithms.tex:373: Undefined control sequence.
-l.373 \nointend
-                where $A_{KS}$ is the accuracy on known samples and $A_{US}$...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[60]) [61]
+) [59] [60]) [61]
 \openout2 = `Chapters/Evaluation_methodology.aux'.
 
- (./Chapters/Evaluation_methodology.tex [62
+
+(./Chapters/Evaluation_methodology.tex [62
 
 
 
@@ -4577,7 +4421,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/prc_macro_micro-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/prc_macro_micro-eps-converted-to.pdf, id=1544, 1076.02pt x 498.86375pt
+<Figures/prc_macro_micro-eps-converted-to.pdf, id=1607, 1076.02pt x 498.86375pt
 >
 File: Figures/prc_macro_micro-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/prc_macro_micro-eps-converted-to.pdf>
@@ -4605,7 +4449,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/prc_macro_micro_count_noise-eps-conver
 ted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> 
 allowed
-<Figures/prc_macro_micro_count_noise-eps-converted-to.pdf, id=1547, 1076.02pt x
+<Figures/prc_macro_micro_count_noise-eps-converted-to.pdf, id=1610, 1076.02pt x
  498.86375pt>
 File: Figures/prc_macro_micro_count_noise-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -4638,7 +4482,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/openness_test_for_f1_scores_example-ep
 s-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most versio
 n <1.5> allowed
-<Figures/openness_test_for_f1_scores_example-eps-converted-to.pdf, id=1610, 737
+<Figures/openness_test_for_f1_scores_example-eps-converted-to.pdf, id=1674, 737
 .75626pt x 479.7925pt>
 File: Figures/openness_test_for_f1_scores_example-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -4753,7 +4597,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/OCSME_Best_per_DocRep-eps-converted-to
 .pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
 d
-<Figures/OCSME_Best_per_DocRep-eps-converted-to.pdf, id=1671, 777.90625pt x 578
+<Figures/OCSME_Best_per_DocRep-eps-converted-to.pdf, id=1734, 777.90625pt x 578
 .16pt>
 File: Figures/OCSME_Best_per_DocRep-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -4777,7 +4621,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/RFSE_Best_per_DocRep-eps-converted-to.
 pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 
-<Figures/RFSE_Best_per_DocRep-eps-converted-to.pdf, id=1672, 785.93625pt x 585.
+<Figures/RFSE_Best_per_DocRep-eps-converted-to.pdf, id=1735, 785.93625pt x 585.
 18625pt>
 File: Figures/RFSE_Best_per_DocRep-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -4809,7 +4653,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2-e
 ps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most versi
 on <1.5> allowed
-<Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2-eps-converted-to.pdf, id=1684, 78
+<Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2-eps-converted-to.pdf, id=1747, 78
 5.93625pt x 592.2125pt>
 File: Figures/MacroPRC11AVG_RFSE_OCSVME_SANTINIS_2-eps-converted-to.pdf Graphic
  file (type pdf)
@@ -4836,7 +4680,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/OCSVME_openness_test_graph-eps-convert
 ed-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> a
 llowed
-<Figures/OCSVME_openness_test_graph-eps-converted-to.pdf, id=1716, 736.7525pt x
+<Figures/OCSVME_openness_test_graph-eps-converted-to.pdf, id=1779, 736.7525pt x
  482.80376pt>
 File: Figures/OCSVME_openness_test_graph-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -4860,7 +4704,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/RFSE_MIX_openness_test_graph-eps-conve
 rted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5>
  allowed
-<Figures/RFSE_MIX_openness_test_graph-eps-converted-to.pdf, id=1717, 736.7525pt
+<Figures/RFSE_MIX_openness_test_graph-eps-converted-to.pdf, id=1780, 736.7525pt
  x 482.80376pt>
 File: Figures/RFSE_MIX_openness_test_graph-eps-converted-to.pdf Graphic file (t
 ype pdf)
@@ -4886,7 +4730,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/RFSE_Precision_Focus_openness_test_gra
 ph-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most v
 ersion <1.5> allowed
-<Figures/RFSE_Precision_Focus_openness_test_graph-eps-converted-to.pdf, id=1719
+<Figures/RFSE_Precision_Focus_openness_test_graph-eps-converted-to.pdf, id=1782
 , 736.7525pt x 482.80376pt>
 File: Figures/RFSE_Precision_Focus_openness_test_graph-eps-converted-to.pdf Gra
 phic file (type pdf)
@@ -4912,7 +4756,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/RFSE_vs_OCSVME_W1G-eps-converted-to.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/RFSE_vs_OCSVME_W1G-eps-converted-to.pdf, id=1725, 775.89874pt x 508.90
+<Figures/RFSE_vs_OCSVME_W1G-eps-converted-to.pdf, id=1788, 775.89874pt x 508.90
 125pt>
 File: Figures/RFSE_vs_OCSVME_W1G-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/RFSE_vs_OCSVME_W1G-eps-converted-to.pdf>
@@ -5028,7 +4872,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/CBOW_diagram-eps-converted-to.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/CBOW_diagram-eps-converted-to.pdf, id=1795, 235.88126pt x 331.2375pt>
+<Figures/CBOW_diagram-eps-converted-to.pdf, id=1857, 235.88126pt x 331.2375pt>
 File: Figures/CBOW_diagram-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/CBOW_diagram-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/CBOW_diagram-eps-converted-to.pdf  used on inp
@@ -5037,15 +4881,6 @@ ut line 64.
 ./Chapters/Word_embedding.tex:101: Undefined control sequence.
 l.101 \nointdent
                  where $y_{t_i}$ is the output vector for term $t_i$.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Chapters/Word_embedding.tex:109: Undefined control sequence.
-l.109 \nointend
-                where $k$ is the number of context words to be predicted, $S...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -5067,7 +4902,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/skip_gram-eps-converted-to.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/skip_gram-eps-converted-to.pdf, id=1808, 202.7575pt x 333.245pt>
+<Figures/skip_gram-eps-converted-to.pdf, id=1871, 202.7575pt x 333.245pt>
 File: Figures/skip_gram-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/skip_gram-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/skip_gram-eps-converted-to.pdf  used on input 
@@ -5094,7 +4929,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/pvbow-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/pvbow-eps-converted-to.pdf, id=1846, 446.66875pt x 793.96625pt>
+<Figures/pvbow-eps-converted-to.pdf, id=1909, 446.66875pt x 793.96625pt>
 File: Figures/pvbow-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/pvbow-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/pvbow-eps-converted-to.pdf  used on input line
@@ -5156,7 +4991,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./Figures/NNDR_W3G-eps-converted-to.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/NNDR_W3G-eps-converted-to.pdf, id=1886, 349.305pt x 248.93pt>
+<Figures/NNDR_W3G-eps-converted-to.pdf, id=1949, 349.305pt x 248.93pt>
 File: Figures/NNDR_W3G-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/NNDR_W3G-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/NNDR_W3G-eps-converted-to.pdf  used on input l
@@ -5181,7 +5016,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex (file ./Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines
 -eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most ver
 sion <1.5> allowed
-<Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines-eps-converted-to.pdf, id=1900, 
+<Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines-eps-converted-to.pdf, id=1962, 
 370.38374pt x 148.555pt>
 File: Figures/NNDR_W3G-W1G_Best_RFSE-OCSVM-Baselines-eps-converted-to.pdf Graph
 ic file (type pdf)
@@ -5291,59 +5126,56 @@ a in-clud-ing dozens
 
 
 ]
-Overfull \hbox (16.44656pt too wide) in paragraph at lines 368--368
+Overfull \hbox (16.44656pt too wide) in paragraph at lines 432--432
 [][]\T1/ptm/m/n/12 Asheghi, Noushin Reza-pour, Katja Mark-ert, and Serge Sharof
 f (2014). ^^P  Semi-supervised
  []
 
 1: section
 [107] [108]
-Overfull \hbox (10.91211pt too wide) in paragraph at lines 368--368
+Overfull \hbox (10.91211pt too wide) in paragraph at lines 432--432
 [][]\T1/ptm/m/n/12 Feldman, S. et al. (2009). ^^P  Clas-si-fy-ing fac-tored gen
 -res with part-of-speech his-tograms^^Q.
  []
 
 
-Overfull \hbox (0.69998pt too wide) in paragraph at lines 368--368
+Overfull \hbox (0.69998pt too wide) in paragraph at lines 432--432
 \T1/ptm/m/n/12 dimensional anal-y-sis^^Q. In: \T1/ptm/m/it/12 Jour-nal of En-gl
 ish for Aca-demic Pur-poses \T1/ptm/m/n/12 22, pp. 119^^U
  []
 
 
-Overfull \hbox (33.348pt too wide) in paragraph at lines 368--368
+Overfull \hbox (33.348pt too wide) in paragraph at lines 432--432
 \T1/ptm/m/n/12 for text cat-e-go-riza-tion^^Q. In: \T1/ptm/m/it/12 Ma-chine Lea
 rning-International Work-shop then Conference-
  []
 
 [109]
-Overfull \hbox (8.03127pt too wide) in paragraph at lines 368--368
+Overfull \hbox (8.03127pt too wide) in paragraph at lines 432--432
 [][]\T1/ptm/m/n/12 Lieungnapar, Angvar-rah, Richard Wat-son Todd, and Wan-napa 
 Trakulka-sem-suk (2017).
  []
 
 [110] [111]
-Overfull \hbox (8.34439pt too wide) in paragraph at lines 368--368
+Overfull \hbox (8.34439pt too wide) in paragraph at lines 432--432
 \T1/ptm/m/n/12 Genre Iden-ti-fi-ca-tion Us-ing URLs^^Q. In: \T1/ptm/m/it/12 Re-
 search in Com-put-ing Sci-ence \T1/ptm/m/n/12 70, pp. 207^^U
  []
 
 [112] [113] [114]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 435.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 435.
  (./PhD_Thesis.aux (./Chapters/Introduction.aux)
 (./Chapters/Relevant_Work.aux) (./Chapters/Open_set_algorithms.aux)
 (./Chapters/Evaluation_methodology.aux) (./Chapters/Experiments_noise.aux)
 (./Chapters/Word_embedding.aux) (./Chapters/Conclusions.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 371.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 435.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 435.
 Package rerunfilecheck Info: File `PhD_Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 6D7FAEFB0B5C708D0524DA812B09B30A;12371.
+(rerunfilecheck)             Checksum: F15BBCF04AB4000D8777418812AD0B89;12123.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -5353,13 +5185,13 @@ Package logreq Info: Writing requests to 'PhD_Thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61729 strings out of 492982
- 1378823 string characters out of 6134897
- 1886868 words of memory out of 5000000
- 63818 multiletter control sequences out of 15000+600000
+ 62162 strings out of 492982
+ 1386478 string characters out of 6134897
+ 1889997 words of memory out of 5000000
+ 64186 multiletter control sequences out of 15000+600000
  680827 words of font info for 244 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,21n,128p,10383b,3516s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,21n,128p,10383b,3524s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
@@ -5377,10 +5209,10 @@ are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on PhD_Thesis.pdf (132 pages, 1043261 bytes).
+Output written on PhD_Thesis.pdf (134 pages, 1047191 bytes).
 PDF statistics:
- 2172 PDF objects out of 2487 (max. 8388607)
- 1880 compressed objects within 19 object streams
- 508 named destinations out of 1000 (max. 500000)
- 691 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2247 PDF objects out of 2487 (max. 8388607)
+ 1951 compressed objects within 20 object streams
+ 566 named destinations out of 1000 (max. 500000)
+ 675 words of extra memory for PDF output out of 10000 (max. 10000000)
 

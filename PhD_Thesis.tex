@@ -7,7 +7,7 @@
     singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
     %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
     %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
-    liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+    %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
     %toctotoc, % Uncomment to add the main table of contents to the table of contents
     %parskip, % Uncomment to add space between paragraphs
     %nohyperref, % Uncomment to not load the hyperref package
@@ -35,7 +35,7 @@
 %\setotherlanguage{greek}
 
 % ----------------------------------------------------------------------------------------------------
-%   REQUIREMENT FOR SUPPORTING GREEK LANGUAGE  - NOT WORKING
+%   REQUIREMENT FOR SUPPORTING GREEK LANGUAGE  - REQUIRES PDFXLATEX
 % ---------------------------------------------------------------------------------------------------- 
 \usepackage[greek,english]{babel}
 \newcommand{\en}{\selectlanguage{english}}
@@ -60,7 +60,7 @@
 \DeclareMathOperator*{\argminA}{arg\,min}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage[dvips,dvipdfm,pdftex]{graphicx}
+%\usepackage[dvips,dvipdfm,pdftex]{graphicx}
 \usepackage{pgfplotstable}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
@@ -78,6 +78,8 @@
 \usepackage{pifont} % for \cmark and \xmark symbols
 \usepackage{graphics}
 \usepackage{adjustbox}
+
+\usepackage{acronym}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -103,9 +105,11 @@
 \subject{Computer Science} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
 \keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
 \university{\href{http://www.aegean.gr}{University of the Aegean}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
-% \department{\href{http://department.university.com}{Department or School Name}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
-% \group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
-% \faculty{\href{http://faculty.university.com}{Faculty Name}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+% ---- Required  from the template --- 
+\department{\href{http://www.icsd.aegean.gr/icsd/tmima_en}{Dept. of Information and Communication Systems Eng.}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{http://icsdweb.aegean.gr/ai-lab/}{A.I. Lab}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{~} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
 \AtBeginDocument{
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
@@ -151,7 +155,7 @@
 
 \large A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename\\[0.3cm] % University requirement text
 at the\\[0.4cm]
-\groupname\\\deptname{Dept. of Information and Communication Systems Eng.}\\[2cm] % Research group name and department name
+\groupname\\\deptname\\[2cm] % Research group name and department name
 
 \vfill
 
@@ -267,7 +271,7 @@ To my family.
 I would like to thank my supervisor, Professor Efstathios Stamatatos for being my teacher. A teacher with excellent academic skills who has been closely guiding me into innovative and novel research paths. A teacher, eager for knowledge who has been inspiring me with his patience and dedication to our research goals. 
 
 \subsection*{Timeline Acknowledgements}
-I would like to thank few people who I believe they have an influence on my academic choices. My postgraduate supervisor Ulrich Nehmzow for his lectures and book, in (robotics) research methodology. My undergraduate professors Christos Skourlas and Nikos Vassilas for helping me pursuit my academic goals with their personal guidance. My teachers, Giorgos Vargiadakis (elementary school), Giorgos Dimitropoulos (highschool) and Nikos Mavrelis (senior highschool) who they taught me the values of analytical and critical thinking. 
+I would like to thank a few people who I believe they had an influence on my academic choices. My postgraduate supervisor Ulrich Nehmzow for his lectures and book, in (robotics) research methodology. My undergraduate professors Christos Skourlas and Nikos Vassilas for helping me pursuit my academic goals with their personal guidance. My teachers, Giorgos Vargiadakis (elementary school), Giorgos Dimitropoulos (highschool) and Nikos Mavrelis (senior highschool) who they taught me the values of analytical and critical thinking. 
 
 I would like to thank my three close friends Vasilis Paraskevopoulos, Eleftherios Garifalidis and Vasilis Dimitriadis for their support and discussion time, always being useful for my academic decisions. I would also like to thank my fiancee Vasiliki Charalampopoulou who has been with me since the early days of my PhD studies.
 
@@ -314,20 +318,15 @@ A series of experiments is conducted to evaluate the proposed WGI methods using 
 \bigskip
 \end{center}
 
-\gr
-Ο παγκόσμιος Ιστός \en (World Wide Web) \gr αναπτύσσεται συνεχώς και οι άνθρωποι χρησιμοποιούν πληροφορίες από ιστοσελίδες για να πραγματοποιήσουν καθημερινές δραστηριότητες. Υπάρχει επιτακτική ανάγκη να διευκολυνθεί η πρόσβαση σε αυτό το τεράστιο απόθεμα πληροφοριών με τρόπο που να συμφωνεί με τον τρόπο σκέψης των χρηστών. Το είδος \en (genre) \gr των ιστοσελίδων είναι ένας σημαντικός παράγοντας για να διακρίνουμε της ιδιότητές τους. Τα είδη του Ιστού (π.χ. \en blogs, e-shop, FAQs, \gr κτλ.) αναφέρονται στην μορφή, την δομή και το επικοινωνιακό σκοπό των ιστοσελίδων παρά στο θέμα τους. Η Αυτόματη Αναγνώριση Είδους Ιστοσελίδων (ΑΑΕΙ) παρέχει δυνατότητα βελτίωσης της επίδοσης των συστημάτων ανάκτησης πληροφορίας επιτρέποντας την δημιουργία περίπλοκων ερωτήσεων που συνδυάζουν πληροφορία θέματος και είδους καθώς και την κατάταξη και ομαδοποίηση των αποτελεσμάτων αναζήτησης με βάση το είδος τους. Εξειδικευμένες συλλογές εγγράφων μπορούν να συλλεχθούν υιοθετώντας την εστιασμένη ανίχνευση \en (focused crawling) \gr με βάση το είδος. Η αξιοπιστία της πληροφορίας των ιστοσελίδων μπορεί να βελτιωθεί σημαντικά αν υπάρχει διαθέσιμη πληροφορία για το είδος τους. Εφαρμογές κυβερνο-ασφάλειας, όπως το \textenglish{anti-phishing,} μπορούν επίσης να ενισχυθούν συμπεριλαμβάνοντας πληροφορία για το είδος των ιστοσελίδων. Σε περίπτωση που εργαλεία επεξεργασίας φυσικής γλώσσας πρέπει να εφαρμοστούν στο κειμενικό μέρος των ιστοσελίδων, η γνώση του είδους τους επιτρέπει την επιλογή κατάλληλων μοντέλων που έχουν εκπαιδευτεί να χειρίζονται αξιόπιστα παρόμοια κείμενα.
+\gr Ο παγκόσμιος Ιστός \en (World Wide Web) \gr αναπτύσσεται συνεχώς και οι άνθρωποι χρησιμοποιούν πληροφορίες από ιστοσελίδες για να πραγματοποιήσουν καθημερινές δραστηριότητες. Υπάρχει επιτακτική ανάγκη να διευκολυνθεί η πρόσβαση σε αυτό το τεράστιο απόθεμα πληροφοριών με τρόπο που να συμφωνεί με τον τρόπο σκέψης των χρηστών. Το είδος \en (genre) \gr των ιστοσελίδων είναι ένας σημαντικός παράγοντας για να διακρίνουμε της ιδιότητές τους. Τα είδη του Ιστού (π.χ. \en blogs, e-shop, FAQs, \gr κτλ.) αναφέρονται στην μορφή, την δομή και το επικοινωνιακό σκοπό των ιστοσελίδων παρά στο θέμα τους. Η Αυτόματη Αναγνώριση Είδους Ιστοσελίδων (ΑΑΕΙ) παρέχει δυνατότητα βελτίωσης της επίδοσης των συστημάτων ανάκτησης πληροφορίας επιτρέποντας την δημιουργία περίπλοκων ερωτήσεων που συνδυάζουν πληροφορία θέματος και είδους καθώς και την κατάταξη και ομαδοποίηση των αποτελεσμάτων αναζήτησης με βάση το είδος τους. Εξειδικευμένες συλλογές εγγράφων μπορούν να συλλεχθούν υιοθετώντας την εστιασμένη ανίχνευση \en (focused crawling) \gr με βάση το είδος. Η αξιοπιστία της πληροφορίας των ιστοσελίδων μπορεί να βελτιωθεί σημαντικά αν υπάρχει διαθέσιμη πληροφορία για το είδος τους. Εφαρμογές κυβερνο-ασφάλειας, όπως το \en anti-phishing, \gr μπορούν επίσης να ενισχυθούν συμπεριλαμβάνοντας πληροφορία για το είδος των ιστοσελίδων. Σε περίπτωση που εργαλεία επεξεργασίας φυσικής γλώσσας πρέπει να εφαρμοστούν στο κειμενικό μέρος των ιστοσελίδων, η γνώση του είδους τους επιτρέπει την επιλογή κατάλληλων μοντέλων που έχουν εκπαιδευτεί να χειρίζονται αξιόπιστα παρόμοια κείμενα.
 
 Η υπάρχουσες έρευνες στην ΑΑΕΙ κυρίως ακολουθούν το σενάριο της ταξινόμησης κλειστού συνόλου όπου δεδομένου ενός προκαθορισμένου συνόλου ειδών και παραδειγμάτων εκπαίδευσης για καθένα από τα είδη αυτά, ο στόχος είναι να ανατεθεί οποιαδήποτε νέα ιστοσελίδα σε ένα από τα γνωστά είδη. Όμως, αυτό δεν ταιριάζει με τις περισσότερες από τις εφαρμογές που σχετίζονται με την ΑΑΕΙ. Καταρχάς, δεν υπάρχει γενική συμφωνία ως προς τον ορισμό ενός μεγάλου συνόλου ειδών που θα καλύπτει το μεγαλύτερο κομμάτι του Ιστού. Θα πρέπει να αναμένεται ότι μεγάλος όγκος ιστοσελίδων δεν θα ανήκουν σε κανένα από τα προκαθορισμένα είδη. Αυτές οι ιστοσελίδες μπορούν να θεωρηθούν ως θόρυβος στην ΑΑΕΙ. Επιπλέον, τα είδη των ιστοσελίδων εξελίσσονται στον χρόνο, νέα είδη αναδύονται και υπάρχοντα είδη τροποποιούνται (π.χ. \en blogs \gr και \en micro-blogs). \gr Φαίνεται λοιπόν ότι είναι δικαιολογημένο να υιοθετηθεί το σενάριο ανοιχτού συνόλου για την ΑΑΕΙ. Στις πολύ λίγες υπάρχουσες μελέτες που εστιάζουν στην ΑΑΕΙ ανοιχτού συνόλου δεν έχει εφαρμοστεί αντικειμενική αξιολόγηση που θα αποκαλύψει τις πραγματικές δυνατότητές τους.
 
-Στην παρούσα διατριβή, αναπτύσσουμε τρεις μεθόδους ΑΑΕΙ ανοιχτού συνόλου. Η πρώτη μέθοδος \en (OCSVM) \gr ακολουθεί το παράδειγμα της ταξινόμησης μιας κλάσης όπου στη φάση της εκπαίδευσης χρησιμοποιούνται μόνο θετικά παραδείγματα από μία συγκεκριμένη κλάση κάθε φορά. Μια άλλη μέθοδος \en (RFSE) \gr ακολουθεί την λογική της μάθησης συνόλων \en (ensemble learning) \gr και εφαρμόζει τυχαία επιλογή χαρακτηριστικών για να αποφύγει την κατάρα της διαστασιμότητας. Η τρίτη μέθοδος \en (NNDR) \gr είναι τροποποίηση του ταξινομητή κ-κοντινότερων γειτόνων και προσπαθεί να εκτιμήσει το ρίσκο ανοιχτού χώρου (στην περιοχή που βρίσκεται μακριά από τα θετικά παραδείγματα εκπαίδευσης μιας γνωστής κλάσης μπορεί να βρίσκονται παραδείγματα μιας άλλης, άγνωστης, κλάσης). Επιπλέον, εξετάζουμε διάφορα σχήματα αναπαράστασης κειμένου περιλαμβάνοντας χαρακτηριστικά χαμηλού επιπέδου και ανεξάρτητα γλώσσας όπως τα ν-γράμματα λέξεων και χαρακτήρων καθώς και χαρακτηριστικά που απαιτούν συντακτική ανάλυση των κειμένων όπως τα ν-γράμματα μερών του λόγου. Επίσης, εισάγουμε στην ΑΑΕΙ την χρήση κατανεμημένων αναπαραστάσεων που εξάγονται από μοντέλα γλώσσας νευρωνικών δικτύων. 
+Στην παρούσα διατριβή, αναπτύσσουμε τρεις μεθόδους ΑΑΕΙ ανοιχτού συνόλου. Η πρώτη μέθοδος \en (OCSVM) \gr ακολουθεί το παράδειγμα της ταξινόμησης μιας κλάσης όπου στη φάση της εκπαίδευσης χρησιμοποιούνται μόνο θετικά παραδείγματα από μία συγκεκριμένη κλάση κάθε φορά. Μια άλλη μέθοδος \en (RFSE) \gr ακολουθεί την λογική της μάθησης συνόλων \en (ensemble learning) \gr και εφαρμόζει τυχαία επιλογή χαρακτηριστικών για να αποφύγει την "κατάρα" της διαστασιμότητας. Η τρίτη μέθοδος \en (NNDR) \gr είναι τροποποίηση του ταξινομητή κ-κοντινότερων γειτόνων και προσπαθεί να εκτιμήσει το ρίσκο ανοιχτού χώρου (στην περιοχή που βρίσκεται μακριά από τα θετικά παραδείγματα εκπαίδευσης μιας γνωστής κλάσης μπορεί να βρίσκονται παραδείγματα μιας άλλης, άγνωστης, κλάσης). Επιπλέον, εξετάζουμε διάφορα σχήματα αναπαράστασης κειμένου περιλαμβάνοντας χαρακτηριστικά χαμηλού επιπέδου και ανεξάρτητα γλώσσας όπως τα ν-γράμματα λέξεων και χαρακτήρων καθώς και χαρακτηριστικά που απαιτούν συντακτική ανάλυση των κειμένων όπως τα ν-γράμματα μερών του λόγου. Επίσης, εισάγουμε στην ΑΑΕΙ την χρήση κατανεμημένων αναπαραστάσεων που εξάγονται από μοντέλα γλώσσας νευρωνικών δικτύων. 
 
 Μια άλλη κύρια συνεισφορά της παρούσας διατριβής είναι το πλαίσιο αξιολόγησης που προτείνουμε για μεθόδους ΑΑΕΙ ανοιχτού συνόλου. Σε αντίθεση με προηγούμενες εργασίες στην περιοχή αυτή, εστιάζουμε και σε αδόμητο θόρυβο και σε δομημένο θόρυβο. Το πρώτο αναφέρεται στην περίπτωση που ο θόρυβος αποτελείται από μία τυχαία συλλογή ιστοσελίδων χωρίς καμία πληροφορία για το είδος τους. Ο δομημένος θόρυβος, απ’ την άλλη, αποτελείται από ιστοσελίδες συγκεκριμένων ειδών. Υιοθετούμε την χρήση μέτρων αξιολόγησης ειδικά για ταξινόμηση ανοιχτού συνόλου που είναι παραλλαγές των γνωστών μέτρων ακρίβειας, ανάκλησης και μέτρου $F_1$. Τα μέτρα αυτά αποκλείουν τα αληθώς θετικά \en (true positives) \gr παραδείγματα της άγνωστης κλάσης. Επιπλέον, χρησιμοποιούμε γραφικές μεθόδους αξιολόγησης που αναπαριστούν την επίδοσης των εξεταζόμενων μεθόδων υπό διάφορες συνθήκες. Επίσης, εισάγουμε την χρήση του ελέγχου ανοικτότητας \en (openness) \gr στις μελέτες ΑΑΕΙ που επιτρέπει τον έλεγχο της ομογένειας του θορύβου και της δυσκολίας του προβλήματος. 
 
 Περιγράφονται τα πειράματα που εκτελέστηκαν για την αξιολόγηση των προτεινόμενων μεθόδων ΑΑΕΙ με την χρήση του πλαισίου αξιολόγησης ανοιχτού συνόλου όταν ο θόρυβος είναι είτε αδόμητος είτε δομημένος. Η μέθοδος βάσει συνόλων \en (RFSE) \gr πέτυχε τα καλύτερα αποτελέσματα συνολικά αποδεικνύοντας την ικανότητά της να χειριστεί δεδομένα υψηλής διαστασιμότητας και αραιότητας \en (sparseness). \gr Η μέθοδος \en NNDR \gr βελτιώνεται σημαντικά όταν συνδυάζεται με κατανεμημένες αναπαραστάσεις που παρέχουν συμπαγή και πυκνά διανύσματα. Αυτή η μέθοδος είναι πολύ ανταγωνιστική ειδικά όταν δίνεται έμφαση στην ακρίβεια έναντι της ανάκλησης. Αυτό είναι σημαντικό δεδομένου ότι σε αρκετές εφαρμογές ΑΑΕΙ (π.χ. κατάταξη αποτελεσμάτων αναζήτησης) προτιμάται η βελτιστοποίηση της ακρίβειας. Η μέθοδος που βασίζεται στην μάθηση μιας κλάσης \en (OCSVM) \gr γενικά δεν είναι ανταγωνιστική. Όμως, υπερέχει της \en RFSE \gr για μεγάλες τιμές ανοικτότητας, δηλαδή όταν πολύ λίγα γνωστά είδη είναι διαθέσιμα και ο θόρυβος είναι εξαιρετικά ετερογενής. Διάφορες ιδέες για την επιπλέον βελτίωση των αποτελεσμάτων συζητούνται.
-
-%\en
-%\selectlanguage{english}
-%\end{greek}
 
 \end{abstractGR}
 
@@ -338,6 +337,71 @@ A series of experiments is conducted to evaluate the proposed WGI methods using 
 \tableofcontents % Prints the main table of contents
 \listoffigures % Prints the list of figures
 \listoftables % Prints the list of tables
+
+\chapter*{List of Acronyms}
+
+
+\begin{acronym}
+
+\acro{IR}{Information Retrieval}
+\acro{NLP}{Natural Language Processing}
+\acro{ML}{and Machine Learning}
+\acro{AGI}{Automated Genre Identification}
+\acro{WGI}{Web Genre Identification}
+\acro{URL}{Uniform Resource Locator}
+\acro{DOM}{Document Object Model}
+\acro{POS}{part-of-speech}
+\acro{TF}{Term Frequency}
+\acro{TF-IDF}{Term Frequency - Inverted Document Frequency}
+\acro{TF-IGF}{Term Frequency - Inverted Genre Frequency}
+\acro{OCSVM}{one-class support vector machines}
+\acro{RFSE}{Random Feature Subspacing Ensemble}
+\acro{NNDR}{Nearest Neighbors Distance Ratio}
+\acro{EAP}{English for Academic Purposes}
+\acro{OVIX}{word variation index}
+\acro{NR}{nominal ratio}
+\acro{LIX}{Lasbarhetsindex}
+\acro{HDR}{Harmonic Descriptor Representation}
+\acro{mRMR}{Maximally Relevant Minimally Redundant}
+\acro{LIWC}{Linguistic Inquiry and Word Count}
+\acro{SWT}{Structure-oriented Weighting Technique}
+\acro{SVM}{Support Vector Machines}
+\acro{MCC}{Multiple Classifier Combination}
+\acro{ECC}{Enhanced Centroid-based Classification}
+\acro{ITLA}{Iterative Target Language Adaption}
+\acro{OSR}{Open Space Risk}
+\acro{CD-OSR}{decision-based OSR}
+\acro{OCC}{One-Class classification}
+\acro{MC}{Mapping Convergence}
+\acro{SVMC}{Support Vector Mapping Convergence}
+\acro{S-EM}{Spy Expectation Maximization}
+\acro{NNO}{Nearest Non-Outlier}
+\acro{DRT}{Distance Ratio Threshold}
+\acro{TP}{True Positives}
+\acro{TN}{True Negatives}
+\acro{FP}{False Positives}
+\acro{FN}{False Negatives}
+\acro{$P_{macro}$}{Macro Precision score}
+\acro{$P_{micro}$}{Micro Precision score}
+\acro{$R_{macro}$}{Macro Recall score}
+\acro{$R_{micro}$}{Micro Recall score}
+\acro{$F1_{macro}$}{Macro F1 score}
+\acro{$F1_{micro}$}{Micro F1 score}
+\acro{PRC}{Precision-Recall Curve}
+\acro{AUC}{Area Under the Curve}
+\acro{C4G}{Character 4-grams}
+\acro{W1G}{Word unigrams}
+\acro{W3G}{Word 3-grams}
+\acro{POS3G}{Part-of-speech 3-grams}
+\acro{BOW}{Bag-of-Words}
+\acro{CBOW}{Continuous Bag-of-Words}
+\acro{PV-DV}{Paragraph Vector - Distributed Memory}
+\acro{PV-DBOW}{Paragraph Vector - Distributed Bag-of-Words}
+\acro{DF}{Distributed Features}
+
+\end{acronym}
+
+
 
 
 \mainmatter % Begin numeric (1,2,3...) page numbering

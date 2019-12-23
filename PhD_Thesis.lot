@@ -70,28 +70,33 @@
 \babel@toc {english}{}
 \babel@toc {greek}{}
 \babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
+\babel@toc {greek}{}
+\babel@toc {english}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces An example of combining different kinds of features for genre recognition \parencite {strobel2018text}. The NLP analysis required to extract each feature is also shown.\relax }}{28}{table.caption.63}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Blog-specific features and required NLP analysis \parencite {virik2017blog}.\relax }}{29}{table.caption.65}
-\contentsline {table}{\numberline {2.3}{\ignorespaces Features used to represent popular science genres \parencite {lieungnapar2017genre}.\relax }}{31}{table.caption.67}
-\contentsline {table}{\numberline {2.4}{\ignorespaces Topic-neutral features to represent genres \parencite {finn2006learning}.\relax }}{32}{table.caption.68}
-\contentsline {table}{\numberline {2.5}{\ignorespaces Example of open-set WGI rule \parencite {stubbe2007genre}\relax }}{37}{table.caption.81}
-\contentsline {table}{\numberline {2.6}{\ignorespaces Popular science sub-genres description \parencite {lieungnapar2017genre}.\relax }}{40}{table.caption.90}
-\contentsline {table}{\numberline {2.7}{\ignorespaces Corpora used in the evaluation of WGI methods.\relax }}{42}{table.caption.93}
+\contentsline {table}{\numberline {2.1}{\ignorespaces An example of combining different kinds of features for genre recognition \parencite {strobel2018text}. The NLP analysis required to extract each feature is also shown.\relax }}{28}{table.caption.64}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Blog-specific features and required NLP analysis \parencite {virik2017blog}.\relax }}{29}{table.caption.66}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Features for video content genre classification \parencite {lee2017text}.\relax }}{30}{table.caption.67}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Features used to represent popular science genres \parencite {lieungnapar2017genre}.\relax }}{31}{table.caption.68}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Topic-neutral features to represent genres \parencite {finn2006learning}.\relax }}{32}{table.caption.69}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Example of open-set WGI rule \parencite {stubbe2007genre}\relax }}{37}{table.caption.82}
+\contentsline {table}{\numberline {2.7}{\ignorespaces Popular science sub-genres description \parencite {lieungnapar2017genre}.\relax }}{40}{table.caption.91}
+\contentsline {table}{\numberline {2.8}{\ignorespaces Corpora used in the evaluation of WGI methods.\relax }}{42}{table.caption.94}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces The confusion matrix of a binary classification task\relax }}{64}{table.caption.188}
-\contentsline {table}{\numberline {4.2}{\ignorespaces An example of confusion matrix of open-set classification\relax }}{68}{table.caption.197}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Evaluation measures for the example of Table \ref {chap:eval_methods:tbl:multi_confusion}\relax }}{68}{table.caption.198}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Results of a soft classifier ordered by certainty scores. \relax }}{69}{table.caption.200}
-\contentsline {table}{\numberline {4.5}{\ignorespaces An example of macro-averaged and micro-averaged AUC and $F_{1}$ of two algorithms\relax }}{70}{table.caption.202}
+\contentsline {table}{\numberline {4.1}{\ignorespaces The confusion matrix of a binary classification task\relax }}{64}{table.caption.189}
+\contentsline {table}{\numberline {4.2}{\ignorespaces An example of confusion matrix of open-set classification\relax }}{68}{table.caption.198}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Evaluation measures for the example of Table \ref {chap:eval_methods:tbl:multi_confusion}\relax }}{68}{table.caption.199}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Results of a soft classifier ordered by certainty scores. \relax }}{69}{table.caption.201}
+\contentsline {table}{\numberline {4.5}{\ignorespaces An example of macro-averaged and micro-averaged AUC and $F_{1}$ of two algorithms\relax }}{70}{table.caption.203}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Corpora descriptions and amount of pages per genre.\relax }}{78}{table.caption.214}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Best performing models for OCSVM on SANTINIS corpus.\relax }}{79}{table.caption.218}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Best performing models for RFSE on SANTINIS corpus.\relax }}{79}{table.caption.219}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Corpora descriptions and amount of pages per genre.\relax }}{78}{table.caption.215}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Best performing models for OCSVM on SANTINIS corpus.\relax }}{79}{table.caption.219}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Best performing models for RFSE on SANTINIS corpus.\relax }}{79}{table.caption.220}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Maximum performance of NNDR with traditional (TF) Features on SANTINIS coprus. $p_{1}$ and $p_{2}$ are the splitting ratios to form simulated noise and DRT is the threshold. $\lambda $ is the regulation parameter used in the normalized accuracy. Dim. is the dimensionality of representation. The evaluation measures are the open-set variants of macro-averaged precision, recall, $F_1$, and AUC of the precision-recall curve.\relax }}{97}{table.caption.248}
-\contentsline {table}{\numberline {6.2}{\ignorespaces Maximum performance of NNDR with distributed features on SANTINIS coprus. $p_{1}$ and $p_{2}$ are the splitting ratios to form simulated noise and DRT is the threshold. $\lambda $ is the regulation parameter used in the normalized accuracy. Dim. is the dimensionality of representation. The evaluation measures are the open-set variants of macro-averaged precision, recall, $F_1$, and AUC of the precision-recall curve.\relax }}{97}{table.caption.249}
-\contentsline {table}{\numberline {6.3}{\ignorespaces Performance of baselines and NNDR on the SANTINIS coprus. All evaluation scores are macro-averaged.\relax }}{99}{table.caption.252}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Maximum performance of NNDR with traditional (TF) Features on SANTINIS coprus. $p_{1}$ and $p_{2}$ are the splitting ratios to form simulated noise and DRT is the threshold. $\lambda $ is the regulation parameter used in the normalized accuracy. Dim. is the dimensionality of representation. The evaluation measures are the open-set variants of macro-averaged precision, recall, $F_1$, and AUC of the precision-recall curve.\relax }}{97}{table.caption.249}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Maximum performance of NNDR with distributed features on SANTINIS coprus. $p_{1}$ and $p_{2}$ are the splitting ratios to form simulated noise and DRT is the threshold. $\lambda $ is the regulation parameter used in the normalized accuracy. Dim. is the dimensionality of representation. The evaluation measures are the open-set variants of macro-averaged precision, recall, $F_1$, and AUC of the precision-recall curve.\relax }}{97}{table.caption.250}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Performance of baselines and NNDR on the SANTINIS coprus. All evaluation scores are macro-averaged.\relax }}{99}{table.caption.253}
 \addvspace {10\p@ }

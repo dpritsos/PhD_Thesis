@@ -86,7 +86,7 @@ Another idea is to attempt to quantify the difficulty of understanding the infor
 	LIX = \frac{A}{B} + \frac{C \cdot 100}{A}
 \end{equation}
 
-\nointend where $A$ is the number of words, $B$ is the number of special characters (i.e., colon, period, capital fist letter), and $C$ is the number of long words (more than 6 letters for the English language). 
+\noindent where $A$ is the number of words, $B$ is the number of special characters (i.e., colon, period, capital fist letter), and $C$ is the number of long words (more than 6 letters for the English language). 
 
 A more sophisticated type of features concerns the syntactic properties of documents since the grammar of sentences is considered important for stylistic purposes \parencite{sharoff2010web,petrenz2011stable}. Moreover, this information is less likely to depend on topic of documents in comparison to lexical and character features. The simplest form of capturing syntactic information is the use of POS n-grams where the texts are analyzed by a POS tagger that assigns a tag in each word and then sequences of POS tags are counted. Other syntactic features are based on a more elaborate analysis of documents by NLP tools, like full syntactic parsers. Examples of such syntactic features include average dependency distance, ratio of dependencies, sentence depth (in dependency terms), unigram dependency type (based on token terms), average verbal arity, unigram verbal arity, tokens per clause, number of prepositional components, etc \parencite{falkenjack2013features,falkenjack2016exploratory}. A major weakness of such features is that their usefulness depend on the accuracy of the NLP tools used to extract them from documents \parencite{stamatatos2009survey}. This is especially crucial in case the documents that have been used for training the NLP tools significantly differ from the documents we want to analyze.
 
@@ -178,13 +178,13 @@ In more detail, hubs are pages with many outgoing hyperlinks, whereas pages with
     \end{array}
 \end{equation}
 
-\nointend where $V$ is the set of vertices (web-pages) of the graph. Web-pages with high score but with few backward hyperlinks are quite likely to be \textit{spam} pages. In order to regulate this, the $\omega(p)$ factor reduces the score for the web pages with few backward hyperlinks. In addition, this is also useful to normalize the few links issue. That is, the number of the backward links is correlated to the number of links the page itself contains. This factor is defined as follows:
+\noindent where $V$ is the set of vertices (web-pages) of the graph. Web-pages with high score but with few backward hyperlinks are quite likely to be \textit{spam} pages. In order to regulate this, the $\omega(p)$ factor reduces the score for the web pages with few backward hyperlinks. In addition, this is also useful to normalize the few links issue. That is, the number of the backward links is correlated to the number of links the page itself contains. This factor is defined as follows:
 
 \begin{equation}\label{eq:GenreSim_omega}
 	\omega(p) = \frac{N}{|\log N - \log N(p) | + 1} 
 \end{equation}
 
-\nointend where $N$ is the number of backward links of the original page and $N(p)$ the number of backward links of neighboring page $p$. The score for a web-page in a given graph, is calculated as follows: 
+\noindent where $N$ is the number of backward links of the original page and $N(p)$ the number of backward links of neighboring page $p$. The score for a web-page in a given graph, is calculated as follows: 
 
 \begin{equation}\label{eq:GenreSim_Score}
 	Score(p) = H(p) + A(p)
@@ -330,11 +330,12 @@ Blog is a genre with special interest for several research domains and as might 
 
 In \parencite{dai2018fine} the focus is on the News genre. They use a combination of features to recognize the main paradigms of presenting events in news. These features include word unigrams and bigrams, syntactic features like the frequency of syntactic production rules as well as primitive semantic information provided by a pre-defined dictionary (\textit{Linguistic Inquiry and Word Count} (LIWC)). The latter indicates terms associated with time, motion, and space, important information for quantifying the narrative scheme of the news story. In addition, key events placement features are introduced that attempt to quantify information about specific persons, time, and location of the news story and the point of the document at which they occur. In practice, these features calculate the overlap of title with the paragraphs of the document.
 
-Automated genre identification is a subject of interest in the domain of intellectual products (e.g. paintings, music, movies etc). Taxonomies of movies has also a special interest for the technology and entertainment industries. The part of this research related with the current thesis, is when movie genre is induced by using textual features such as subtitles and the text description of a video content. Features that are specifically defined for this domain are summarized in Table \ref{chap:relevant_work:tbl:videogenre_textbased_special_features}. Particularly, BOW, surface and syntactic features are combined. Surface features include content-free and content-specific (the ones related to specific topics) information \parencite{lee2017text}. It has been found that not all of these features are so important for this task. The most important of them are: token-type ratio, words per minute, characters per minute, hapax legomena, dislegomena, short words ratio, and ratios of (10, 4, 3, 1)-letter words.
+Automated genre identification is a subject of interest in the domain of intellectual products (e.g. paintings, music, movies etc). Taxonomies of movies has also a special interest for the technology and entertainment industries. The part of this research related with the current thesis, is when movie genre is induced by using textual features such as subtitles and the text description of a video content. Features that are specifically defined for this domain are summarized in Table \ref{chap:relevant_work:tbl:videogenre_textbased_special_feat}. Particularly, BOW, surface and syntactic features are combined. Surface features include content-free and content-specific (the ones related to specific topics) information \parencite{lee2017text}. It has been found that not all of these features are so important for this task. The most important of them are: token-type ratio, words per minute, characters per minute, hapax legomena, dislegomena, short words ratio, and ratios of (10, 4, 3, 1)-letter words.
 
 \begin{table}[t]
 	\center
-	caption {Features for video content genre classification  \parencite{lee2017text}.}\label{chap:relevant_work:tbl:videogenre_textbased_special_features}
+	\caption {Features for video content genre classification \parencite{lee2017text}.}
+	\label{chap:relevant_work:tbl:videogenre_textbased_special_feat}
 	\begin{tabular}{p{3cm}p{7cm}p{3cm}}
 		\hline
 		Name & Description & NLP Analysis \\
@@ -421,7 +422,7 @@ TF weighs each term according to its frequency in the document. Several variatio
     TF(t,d) = \frac{f(t,d)}{length(d)}
 \end{equation}
 
-\nointend where $f(t,d)$ is the raw frequency of term $t$ in document $d$. Yet another modification is to divide the raw frequency with the maximum frequency of any term in document $d$.
+\noindent where $f(t,d)$ is the raw frequency of term $t$ in document $d$. Yet another modification is to divide the raw frequency with the maximum frequency of any term in document $d$.
 
 TF-IDF is a balancing weighting scheme of document terms (e.g., word n-grams, character n-grams, POS n-grams, etc) given a collection of documents. It regulates the significance of the very low and very high frequency terms of the collection. That is, it decreases the value of the very high frequency terms (i.e., function words), and increases the importance of very low frequency terms when they occur in only a few documents. The calculation of a terms IDF in a document collection is shown below:
  
@@ -667,7 +668,7 @@ In more detail, the ECC algorithm calculates an initial set of centroids for eve
 	C_{g} = \frac{\sum_{p \in T_{g}} p}{\Vert \sum_{p \in T_{g}} p\Vert}
 \end{equation}
 
-\nointend where $\Vert x \Vert$ denotes the 2-norm of vector $x$. Then, each training sample is re-examined. If its distance from the centroid is more than a threshold, it is considered to be \textit{outlier} and it is excluded from the new calculation of the centroid for that class. The threshold is defined as the average of similarities of training examples to the centroid:
+\noindent where $\Vert x \Vert$ denotes the 2-norm of vector $x$. Then, each training sample is re-examined. If its distance from the centroid is more than a threshold, it is considered to be \textit{outlier} and it is excluded from the new calculation of the centroid for that class. The threshold is defined as the average of similarities of training examples to the centroid:
 
 \begin{equation}\label{eq:jebary_ecc_theshold}
 	\sigma_{g} = \frac{1}{\vert T_{g} \vert } \sum_{p \in T_{g}} sim(p, C_{g})
